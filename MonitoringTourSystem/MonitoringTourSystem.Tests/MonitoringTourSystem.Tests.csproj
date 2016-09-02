@@ -92,9 +92,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MonitoringTourSystem\MonitoringTourSystem.csproj">
+    <ProjectReference Include="..\MonitoringTourSystem\MonitoringTourSystem.Presentation.csproj">
       <Project>{0F70E936-6583-4C34-AA35-498E65C28D06}</Project>
-      <Name>MonitoringTourSystem</Name>
+      <Name>MonitoringTourSystem.Presentation</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

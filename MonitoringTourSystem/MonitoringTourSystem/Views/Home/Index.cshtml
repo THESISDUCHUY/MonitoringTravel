@@ -1,31 +1,131 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<head>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBGdBwIy95layOTnAy1Ovp07urh0OxQrp4"></script>
+    
+    <script>
+        var myCenter = new google.maps.LatLng(10.849409, 106.753706);
+        var x = new google.maps.LatLng(10.849409, 106.753706);
+        var stavanger = new google.maps.LatLng(10.850007, 106.754900);
+        var amsterdam = new google.maps.LatLng(10.849274, 106.755736);
+        var london = new google.maps.LatLng(10.848457, 106.756519);
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+        function initialize() {
+          var mapProp = {
+              center: new google.maps.LatLng(10.849409, 106.753706),
+            zoom:15,
+            mapTypeId:google.maps.MapTypeId.ROADMAP
+          };
+          var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+          document.getElementById("googleMap").style.position = 'unset';
+          var marker = new google.maps.Marker({
+              position: myCenter,
+              animation:google.maps.Animation.Gp
+          });
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+          var marker1 = new google.maps.Marker({
+              position: stavanger,
+              animation: google.maps.Animation.Gp
+          });
+          var marker2 = new google.maps.Marker({
+              position: london,
+              animation: google.maps.Animation.Gp
+          });
+          var infowindow = new google.maps.InfoWindow({
+              content: "Tour Duc"
+          });
+          infowindow.open(map, marker);
+          marker.setMap(map);
+          marker1.setMap(map);
+          marker2.setMap(map);
+
+          var myTrip = [x, stavanger, amsterdam, london];
+          var flightPath = new google.maps.Polyline({
+              path: myTrip,
+              strokeColor: "#0000FF",
+              strokeOpacity: 0.8,
+              strokeWeight: 4
+          });
+
+          flightPath.setMap(map);
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+        
+    </script>
+</head>
+<body>
+<section id="main-content">
+<section class="wrapper">
+    <!--Test Tour đang hoạt động-->
+    <div class='row'>
+        <div class="col-sm-12">
+            <section class="header-content">           
+                <h3 style="margin-left: 12px;">Tour Đang Hoạt Động</h3>
+            </section>
+            <div class="col-sm-4" style="background-color: white;">   
+                    <div class="panel-body">
+                        <div class="position-center">
+                            <form action="/webadmin/tempUsers/add" role="form" id="TempUserWebadminAddForm" method="post" accept-charset="utf-8">
+                                <div style="display:none;"><input type="hidden" name="_method" value="POST"></div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Tìm kiếm</label>
+                                    <div class="input text required"><input name="data[TempUser][full_name]" class="form-control" id="fullname" required="required" placeholder="Enter Full Name" maxlength="255" type="text"></div>                            <div id="nameErr" class="error-message"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Full Name</label>
+                                    <div class="input text required"><input name="data[TempUser][full_name]" class="form-control" id="fullname" required="required" placeholder="Enter Full Name" maxlength="255" type="text"></div>                            <div id="nameErr" class="error-message"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Website URL</label>
+                                    <div class="input text"><input name="data[TempUser][website_url]" class="form-control" id="exampleInputEmail1" placeholder="Enter Website URL" maxlength="255" type="text"></div>                            <div id="emailErr" class="error-message"></div>
+                                </div>
+                               
+                                <button type="submit" id="submit" class="btn btn-info">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+                <div id="googleMap" style="height: 600px;" class="col-sm-8" ></div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+</section>
+
+<style>
+    .mini-stat > a {
+        text-decoration: none;
+    }
+
+    .mini-stat {
+        text-align: center;
+    }
+
+        .mini-stat img {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+    .mini-stat-info span {
+        color: #1FB5AD;
+        font-size: 16px;
+        padding-top: 17px;
+        text-align: center;
+    }
+
+    .mini-stat-info a {
+        text-decoration: none;
+    }
+
+    .mini-stat .hvr-glow:hover, .hvr-glow:focus, .hvr-glow:active {
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+        border-radius: 50%;
+    }
+
+    .mini-stat .hvr-glow {
+        border-radius: 50%;
+    }
+</style>
+</section>
+
+</body>

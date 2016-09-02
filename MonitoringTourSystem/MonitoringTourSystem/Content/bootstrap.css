@@ -5326,9 +5326,7 @@ a.list-group-item:focus {
 }
 
 .panel {
-  margin-bottom: 20px;
   background-color: #ffffff;
-  border: 1px solid transparent;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
           box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -5391,7 +5389,12 @@ a.list-group-item:focus {
   padding: 10px 15px;
   border-bottom: 1px solid transparent;
   border-top-right-radius: 3px;
+  background: #fafafa;
   border-top-left-radius: 3px;
+  /*background: #fafafa;
+  margin-top: -1px;
+  margin-right: -1px;
+  margin-left: -1px;*/
 }
 
 .panel-title {
