@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="monitoring_tourModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="location_tour_guide">
+    <Key>
+      <PropertyRef Name="tour_guide_id" />
+    </Key>
+    <Property Name="tour_guide_id" Type="int" Nullable="false" />
+    <Property Name="longitude" Type="varchar" MaxLength="45" />
+    <Property Name="latitude" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityContainer Name="monitoring_tourModelStoreContainer">
+    <EntitySet Name="location_tour_guide" EntityType="Self.location_tour_guide" Schema="monitoring_tour" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

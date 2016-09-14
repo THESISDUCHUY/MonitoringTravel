@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="monitoring_tourModelStoreContainer" CdmEntityContainer="monitoring_tourEntities">
+    <EntitySetMapping Name="location_tour_guide">
+      <EntityTypeMapping TypeName="monitoring_tourModel.location_tour_guide">
+        <MappingFragment StoreEntitySet="location_tour_guide">
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="tour_guide_id" ColumnName="tour_guide_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

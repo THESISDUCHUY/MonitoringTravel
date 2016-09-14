@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="monitoring_tourModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="monitoring_tourEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="location_tour_guide" EntityType="monitoring_tourModel.location_tour_guide" />
+  </EntityContainer>
+  <EntityType Name="location_tour_guide">
+    <Key>
+      <PropertyRef Name="tour_guide_id" />
+    </Key>
+    <Property Name="tour_guide_id" Type="Int32" Nullable="false" />
+    <Property Name="longitude" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="latitude" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>
