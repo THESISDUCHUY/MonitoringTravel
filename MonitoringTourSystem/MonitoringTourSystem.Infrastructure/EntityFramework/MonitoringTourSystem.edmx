@@ -4,45 +4,421 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="monitoring_tourModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="location_tour_guide">
+      <Schema Namespace="monitoring_tourModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="manager">
           <Key>
-            <PropertyRef Name="tour_guide_id" />
+            <PropertyRef Name="manager_id" />
           </Key>
-          <Property Name="tour_guide_id" Type="int" Nullable="false" />
-          <Property Name="longitude" Type="varchar" MaxLength="45" />
-          <Property Name="latitude" Type="varchar" MaxLength="45" />
+          <Property Name="manager_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="manager_name" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="access_token" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="phone_number" Type="varchar" MaxLength="18" Nullable="false" />
+          <Property Name="photo_display" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="positon" Type="varchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="message">
+          <Key>
+            <PropertyRef Name="message_id" />
+          </Key>
+          <Property Name="message_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sender_id" Type="int" Nullable="false" />
+          <Property Name="reciever_id" Type="int" Nullable="false" />
+          <Property Name="time" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="content" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="place">
+          <Key>
+            <PropertyRef Name="place_id" />
+          </Key>
+          <Property Name="place_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="province_id" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="place_name" Type="varchar" MaxLength="100" />
+          <Property Name="contact" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="latitude" Type="double" Nullable="false" />
+          <Property Name="longitude" Type="double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="province">
+          <Key>
+            <PropertyRef Name="province_id" />
+          </Key>
+          <Property Name="province_id" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="province_name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="description" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tour">
+          <Key>
+            <PropertyRef Name="tourist_id" />
+          </Key>
+          <Property Name="tourist_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tour_code" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="manager_id" Type="int" Nullable="false" />
+          <Property Name="tourguide_id" Type="int" Nullable="false" />
+          <Property Name="tour_name" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="departure_date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="return_date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="tourist_quantity" Type="int" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="description" Type="text" Nullable="false" />
+          <Property Name="day" Type="int" Nullable="false" />
+          <Property Name="cover_photo" Type="varchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tour_schedule">
+          <Key>
+            <PropertyRef Name="tour_schedule" />
+          </Key>
+          <Property Name="tour_schedule" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tour_id" Type="int" Nullable="false" />
+          <Property Name="place_id" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="vehicle" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="time" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="description" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tourguide">
+          <Key>
+            <PropertyRef Name="tourguide_id" />
+          </Key>
+          <Property Name="tourguide_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tourguide_name" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="access_token" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="phone_number" Type="varchar" MaxLength="18" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="photo_display" Type="varchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tourist">
+          <Key>
+            <PropertyRef Name="tourist_id" />
+          </Key>
+          <Property Name="tourist_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tourist_name" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="access_token" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="phone" Type="varchar" MaxLength="18" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="photo_display" Type="varchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tracking">
+          <Key>
+            <PropertyRef Name="tracking_id" />
+          </Key>
+          <Property Name="tracking_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tour_id" Type="int" Nullable="false" />
+          <Property Name="time" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="latitude" Type="double" Nullable="false" />
+          <Property Name="longitude" Type="double" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.monitoring_tour.warning' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="warning">
+          <Key>
+            <PropertyRef Name="warning_id" />
+            <PropertyRef Name="warner_id" />
+            <PropertyRef Name="tourist_id" />
+            <PropertyRef Name="type" />
+            <PropertyRef Name="description" />
+            <PropertyRef Name="status" />
+          </Key>
+          <Property Name="warning_id" Type="int" Nullable="false" />
+          <Property Name="warner_id" Type="int" Nullable="false" />
+          <Property Name="tourist_id" Type="int" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="18" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="12" Nullable="false" />
         </EntityType>
         <EntityContainer Name="monitoring_tourModelStoreContainer">
-          <EntitySet Name="location_tour_guide" EntityType="Self.location_tour_guide" Schema="monitoring_tour" store:Type="Tables" />
+          <EntitySet Name="manager" EntityType="Self.manager" Schema="monitoring_tour" store:Type="Tables" />
+          <EntitySet Name="message" EntityType="Self.message" Schema="monitoring_tour" store:Type="Tables" />
+          <EntitySet Name="place" EntityType="Self.place" Schema="monitoring_tour" store:Type="Tables" />
+          <EntitySet Name="province" EntityType="Self.province" Schema="monitoring_tour" store:Type="Tables" />
+          <EntitySet Name="tour" EntityType="Self.tour" Schema="monitoring_tour" store:Type="Tables" />
+          <EntitySet Name="tour_schedule" EntityType="Self.tour_schedule" Schema="monitoring_tour" store:Type="Tables" />
+          <EntitySet Name="tourguide" EntityType="Self.tourguide" Schema="monitoring_tour" store:Type="Tables" />
+          <EntitySet Name="tourist" EntityType="Self.tourist" Schema="monitoring_tour" store:Type="Tables" />
+          <EntitySet Name="tracking" EntityType="Self.tracking" Schema="monitoring_tour" store:Type="Tables" />
+          <EntitySet Name="warning" EntityType="Self.warning" store:Type="Tables" store:Schema="monitoring_tour">
+            <DefiningQuery>SELECT
+`warning`.`warning_id`, 
+`warning`.`warner_id`, 
+`warning`.`tourist_id`, 
+`warning`.`type`, 
+`warning`.`description`, 
+`warning`.`status`
+FROM `warning` AS `warning`</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="monitoring_tourModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="monitoring_tourEntities" annotation:LazyLoadingEnabled="true" >
-          <EntitySet Name="location_tour_guide" EntityType="monitoring_tourModel.location_tour_guide" />
-        </EntityContainer>
-        <EntityType Name="location_tour_guide">
+        <EntityType Name="manager">
           <Key>
-            <PropertyRef Name="tour_guide_id" />
+            <PropertyRef Name="manager_id" />
           </Key>
-          <Property Name="tour_guide_id" Type="Int32" Nullable="false" />
-          <Property Name="longitude" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="latitude" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="manager_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="manager_name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="access_token" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phone_number" Type="String" MaxLength="18" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="photo_display" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="positon" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
+        <EntityType Name="message">
+          <Key>
+            <PropertyRef Name="message_id" />
+          </Key>
+          <Property Name="message_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sender_id" Type="Int32" Nullable="false" />
+          <Property Name="reciever_id" Type="Int32" Nullable="false" />
+          <Property Name="time" Type="DateTime" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="content" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="place">
+          <Key>
+            <PropertyRef Name="place_id" />
+          </Key>
+          <Property Name="place_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="province_id" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="place_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="contact" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="latitude" Type="Double" Nullable="false" />
+          <Property Name="longitude" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="province">
+          <Key>
+            <PropertyRef Name="province_id" />
+          </Key>
+          <Property Name="province_id" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="province_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tour">
+          <Key>
+            <PropertyRef Name="tourist_id" />
+          </Key>
+          <Property Name="tourist_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tour_code" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="manager_id" Type="Int32" Nullable="false" />
+          <Property Name="tourguide_id" Type="Int32" Nullable="false" />
+          <Property Name="tour_name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="departure_date" Type="DateTime" Nullable="false" />
+          <Property Name="return_date" Type="DateTime" Nullable="false" />
+          <Property Name="tourist_quantity" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="day" Type="Int32" Nullable="false" />
+          <Property Name="cover_photo" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tour_schedule">
+          <Key>
+            <PropertyRef Name="tour_schedule1" />
+          </Key>
+          <Property Name="tour_schedule1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tour_id" Type="Int32" Nullable="false" />
+          <Property Name="place_id" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vehicle" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="time" Type="DateTime" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tourguide">
+          <Key>
+            <PropertyRef Name="tourguide_id" />
+          </Key>
+          <Property Name="tourguide_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tourguide_name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="access_token" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phone_number" Type="String" MaxLength="18" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="photo_display" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tourist">
+          <Key>
+            <PropertyRef Name="tourist_id" />
+          </Key>
+          <Property Name="tourist_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tourist_name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="access_token" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="18" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="photo_display" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tracking">
+          <Key>
+            <PropertyRef Name="tracking_id" />
+          </Key>
+          <Property Name="tracking_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tour_id" Type="Int32" Nullable="false" />
+          <Property Name="time" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="latitude" Type="Double" Nullable="false" />
+          <Property Name="longitude" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="warning">
+          <Key>
+            <PropertyRef Name="warning_id" />
+            <PropertyRef Name="warner_id" />
+            <PropertyRef Name="tourist_id" />
+            <PropertyRef Name="type" />
+            <PropertyRef Name="description" />
+            <PropertyRef Name="status" />
+          </Key>
+          <Property Name="warning_id" Type="Int32" Nullable="false" />
+          <Property Name="warner_id" Type="Int32" Nullable="false" />
+          <Property Name="tourist_id" Type="Int32" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="18" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="monitoring_tourEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="managers" EntityType="Self.manager" />
+          <EntitySet Name="messages" EntityType="Self.message" />
+          <EntitySet Name="places" EntityType="Self.place" />
+          <EntitySet Name="provinces" EntityType="Self.province" />
+          <EntitySet Name="tours" EntityType="Self.tour" />
+          <EntitySet Name="tour_schedule" EntityType="Self.tour_schedule" />
+          <EntitySet Name="tourguides" EntityType="Self.tourguide" />
+          <EntitySet Name="tourists" EntityType="Self.tourist" />
+          <EntitySet Name="trackings" EntityType="Self.tracking" />
+          <EntitySet Name="warnings" EntityType="Self.warning" />
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="monitoring_tourModelStoreContainer" CdmEntityContainer="monitoring_tourEntities" >
-          <EntitySetMapping Name="location_tour_guide">
-            <EntityTypeMapping TypeName="monitoring_tourModel.location_tour_guide">
-              <MappingFragment StoreEntitySet="location_tour_guide">
+        <EntityContainerMapping StorageEntityContainer="monitoring_tourModelStoreContainer" CdmEntityContainer="monitoring_tourEntities1">
+          <EntitySetMapping Name="managers">
+            <EntityTypeMapping TypeName="monitoring_tourModel.manager">
+              <MappingFragment StoreEntitySet="manager">
+                <ScalarProperty Name="manager_id" ColumnName="manager_id" />
+                <ScalarProperty Name="manager_name" ColumnName="manager_name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="access_token" ColumnName="access_token" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="photo_display" ColumnName="photo_display" />
+                <ScalarProperty Name="positon" ColumnName="positon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="messages">
+            <EntityTypeMapping TypeName="monitoring_tourModel.message">
+              <MappingFragment StoreEntitySet="message">
+                <ScalarProperty Name="message_id" ColumnName="message_id" />
+                <ScalarProperty Name="sender_id" ColumnName="sender_id" />
+                <ScalarProperty Name="reciever_id" ColumnName="reciever_id" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="content" ColumnName="content" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="places">
+            <EntityTypeMapping TypeName="monitoring_tourModel.place">
+              <MappingFragment StoreEntitySet="place">
+                <ScalarProperty Name="place_id" ColumnName="place_id" />
+                <ScalarProperty Name="province_id" ColumnName="province_id" />
+                <ScalarProperty Name="place_name" ColumnName="place_name" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="address" ColumnName="address" />
                 <ScalarProperty Name="latitude" ColumnName="latitude" />
                 <ScalarProperty Name="longitude" ColumnName="longitude" />
-                <ScalarProperty Name="tour_guide_id" ColumnName="tour_guide_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="provinces">
+            <EntityTypeMapping TypeName="monitoring_tourModel.province">
+              <MappingFragment StoreEntitySet="province">
+                <ScalarProperty Name="province_id" ColumnName="province_id" />
+                <ScalarProperty Name="province_name" ColumnName="province_name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tours">
+            <EntityTypeMapping TypeName="monitoring_tourModel.tour">
+              <MappingFragment StoreEntitySet="tour">
+                <ScalarProperty Name="tourist_id" ColumnName="tourist_id" />
+                <ScalarProperty Name="tour_code" ColumnName="tour_code" />
+                <ScalarProperty Name="manager_id" ColumnName="manager_id" />
+                <ScalarProperty Name="tourguide_id" ColumnName="tourguide_id" />
+                <ScalarProperty Name="tour_name" ColumnName="tour_name" />
+                <ScalarProperty Name="departure_date" ColumnName="departure_date" />
+                <ScalarProperty Name="return_date" ColumnName="return_date" />
+                <ScalarProperty Name="tourist_quantity" ColumnName="tourist_quantity" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="day" ColumnName="day" />
+                <ScalarProperty Name="cover_photo" ColumnName="cover_photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tour_schedule">
+            <EntityTypeMapping TypeName="monitoring_tourModel.tour_schedule">
+              <MappingFragment StoreEntitySet="tour_schedule">
+                <ScalarProperty Name="tour_schedule1" ColumnName="tour_schedule" />
+                <ScalarProperty Name="tour_id" ColumnName="tour_id" />
+                <ScalarProperty Name="place_id" ColumnName="place_id" />
+                <ScalarProperty Name="vehicle" ColumnName="vehicle" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tourguides">
+            <EntityTypeMapping TypeName="monitoring_tourModel.tourguide">
+              <MappingFragment StoreEntitySet="tourguide">
+                <ScalarProperty Name="tourguide_id" ColumnName="tourguide_id" />
+                <ScalarProperty Name="tourguide_name" ColumnName="tourguide_name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="access_token" ColumnName="access_token" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="photo_display" ColumnName="photo_display" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tourists">
+            <EntityTypeMapping TypeName="monitoring_tourModel.tourist">
+              <MappingFragment StoreEntitySet="tourist">
+                <ScalarProperty Name="tourist_id" ColumnName="tourist_id" />
+                <ScalarProperty Name="tourist_name" ColumnName="tourist_name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="access_token" ColumnName="access_token" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="photo_display" ColumnName="photo_display" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="trackings">
+            <EntityTypeMapping TypeName="monitoring_tourModel.tracking">
+              <MappingFragment StoreEntitySet="tracking">
+                <ScalarProperty Name="tracking_id" ColumnName="tracking_id" />
+                <ScalarProperty Name="tour_id" ColumnName="tour_id" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="warnings">
+            <EntityTypeMapping TypeName="monitoring_tourModel.warning">
+              <MappingFragment StoreEntitySet="warning">
+                <ScalarProperty Name="warning_id" ColumnName="warning_id" />
+                <ScalarProperty Name="warner_id" ColumnName="warner_id" />
+                <ScalarProperty Name="tourist_id" ColumnName="tourist_id" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="status" ColumnName="status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -60,7 +60,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="EntityFramework\location_tour_guide.cs">
+    <Compile Include="EntityFramework\manager.cs">
+      <DependentUpon>MonitoringTourSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFramework\message.cs">
       <DependentUpon>MonitoringTourSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityFramework\MonitoringTourSystem.Context.cs">
@@ -78,6 +81,30 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MonitoringTourSystem.edmx</DependentUpon>
     </Compile>
+    <Compile Include="EntityFramework\place.cs">
+      <DependentUpon>MonitoringTourSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFramework\province.cs">
+      <DependentUpon>MonitoringTourSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFramework\tour.cs">
+      <DependentUpon>MonitoringTourSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFramework\tourguide.cs">
+      <DependentUpon>MonitoringTourSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFramework\tourist.cs">
+      <DependentUpon>MonitoringTourSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFramework\tour_schedule.cs">
+      <DependentUpon>MonitoringTourSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFramework\tracking.cs">
+      <DependentUpon>MonitoringTourSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFramework\warning.cs">
+      <DependentUpon>MonitoringTourSystem.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -91,7 +118,6 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="EntityFramework\MonitoringTourSystem.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

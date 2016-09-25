@@ -4,8 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8c71ab5707394cefa827be78e5dedb0f" Name="Diagram1" >
-        <EntityTypeShape EntityType="monitoring_tourModel.location_tour_guide" Width="1.5" PointX="0.75" PointY="0.75" />
+      <Diagram DiagramId="680db6f41d2a418d916306b07f42500f" Name="Diagram1">
+        <EntityTypeShape EntityType="monitoring_tourModel.manager" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="monitoring_tourModel.message" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="monitoring_tourModel.place" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="monitoring_tourModel.province" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="monitoring_tourModel.tour" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="monitoring_tourModel.tour_schedule" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="monitoring_tourModel.tourguide" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="monitoring_tourModel.tourist" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="monitoring_tourModel.tracking" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="monitoring_tourModel.warning" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

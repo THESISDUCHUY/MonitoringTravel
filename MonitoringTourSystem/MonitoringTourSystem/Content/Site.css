@@ -5910,27 +5910,30 @@ right: -1px;
 
 
 
-#left {
+#message-content {
   /*//  background-color: #5CCBF6;*/
   background-color: #FF5722;
-    float: right;
-    box-shadow: 2px 2px 5px #888888;
+  float: right;
+  border: 1px solid #EAEBED;
+  border-radius: 3px;
 
 }
 
-#center {
+#map-content {
     /*background-color: #F97753;*/
-      background-color: #00BCD4;
+    background-color: #00BCD4;
     float: right;
     margin-right: 20px;
-   box-shadow: 2px 2px 5px #888888;
+    border: 1px solid #EAEBED;
+    border-radius: 3px;
 }
 
 #right {
     /*background-color: #9CD25A;*/
     background-color: #009688;
     float: right;
-    box-shadow: 2px 2px 5px #888888;
+    border: 1px solid #EAEBED;
     margin-right: 20px;
+    border-radius: 3px;
 }
 

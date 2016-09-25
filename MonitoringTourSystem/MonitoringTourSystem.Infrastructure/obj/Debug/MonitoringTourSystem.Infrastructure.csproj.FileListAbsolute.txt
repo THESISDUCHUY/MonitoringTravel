@@ -7,6 +7,6 @@ F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem.Infrastructur
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem.Infrastructure\bin\Debug\MySql.Data.Entity.EF6.dll
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem.Infrastructure\bin\Debug\EntityFramework.xml
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem.Infrastructure\bin\Debug\EntityFramework.SqlServer.xml
-F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem.Infrastructure\obj\Debug\MonitoringTourSystem.Infrastructure.csprojResolveAssemblyReference.cache
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem.Infrastructure\obj\Debug\MonitoringTourSystem.Infrastructure.dll
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem.Infrastructure\obj\Debug\MonitoringTourSystem.Infrastructure.pdb
+F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem.Infrastructure\obj\Debug\MonitoringTourSystem.Infrastructure.csprojResolveAssemblyReference.cache

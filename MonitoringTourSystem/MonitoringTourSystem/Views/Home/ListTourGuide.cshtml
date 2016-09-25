@@ -1,13 +1,13 @@
-﻿@model IEnumerable<MonitoringTourSystem.Infrastructure.EntityFramework.location_tour_guide>
+﻿@model MonitoringTourSystem.ViewModel.HomeViewModel
 
 @{
-    if (Model == null || Model.Count() == 0)
+    if (Model == null || Model.ListLocationTourGuide == null)
         {
             <p>Không có tour nào đang hoạt động</p>
         }
     else
     {
-        foreach (var item in Model)
+        foreach (var item in Model.ListLocationTourGuide)
         {
             <ul class="list-tour" id="nav-accordion">
 

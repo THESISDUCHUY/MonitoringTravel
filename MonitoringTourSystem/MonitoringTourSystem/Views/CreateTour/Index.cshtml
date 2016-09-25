@@ -1,0 +1,345 @@
+﻿@model MonitoringTourSystem.ViewModel.CreateTourViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*<script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>*@
+<link href="~/Content/DropdowSelect/select2.min.css" rel="stylesheet" />
+<script src="~/Content/DropdowSelect/select2.min.js" type="text/javascript"></script>
+
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://eonasdan.github.io/bootstrap-datetimepicker/css/prettify-1.0.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+        function sendFile(file) {
+            var formData = new FormData();
+            formData.append('file', $('#f_UploadImage')[0].files[0]);
+            $.ajax({
+                type: 'post',
+                url: '/CreateTour/FileUpload',
+                data: formData,
+                success: function (status) {
+                    if (status != 'error') {
+                        var my_path = "MediaUploader/" + status;
+                        $("#myUploadedImg").attr("src", my_path);
+                    }
+                },
+                processData: false,
+                contentType: false,
+                error: function () {
+                    alert("Whoops something went wrong!");
+                }
+            });
+        }
+
+        var _URL = window.URL || window.webkitURL;
+        $("#f_UploadImage").on('change', function () {
+
+            var file, img;
+            if ((file = this.files[0])) {
+                img = new Image();
+                img.onload = function () {
+                    sendFile(file);
+                };
+                img.onerror = function () {
+                    alert("Not a valid file:" + file.type);
+                };
+                img.src = _URL.createObjectURL(file);
+            }
+        });
+
+
+
+        $('#datetimepicker2').datetimepicker();
+        $('#datetimepicker1').datetimepicker();
+        $('#datetimepicker3').datetimepicker();
+        var listPlace = [];
+        var listTourGuide = [];
+        var listProvince = [];
+        $.ajax({
+            url: "/CreateTour/GetListPlace",
+            type: "GET",
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            async: true,
+            processData: false,
+            cache: false,
+            success: function (result) {
+                var results = $.parseJSON(result);
+                $(results).each(function (index, value) {
+                    var placeName = this['place_name'];
+                    var placeId = this['province_id'];
+
+                    listPlace[index] = "[" + placeId + "] " + placeName;
+                });
+                $("#placeschedule").select2({
+                    data: listPlace
+                });
+            },
+            error: function (xhr) {
+                alert('error');
+            }
+        });
+        $.ajax({
+            url: "/CreateTour/GetProvince",
+            type: "GET",
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            async: true,
+            processData: false,
+            cache: false,
+            success: function (result) {
+                var results = $.parseJSON(result);
+                $(results).each(function (index, value) {
+                    var provinceName = this['province_name'];
+                    var provinceID = this['province_id'];
+
+                    listProvince[index] = "[" + provinceID + "] " + provinceName;
+                });
+                $("#placetour").select2({
+                    data: listProvince
+                });
+            },
+            error: function (xhr) {
+                alert('error');
+            }
+        });
+
+        $.ajax({
+            url: "/CreateTour/GetListTourGuide",
+            type: "GET",
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            async: true,
+            processData: false,
+            cache: false,
+            success: function (result) {
+                var results = $.parseJSON(result);
+                $(results).each(function (index, value) {
+                    var tourGuideID = this['tourguide_id'];
+                    var tourGuideName = this['tourguide_name'];
+                    listTourGuide[index] = "[" + tourGuideID + "] " + tourGuideName;
+                });
+                $("#tourguide").select2({
+                    data: listTourGuide
+                });
+            },
+            error: function (xhr) {
+                alert('error');
+            }
+        });
+
+        var vehecial = ["Xe máy", "Xe ô-tô", "Máy bay"];
+        $("#vehicalschedule").select2({
+            data: vehecial
+        });
+    });
+</script>
+
+<div id="main-content" style="background-color: #1FB5AD; height: 100%;">
+    <div class="wrapper" style="background-color: white; height: 87.5%; padding-top: 15px;">
+        <div class='row' style="height: 100%; width: 100%; margin: 0px;">
+            <div class="col-sm-4" style="height:100%;">
+                <header class="panel-heading" style="border: 1px solid #EAEBED; height: 14%">
+                    <h3>Thông tin tour</h3>
+                </header>
+                <div class="panel-body" style="height: 86%; background-color: white; border: 1px solid #EAEBED; overflow-y: scroll">
+                    <div class="position-center">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Tên tour</label>
+                            <div class="input text required"><input class="form-control" id="nametour" required="required" placeholder="Nhập tên tour" maxlength="255" type="text"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Hướng dẫn viên</label>
+                            <select id="tourguide" style="width: 100%; height: 33px;"></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Số lượng du khách</label>
+                            <div class="input text"><input class="form-control" id="numberoftourist" placeholder="Nhập số lượng du khách" maxlength="255" type="number"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Địa điểm tour</label>
+                            <select id="placetour" style="width: 100%; height: 33px;"></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Số ngày</label>
+                            <div class="input text"><input class="form-control" id="day" placeholder="Nhập số ngày của tour" maxlength="255" type="number"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Ngày bắt đầu</label>
+                            <div class='input-group date' id='datetimepicker1'>
+                                <input type='text' id="startday" class="form-control" placeholder="Nhập ngày bắt đầu" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Ngày kết thúc</label>
+                            <div class='input-group date' id='datetimepicker3'>
+                                <input type='text' id="endday" class="form-control" placeholder="Nhập ngày kết thúc" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Mô tả tour</label>
+                            <textarea class="form-control" style="resize: none;" rows="4" id="descriptionTour" placeholder="Nhập mô tả về tour"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="file" class="upload" id="f_UploadImage"><br />
+                            <img id="myUploadedImg" alt="Photo" style="width:180px;" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-8" style="height:100%;">
+                <header class="panel-heading" style="border: 1px solid #EAEBED; height: 14%">
+                    <h3>Hành trình tour</h3>
+                </header>
+                <div class="panel-body" style="background-color: white; border: 1px solid #EAEBED; height: 75%; overflow-y: scroll">
+                    <div class="form-group">
+                        <div class="row" style="width: 90%; margin-left: 0px;">
+                            <div class="row">
+                                <label for="exampleInputEmail1" style="margin-left: 15px;">Nhập hành trình ngày 1</label>
+                            </div>
+                            <div class="row">
+                                <div class='col-sm-4'>
+                                    <div class="form-group">
+                                        <div class='input-group date' id='datetimepicker2'>
+                                            <input type='text' id="startdayschedule" class="form-control" placeholder="Nhập thời gian" />
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <select id="placeschedule" style="width: 100%;"></select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <select id="vehicalschedule" style="width: 100%;"></select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <textarea class="form-control" style="resize: none; margin-left: 15px; width: 96%; margin-right: 15px;" rows="4" id="descriptionTour" placeholder="Nhập mô tả về tour..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" id="addtour" onclick="addNewTour();" style="margin-top: 15px; " class="btn btn-info">Thêm tour mới</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function addNewTour() {
+
+        var nameTour = $("#nametour").val();
+        var tourguideID = $("#tourguide").val().toString().split(" ", 1).toString().replace("[", "").replace("]", "");
+        var numberoftourist = $("#numberoftourist").val();
+        var placeTour = $("#placetour").val();
+        var day = $("#day").val();
+        var startday = $("#startday").val();
+        var endday = $("#endday").val();
+        var description = $("#descriptionTour").val();
+        var cover_photo = "photo";
+
+        var tourCode = $("#placetour").val().toString().split(" ", 1).toString().replace("[", "").replace("]", "");
+
+        var startdayschedule = $("#startdayschedule").val();
+        var placeschedule = $("#placeschedule").val();
+        var vehicalschedule = $("#vehicalschedule").val();
+        var descriptionTour = $("#descriptionTour").val();
+
+        var listSchedule = [
+           { tour_schedule1: 1, tour_id: 2, place_id: 43, vehicle: vehicalschedule, time: startdayschedule, description: descriptionTour },
+
+        ];
+
+        var jsonschedule = JSON.stringify(listSchedule);
+
+        if (nameTour == null || nameTour == "") {
+            alert("Nhap ten tour");
+            return;
+        }
+        if (startdayschedule < startday || startdayschedule > endday) {
+            alert("Ngay cho lich trinh tour khong hop le");
+            return;
+        }
+        if (tourguide == null || tourguide == "") {
+            alert("Nhap ten tour guide");
+            return;
+        }
+        if (numberoftourist == null || numberoftourist == "") {
+            alert("Nhap so luong tourist");
+            return;
+        }
+        if (placeTour == null || placeTour == "") {
+            alert("Nhap dia diem tour");
+            return;
+        }
+        if (day == null || day == "") {
+            alert("Nhap so ngay tour");
+            return;
+        }
+        if (startday == null || startday == "") {
+            alert("Nhap ngay bat dau");
+            return;
+        }
+        if (endday == null || endday == "") {
+            alert("Nhap ngay ket thuc");
+            return;
+        }
+        else if (description == null || description == "") {
+            alert("Nhap mo ta ve tour");
+            return;
+        }
+        else if (cover_photo == null || cover_photo == "") {
+            alert("cover photo");
+            return;
+        }
+        else if (listSchedule == null) {
+            alert("List schedule");
+            return;
+        }
+
+        $.ajax({
+            url: "/CreateTour/AddNewTour",
+            type: "POST",
+            data: {
+
+                tour_code: tourCode,
+                manager_id: "123",
+                tourguide_id: tourguideID,
+                tour_name: nameTour,
+                status: "Opening",
+                departure_date: startday,
+                return_date: endday,
+                tourist_quantity: numberoftourist,
+                description: description,
+                day: day,
+                cover_photo: cover_photo,
+                ListTourSchedule: listSchedule
+
+            },
+            success: function (result) {
+                alert("Thêm tour thành công");
+            },
+            error: function (xhr) {
+                alert('error');
+            }
+        });
+    }
+
+    
+</script>

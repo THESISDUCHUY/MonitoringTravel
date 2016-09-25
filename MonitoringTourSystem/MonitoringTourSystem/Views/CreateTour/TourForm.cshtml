@@ -1,0 +1,156 @@
+﻿@model MonitoringTourSystem.ViewModel.CreateTourViewModel
+
+@{
+    ViewBag.Title = "Thêm Tour Mới";
+}
+<div id="main-content" style="background-color: #1FB5AD; height: 100%;">
+    <div class="wrapper" style="background-color: white; height: 87.5%; padding-top: 15px;">
+        <div class='row' style="height: 100%; width: 100%; margin: 0px;">
+            <div class="col-sm-4" style="height:100%;">
+                <header class="panel-heading" style="border: 1px solid #EAEBED; height: 14%">
+                    <h3>Thông tin tour</h3>
+                </header>
+                <div class="panel-body" style="height: 86%; background-color: white; border: 1px solid #EAEBED; overflow-y: scroll">
+                    <div class="position-center">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Tên tour</label>
+                            <div class="input text required"><input class="form-control" id="nametour" required="required" placeholder="Nhập tên tour" maxlength="255" type="text"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Hướng dẫn viên</label>
+                            <div class="dropdown" style=" padding-left: 3px; padding-right: 3px;">
+                                <button class="btn" style="width: 100% ;" type="button" data-toggle="dropdown">
+                                    <span>Chọn hướng dẫn viên cho tour</span>
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" style="width: 97.5%; margin-top: -1px; margin-left: 2px; ">
+                                    @{
+                                        foreach (var item in )
+                                        {
+                                            <text>
+                                                <li><a href="#">@item.tourguide_name</a></li>
+                                            </text>
+                                        }
+                                    }
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Số lượng du khách</label>
+                            <div class="input text"><input class="form-control" id="numberoftourist" placeholder="Nhập số lượng du khách" maxlength="255" type="number"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Địa điểm tour</label>
+                            <div class="input text"><input class="form-control" id="placeTour" placeholder="Nhập địa điểm của tour" maxlength="255" type="text"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Số ngày</label>
+                            <div class="input text"><input class="form-control" id="placeTour" placeholder="Nhập số ngày của tour" maxlength="255" type="number"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Ngày bắt đầu</label>
+                            <div class='input-group date' id='datetimepicker1'>
+                                <input type='text' class="form-control" placeholder="Nhập ngày bắt đầu" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Ngày kết thúc</label>
+                            <div class='input-group date' id='datetimepicker1'>
+                                <input type='text' class="form-control" placeholder="Nhập ngày kết thúc" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Mô tả tour</label>
+                            <textarea class="form-control" style="resize: none;" rows="4" id="descriptionTour" placeholder="Nhập mô tả về tour"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Hình đại diện tour</label>
+                            <img alt="cover_photo" src="~/Content/Images/cover_photo.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8" style="height:100%;">
+                <header class="panel-heading" style="border: 1px solid #EAEBED; height: 14%">
+                    <h3>Hành trình tour</h3>
+                </header>
+                <div class="panel-body" style="background-color: white; border: 1px solid #EAEBED; height: 75%; overflow-y: scroll">
+                    <div class="form-group">
+                        <div class="row" style="width: 90%; margin-left: 0px;">
+                            <div class="row">
+
+                                <label for="exampleInputEmail1" style="margin-left: 15px;">Nhập hành trình ngày 1</label>
+                            </div>
+                            <div class="row">
+                                <div class='col-sm-4'>
+                                    <div class="form-group">
+                                        <div class='input-group date' id='datetimepicker2'>
+                                            <input type='text' class="form-control" placeholder="Nhập thời gian" />
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <script type="text/javascript">
+                                    $(function () {
+                                        $('#datetimepicker2').datetimepicker();
+                                    });
+                                </script>
+                                <div class="col-sm-4">
+                                    <div class="dropdown" style="height: 7%;  padding-left: 3px; padding-right: 3px;">
+                                        <button class="btn" style="width: 100% ;" type="button" data-toggle="dropdown">
+                                            <span>Chọn địa điểm tới</span>
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" style="width: 97.5%; margin-top: -1px; margin-left: 2px; ">
+                                            @{ 
+                                                foreach(var item in Model.)
+                                                {
+                                                    <text>
+                                                        <li><a href="#">@item.place_name</a></li>
+                                                    </text>
+                                                }
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="dropdown" style="height: 7%;  padding-left: 3px; padding-right: 3px;">
+                                        <button class="btn" style="width: 100% ;" type="button" data-toggle="dropdown">
+                                            <span>Nhập phương tiện</span>
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" style="width: 97.5%; margin-top: -1px; margin-left: 2px; ">
+                                           
+                                            @{
+                                                foreach (var item in Model.CreateTour.ListVehical)
+                                                {
+                                                    <text>
+                                                         <li><a href="#">@item</a></li>
+                                                    </text>
+                                                }
+                                            }
+                                           
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <textarea class="form-control" style="resize: none; margin-left: 15px; width: 96%; margin-right: 15px;" rows="4" id="descriptionTour" placeholder="Nhập mô tả về tour..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" id="submit"  style="margin-top: 15px; " class="btn btn-info">Thêm tour mới</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -13,10 +13,10 @@ namespace MonitoringTourSystem.Infrastructure.EntityFramework
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class monitoring_tourEntities : DbContext
+    public partial class monitoring_tourEntities1 : DbContext
     {
-        public monitoring_tourEntities()
-            : base("name=monitoring_tourEntities")
+        public monitoring_tourEntities1()
+            : base("name=monitoring_tourEntities1")
         {
         }
     
@@ -25,6 +25,15 @@ namespace MonitoringTourSystem.Infrastructure.EntityFramework
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<location_tour_guide> location_tour_guide { get; set; }
+        public virtual DbSet<manager> managers { get; set; }
+        public virtual DbSet<message> messages { get; set; }
+        public virtual DbSet<place> places { get; set; }
+        public virtual DbSet<province> provinces { get; set; }
+        public virtual DbSet<tour> tours { get; set; }
+        public virtual DbSet<tour_schedule> tour_schedule { get; set; }
+        public virtual DbSet<tourguide> tourguides { get; set; }
+        public virtual DbSet<tourist> tourists { get; set; }
+        public virtual DbSet<tracking> trackings { get; set; }
+        public virtual DbSet<warning> warnings { get; set; }
     }
 }
