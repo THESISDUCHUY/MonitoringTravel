@@ -1,0 +1,454 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6C96CDB11D9A6BD40009EBC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C96CDAF1D9A6BD40009EBC8 /* Main.storyboard */; };
+		6CE2F39F1D9A5F620079EFE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE2F39E1D9A5F620079EFE2 /* AppDelegate.swift */; };
+		6CE2F3A11D9A5F620079EFE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE2F3A01D9A5F620079EFE2 /* ViewController.swift */; };
+		6CE2F3A61D9A5F620079EFE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CE2F3A51D9A5F620079EFE2 /* Assets.xcassets */; };
+		6CE2F3A91D9A5F620079EFE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CE2F3A71D9A5F620079EFE2 /* LaunchScreen.storyboard */; };
+		9DE3396478C729AB6D9E727D /* Pods_TourGuideApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1650D91E6CB3F0BBAA684123 /* Pods_TourGuideApp.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1650D91E6CB3F0BBAA684123 /* Pods_TourGuideApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TourGuideApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		20F961C7D0F257A988C16A68 /* Pods-TourGuideApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourGuideApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TourGuideApp/Pods-TourGuideApp.release.xcconfig"; sourceTree = "<group>"; };
+		6C96CDB01D9A6BD40009EBC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../../../Demo/ViewForTourGuideApp/ViewForTourGuideApp/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6CE2F39B1D9A5F610079EFE2 /* TourGuideApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TourGuideApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CE2F39E1D9A5F620079EFE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6CE2F3A01D9A5F620079EFE2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6CE2F3A51D9A5F620079EFE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6CE2F3A81D9A5F620079EFE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6CE2F3AA1D9A5F620079EFE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B2B14BD76EAEB3CED45470F /* Pods-TourGuideApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourGuideApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TourGuideApp/Pods-TourGuideApp.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6CE2F3981D9A5F610079EFE2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DE3396478C729AB6D9E727D /* Pods_TourGuideApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6C96CDA61D9A69C10009EBC8 /* Assemblies */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Assemblies;
+			sourceTree = "<group>";
+		};
+		6C96CDA71D9A69E70009EBC8 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		6C96CDA81D9A69F30009EBC8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		6C96CDA91D9A69F80009EBC8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		6C96CDAA1D9A6A060009EBC8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6C96CDAB1D9A6A1B0009EBC8 /* Fonts */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		6C96CDAB1D9A6A1B0009EBC8 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		6C96CDAC1D9A6A590009EBC8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6C96CDAE1D9A6A700009EBC8 /* Controls */,
+				6C96CDAD1D9A6A660009EBC8 /* Cells */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		6C96CDAD1D9A6A660009EBC8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		6C96CDAE1D9A6A700009EBC8 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controls;
+			sourceTree = "<group>";
+		};
+		6CE2F3921D9A5F610079EFE2 = {
+			isa = PBXGroup;
+			children = (
+				6CE2F39D1D9A5F610079EFE2 /* TourGuideApp */,
+				6CE2F39C1D9A5F610079EFE2 /* Products */,
+				8EE1587B959DF9EA53A62192 /* Pods */,
+				C23E4C0E62D49653E2D33782 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6CE2F39C1D9A5F610079EFE2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6CE2F39B1D9A5F610079EFE2 /* TourGuideApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6CE2F39D1D9A5F610079EFE2 /* TourGuideApp */ = {
+			isa = PBXGroup;
+			children = (
+				6C96CDAC1D9A6A590009EBC8 /* Views */,
+				6C96CDAA1D9A6A060009EBC8 /* Resources */,
+				6C96CDA91D9A69F80009EBC8 /* Services */,
+				6C96CDA81D9A69F30009EBC8 /* Models */,
+				6C96CDA71D9A69E70009EBC8 /* Libraries */,
+				6C96CDA61D9A69C10009EBC8 /* Assemblies */,
+				6CE2F39E1D9A5F620079EFE2 /* AppDelegate.swift */,
+				6C96CDAF1D9A6BD40009EBC8 /* Main.storyboard */,
+				6CE2F3A01D9A5F620079EFE2 /* ViewController.swift */,
+				6CE2F3A51D9A5F620079EFE2 /* Assets.xcassets */,
+				6CE2F3A71D9A5F620079EFE2 /* LaunchScreen.storyboard */,
+				6CE2F3AA1D9A5F620079EFE2 /* Info.plist */,
+			);
+			path = TourGuideApp;
+			sourceTree = "<group>";
+		};
+		8EE1587B959DF9EA53A62192 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8B2B14BD76EAEB3CED45470F /* Pods-TourGuideApp.debug.xcconfig */,
+				20F961C7D0F257A988C16A68 /* Pods-TourGuideApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C23E4C0E62D49653E2D33782 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1650D91E6CB3F0BBAA684123 /* Pods_TourGuideApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6CE2F39A1D9A5F610079EFE2 /* TourGuideApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6CE2F3AD1D9A5F620079EFE2 /* Build configuration list for PBXNativeTarget "TourGuideApp" */;
+			buildPhases = (
+				7E4D7852CC4E13C9A2A79400 /* [CP] Check Pods Manifest.lock */,
+				6CE2F3971D9A5F610079EFE2 /* Sources */,
+				6CE2F3981D9A5F610079EFE2 /* Frameworks */,
+				6CE2F3991D9A5F610079EFE2 /* Resources */,
+				E4C793ACF6DF394F725C2301 /* [CP] Embed Pods Frameworks */,
+				B5A830B70E3FE105B5E5FDD0 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TourGuideApp;
+			productName = TourGuideApp;
+			productReference = 6CE2F39B1D9A5F610079EFE2 /* TourGuideApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6CE2F3931D9A5F610079EFE2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Duc Nguyen";
+				TargetAttributes = {
+					6CE2F39A1D9A5F610079EFE2 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6CE2F3961D9A5F610079EFE2 /* Build configuration list for PBXProject "TourGuideApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6CE2F3921D9A5F610079EFE2;
+			productRefGroup = 6CE2F39C1D9A5F610079EFE2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6CE2F39A1D9A5F610079EFE2 /* TourGuideApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6CE2F3991D9A5F610079EFE2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C96CDB11D9A6BD40009EBC8 /* Main.storyboard in Resources */,
+				6CE2F3A91D9A5F620079EFE2 /* LaunchScreen.storyboard in Resources */,
+				6CE2F3A61D9A5F620079EFE2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7E4D7852CC4E13C9A2A79400 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B5A830B70E3FE105B5E5FDD0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TourGuideApp/Pods-TourGuideApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4C793ACF6DF394F725C2301 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TourGuideApp/Pods-TourGuideApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6CE2F3971D9A5F610079EFE2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CE2F3A11D9A5F620079EFE2 /* ViewController.swift in Sources */,
+				6CE2F39F1D9A5F620079EFE2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6C96CDAF1D9A6BD40009EBC8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6C96CDB01D9A6BD40009EBC8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6CE2F3A71D9A5F620079EFE2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6CE2F3A81D9A5F620079EFE2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6CE2F3AB1D9A5F620079EFE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6CE2F3AC1D9A5F620079EFE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6CE2F3AE1D9A5F620079EFE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B2B14BD76EAEB3CED45470F /* Pods-TourGuideApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TourGuideApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Thesis.TourGuideApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		6CE2F3AF1D9A5F620079EFE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20F961C7D0F257A988C16A68 /* Pods-TourGuideApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TourGuideApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Thesis.TourGuideApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6CE2F3961D9A5F610079EFE2 /* Build configuration list for PBXProject "TourGuideApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CE2F3AB1D9A5F620079EFE2 /* Debug */,
+				6CE2F3AC1D9A5F620079EFE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6CE2F3AD1D9A5F620079EFE2 /* Build configuration list for PBXNativeTarget "TourGuideApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CE2F3AE1D9A5F620079EFE2 /* Debug */,
+				6CE2F3AF1D9A5F620079EFE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6CE2F3931D9A5F610079EFE2 /* Project object */;
+}
