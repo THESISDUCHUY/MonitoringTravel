@@ -1,4 +1,5 @@
-﻿using MonitoringTourSystem.Infrastructure.EntityFramework;
+﻿
+using MonitoringTourSystem.EntityFramework;
 using MonitoringTourSystem.ViewModel;
 using Newtonsoft.Json;
 using System;
@@ -11,12 +12,12 @@ namespace MonitoringTourSystem.Controllers
 {
     public class HomeController : Controller
     {
-        public readonly monitoring_tourEntities1 MonitoringTourSystem = new monitoring_tourEntities1();
-        public List<tourguide> ListLocationTourGuide { get; set; }
+        public readonly monitoring_tourEntities MonitoringTourSystem = new monitoring_tourEntities();
+        public List<tourguide> ListTourGuide { get; set; }
         public ActionResult Index()
         {
-            //ListLocationTourGuide = MonitoringTourSystem.location_tour_guide.ToList();
-            var model = new HomeViewModel() {OptionRenderView = 2 };
+            ListTourGuide = MonitoringTourSystem.tourguides.ToList();
+            var model = new HomeViewModel() {OptionRenderView = 2, ListLocationTourGuide = ListTourGuide };
             return View("Index", model);
         }
         public ActionResult About()

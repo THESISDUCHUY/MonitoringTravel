@@ -10,11 +10,10 @@
         foreach (var item in Model.ListLocationTourGuide)
         {
             <ul class="list-tour" id="nav-accordion">
-
                 <li class="sub-menu">
-                    <a onclick="getMarkerSelected(@item.tour_guide_id);" href="javascript:;">
+                    <a onclick="getMarkerSelected(@item.tourguide_id);" href="javascript:;">
                         <i class="fa fa-user"></i>
-                        <span> Tour @item.tour_guide_id</span>
+                        <span> Tour @item.tourguide_id</span>
                     </a>
                     <ul class="sub" style="overflow: hidden; display: none;">
                         <li>

@@ -2,10 +2,8 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@*<script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>*@
 <link href="~/Content/DropdowSelect/select2.min.css" rel="stylesheet" />
 <script src="~/Content/DropdowSelect/select2.min.js" type="text/javascript"></script>
-
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="https://eonasdan.github.io/bootstrap-datetimepicker/css/prettify-1.0.css">
@@ -13,9 +11,24 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
 <script type="text/javascript" src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
 
+<script type="text/javascript" src="~/Scripts/sweetalert-dev.js"></script>
+<link rel="stylesheet" href="~/Scripts/sweetalert.css">
+
 <script type="text/javascript">
     $(document).ready(function () {
 
+        var max_fields = 5; //maximum input boxes allowed
+        var wrapper = $(".schedule-form"); //Fields wrapper
+        var add_button = $(".add_field_button"); //Add button ID
+        var province_button = $(".provience");
+        var x = 1; //initlal text box count
+
+        $('#datetimepicker2').datetimepicker();
+        $('#datetimepicker1').datetimepicker();
+        $('#datetimepicker3').datetimepicker();
+        var listPlace = [];
+        var listTourGuide = [];
+        var listProvince = [];
 
         function sendFile(file) {
             var formData = new FormData();
@@ -37,7 +50,6 @@
                 }
             });
         }
-
         var _URL = window.URL || window.webkitURL;
         $("#f_UploadImage").on('change', function () {
 
@@ -54,38 +66,6 @@
             }
         });
 
-
-
-        $('#datetimepicker2').datetimepicker();
-        $('#datetimepicker1').datetimepicker();
-        $('#datetimepicker3').datetimepicker();
-        var listPlace = [];
-        var listTourGuide = [];
-        var listProvince = [];
-        $.ajax({
-            url: "/CreateTour/GetListPlace",
-            type: "GET",
-            dataType: 'json',
-            contentType: 'application/json; charset=utf-8',
-            async: true,
-            processData: false,
-            cache: false,
-            success: function (result) {
-                var results = $.parseJSON(result);
-                $(results).each(function (index, value) {
-                    var placeName = this['place_name'];
-                    var placeId = this['province_id'];
-
-                    listPlace[index] = "[" + placeId + "] " + placeName;
-                });
-                $("#placeschedule").select2({
-                    data: listPlace
-                });
-            },
-            error: function (xhr) {
-                alert('error');
-            }
-        });
         $.ajax({
             url: "/CreateTour/GetProvince",
             type: "GET",
@@ -99,18 +79,16 @@
                 $(results).each(function (index, value) {
                     var provinceName = this['province_name'];
                     var provinceID = this['province_id'];
-
-                    listProvince[index] = "[" + provinceID + "] " + provinceName;
+                    $(".provience").append(new Option(provinceName, provinceID))
                 });
-                $("#placetour").select2({
-                    data: listProvince
+                $(".provience").select2({
+
                 });
             },
             error: function (xhr) {
                 alert('error');
             }
         });
-
         $.ajax({
             url: "/CreateTour/GetListTourGuide",
             type: "GET",
@@ -124,10 +102,10 @@
                 $(results).each(function (index, value) {
                     var tourGuideID = this['tourguide_id'];
                     var tourGuideName = this['tourguide_name'];
-                    listTourGuide[index] = "[" + tourGuideID + "] " + tourGuideName;
+                    $("#tourguide").append(new Option(tourGuideName, tourGuideID))
                 });
                 $("#tourguide").select2({
-                    data: listTourGuide
+                   
                 });
             },
             error: function (xhr) {
@@ -135,22 +113,299 @@
             }
         });
 
-        var vehecial = ["Xe máy", "Xe ô-tô", "Máy bay"];
-        $("#vehicalschedule").select2({
-            data: vehecial
-        });
-    });
-</script>
+        $(document).on('change', '.schedule-form .tour-travel .provience', function () {
 
+            var parent = $(this).parent();
+            parent.closest('.tour-travel').find('.placeschedule:last').children().remove();
+            var vehecial = ["Xe máy", "Xe ô-tô", "Máy bay"];
+            var id = $(this).val();
+            $.ajax({
+                url: "/CreateTour/GetListPlace/" + id,
+                type: "GET",
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                async: true,
+                processData: false,
+                cache: false,
+                success: function (result) {
+                    var results = $.parseJSON(result);
+                    $(results).each(function (index, value) {
+
+                        var placeName = this['place_name'];
+                        var placeId = this['place_id'];
+                        alert(placeName);
+                        parent.closest('.tour-travel').find('.placeschedule:last').append(new Option(placeName, placeId))
+                    });
+                    parent.closest('.tour-travel').children().find('.placeschedule:last').select2({
+                    });
+                },
+                error: function (xhr) {
+                    alert('error');
+                }
+            });
+
+
+            parent.closest('.tour-travel').children().find('.vehicalschedule:last').select2({
+                data: vehecial
+            });
+        });
+
+        function yourfunction() {
+            $('.datepicker_init').datetimepicker({
+                
+            });
+            $('.datepicker_end').datetimepicker({
+                
+            });
+
+        }
+
+        $(add_button).click(function (e) { //on add input button click
+            e.preventDefault();
+            var parent = $(this).parent();
+            if (x < max_fields) { //max input box allowed
+                x++; //text box increment
+                $(wrapper).append('<div class="tour-travel form-group">\
+                    <div class="row" style="width: 100%; margin-left: 0px;">\
+                        <div class="row">\
+                            <label for="exampleInputEmail1" style="margin-left: 15px;">Nhập hành trình tour</label>\
+                        </div>\
+                        <div class="row">\
+                            <div class="col-sm-4">\
+                                 <div class="input_fields_wrap">\
+                                    <div class="input-group date datepicker_end">\
+                                        <input class="form-control" placeholder="Chọn thời gian"  type="text" name="mytext[]">\
+                                        <span class="input-group-addon">\
+                                            <span class="glyphicon glyphicon-calendar"></span>\
+                                        </span>\
+                                    </div>\
+                                </div>\
+                            </div>\
+                            <div class="col-sm-3">\
+                                <select class="provience" style="width: 100%; height: 34px;">\
+                                    <option selected disabled value="0">Chọn tỉnh thành</option>\
+                                </select>\
+                            </div>\
+                            <div class="col-sm-3">\
+                                <select class="placeschedule" style="width: 100%; height: 34px;">\
+                                     <option selected disabled value="0">Chọn địa điểm</option>\
+                                </select>\
+                            </div>\
+                            <div class="col-sm-2">\
+                                <select class="vehicalschedule" style="width: 100%; height: 34px;">\
+                                <option selected disabled value="0">PT</option>\
+                                </select>\
+                            </div>\
+                        </div>\
+                        <div class="row" style="margin-top: 20px;">\
+                            <textarea  style="resize: none; margin-left: 15px; width: 96%; margin-right: 15px;" rows="4" class="descriptionTour" placeholder="Nhập mô tả về tour..."></textarea>\
+                        </div>\
+                    <button href="#" style="margin-left: 0px; margin-top: 10px;" class="btn remove_field btn-warning">Xóa</button>\
+                </div>\
+                </div>\
+                ');
+                var vehecial = ["Xe máy", "Xe ô-tô", "Máy bay"];
+                $.ajax({
+                    url: "/CreateTour/GetProvince",
+                    type: "GET",
+                    dataType: 'json',
+                    contentType: 'application/json; charset=utf-8',
+                    async: true,
+                    processData: false,
+                    cache: false,
+                    success: function (result) {
+                        var results = $.parseJSON(result);
+                        $(results).each(function (index, value) {
+                            var provinceName = this['province_name'];
+                            var provinceID = this['province_id'];
+                            parent.children().find('.provience:last').append(new Option(provinceName, provinceID))
+                        });
+                        parent.children().find('.provience:last').select2({
+
+                        });
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                    }
+                });
+                parent.children().find('.vehicalschedule:last').select2({
+                    data: vehecial
+                });
+            }
+            yourfunction();
+        });
+
+        $(wrapper).on("click", ".remove_field", function (e) { //user click on remove text
+            e.preventDefault(); $(this).parent('div').remove(); x--;
+        })
+        yourfunction();
+
+    });
+
+    function addNewTour() {
+        var isValidSchedule;
+        var listSchedule = [];
+        var index = 0;
+        var tourcode = $("#tourcode").val();
+        var nameTour = $("#nametour").val();
+        var tourguideID = $("#tourguide").val();
+        var numberoftourist = $("#numberoftourist").val();
+        var day = $("#day").val();
+        var startday = $("#startday").val();
+        var endday = $("#endday").val();
+        var description = $("#descriptionTour").val();
+        var cover_photo = "photo";
+        if (tourcode == null || tourcode == "")
+        {
+            swal("Vui lòng nhập mã tour!")
+            return;
+        }
+        
+        if (nameTour == null || nameTour == "") {
+            
+            swal("Vui lòng nhập tên tour!")
+            return;
+        }
+        if (tourguide == null || tourguide == "") {
+            swal("Chọn hướng dẫn viên cho tour");
+            return;
+        }
+        if (numberoftourist == null || numberoftourist == "") {
+            swal("Nhập số lượng du khách");
+            return;
+        }
+        if (day == null || day == "") {
+            swal("Nhập số ngày của tour");
+            return;
+        }
+        if (startday == null || startday == "") {
+            swal("Nhập ngày khởi hành tour");
+            return;
+        }
+        if (endday == null || endday == "") {
+            swal("Nhập ngày kết thúc tour");
+            return;
+        }
+        else if (description == null || description == "") {
+            swal("Nhập mô tả về tour");
+            return;
+        }
+        else if (cover_photo == null || cover_photo == "") {
+            swal("cover photo");
+            return;
+        }
+
+        if (startday > endday)
+        {
+            swal("Thời gian kết thúc tour phải lớn hơn thời gian bắt đầu");
+            return;
+        }
+
+       
+        $('div.tour-travel').each(function () {
+
+            var inps = document.getElementsByName('mytext[]');
+            var time = inps[index].value;
+            var placeId = $(this).parent().children().find('.placeschedule option:selected').val();
+            var placename = $(this).parent().children().find('.placeschedule option:selected').text();
+            var placenameVal = $(this).parent().children().find('.placeschedule option:selected').val();
+            var vehicalschedule = $(this).parent().children().find('.vehicalschedule option:selected').text();
+            var vehicalscheduleVal = $(this).parent().children().find('.vehicalschedule option:selected').val();
+            var descriptionTour = $(this).parent().children().find('.descriptionTour').val();
+
+            if (time == null || time == "")
+            {
+                swal("Nhập thời gian hành trình tour!");
+                isValidSchedule = false;
+                return;
+            }
+
+            else if(time < startday || time > endday)
+            {
+                swal("Thời gian " + time + " phải nằm trong khoảng thời gian bắt đầu và kết thúc tour");
+                isValidSchedule = false;
+            }
+            else if (placenameVal == "0")
+            {
+                swal("Nhập địa điểm tour!");
+                isValidSchedule = false;
+                return;
+            }
+
+            else if (vehicalscheduleVal == "0")
+            {
+                swal("Nhập phương tiện!");
+                isValidSchedule = false;
+                return;
+            }
+            else if (descriptionTour == "" || descriptionTour == null)
+            {
+                swal("Nhập mô tả chi tiết về hành trình tour!");
+                isValidSchedule = false;
+                return;
+            }
+            listSchedule[index] = 
+                {
+                    tour_schedule1: null,
+                    tour_id: null,
+                    place_id: placeId,
+                    place_name: placename,
+                    vehicle: vehicalschedule,
+                    time: time,
+                    description: descriptionTour
+                };
+            index++;
+        });
+
+        if (isValidSchedule == false)
+        {
+            listSchedule = [];
+            return;
+        }
+
+        $.ajax({
+            url: "/CreateTour/AddNewTour",
+            type: "POST",
+            data: {
+
+                tour_code: tourcode,
+                manager_id: "123",
+                tourguide_id: tourguideID,
+                tour_name: nameTour,
+                status: "Opening",
+                departure_date: startday,
+                return_date: endday,
+                tourist_quantity: numberoftourist,
+                description: description,
+                day: day,
+                cover_photo: cover_photo,
+                ListTourSchedule: listSchedule
+            },
+            success: function (result) {
+              
+                swal("Thêm Tour!", "Bạn đã thêm tour thành công!", "success")
+
+                location.reload();
+            },
+            error: function (xhr) {
+                sweetAlert("Oops...", "Thêm tour thất bại, vui lòng thử lại", "error");
+            }
+        });
+    }
+</script>
 <div id="main-content" style="background-color: #1FB5AD; height: 100%;">
-    <div class="wrapper" style="background-color: white; height: 87.5%; padding-top: 15px;">
+    <div class="wrapper" style="background-color: white; padding-top: 15px;">
         <div class='row' style="height: 100%; width: 100%; margin: 0px;">
             <div class="col-sm-4" style="height:100%;">
                 <header class="panel-heading" style="border: 1px solid #EAEBED; height: 14%">
                     <h3>Thông tin tour</h3>
                 </header>
-                <div class="panel-body" style="height: 86%; background-color: white; border: 1px solid #EAEBED; overflow-y: scroll">
+                <div class="panel-body" style="height: 86%; background-color: white; border: 1px solid #EAEBED;">
                     <div class="position-center">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Mã code</label>
+                            <div class="input text required"><input class="form-control" id="tourcode" required="required" placeholder="Nhập tên tour" maxlength="255" type="text"></div>
+                        </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tên tour</label>
                             <div class="input text required"><input class="form-control" id="nametour" required="required" placeholder="Nhập tên tour" maxlength="255" type="text"></div>
@@ -161,15 +416,11 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Số lượng du khách</label>
-                            <div class="input text"><input class="form-control" id="numberoftourist" placeholder="Nhập số lượng du khách" maxlength="255" type="number"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Địa điểm tour</label>
-                            <select id="placetour" style="width: 100%; height: 33px;"></select>
+                            <div class="input text"><input class="form-control" id="numberoftourist" placeholder="Nhập số lượng du khách" maxlength="255" min="1" type="number"></div>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Số ngày</label>
-                            <div class="input text"><input class="form-control" id="day" placeholder="Nhập số ngày của tour" maxlength="255" type="number"></div>
+                            <div class="input text"><input class="form-control" id="day" placeholder="Nhập số ngày của tour" maxlength="255" type="number" min="0.5"></div>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Ngày bắt đầu</label>
@@ -194,152 +445,62 @@
                             <textarea class="form-control" style="resize: none;" rows="4" id="descriptionTour" placeholder="Nhập mô tả về tour"></textarea>
                         </div>
                         <div class="form-group">
+                            <label for="exampleInputEmail1">Hình đại diện</label>
                             <input type="file" class="upload" id="f_UploadImage"><br />
                             <img id="myUploadedImg" alt="Photo" style="width:180px;" />
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="col-sm-8" style="height:100%;">
                 <header class="panel-heading" style="border: 1px solid #EAEBED; height: 14%">
                     <h3>Hành trình tour</h3>
                 </header>
-                <div class="panel-body" style="background-color: white; border: 1px solid #EAEBED; height: 75%; overflow-y: scroll">
-                    <div class="form-group">
-                        <div class="row" style="width: 90%; margin-left: 0px;">
-                            <div class="row">
-                                <label for="exampleInputEmail1" style="margin-left: 15px;">Nhập hành trình ngày 1</label>
-                            </div>
-                            <div class="row">
-                                <div class='col-sm-4'>
-                                    <div class="form-group">
-                                        <div class='input-group date' id='datetimepicker2'>
-                                            <input type='text' id="startdayschedule" class="form-control" placeholder="Nhập thời gian" />
-                                            <span class="input-group-addon">
-                                                <span class="glyphicon glyphicon-calendar"></span>
-                                            </span>
+                <div class="panel-body" style="background-color: white; border: 1px solid #EAEBED; height: 75%;">
+                    <div class="schedule-form" style="width: 100%;">
+                        <div class="tour-travel form-group">
+                            <div class="row" style="width: 100%; margin-left: 0px;">
+                                <div class="row">
+                                    <label for="exampleInputEmail1" style="margin-left: 15px;">Nhập hành trình tour</label>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="input_fields_wrap">
+                                            <div class="input-group date datepicker_end">
+                                                <input class="form-control" type="text" placeholder="Chọn thời gian" name="mytext[]">
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="col-sm-3">
+                                        <select class="provience" style="width: 100%; height: 34px;">
+                                            <option selected disabled value="0">Chọn tỉnh thành</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <select class="placeschedule" style="width: 100%; height: 34px;">
+                                            <option selected disabled value="0">Chọn địa điểm</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <select class="vehicalschedule" style="width: 100%; height: 34px;">
+                                            <option selected disabled value="0">PT</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="col-sm-4">
-                                    <select id="placeschedule" style="width: 100%;"></select>
-                                </div>
-                                <div class="col-sm-4">
-                                    <select id="vehicalschedule" style="width: 100%;"></select>
-                                </div>
+                                <div class="row" style="margin-top: 20px;">
+                                    <textarea  style="resize: none; margin-left: 15px; width: 96%; margin-right: 15px;" rows="4" class="descriptionTour" placeholder="Nhập mô tả về tour..."></textarea>
+                                </div>                             
                             </div>
-                            <div class="row">
-                                <textarea class="form-control" style="resize: none; margin-left: 15px; width: 96%; margin-right: 15px;" rows="4" id="descriptionTour" placeholder="Nhập mô tả về tour..."></textarea>
-                            </div>
-                        </div>
+                            <button href="#" style="margin-left: 0px; margin-top: 10px; background-color: white; border-color: white" class="btn remove_field btn-warning">Xóa</button>
+                        </div>             
                     </div>
+                    <button style="margin-top: -49px; width: 30%; float: right" class="add_field_button btn btn-info btn-block voffset10">Thêm hành trình tour</button>
                 </div>
-
-                <button type="submit" id="addtour" onclick="addNewTour();" style="margin-top: 15px; " class="btn btn-info">Thêm tour mới</button>
+                <button type="submit" id="addtour" onclick="addNewTour();" style="margin-top: 15px;  height: 50px; font-size: 24px; width: 100%; background-color: #1FB5AD; " class="btn btn-info">THÊM TOUR</button>
             </div>
         </div>
     </div>
 </div>
-<script>
-    function addNewTour() {
-
-        var nameTour = $("#nametour").val();
-        var tourguideID = $("#tourguide").val().toString().split(" ", 1).toString().replace("[", "").replace("]", "");
-        var numberoftourist = $("#numberoftourist").val();
-        var placeTour = $("#placetour").val();
-        var day = $("#day").val();
-        var startday = $("#startday").val();
-        var endday = $("#endday").val();
-        var description = $("#descriptionTour").val();
-        var cover_photo = "photo";
-
-        var tourCode = $("#placetour").val().toString().split(" ", 1).toString().replace("[", "").replace("]", "");
-
-        var startdayschedule = $("#startdayschedule").val();
-        var placeschedule = $("#placeschedule").val();
-        var vehicalschedule = $("#vehicalschedule").val();
-        var descriptionTour = $("#descriptionTour").val();
-
-        var listSchedule = [
-           { tour_schedule1: 1, tour_id: 2, place_id: 43, vehicle: vehicalschedule, time: startdayschedule, description: descriptionTour },
-
-        ];
-
-        var jsonschedule = JSON.stringify(listSchedule);
-
-        if (nameTour == null || nameTour == "") {
-            alert("Nhap ten tour");
-            return;
-        }
-        if (startdayschedule < startday || startdayschedule > endday) {
-            alert("Ngay cho lich trinh tour khong hop le");
-            return;
-        }
-        if (tourguide == null || tourguide == "") {
-            alert("Nhap ten tour guide");
-            return;
-        }
-        if (numberoftourist == null || numberoftourist == "") {
-            alert("Nhap so luong tourist");
-            return;
-        }
-        if (placeTour == null || placeTour == "") {
-            alert("Nhap dia diem tour");
-            return;
-        }
-        if (day == null || day == "") {
-            alert("Nhap so ngay tour");
-            return;
-        }
-        if (startday == null || startday == "") {
-            alert("Nhap ngay bat dau");
-            return;
-        }
-        if (endday == null || endday == "") {
-            alert("Nhap ngay ket thuc");
-            return;
-        }
-        else if (description == null || description == "") {
-            alert("Nhap mo ta ve tour");
-            return;
-        }
-        else if (cover_photo == null || cover_photo == "") {
-            alert("cover photo");
-            return;
-        }
-        else if (listSchedule == null) {
-            alert("List schedule");
-            return;
-        }
-
-        $.ajax({
-            url: "/CreateTour/AddNewTour",
-            type: "POST",
-            data: {
-
-                tour_code: tourCode,
-                manager_id: "123",
-                tourguide_id: tourguideID,
-                tour_name: nameTour,
-                status: "Opening",
-                departure_date: startday,
-                return_date: endday,
-                tourist_quantity: numberoftourist,
-                description: description,
-                day: day,
-                cover_photo: cover_photo,
-                ListTourSchedule: listSchedule
-
-            },
-            success: function (result) {
-                alert("Thêm tour thành công");
-            },
-            error: function (xhr) {
-                alert('error');
-            }
-        });
-    }
-
-    
-</script>

@@ -1,0 +1,205 @@
+﻿@model MonitoringTourSystem.ViewModel.TourDetailViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Danh Sách Tour";
+}
+
+<link href="~/Content/timelineSchedule.css" rel="stylesheet" />
+
+<script type="text/javascript">
+
+    function GetTourDetail() {
+
+        $.ajax({
+            url: "/TourDetail/GetDetailTour",
+            type: "POST",
+        })
+        .done(function (partialViewResult) {
+            $("#container-timeline").html(partialViewResult);
+        });
+    }
+</script>
+
+<div id="main-content" style="background-color: white; height: 100%;">
+    <div class="wrapper" style="background-color: white; padding-top: 15px;">
+        <div class='row' style="height: 100%; width: 100%; margin: 0px;">
+            <div class="col-sm-4" style="height:100%;">
+                <header class="panel-heading" style="border: 1px solid #EAEBED; height: 14%">
+                    <h3>Danh sách tour</h3>
+                </header>
+                <div class="panel-body" style="background-color: white; border: 1px solid #EAEBED;">
+                    <div class="dropdown" style="padding-left: 4px; padding-right: 4px">
+                        <button class="btn" style="width: 100%;" type="button" data-toggle="dropdown">
+                            <span>Tìm Theo Tỉnh Thành</span>
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" style="width: 97.5%; margin-top: -1px; margin-left: 4px; ">
+                            <li><a href="#">Hà Nội</a></li>
+                            <li><a href="#">Đà Nẵng</a></li>
+                            <li><a href="#">Hồ Chí Minh</a></li>
+                            <li><a href="#">Đà Lạt</a></li>
+                            <li><a href="#">Quảng Bình</a></li>
+                            <li><a href="#">Quảng Nam</a></li>
+                            <li><a href="#">Cần Thơ</a></li>
+                            <li><a href="#">Phú Quốc</a></li>
+                        </ul>
+                    </div>
+                    <div style="padding-left: 4px; padding-right: 4px; margin-top: 10px;">
+                        <div id="searchform">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Tìm kiếm tour theo mã..." id="nametour" name="query" value="">
+                                <div class="input-group-btn">
+                                    <button type="submit" id="Search" class="btn">
+                                        <i class="fa fa-search" style="color: gray" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="group-list-tour" style="height: 77%;">
+                        <div id="list-tour" style="height: 100% ; overflow-y: hidden">
+                            @{
+                                if (Model == null || Model.ListTour == null)
+                                {
+                            <p>Không có tour nào đang hoạt động</p>
+                                }
+                                else
+                                {
+                                    foreach (var item in Model.ListTour)
+                                    {
+                            <ul class="list-tour" id="nav-accordion">
+                                <li class="sub-menu">
+                                    <a onclick="GetTourDetail();">
+                                        <h4 style="color: black">@item.tour_code</h4>
+                                        <span>@item.tour_name</span>
+                                    </a>
+                                </li>
+                            </ul>
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                    <style>
+                        ul.list-tour, ul.list-tour li ul.sub {
+                            margin: -2px 0 0;
+                            padding: 0;
+                        }
+
+                        ul.list-tour {
+                            padding-top: 0px;
+                        }
+
+                            ul.list-tour li {
+                                border-bottom: 1px dotted #d7d7d7;
+                            }
+
+                                ul.list-tour li a {
+                                    color: gray;
+                                    text-decoration: none;
+                                    display: block;
+                                    padding: 18px 0 18px 12px;
+                                    font-size: 14px;
+                                    outline: none;
+                                    -webkit-transition: all 0.3s ease;
+                                    -moz-transition: all 0.3s ease;
+                                    -o-transition: all 0.3s ease;
+                                    -ms-transition: all 0.3s ease;
+                                    transition: all 0.3s ease;
+                                }
+
+                                    ul.list-tour li a i {
+                                        font-size: 15px;
+                                        padding-right: 6px;
+                                    }
+
+                                    ul.list-tour li a span {
+                                        display: inline-block;
+                                    }
+
+                                ul.list-tour, ul.list-tour li ul.sub {
+                                    margin: -2px 0 0;
+                                    padding: 0;
+                                }
+
+                                    ul.list-tour li ul.sub li {
+                                        margin-bottom: 0;
+                                        margin-left: 0px;
+                                        margin-right: 0;
+                                    }
+
+                                        ul.list-tour li ul.sub li a {
+                                            font-size: 12px;
+                                            padding-top: 13px;
+                                            padding-bottom: 13px;
+                                            -webkit-transition: all 0.3s ease;
+                                            -moz-transition: all 0.3s ease;
+                                            -o-transition: all 0.3s ease;
+                                            -ms-transition: all 0.3s ease;
+                                            transition: all 0.3s ease;
+                                            color: #aeb2b7;
+                                        }
+                    </style>
+                </div>
+            </div>
+            <div class="col-sm-8" style="height:100%;">
+                <header class="panel-heading" style="border: 1px solid #EAEBED; height: 14%">
+                    <h3>Thông tin chi tiết tour</h3>
+                </header>
+                <div class="panel-body" style="background-color: white; border: 1px solid #EAEBED; height: 75%;">
+
+                    <div class="details-tour">
+                        <img src="http://www.dukdndanang.vn/image/journal/article?img_id=23216" height="400" width="680" />
+                        <h4> [DN004] - Hà Nội - Yên Tử - Hạ Long - Hang Sửng Sốt - Titốp - Bái Đính - Tràng An</h4>
+                        <br />
+                        <div class="row">
+                            <div class="list-tour" id="nav-accordion">
+                                <span style="color: gray; font-size: 16px;">Hướng dẫn viên: </span><span style="font-size: 16px;">Đức Nguyễn</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="list-tour" id="nav-accordion">
+                                <span style="color: gray; font-size: 16px;">Thời gian: </span><span style="font-size: 16px;"> 2016-10-02 14:12:00 - 2016-10-11 14:12:00 </span>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="list-tour" id="nav-accordion">
+                                <span style="color: gray; font-size: 16px;">Số lượng du khách: </span><span style="font-size: 16px;"> 15 du khách</span>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="list-tour" id="nav-accordion">
+                                <span style="color: gray; font-size: 16px;">Số ngày: </span><span style="font-size: 16px;"> 4 ngày 3 đêm</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="list-tour" id="nav-accordion">
+                                <span style="color: gray; font-size: 16px;">Lịch trình tour</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="container-timeline">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <style>
+                    div.list-tour {
+                        padding-top: 0px;
+                        margin-top: 10px;
+                        height: 40px;
+                    }
+
+                    div.list-tour {
+                        border-bottom: 1px solid #d7d7d7;
+                    }
+                </style>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,5 @@
-﻿using MonitoringTourSystem.Infrastructure.EntityFramework;
+﻿
+using MonitoringTourSystem.EntityFramework;
 using MonitoringTourSystem.Models;
 using System;
 using System.Collections.Generic;

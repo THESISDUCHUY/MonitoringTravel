@@ -85,9 +85,15 @@
       <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Web.6.9.9\lib\net45\MySql.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -205,6 +211,55 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\CreateTourController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TourDetailController.cs" />
+    <Compile Include="EntityFramework\manager.cs">
+      <DependentUpon>Monitoring_tour.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFramework\message.cs">
+      <DependentUpon>Monitoring_tour.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFramework\Monitoring_tour.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Monitoring_tour.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFramework\Monitoring_tour.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Monitoring_tour.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFramework\Monitoring_tour.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Monitoring_tour.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFramework\place.cs">
+      <DependentUpon>Monitoring_tour.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFramework\province.cs">
+      <DependentUpon>Monitoring_tour.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFramework\tour.cs">
+      <DependentUpon>Monitoring_tour.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFramework\tourguide.cs">
+      <DependentUpon>Monitoring_tour.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFramework\tourist.cs">
+      <DependentUpon>Monitoring_tour.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFramework\tour_participants.cs">
+      <DependentUpon>Monitoring_tour.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFramework\tour_schedule.cs">
+      <DependentUpon>Monitoring_tour.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFramework\tracking.cs">
+      <DependentUpon>Monitoring_tour.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFramework\warning.cs">
+      <DependentUpon>Monitoring_tour.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -218,6 +273,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\CreateTourViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
+    <Compile Include="ViewModel\TourDetailViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-datetimepicker.css" />
@@ -242,9 +298,21 @@
     <Content Include="Content\Images\loading-process.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\mail.png" />
+    <Content Include="Content\Images\missing.png" />
     <Content Include="Content\Images\support.png" />
     <Content Include="Content\Images\user.png" />
     <Content Include="Content\Images\warning.png" />
+    <Content Include="Content\timelineSchedule.css" />
+    <Content Include="EntityFramework\Monitoring_tour.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Monitoring_tour.edmx</DependentUpon>
+      <LastGenOutput>Monitoring_tour.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityFramework\Monitoring_tour.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Monitoring_tour.edmx</DependentUpon>
+      <LastGenOutput>Monitoring_tour.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -373,6 +441,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <EntityDeploy Include="EntityFramework\Monitoring_tour.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Monitoring_tour.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="EntityFramework\Monitoring_tour.edmx.diagram">
+      <DependentUpon>Monitoring_tour.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -395,8 +470,13 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\SlidingMarker.js" />
     <Content Include="Scripts\SlidingMarker.min.js" />
+    <Content Include="Scripts\sweetalert-dev.js" />
+    <Content Include="Scripts\sweetalert.css" />
+    <Content Include="Scripts\sweetalert.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -425,6 +505,8 @@
     <Content Include="Views\CreateTour\TourForm.cshtml" />
     <Content Include="Views\TrackingTour\TrackingTourView.cshtml" />
     <Content Include="Views\CreateTour\Index.cshtml" />
+    <Content Include="Views\TourDetail\Index.cshtml" />
+    <Content Include="Views\TourDetail\ScheduleTourTimeline.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -435,10 +517,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MonitoringTourSystem.Infrastructure\MonitoringTourSystem.Infrastructure.csproj">
-      <Project>{dec38ac0-dc5b-4c36-9251-d91fc104a3a4}</Project>
-      <Name>MonitoringTourSystem.Infrastructure</Name>
-    </ProjectReference>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,4 +1,5 @@
-﻿using MonitoringTourSystem.Infrastructure.EntityFramework;
+﻿
+using MonitoringTourSystem.EntityFramework;
 using MonitoringTourSystem.Models;
 using MonitoringTourSystem.ViewModel;
 using Newtonsoft.Json;
@@ -12,11 +13,10 @@ using System.Web.Mvc;
 
 namespace MonitoringTourSystem.Controllers
 {
-  
     public class CreateTourController : Controller
     {
         static string pathImage;
-        public readonly monitoring_tourEntities1 MonitoringTourSystem = new monitoring_tourEntities1();
+        public readonly monitoring_tourEntities MonitoringTourSystem = new monitoring_tourEntities();
         // GET: CreateTour
         public ActionResult Index()
         {
@@ -32,9 +32,13 @@ namespace MonitoringTourSystem.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetListPlace()
+        public JsonResult GetListPlace(int id)
         {
-            var listPlaceTour = MonitoringTourSystem.places.ToList();
+            var listPlaceTour = from place in MonitoringTourSystem.places
+                                where place.province_id == id.ToString()
+                                select place;
+
+   
             var jsonString = JsonConvert.SerializeObject(listPlaceTour);
             return Json(jsonString, JsonRequestBehavior.AllowGet);
         }
@@ -60,32 +64,27 @@ namespace MonitoringTourSystem.Controllers
             if (pathImage == null)
             {
                 var result = new { Success = true, Message = "Dang Upload hinh anh" };
-                Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 return Json(result, JsonRequestBehavior.AllowGet);
             }
             else
             {
                 int tourID;
-                var tourCode = "";
                 try
                 {
-                    tourID = MonitoringTourSystem.tours.Max(x => x.tourist_id);
+                    tourID = MonitoringTourSystem.tours.Max(x => x.tour_id);
                 }
                 catch
                 {
-                    tourID = 0;
+                    tourID = -1;
                 }
-                Province province = new Province();
                 var statusTour = StatusTour.Opening;
-                province.ProvinceList.TryGetValue(Convert.ToInt32(obj.tour_code), out tourCode);
                 try
                 {
                     var tourModel = new tour()
                     {
-                        tourist_id = obj.tourguide_id,
-                        tour_code = tourCode + "-" + (tourID + 1),
-                        manager_id = obj.manager_id,
                         tourguide_id = obj.tourguide_id,
+                        tour_code = obj.tour_code,
+                        manager_id = obj.manager_id,
                         tour_name = obj.tour_name,
                         departure_date = obj.departure_date,
                         return_date = obj.return_date,
@@ -95,10 +94,15 @@ namespace MonitoringTourSystem.Controllers
                         day = obj.day,
                         cover_photo = pathImage,
                     };
+
+                    for(int i = 0; i < obj.ListTourSchedule.Count; i++)
+                    {
+                        obj.ListTourSchedule[i].tour_id = tourID + 1;
+                    }
                     if (AddNewTour(tourModel, obj.ListTourSchedule))
                     {
-                        var result = new { Success = true, Message = "Add Successful" };
                         Response.StatusCode = (int)HttpStatusCode.OK;
+                        var result = new { Success = true, Message = "Add Successful" };
                         return Json(result, JsonRequestBehavior.AllowGet);
                     }
                     else
@@ -115,16 +119,14 @@ namespace MonitoringTourSystem.Controllers
                     return Json(result, JsonRequestBehavior.AllowGet);
                 }
             }
-
         }
-
         // Add data to database
         public bool AddNewTour(tour tourModel, List<tour_schedule> tourScheduleModel)
         {
             try
             {
                 // Insert database to tour table
-                using (var context = new monitoring_tourEntities1())
+                using (var context = new monitoring_tourEntities())
                 {
                     var tourModelData = context.Set<tour>();
                     tourModelData.Add(tourModel);
@@ -143,8 +145,6 @@ namespace MonitoringTourSystem.Controllers
                 return false;
             }
         }
-
-       
         public ActionResult FileUpload(HttpPostedFileBase file)
         {
             if (file != null)
@@ -160,7 +160,6 @@ namespace MonitoringTourSystem.Controllers
                     file.InputStream.CopyTo(ms);
                     byte[] array = ms.GetBuffer();
                 }
-
             }
             return null;
         }

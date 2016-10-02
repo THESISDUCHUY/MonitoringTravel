@@ -80,6 +80,7 @@ F:\Ky 9\Khoa Luan\Project\MonitoringTourSystem\MonitoringTourSystem\bin\Microsof
 F:\Ky 9\Khoa Luan\Project\MonitoringTourSystem\MonitoringTourSystem\obj\Debug\MonitoringTourSystem.dll
 F:\Ky 9\Khoa Luan\Project\MonitoringTourSystem\MonitoringTourSystem\obj\Debug\MonitoringTourSystem.pdb
 F:\Ky 9\Khoa Luan\Project\MonitoringTourSystem\MonitoringTourSystem\obj\Debug\MonitoringTourSystem.Presentation.csprojResolveAssemblyReference.cache
+F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\obj\Debug\MonitoringTourSystem.Presentation.csprojResolveAssemblyReference.cache
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\ApplicationInsights.config
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\roslyn\csc.exe
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -120,7 +121,6 @@ F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.Owin.Security.OAuth.dll
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.Owin.Security.Twitter.dll
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.Web.Infrastructure.dll
-F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\MonitoringTourSystem.Infrastructure.dll
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\MySql.Data.dll
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\MySql.Data.Entity.EF6.dll
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Newtonsoft.Json.dll
@@ -133,7 +133,6 @@ F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\System.We
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\System.Web.WebPages.dll
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\System.Web.WebPages.Razor.dll
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\WebGrease.dll
-F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\MonitoringTourSystem.Infrastructure.pdb
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.AI.DependencyCollector.xml
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.AI.ServerTelemetryChannel.xml
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.AI.Web.xml
@@ -163,6 +162,6 @@ F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.Owin.Security.Google.xml
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.Owin.Security.Twitter.xml
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\obj\Debug\MonitoringTourSystem.Presentation.csprojResolveAssemblyReference.cache
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\obj\Debug\MonitoringTourSystem.dll
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\obj\Debug\MonitoringTourSystem.pdb
+F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\MySql.Web.dll
