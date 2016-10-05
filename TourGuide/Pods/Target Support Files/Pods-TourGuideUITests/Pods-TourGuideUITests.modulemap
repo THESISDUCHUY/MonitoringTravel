@@ -1,0 +1,6 @@
+framework module Pods_TourGuideUITests {
+  umbrella header "Pods-TourGuideUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
