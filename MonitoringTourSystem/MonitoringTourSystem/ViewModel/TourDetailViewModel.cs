@@ -11,5 +11,10 @@ namespace MonitoringTourSystem.ViewModel
     {
         public List<tour> ListTour { get; set; }
         public List<ScheduleDay> ListScheduleDay { get; set;}
+        public tour TourItem {
+            get;
+            set;
+ }
+        public string TourGuideName { get; set; }
     }
 }

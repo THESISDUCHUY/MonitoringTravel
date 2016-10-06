@@ -10,7 +10,14 @@ namespace MonitoringTourSystem.ViewModel
 {
     public class HomeViewModel
     {
-        public List<tourguide> ListLocationTourGuide { get; set; }
+        public List<tour> ListLocationTourGuide { get; set; }
+        public List<ListTourWithTourGuide> TourWithTourGuide { get; set; }
         public int OptionRenderView { get; set; }
+    }
+
+    public class ListTourWithTourGuide
+    {
+        public tour Tour { get; set; }
+        public tourguide TourGuide { get; set; }
     }
 }

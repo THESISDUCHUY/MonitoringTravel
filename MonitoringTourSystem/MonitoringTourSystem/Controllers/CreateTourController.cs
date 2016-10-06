@@ -153,7 +153,7 @@ namespace MonitoringTourSystem.Controllers
                 string path = System.IO.Path.Combine(
                                        Server.MapPath("~/Content/Images"), pic);
 
-                pathImage = path;
+                pathImage = file.FileName;
                 file.SaveAs(path);
                 using (MemoryStream ms = new MemoryStream())
                 {

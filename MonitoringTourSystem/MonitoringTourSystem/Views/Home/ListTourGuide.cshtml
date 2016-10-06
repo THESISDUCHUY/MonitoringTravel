@@ -1,19 +1,20 @@
 ﻿@model MonitoringTourSystem.ViewModel.HomeViewModel
 
 @{
-    if (Model == null || Model.ListLocationTourGuide == null)
+    if (Model == null || Model.TourWithTourGuide == null)
         {
             <p>Không có tour nào đang hoạt động</p>
         }
     else
     {
-        foreach (var item in Model.ListLocationTourGuide)
+        foreach (var item in Model.TourWithTourGuide)
         {
             <ul class="list-tour" id="nav-accordion">
                 <li class="sub-menu">
-                    <a onclick="getMarkerSelected(@item.tourguide_id);" href="javascript:;">
-                        <i class="fa fa-user"></i>
-                        <span> Tour @item.tourguide_id</span>
+                  
+                    <a onclick="getMarkerSelected(@item.TourGuide.tourguide_id);" href="javascript:;">
+                        <h4 style="color: black">@item.TourGuide.tourguide_name</h4>
+                        <span>@item.Tour.tour_code</span>
                     </a>
                     <ul class="sub" style="overflow: hidden; display: none;">
                         <li>
@@ -31,73 +32,4 @@
         }
     }
 }
- <text>
-        <style>
-        ul.list-tour, ul.list-tour li ul.sub {
-            margin: -2px 0 0;
-            padding: 0;
-        }
-
-        ul.list-tour {
-            padding-top: 0px;
-        }
-
-        ul.list-tour li {
-            border-bottom: 1px dotted #d7d7d7 ;
-        }
-
-        ul.list-tour li a {
-            color: gray;
-          
-            text-decoration: none;
-            display: block;
-            padding: 18px 0 18px 12px;
-            font-size: 14px;
-            outline: none;
-            -webkit-transition: all 0.3s ease;
-            -moz-transition: all 0.3s ease;
-            -o-transition: all 0.3s ease;
-            -ms-transition: all 0.3s ease;
-            transition: all 0.3s ease;
-        }
-
-        ul.list-tour li a:hover
-        {
-            font-weight: bold;
-        }
-
-        ul.list-tour li a i {
-            font-size: 15px;
-            padding-right: 6px;
-        }
-
-        ul.list-tour li a span {
-            display: inline-block;
-        }
-
-        ul.list-tour, ul.list-tour li ul.sub {
-            margin: -2px 0 0;
-            padding: 0;
-        }
-
-        ul.list-tour li ul.sub li {
-            margin-bottom: 0;
-            margin-left: 0px;
-            margin-right: 0;
-        }
-
-        ul.list-tour li ul.sub li a {
-            font-size: 12px;
-            padding-top: 13px;
-            padding-bottom: 13px;
-            -webkit-transition: all 0.3s ease;
-            -moz-transition: all 0.3s ease;
-            -o-transition: all 0.3s ease;
-            -ms-transition: all 0.3s ease;
-            transition: all 0.3s ease;
-            color: #aeb2b7;
-        }
-    </style>
-
-</text>
 
