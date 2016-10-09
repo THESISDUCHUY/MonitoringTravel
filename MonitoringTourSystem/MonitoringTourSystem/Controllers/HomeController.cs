@@ -1,5 +1,6 @@
 ﻿
 using MonitoringTourSystem.EntityFramework;
+using MonitoringTourSystem.Models;
 using MonitoringTourSystem.ViewModel;
 using Newtonsoft.Json;
 using System;
@@ -13,7 +14,7 @@ namespace MonitoringTourSystem.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        public readonly monitoring_tourEntities MonitoringTourSystem = new monitoring_tourEntities();
+        public readonly monitoring_tour_v3Entities MonitoringTourSystem = new monitoring_tour_v3Entities();
         public static List<tourguide> ListTourGuide { get; set; }
         public static List<tourguide> ListTourGuideActive { get; set; }
         public static List<ListTourWithTourGuide> ListStoreForSearch { get; set; }
@@ -44,8 +45,8 @@ namespace MonitoringTourSystem.Controllers
             }
 
             var td = (from s in MonitoringTourSystem.tours
-                     join r in MonitoringTourSystem.tourguides on s.tourguide_id equals r.tourguide_id
-                     where s.status == "Opening"
+                      join r in MonitoringTourSystem.tourguides on s.tourguide_id equals r.tourguide_id
+                      where s.status == StatusTour.Running.ToString()
                      select new
                      {
                         TourSelect = s,

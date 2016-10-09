@@ -13,7 +13,7 @@
 
 <script type="text/javascript" src="~/Scripts/sweetalert-dev.js"></script>
 <link rel="stylesheet" href="~/Scripts/sweetalert.css">
-<script src="~/Scripts/CreateTour/createtour.js"></script>
+<script src="~/Scripts/CreateTour/createforeigntour.js"></script>
 
 
 <div id="main-content" style="background-color: #1FB5AD; height: 100%;">
@@ -65,7 +65,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Mô tả tour</label>
-                            <textarea class="form-control" style="resize: none;"  rows="4" id="descriptionTour" placeholder="Nhập mô tả về tour"></textarea>
+                            <textarea class="form-control" style="resize: none;" rows="4" id="descriptionTour" placeholder="Nhập mô tả về tour"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Hình đại diện</label>
@@ -98,8 +98,8 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-3">
-                                        <select class="provience" style="width: 100%; height: 34px; ">
-                                            <option selected disabled value="0">Chọn tỉnh thành</option>
+                                        <select class="country" style="width: 100%; height: 34px; ">
+                                            <option selected disabled value="0">Chọn đất nước</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-3">
@@ -114,11 +114,11 @@
                                     </div>
                                 </div>
                                 <div class="row" style="margin-top: 20px;">
-                                    <textarea   style="resize: none; padding-left: 12px; padding-top: 12px; margin-left: 15px;border-radius: 5px; width: 96%; margin-right: 15px;" rows="4" class="descriptionTour" placeholder="Nhập mô tả về tour..."></textarea>
-                                </div>                             
+                                    <textarea style="resize: none; padding-left: 12px; padding-top: 12px; margin-left: 15px;border-radius: 5px; width: 96%; margin-right: 15px;" rows="4" class="descriptionTour" placeholder="Nhập mô tả về tour..."></textarea>
+                                </div>
                             </div>
-                            <button href="#" style="margin-left: 0px; margin-top: 10px; background-color: white; border-color: white" class="btn remove_field btn-warning">Xóa</button>
-                        </div>             
+                            <button style="margin-left: 0px; margin-top: 10px; background-color: white; border-color: white" class="btn remove_field btn-warning">Xóa</button>
+                        </div>
                     </div>
                     <button style="margin-top: -49px; width: 9%; float: right" class="add_field_button btn btn-info btn-block voffset10">Thêm</button>
                 </div>

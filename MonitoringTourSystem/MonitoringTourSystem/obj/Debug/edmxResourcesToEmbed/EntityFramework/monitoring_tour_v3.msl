@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="monitoring_tourModelStoreContainer" CdmEntityContainer="monitoring_tourEntities">
+  <EntityContainerMapping StorageEntityContainer="monitoring_tour_v3ModelStoreContainer" CdmEntityContainer="monitoring_tour_v3Entities">
     <EntitySetMapping Name="managers">
-      <EntityTypeMapping TypeName="monitoring_tourModel.manager">
+      <EntityTypeMapping TypeName="monitoring_tour_v3Model.manager">
         <MappingFragment StoreEntitySet="manager">
           <ScalarProperty Name="manager_id" ColumnName="manager_id" />
           <ScalarProperty Name="manager_name" ColumnName="manager_name" />
@@ -16,7 +16,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="messages">
-      <EntityTypeMapping TypeName="monitoring_tourModel.message">
+      <EntityTypeMapping TypeName="monitoring_tour_v3Model.message">
         <MappingFragment StoreEntitySet="message">
           <ScalarProperty Name="message_id" ColumnName="message_id" />
           <ScalarProperty Name="sender_id" ColumnName="sender_id" />
@@ -28,8 +28,9 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="places">
-      <EntityTypeMapping TypeName="monitoring_tourModel.place">
+      <EntityTypeMapping TypeName="monitoring_tour_v3Model.place">
         <MappingFragment StoreEntitySet="place">
+          <ScalarProperty Name="country_id" ColumnName="country_id" />
           <ScalarProperty Name="place_id" ColumnName="place_id" />
           <ScalarProperty Name="province_id" ColumnName="province_id" />
           <ScalarProperty Name="place_name" ColumnName="place_name" />
@@ -42,7 +43,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="provinces">
-      <EntityTypeMapping TypeName="monitoring_tourModel.province">
+      <EntityTypeMapping TypeName="monitoring_tour_v3Model.province">
         <MappingFragment StoreEntitySet="province">
           <ScalarProperty Name="province_id" ColumnName="province_id" />
           <ScalarProperty Name="province_name" ColumnName="province_name" />
@@ -51,8 +52,9 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tours">
-      <EntityTypeMapping TypeName="monitoring_tourModel.tour">
+      <EntityTypeMapping TypeName="monitoring_tour_v3Model.tour">
         <MappingFragment StoreEntitySet="tour">
+          <ScalarProperty Name="is_foreign_tour" ColumnName="is_foreign_tour" />
           <ScalarProperty Name="tour_id" ColumnName="tour_id" />
           <ScalarProperty Name="tour_code" ColumnName="tour_code" />
           <ScalarProperty Name="manager_id" ColumnName="manager_id" />
@@ -69,7 +71,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tour_participants">
-      <EntityTypeMapping TypeName="monitoring_tourModel.tour_participants">
+      <EntityTypeMapping TypeName="monitoring_tour_v3Model.tour_participants">
         <MappingFragment StoreEntitySet="tour_participants">
           <ScalarProperty Name="tour_participants1" ColumnName="tour_participants" />
           <ScalarProperty Name="tour_id" ColumnName="tour_id" />
@@ -78,8 +80,9 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tour_schedule">
-      <EntityTypeMapping TypeName="monitoring_tourModel.tour_schedule">
+      <EntityTypeMapping TypeName="monitoring_tour_v3Model.tour_schedule">
         <MappingFragment StoreEntitySet="tour_schedule">
+          <ScalarProperty Name="nameProvince" ColumnName="nameProvince" />
           <ScalarProperty Name="tour_schedule1" ColumnName="tour_schedule" />
           <ScalarProperty Name="tour_id" ColumnName="tour_id" />
           <ScalarProperty Name="place_id" ColumnName="place_id" />
@@ -91,7 +94,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tourguides">
-      <EntityTypeMapping TypeName="monitoring_tourModel.tourguide">
+      <EntityTypeMapping TypeName="monitoring_tour_v3Model.tourguide">
         <MappingFragment StoreEntitySet="tourguide">
           <ScalarProperty Name="tourguide_id" ColumnName="tourguide_id" />
           <ScalarProperty Name="tourguide_name" ColumnName="tourguide_name" />
@@ -106,7 +109,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tourists">
-      <EntityTypeMapping TypeName="monitoring_tourModel.tourist">
+      <EntityTypeMapping TypeName="monitoring_tour_v3Model.tourist">
         <MappingFragment StoreEntitySet="tourist">
           <ScalarProperty Name="tourist_id" ColumnName="tourist_id" />
           <ScalarProperty Name="tourist_name" ColumnName="tourist_name" />
@@ -121,7 +124,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="trackings">
-      <EntityTypeMapping TypeName="monitoring_tourModel.tracking">
+      <EntityTypeMapping TypeName="monitoring_tour_v3Model.tracking">
         <MappingFragment StoreEntitySet="tracking">
           <ScalarProperty Name="tracking_id" ColumnName="tracking_id" />
           <ScalarProperty Name="tour_id" ColumnName="tour_id" />
@@ -132,7 +135,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="warnings">
-      <EntityTypeMapping TypeName="monitoring_tourModel.warning">
+      <EntityTypeMapping TypeName="monitoring_tour_v3Model.warning">
         <MappingFragment StoreEntitySet="warning">
           <ScalarProperty Name="warning_id" ColumnName="warning_id" />
           <ScalarProperty Name="warner_id" ColumnName="warner_id" />
@@ -140,6 +143,15 @@
           <ScalarProperty Name="type" ColumnName="type" />
           <ScalarProperty Name="description" ColumnName="description" />
           <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="countries">
+      <EntityTypeMapping TypeName="monitoring_tour_v3Model.country">
+        <MappingFragment StoreEntitySet="country">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="country_name" ColumnName="country_name" />
+          <ScalarProperty Name="country_id" ColumnName="country_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -17,7 +17,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
+<script type="text/javascript" src="~/Scripts/sweetalert-dev.js"></script>
+<link rel="stylesheet" href="~/Scripts/sweetalert.css">
 
 @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -36,7 +37,7 @@
                 <header class="panel-heading" style="border: 1px solid #EAEBED; height: 14%">
                     <h3>Danh sách tour</h3>
                 </header>
-                <div class="panel-body" style="background-color: white; border: 1px solid #EAEBED;">    
+                <div class="panel-body" style="background-color: white; border: 1px solid #EAEBED;">
                     <ul class="nav nav-tabs" style="margin-top: 0px;">
                         <li class="active"><a data-toggle="tab" href="#home" style="color: #1FB5AD">Trong Nước</a></li>
                         <li><a data-toggle="tab" href="#menu1" style="color: #1FB5AD">Ngoài Nước</a></li>
@@ -46,7 +47,7 @@
                             <div style="padding-left: 0px; padding-right: 0px; margin-top: 10px;">
                                 <div id="searchform">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Tìm kiếm tour theo mã..." id="nametour" onkeyup="searchTour();" name="query" value="">
+                                        <input type="text" class="form-control" placeholder="Tìm kiếm tour theo mã..." id="nametourVietNam" onkeyup="searchTour();" name="query" value="">
                                         <div class="input-group-btn">
                                             <button type="submit" id="Search" class="btn">
                                                 <i class="fa fa-search" style="color: gray" aria-hidden="true"></i>
@@ -54,7 +55,7 @@
                                         </div>
                                     </div>
                                     <div class="input-group" style="margin-top: 10px; width: 100%;">
-                                        <div class="input-group date datepicker_end" >
+                                        <div class="input-group date datepicker_end">
                                             <input class="form-control" id="daysearch" type="text" placeholder="Tìm theo ngày" name="mytext[]">
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"></span>
@@ -62,12 +63,10 @@
                                         </div>
                                     </div>
                                     <div class="input-group" style="margin-top: 10px; width: 100%;">
-                                        <select id="region" style="width: 70%; margin-right: 10px; height: 34px; border-radius: 4px;">     
-                                            @*<option style="font-size: 18px;" value="audi" disabled selected>Chọn miền</option> 
-                                            <option style="font-size: 18px;" value="volvo">Miền Bắc</option>
-                                            <option style="font-size: 18px;" value="saab">Miền Trung</option>
-                                            <option style="font-size: 18px;" value="vw">Miền Nam</option>*@
-                                                                                 
+                                        <select id="region" style="width: 70%; margin-right: 10px; height: 34px; border-radius: 4px;">
+                                            <option style="font-size: 18px;" value="0" disabled selected>Chọn miền</option>
+
+
                                         </select>
                                         <button type="button" class="btn btn-primary" style="width: 25%; float: right" onclick="searchWithDateAndTown();">Tìm</button>
                                     </div>
@@ -78,7 +77,7 @@
                             </div>
                             <div id="group-list-tour" style="height: 100%; margin-top: -20px">
                                 @{
-                                    Html.RenderPartial("ListTour", Model);
+                                    Html.RenderPartial("ListTourVietNam", Model);
                                 }
                             </div>
                             <style>
@@ -146,7 +145,7 @@
                             <div style="padding-left: 0px; padding-right: 0px; margin-top: 10px;">
                                 <div id="searchform">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Tìm kiếm tour theo mã..." id="nametour" onkeyup="searchTour();" name="query" value="">
+                                        <input type="text" class="form-control" placeholder="Tìm kiếm tour theo mã..." id="nametourForeign" onkeyup="searchTourForeign();" name="query" value="">
                                         <div class="input-group-btn">
                                             <button type="submit" id="Search" class="btn">
                                                 <i class="fa fa-search" style="color: gray" aria-hidden="true"></i>
@@ -157,7 +156,7 @@
                             </div>
                             <div id="group-list-tour" style="height: 77%;">
                                 @{
-                                    Html.RenderPartial("ListTour", Model);
+                                    Html.RenderPartial("ListTourForeign", Model);
                                 }
                             </div>
                             <style>
@@ -218,7 +217,8 @@
                                                     -ms-transition: all 0.3s ease;
                                                     transition: all 0.3s ease;
                                                     color: #aeb2b7;
-                                                }
+
+                                }
                             </style>
                         </div>
                         <div id="menu2" class="tab-pane fade">
@@ -229,8 +229,8 @@
                             <h3>Menu 3</h3>
                             <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
                         </div>
-                    </div>            
-                    
+                    </div>
+
                 </div>
             </div>
             <div class="col-sm-8" style="height:100%;">
@@ -247,6 +247,7 @@
                         padding-top: 15px;
                         padding-bottom: 15px;
                     }
+
                     div.list-tour {
                         border-bottom: 1px solid #d7d7d7;
                     }

@@ -143,6 +143,6 @@ F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\EntityFra
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.AspNet.Identity.Core.xml
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.AspNet.Identity.Owin.xml
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\obj\Debug\MonitoringTourSystem.Presentation.csprojResolveAssemblyReference.cache
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\obj\Debug\MonitoringTourSystem.dll
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\obj\Debug\MonitoringTourSystem.pdb
+F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\obj\Debug\MonitoringTourSystem.Presentation.csprojResolveAssemblyReference.cache

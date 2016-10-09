@@ -1,16 +1,15 @@
 ﻿@model MonitoringTourSystem.ViewModel.TourDetailViewModel
 
-<div id="list-tour" style="height: 100% ; overflow-y: hidden">
+<div id="list-tour-foreign" style="height: 100% ; overflow-y: hidden">
     @{
-        if (Model.ListTour == null || Model.ListTour.Count == 0)
+        if (Model.ListTourForeign == null || Model.ListTourForeign.Count == 0)
         {
             <p style="margin: 10px 5px 10px; color: gray">Không tìm thấy tour</p>
         }
-        else if (Model.ListTour != null || Model.ListTour.Count != 0)
+        else if (Model.ListTourForeign != null || Model.ListTourForeign.Count != 0)
         {
-            foreach (var item in Model.ListTour)
+            foreach (var item in Model.ListTourForeign)
             {
-                
                 <ul class="list-tour" id="nav-accordion">
                     <li class="sub-menu">
                         <a href="#" onclick="GetTourDetail(@item.tour_id);">

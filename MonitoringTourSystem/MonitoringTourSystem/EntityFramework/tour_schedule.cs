@@ -21,5 +21,6 @@ namespace MonitoringTourSystem.EntityFramework
         public string vehicle { get; set; }
         public System.DateTime time { get; set; }
         public string description { get; set; }
+        public string nameProvince { get; set; }
     }
 }

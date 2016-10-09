@@ -178,55 +178,59 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\Account\AccountController.cs" />
     <Compile Include="Controllers\CreateTourController.cs" />
+    <Compile Include="Controllers\EditTourController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TourDetailController.cs" />
+    <Compile Include="EntityFramework\country.cs">
+      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityFramework\manager.cs">
-      <DependentUpon>Monitoring_tour.tt</DependentUpon>
+      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityFramework\message.cs">
-      <DependentUpon>Monitoring_tour.tt</DependentUpon>
+      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
     </Compile>
-    <Compile Include="EntityFramework\Monitoring_tour.Context.cs">
+    <Compile Include="EntityFramework\monitoring_tour_v3.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Monitoring_tour.Context.tt</DependentUpon>
+      <DependentUpon>monitoring_tour_v3.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="EntityFramework\Monitoring_tour.cs">
+    <Compile Include="EntityFramework\monitoring_tour_v3.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Monitoring_tour.tt</DependentUpon>
+      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
     </Compile>
-    <Compile Include="EntityFramework\Monitoring_tour.Designer.cs">
+    <Compile Include="EntityFramework\monitoring_tour_v3.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Monitoring_tour.edmx</DependentUpon>
+      <DependentUpon>monitoring_tour_v3.edmx</DependentUpon>
     </Compile>
     <Compile Include="EntityFramework\place.cs">
-      <DependentUpon>Monitoring_tour.tt</DependentUpon>
+      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityFramework\province.cs">
-      <DependentUpon>Monitoring_tour.tt</DependentUpon>
+      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityFramework\tour.cs">
-      <DependentUpon>Monitoring_tour.tt</DependentUpon>
+      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityFramework\tourguide.cs">
-      <DependentUpon>Monitoring_tour.tt</DependentUpon>
+      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityFramework\tourist.cs">
-      <DependentUpon>Monitoring_tour.tt</DependentUpon>
+      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityFramework\tour_participants.cs">
-      <DependentUpon>Monitoring_tour.tt</DependentUpon>
+      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityFramework\tour_schedule.cs">
-      <DependentUpon>Monitoring_tour.tt</DependentUpon>
+      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityFramework\tracking.cs">
-      <DependentUpon>Monitoring_tour.tt</DependentUpon>
+      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityFramework\warning.cs">
-      <DependentUpon>Monitoring_tour.tt</DependentUpon>
+      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -238,6 +242,7 @@
     <Compile Include="Models\StatusTour.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\CreateTourViewModel.cs" />
+    <Compile Include="ViewModel\EditTourViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\TourDetailViewModel.cs" />
   </ItemGroup>
@@ -251,9 +256,22 @@
     <Content Include="Content\Images\ic_delete.png" />
     <Content Include="Content\Images\ic_edit.png" />
     <Content Include="Content\Images\ic_logo.png" />
+    <Content Include="Content\Images\ic_pause.png" />
+    <Content Include="Content\Images\ic_pausetour.png" />
     <Content Include="Content\Images\ic_start.png" />
     <Content Include="Content\Images\ic_status.png" />
     <Content Include="Content\Images\ic_statuss.png" />
+    <Content Include="EntityFramework\monitoring_tour_v3.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>monitoring_tour_v3.edmx</DependentUpon>
+      <LastGenOutput>monitoring_tour_v3.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityFramework\monitoring_tour_v3.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>monitoring_tour_v3.edmx</DependentUpon>
+      <LastGenOutput>monitoring_tour_v3.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\CreateTour\createforeigntour.js" />
     <Content Include="Scripts\Home\css\chat.css" />
     <Content Include="Content\DropdowSelect\select2.min.css" />
     <Content Include="Content\DropdowSelect\select2.min.js" />
@@ -282,16 +300,6 @@
     <Content Include="Content\Images\user.png" />
     <Content Include="Content\Images\warning.png" />
     <Content Include="Scripts\TourDetail\css\timelineSchedule.css" />
-    <Content Include="EntityFramework\Monitoring_tour.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Monitoring_tour.edmx</DependentUpon>
-      <LastGenOutput>Monitoring_tour.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="EntityFramework\Monitoring_tour.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Monitoring_tour.edmx</DependentUpon>
-      <LastGenOutput>Monitoring_tour.cs</LastGenOutput>
-    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -423,12 +431,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <EntityDeploy Include="EntityFramework\Monitoring_tour.edmx">
+    <EntityDeploy Include="EntityFramework\monitoring_tour_v3.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Monitoring_tour.Designer.cs</LastGenOutput>
+      <LastGenOutput>monitoring_tour_v3.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="EntityFramework\Monitoring_tour.edmx.diagram">
-      <DependentUpon>Monitoring_tour.edmx</DependentUpon>
+    <Content Include="EntityFramework\monitoring_tour_v3.edmx.diagram">
+      <DependentUpon>monitoring_tour_v3.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CreateTour\createtour.js" />
@@ -475,14 +483,17 @@
     <Content Include="Views\Home\ListTourGuide.cshtml" />
     <Content Include="Views\Home\Message.cshtml" />
     <Content Include="Views\Home\Map.cshtml" />
-    <Content Include="Views\CreateTour\TourForm.cshtml" />
+    <Content Include="Views\CreateTour\TourForeign.cshtml" />
     <Content Include="Views\TrackingTour\TrackingTourView.cshtml" />
-    <Content Include="Views\CreateTour\Index.cshtml" />
+    <Content Include="Views\CreateTour\TourVietNam.cshtml" />
     <Content Include="Views\TourDetail\Index.cshtml" />
     <Content Include="Views\TourDetail\ScheduleTourTimeline.cshtml" />
-    <Content Include="Views\TourDetail\ListTour.cshtml" />
+    <Content Include="Views\TourDetail\ListTourVietNam.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\EditTour\EditTour.cshtml" />
+    <Content Include="Views\TourDetail\ListTourForeign.cshtml" />
+    <Content Include="Views\CreateTour\CreateTourChoose.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="monitoring_tourModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="monitoring_tour_v3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="manager">
     <Key>
       <PropertyRef Name="manager_id" />
@@ -36,6 +36,7 @@
     <Property Name="cover_photo" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="latitude" Type="Double" Nullable="false" />
     <Property Name="longitude" Type="Double" Nullable="false" />
+    <Property Name="country_id" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="province">
     <Key>
@@ -61,6 +62,7 @@
     <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="day" Type="Int32" Nullable="false" />
     <Property Name="cover_photo" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="is_foreign_tour" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="tour_participants">
     <Key>
@@ -81,6 +83,7 @@
     <Property Name="vehicle" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="time" Type="DateTime" Nullable="false" />
     <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nameProvince" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="tourguide">
     <Key>
@@ -136,7 +139,7 @@
     <Property Name="description" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="status" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
-  <EntityContainer Name="monitoring_tourEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="monitoring_tour_v3Entities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="managers" EntityType="Self.manager" />
     <EntitySet Name="messages" EntityType="Self.message" />
     <EntitySet Name="places" EntityType="Self.place" />
@@ -148,5 +151,16 @@
     <EntitySet Name="tourists" EntityType="Self.tourist" />
     <EntitySet Name="trackings" EntityType="Self.tracking" />
     <EntitySet Name="warnings" EntityType="Self.warning" />
+    <EntitySet Name="countries" EntityType="monitoring_tour_v3Model.country" />
   </EntityContainer>
+  <EntityType Name="country">
+    <Key>
+      <PropertyRef Name="country_id" />
+      <PropertyRef Name="country_name" />
+      <PropertyRef Name="description" />
+    </Key>
+    <Property Name="country_id" Type="Int32" Nullable="false" />
+    <Property Name="country_name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

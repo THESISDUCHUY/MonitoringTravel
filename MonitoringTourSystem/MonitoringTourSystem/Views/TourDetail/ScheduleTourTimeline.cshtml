@@ -2,9 +2,11 @@
 
 
 @{
-    if (Model == null &&  Model.ListScheduleDay == null && Model.TourGuideName == null && Model.TourItem == null)
+    if (Model == null)
     {
-        <p>Không có tour nào đang hoạt động</p>
+        <div class="alert alert-info">
+            Chọn tour bất kỳ để xem chi tiết.
+        </div>
     }
     else
     {
@@ -12,20 +14,35 @@
         <div class="details-tour">
 
             <div class="row">
+                @{
+                    if (Model.TourItem.status == "Running")
+                    {
+                        <div class="col-sm-3">
+                            <a  style="text-decoration:none; color: #FF0000">
+                                <img src="~/Content/Images/ic_pausetour.png" width="25" height="25" />
+                                Đang Hoạt Động
+                            </a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-sm-3">
+                            <a href="#" onclick="activatedTour(@Model.TourItem.tour_id);" style="text-decoration:none">
+                                <img src="~/Content/Images/ic_start.png" width="25" height="25" />
+                                Bắt Đầu
+                            </a>
+                        </div>
+                    }
+                }
+                
                 <div class="col-sm-3">
-                    <a href="#" style="text-decoration:none">
-                        <img src="~/Content/Images/ic_start.png" width="25" height="25"/>
-                        Bắt Đầu
-                    </a>
-                </div>
-                <div class="col-sm-3">
-                    <a href="#" style="text-decoration:none">
+                    <a href="/TourDetail/EditTour/@Model.TourItem.tour_id" style="text-decoration:none">
                         <img src="~/Content/Images/ic_edit.png" width="25" height="25" />
                         Sửa Tour
                     </a>
                 </div>
                 <div class="col-sm-3" style="text-decoration:none">
-                    <a href="#" style="text-decoration:none" >
+                    <a href="#" onclick="deleteTour(@Model.TourItem.tour_id);"  style="text-decoration:none" >
                         <img src="~/Content/Images/ic_delete.png" width="25" height="25"  />
                         Xóa Tour
                     </a>
@@ -111,7 +128,7 @@
                                                         </div>
 
                                                         <div class="timeline-label">
-                                                            <h2><a href="#">@item1.place_name</a></h2>
+                                                            <h2><a href="#">@item1.nameProvince -  @item1.place_name</a></h2>
                                                             <p>@item1.description</p>
                                                         </div>
                                                     </div>

@@ -13,10 +13,10 @@ namespace MonitoringTourSystem.EntityFramework
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class monitoring_tourEntities : DbContext
+    public partial class monitoring_tour_v3Entities : DbContext
     {
-        public monitoring_tourEntities()
-            : base("name=monitoring_tourEntities")
+        public monitoring_tour_v3Entities()
+            : base("name=monitoring_tour_v3Entities")
         {
         }
     
@@ -36,5 +36,6 @@ namespace MonitoringTourSystem.EntityFramework
         public virtual DbSet<tourist> tourists { get; set; }
         public virtual DbSet<tracking> trackings { get; set; }
         public virtual DbSet<warning> warnings { get; set; }
+        public virtual DbSet<country> countries { get; set; }
     }
 }

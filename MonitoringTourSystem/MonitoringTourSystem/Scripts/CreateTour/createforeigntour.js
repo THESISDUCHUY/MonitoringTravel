@@ -3,7 +3,7 @@
     var max_fields = 100; //maximum input boxes allowed
     var wrapper = $(".schedule-form"); //Fields wrapper
     var add_button = $(".add_field_button"); //Add button ID
-    var province_button = $(".provience");
+    var province_button = $(".country");
     var x = 1; //initlal text box count
 
     $('#datetimepicker2').datetimepicker();
@@ -50,7 +50,7 @@
     });
 
     $.ajax({
-        url: "/CreateTour/GetProvince",
+        url: "/CreateTour/GetCountry",
         type: "GET",
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
@@ -60,11 +60,11 @@
         success: function (result) {
             var results = $.parseJSON(result);
             $(results).each(function (index, value) {
-                var provinceName = this['province_name'];
-                var provinceID = this['province_id'];
-                $(".provience").append(new Option(provinceName, provinceID))
+                var countryName = this['country_name'];
+                var countryID = this['country_id'];
+                $(".country").append(new Option(countryName, countryID))
             });
-            $(".provience").select2({
+            $(".country").select2({
 
             });
         },
@@ -96,14 +96,14 @@
         }
     });
 
-    $(document).on('change', '.schedule-form .tour-travel .provience', function () {
+    $(document).on('change', '.schedule-form .tour-travel .country', function () {
 
         var parent = $(this).parent();
         parent.closest('.tour-travel').find('.placeschedule:last').children().remove();
         var vehecial = ["Xe máy", "Xe ô-tô", "Máy bay"];
         var id = $(this).val();
         $.ajax({
-            url: "/CreateTour/GetListPlace/" + id,
+            url: "/CreateTour/GetListPlaceForCountry/" + id,
             type: "GET",
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
@@ -165,8 +165,8 @@
                                 </div>\
                             </div>\
                             <div class="col-sm-3">\
-                                <select class="provience" style="width: 100%; height: 34px;">\
-                                    <option selected disabled value="0">Chọn tỉnh thành</option>\
+                                <select class="country" style="width: 100%; height: 34px;">\
+                                    <option selected disabled value="0">Chọn đất nước</option>\
                                 </select>\
                             </div>\
                             <div class="col-sm-3">\
@@ -201,9 +201,9 @@
                     $(results).each(function (index, value) {
                         var provinceName = this['province_name'];
                         var provinceID = this['province_id'];
-                        parent.children().find('.provience:last').append(new Option(provinceName, provinceID))
+                        parent.children().find('.country:last').append(new Option(provinceName, provinceID))
                     });
-                    parent.children().find('.provience:last').select2({
+                    parent.children().find('.country:last').select2({
 
                     });
                 },
@@ -293,7 +293,7 @@ function addNewTour() {
         var vehicalschedule = $(this).children().find('.vehicalschedule option:selected').text();
         var vehicalscheduleVal = $(this).children().find('.vehicalschedule option:selected').val();
         var descriptionTour = $(this).children().find('.descriptionTour').val();
-        var provinceName = $(this).children().find('.provience option:selected').text();
+
         if (time == null || time == "") {
             swal("Nhập thời gian hành trình tour!");
             isValidSchedule = false;
@@ -316,18 +316,12 @@ function addNewTour() {
             isValidSchedule = false;
             return;
         }
-        else if (provinceName == "chọn tỉnh thành")
-        {
-            swal("Chọn tỉnh thành!");
-            isValidSchedule = false;
-            return;
-        }
         else if (descriptionTour == "" || descriptionTour == null) {
             swal("Nhập mô tả chi tiết về hành trình tour!");
             isValidSchedule = false;
             return;
         }
-        alert(provinceName);
+        alert(placename);
         listSchedule[index] =
             {
                 tour_schedule1: null,
@@ -336,8 +330,7 @@ function addNewTour() {
                 place_name: placename,
                 vehicle: vehicalschedule,
                 time: time,
-                description: descriptionTour,
-                nameProvince: provinceName
+                description: descriptionTour
             };
         index++;
     });

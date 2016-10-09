@@ -14,7 +14,11 @@ namespace MonitoringTourSystem.ViewModel
         public tour TourItem {
             get;
             set;
- }
+        }
         public string TourGuideName { get; set; }
+
+        public List<tour> ListTourVietNam { get; set; }
+        public List<tour> ListTourForeign { get; set; }
+
     }
 }

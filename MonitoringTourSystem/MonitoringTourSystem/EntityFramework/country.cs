@@ -12,16 +12,10 @@ namespace MonitoringTourSystem.EntityFramework
     using System;
     using System.Collections.Generic;
     
-    public partial class place
+    public partial class country
     {
-        public int place_id { get; set; }
-        public string province_id { get; set; }
-        public string place_name { get; set; }
-        public string contact { get; set; }
-        public string address { get; set; }
-        public string cover_photo { get; set; }
-        public double latitude { get; set; }
-        public double longitude { get; set; }
         public int country_id { get; set; }
+        public string country_name { get; set; }
+        public string description { get; set; }
     }
 }

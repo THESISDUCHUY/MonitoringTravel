@@ -15,14 +15,27 @@ namespace MonitoringTourSystem.Controllers
 {
     public class CreateTourController : Controller
     {
+        
         static string pathImage;
-        public readonly monitoring_tourEntities MonitoringTourSystem = new monitoring_tourEntities();
+        public readonly monitoring_tour_v3Entities MonitoringTourSystem = new monitoring_tour_v3Entities();
         // GET: CreateTour
-        public ActionResult Index()
+        public ActionResult TourVietNam()
         {
             GetPlaceForTourSchedule();
-            return View();
+            return View("TourVietNam");
         }
+
+        public ActionResult TourForeign()
+        {
+            GetPlaceForTourSchedule();
+            return View("TourForeign");
+        }
+
+        public ActionResult CreateTourChoose()
+        {
+            return View("CreateTourChoose");
+        }
+
         public ActionResult GetPlaceForTourSchedule()
         {
             var listPlaceTour = MonitoringTourSystem.places.ToList();
@@ -52,10 +65,32 @@ namespace MonitoringTourSystem.Controllers
         }
 
         [HttpGet]
+        public JsonResult GetListPlaceForCountry(int id)
+        {
+            var listPlaceTour = from place in MonitoringTourSystem.places
+                                where place.country_id == id
+                                select place;
+
+
+            var jsonString = JsonConvert.SerializeObject(listPlaceTour);
+            return Json(jsonString, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
         public JsonResult GetProvince()
         {
             var listProvince = MonitoringTourSystem.provinces.ToList();
             var jsonString = JsonConvert.SerializeObject(listProvince);
+            return Json(jsonString, JsonRequestBehavior.AllowGet);
+        }
+
+        //Get list country
+        [HttpGet]
+
+        public JsonResult GetCountry()
+        {
+            var listCountry = MonitoringTourSystem.countries.ToList();
+            var jsonString = JsonConvert.SerializeObject(listCountry);
             return Json(jsonString, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
@@ -75,7 +110,7 @@ namespace MonitoringTourSystem.Controllers
                 }
                 catch
                 {
-                    tourID = -1;
+                    tourID = 0;
                 }
                 var statusTour = StatusTour.Opening;
                 try
@@ -120,13 +155,17 @@ namespace MonitoringTourSystem.Controllers
                 }
             }
         }
+
+
+       
+
         // Add data to database
         public bool AddNewTour(tour tourModel, List<tour_schedule> tourScheduleModel)
         {
             try
             {
                 // Insert database to tour table
-                using (var context = new monitoring_tourEntities())
+                using (var context = new monitoring_tour_v3Entities())
                 {
                     var tourModelData = context.Set<tour>();
                     tourModelData.Add(tourModel);

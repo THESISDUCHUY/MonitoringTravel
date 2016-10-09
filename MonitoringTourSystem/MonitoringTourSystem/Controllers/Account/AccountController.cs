@@ -12,7 +12,7 @@ namespace MonitoringTourSystem.Controllers.Account
     public class AccountController : Controller
     {
 
-        public readonly monitoring_tourEntities MonitoringTourSystem = new monitoring_tourEntities();
+        public readonly monitoring_tour_v3Entities MonitoringTourSystem = new monitoring_tour_v3Entities();
         // GET: Account
         public ActionResult Index()
         {
@@ -95,7 +95,7 @@ namespace MonitoringTourSystem.Controllers.Account
 
             try
             {
-                using (var context = new monitoring_tourEntities())
+                using (var context = new monitoring_tour_v3Entities())
                 {
                     var managerUserData = context.Set<manager>();
                     managerUserData.Add(managerUser);
