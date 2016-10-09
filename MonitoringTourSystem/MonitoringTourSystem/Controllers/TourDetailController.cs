@@ -18,12 +18,13 @@ namespace MonitoringTourSystem.Controllers
         // GET: TourDetail
         private static List<tour> listTour = new List<tour>();
 
+        private static List<place> listPlace = new List<place>();
 
 
         public ActionResult Index()
         {
             listTour = MonitoringTourSystem.tours.ToList();
-
+            listPlace = MonitoringTourSystem.places.ToList();
             var listTourVietNam = listTour.Where(x => x.is_foreign_tour == 0).ToList();
             var listTourForeign = listTour.Where(x => x.is_foreign_tour == 1).ToList();
             var model = new TourDetailViewModel() { ListTour = listTour, ListTourVietNam = listTourVietNam, ListTourForeign = listTourForeign };
@@ -66,11 +67,13 @@ namespace MonitoringTourSystem.Controllers
                 }
             }
             var tourScheduleItem = new List<tour_schedule>();
+
             for (int j = indexStart; j < listSchedule.Count; j ++)
             {
-
+                int place_id = Convert.ToInt32(listSchedule[j].place_id);
+                var image = listPlace.Where(x => x.place_id == place_id).First();
+                listSchedule[j].image = image.cover_photo;
                 tourScheduleItem.Add(listSchedule[j]);    
-                    
             }
             ListScheduleDay.Add(new ScheduleDay() { TourSchedule = tourScheduleItem });
 
@@ -98,6 +101,7 @@ namespace MonitoringTourSystem.Controllers
         {
             if (id != null)
             {
+                id = id.ToUpper();
                 var listTourSearch = (from item in listTour
                                       where item.tour_code.ToString().Contains(id) && item.is_foreign_tour == 0
                                       select item).ToList();
@@ -117,6 +121,7 @@ namespace MonitoringTourSystem.Controllers
         {
             if (id != null)
             {
+                id = id.ToUpper();
                 var listTourSearch = (from item in listTour
                                       where item.tour_code.ToString().Contains(id) && item.is_foreign_tour == 1
                                       select item).ToList();
@@ -142,6 +147,11 @@ namespace MonitoringTourSystem.Controllers
                                       select item).ToList();
                 var model = new TourDetailViewModel() { ListTourVietNam = listTourSearch };
                 return PartialView("ListTourVietNam", model);
+
+                using (var transaction = MonitoringTourSystem.Database.BeginTransaction())
+                {
+
+                }
             }
             else if(dateSearch != null)
             {
@@ -217,10 +227,8 @@ namespace MonitoringTourSystem.Controllers
     public class ScheduleDay
     {
         public string NumberDay { get; set; }
-        public List<tour_schedule> TourSchedule { get; set; }
-        
+        public List<tour_schedule> TourSchedule { get; set; }       
+        public string Image { get; set; }
         public string NameProvince { get; set; }
-
-
     }
 }

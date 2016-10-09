@@ -13,7 +13,7 @@
 
 <script type="text/javascript" src="~/Scripts/sweetalert-dev.js"></script>
 <link rel="stylesheet" href="~/Scripts/sweetalert.css">
-<script src="~/Scripts/CreateTour/createtour.js"></script>
+<script src="~/Scripts/CreateTour/createforeigntour.js"></script>
 
 <script>
 
@@ -83,8 +83,10 @@
             var placename = $(this).children().find('.placeschedule option:selected').text();
             var placenameVal = $(this).children().find('.placeschedule option:selected').val();
             var vehicalschedule = $(this).children().find('.vehicalschedule option:selected').text();
-            var descriptionTour = $(this).children().find('.descriptionTour').val();
-            var provinceName = $(this).children().find('.provience option:selected').text();
+            var descriptionTour = $(this).children().find('.descriptionTour').val();         
+            provinceName = $(this).children().find('.country option:selected').text();
+
+
             if (time == null || time == "") {
                 swal("Nhập thời gian hành trình tour!");
                 isValidSchedule = false;
@@ -97,12 +99,12 @@
                 //    isValidSchedule = false;
                 //}
             else if (placenameVal == "0") {
-                swal("Nhập địa điểm tour!");
+                swal("Nhập địa điểm");
                 isValidSchedule = false;
                 return;
             }
-            else if (provinceName == "Chọn tỉnh thành") {
-                swal("Chọn tỉnh thành!");
+            else if (provinceName == "Chọn đất nước") {
+                swal("Chọn đất nước!");
                 isValidSchedule = false;
                 return;
             }
@@ -125,7 +127,8 @@
                     place_name: placename,
                     vehicle: vehicalschedule,
                     time: time,
-                    description: descriptionTour
+                    description: descriptionTour,
+                    nameProvince: provinceName
                 };
             index++;
         });
@@ -253,7 +256,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-sm-3">
-                                                <select class="provience" style="width: 100%; height: 34px; ">
+                                                <select class="country" style="width: 100%; height: 34px; ">
                                                     <option selected disabled value="0">@Model.ListProvienWithPlace[i].ProvinceName</option>
                                                 </select>
                                             </div>

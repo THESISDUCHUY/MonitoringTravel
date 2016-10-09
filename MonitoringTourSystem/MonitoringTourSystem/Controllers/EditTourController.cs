@@ -69,54 +69,104 @@ namespace MonitoringTourSystem.Controllers
                                  select tourGuide).ToList();
             var touItem = listTour.Where(x => x.tour_id == idInt).First();
 
-            var model = new TourDetailViewModel() { TourItem = touItem, ListScheduleDay = ListScheduleDay, TourGuideName = tourGuideName[0].tourguide_name };
-
-            var tourDetail = model;
-            var listProvice = MonitoringTourSystem.provinces.ToList();
-            var listTourGuide = MonitoringTourSystem.tourguides.ToList();
-
-            var listPlace = MonitoringTourSystem.places.ToList();
-
-            var listProvinceSelect = new List<string>();
-
-            foreach (var item in tourDetail.ListScheduleDay)
+            if (touItem.is_foreign_tour == 0)
             {
-                foreach (var item1 in item.TourSchedule)
+
+                var model = new TourDetailViewModel() { TourItem = touItem, ListScheduleDay = ListScheduleDay, TourGuideName = tourGuideName[0].tourguide_name };
+
+                var tourDetail = model;
+                var listProvice = MonitoringTourSystem.provinces.ToList();
+                var listTourGuide = MonitoringTourSystem.tourguides.ToList();
+
+                var listPlace = MonitoringTourSystem.places.ToList();
+
+                var listProvinceSelect = new List<string>();
+
+                foreach (var item in tourDetail.ListScheduleDay)
                 {
-                    var place_id_int = Convert.ToInt32(item1.place_id);
+                    foreach (var item1 in item.TourSchedule)
+                    {
+                        var place_id_int = Convert.ToInt32(item1.place_id);
 
-                    var provinceID = listPlace.Where(y => y.place_id == place_id_int).ToList();
+                        var provinceID = listPlace.Where(y => y.place_id == place_id_int).ToList();
 
-                    var provinceItem = listProvice.Where(x => x.province_id == provinceID[0].province_id).ToList();
+                        var provinceItem = listProvice.Where(x => x.province_id == provinceID[0].province_id).ToList();
 
-                    listProvinceSelect.Add(provinceItem[0].province_id);
+                        listProvinceSelect.Add(provinceItem[0].province_id);
+                    }
                 }
+
+
+                for (int i = 0; i < listProvinceSelect.Count; i++)
+                {
+                    var listPlaceOfProvince = listPlace.Where(x => x.province_id == listProvinceSelect[i]).ToList();
+                    var provinceName = listProvice.Where(x => x.province_id == listProvinceSelect[i]).ToList();
+                    Model.ListProvienWithPlace.Add(new ListProvienWithPlace() { ProvinceName = provinceName[0].province_name, ListPlaceWithProvince = listPlaceOfProvince });
+                }
+
+                var listTourSchedule = (from item in MonitoringTourSystem.tour_schedule
+                                        where item.tour_id == idInt
+                                        select item).ToList();
+
+
+                Model.TourDetail = tourDetail;
+                Model.ListTourGuide = listTourGuide;
+                Model.ListTourSchedule = listTourSchedule;
+
+                return View("EditTour", Model);
             }
-
-
-            for (int i = 0; i < listProvinceSelect.Count; i++)
+            else
             {
-                var listPlaceOfProvince = listPlace.Where(x => x.province_id == listProvinceSelect[i]).ToList();
-                var provinceName = listProvice.Where(x => x.province_id == listProvinceSelect[i]).ToList();
-                Model.ListProvienWithPlace.Add(new ListProvienWithPlace() { ProvinceName = provinceName[0].province_name, ListPlaceWithProvince = listPlaceOfProvince });
+                var model = new TourDetailViewModel() { TourItem = touItem, ListScheduleDay = ListScheduleDay, TourGuideName = tourGuideName[0].tourguide_name };
+
+                var tourDetail = model;
+                var listCountry = MonitoringTourSystem.countries.ToList();
+                var listTourGuide = MonitoringTourSystem.tourguides.ToList();
+
+                var listPlace = MonitoringTourSystem.places.ToList();
+
+                var listCountrySelect = new List<int>();
+
+                foreach (var item in tourDetail.ListScheduleDay)
+                {
+                    foreach (var item1 in item.TourSchedule)
+                    {
+                        var place_id_int = Convert.ToInt32(item1.place_id);
+
+                        var countryID = listPlace.Where(y => y.place_id == place_id_int).ToList();
+
+                        var provinceItem = listCountry.Where(x => x.country_id == countryID[0].country_id).ToList();
+
+                        listCountrySelect.Add(provinceItem[0].country_id);
+                    }
+                }
+
+
+                for (int i = 0; i < listCountrySelect.Count; i++)
+                {
+                    var listPlaceOfProvince = listPlace.Where(x => x.country_id == listCountrySelect[i]).ToList();
+                    var countryName = listCountry.Where(x => x.country_id == listCountrySelect[i]).ToList();
+                    Model.ListProvienWithPlace.Add(new ListProvienWithPlace() { ProvinceName = countryName[0].country_name, ListPlaceWithProvince = listPlaceOfProvince });
+                }
+
+                var listTourSchedule = (from item in MonitoringTourSystem.tour_schedule
+                                        where item.tour_id == idInt
+                                        select item).ToList();
+
+
+                Model.TourDetail = tourDetail;
+                Model.ListTourGuide = listTourGuide;
+                Model.ListTourSchedule = listTourSchedule;
+
+                return View("EditTourForeign", Model);
             }
-
-            var listTourSchedule = (from item in MonitoringTourSystem.tour_schedule
-                                    where item.tour_id == idInt
-                                    select item).ToList();
-
-            
-            Model.TourDetail = tourDetail;
-            Model.ListTourGuide = listTourGuide;
-            Model.ListTourSchedule = listTourSchedule;
-
-            return View("EditTour", Model);
         }
 
         [HttpPost]
         public JsonResult UpdateTour(tour obj)
         {
             string pathCoverPhoto = null;
+            int isForeignTour = 0;
             try
             {
                 
@@ -124,6 +174,7 @@ namespace MonitoringTourSystem.Controllers
                 if (pathImage == null)
                 {
                     pathCoverPhoto = tourSelect.cover_photo;
+                    isForeignTour = tourSelect.is_foreign_tour;
                 }
 
                 tourSelect.tourguide_id = obj.tourguide_id;
@@ -137,6 +188,7 @@ namespace MonitoringTourSystem.Controllers
                 tourSelect.day = obj.day;
                 tourSelect.status = tourSelect.status;
                 tourSelect.cover_photo = pathCoverPhoto;
+                tourSelect.is_foreign_tour = isForeignTour;
 
                 using (var context = new monitoring_tour_v3Entities())
                 {

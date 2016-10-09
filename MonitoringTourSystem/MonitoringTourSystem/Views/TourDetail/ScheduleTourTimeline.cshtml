@@ -112,13 +112,13 @@
                             <div class="row" style="background-color: #1FB5AD; width: 21%; margin-left: 0">
                                 <h4 style="color: white; margin-left: 20px;">NGÀY @index</h4>
                             </div>
-
                             <div class="row" style="margin-left: -400px; margin-right: 20px; margin-top: 20px;">
                                 <div class="row">
                                     <div class="timeline-centered">
                                         @{
                                             foreach (var item1 in item.TourSchedule)
                                             {
+                                                string imageLink = "http://localhost:20261/Content/Images/" + @item1.image;
                                                 <article class="timeline-entry">
                                                     <div class="timeline-entry-inner">
                                                         <time class="timeline-time" datetime="2014-01-10T03:45"><span>@item1.time.ToString("dd/MM/yyyy")</span> <span>@item1.time.ToString("HH:mm")</span></time>
@@ -126,10 +126,11 @@
                                                         <div class="timeline-icon bg-success">
                                                             <i class="entypo-feather"></i>
                                                         </div>
-
                                                         <div class="timeline-label">
                                                             <h2><a href="#">@item1.nameProvince -  @item1.place_name</a></h2>
                                                             <p>@item1.description</p>
+                                                            
+                                                            <img src="@imageLink" class="img-responsive img-rounded full-width">
                                                         </div>
                                                     </div>
                                                 </article>

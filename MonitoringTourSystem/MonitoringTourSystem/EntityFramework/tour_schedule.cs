@@ -22,5 +22,7 @@ namespace MonitoringTourSystem.EntityFramework
         public System.DateTime time { get; set; }
         public string description { get; set; }
         public string nameProvince { get; set; }
+
+        public string image { get; set; }
     }
 }

@@ -189,7 +189,7 @@
                 ');
             var vehecial = ["Xe máy", "Xe ô-tô", "Máy bay"];
             $.ajax({
-                url: "/CreateTour/GetProvince",
+                url: "/CreateTour/GetCountry",
                 type: "GET",
                 dataType: 'json',
                 contentType: 'application/json; charset=utf-8',
@@ -199,9 +199,9 @@
                 success: function (result) {
                     var results = $.parseJSON(result);
                     $(results).each(function (index, value) {
-                        var provinceName = this['province_name'];
-                        var provinceID = this['province_id'];
-                        parent.children().find('.country:last').append(new Option(provinceName, provinceID))
+                        var countryName = this['country_name'];
+                        var countryID = this['country_id'];
+                        parent.children().find('.country:last').append(new Option(countryName, countryID))
                     });
                     parent.children().find('.country:last').select2({
 
@@ -293,7 +293,7 @@ function addNewTour() {
         var vehicalschedule = $(this).children().find('.vehicalschedule option:selected').text();
         var vehicalscheduleVal = $(this).children().find('.vehicalschedule option:selected').val();
         var descriptionTour = $(this).children().find('.descriptionTour').val();
-
+        var countryName = $(this).children().find('.country option:selected').text();
         if (time == null || time == "") {
             swal("Nhập thời gian hành trình tour!");
             isValidSchedule = false;
@@ -330,7 +330,8 @@ function addNewTour() {
                 place_name: placename,
                 vehicle: vehicalschedule,
                 time: time,
-                description: descriptionTour
+                description: descriptionTour,
+                nameProvince: countryName
             };
         index++;
     });

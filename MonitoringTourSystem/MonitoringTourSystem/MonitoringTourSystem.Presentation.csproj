@@ -253,6 +253,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\1-thich-ca-Phat-dai.jpg" />
+    <Content Include="Content\Images\ban-dao-son-tra-ivivu.jpg" />
+    <Content Include="Content\Images\deo-hai-van-ivivu-1.jpg" />
     <Content Include="Content\Images\ic_delete.png" />
     <Content Include="Content\Images\ic_edit.png" />
     <Content Include="Content\Images\ic_logo.png" />
@@ -261,6 +264,9 @@
     <Content Include="Content\Images\ic_start.png" />
     <Content Include="Content\Images\ic_status.png" />
     <Content Include="Content\Images\ic_statuss.png" />
+    <Content Include="Content\Images\karma-13545.jpg" />
+    <Content Include="Content\Images\lalu-13545.jpg" />
+    <Content Include="Content\Images\morakot2-13545.jpg" />
     <Content Include="EntityFramework\monitoring_tour_v3.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>monitoring_tour_v3.edmx</DependentUpon>
@@ -494,6 +500,7 @@
     <Content Include="Views\EditTour\EditTour.cshtml" />
     <Content Include="Views\TourDetail\ListTourForeign.cshtml" />
     <Content Include="Views\CreateTour\CreateTourChoose.cshtml" />
+    <Content Include="Views\EditTour\EditTourForeign.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

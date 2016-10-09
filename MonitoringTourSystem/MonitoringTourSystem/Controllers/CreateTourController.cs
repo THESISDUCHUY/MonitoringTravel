@@ -18,15 +18,19 @@ namespace MonitoringTourSystem.Controllers
         
         static string pathImage;
         public readonly monitoring_tour_v3Entities MonitoringTourSystem = new monitoring_tour_v3Entities();
+        private static bool isForeignTour = false;
+
         // GET: CreateTour
         public ActionResult TourVietNam()
         {
+            isForeignTour = false;
             GetPlaceForTourSchedule();
             return View("TourVietNam");
         }
 
         public ActionResult TourForeign()
         {
+            isForeignTour = true;
             GetPlaceForTourSchedule();
             return View("TourForeign");
         }
@@ -96,6 +100,17 @@ namespace MonitoringTourSystem.Controllers
         [HttpPost]
         public JsonResult AddNewTour(tour obj)
         {
+            int foreignTour = 0;
+
+            if(isForeignTour == false)
+            {
+                foreignTour = 0;
+            }
+            else
+            {
+                foreignTour = 1;
+            }
+
             if (pathImage == null)
             {
                 var result = new { Success = true, Message = "Dang Upload hinh anh" };
@@ -125,9 +140,10 @@ namespace MonitoringTourSystem.Controllers
                         return_date = obj.return_date,
                         tourist_quantity = obj.tourist_quantity,
                         status = statusTour.ToString(),
-                        description = obj.description,
+                        description = "N'" + obj.description,
                         day = obj.day,
                         cover_photo = pathImage,
+                        is_foreign_tour = foreignTour,
                     };
 
                     for(int i = 0; i < obj.ListTourSchedule.Count; i++)
