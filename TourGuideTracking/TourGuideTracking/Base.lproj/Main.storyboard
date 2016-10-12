@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="lvb-oP-oqd">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="LoginView" id="BYZ-38-t0r" customClass="LoginViewController" customModule="TourGuideTracking" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Q0T-zT-d2o"/>
+                        <viewControllerLayoutGuide type="bottom" id="zOX-8Y-uAt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O6f-K5-SPX">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="B6n-gy-fZx"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                <connections>
+                                    <action selector="phoneTextFieldEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="2aF-gs-vY5"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zgh-PX-m4F">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="qMO-lx-tRl"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="passwordEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="dtK-MK-ebc"/>
+                                </connections>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_tripadvisor" translatesAutoresizingMaskIntoConstraints="NO" id="N1e-YY-8sU">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="6Wa-8A-NC1"/>
+                                    <constraint firstAttribute="width" constant="160" id="zzt-Hw-kjq"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bb-2N-A8U">
+                                <color key="backgroundColor" red="0.4088713526725769" green="0.63469105958938599" blue="0.31168454885482788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="xpH-yk-uQH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnLoginTouchDown:" destination="BYZ-38-t0r" eventType="touchDown" id="zYL-5t-yLI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDg-RV-WwX">
+                                <frame key="frameInset" minX="30" minY="427" width="260" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <state key="normal" title="Forgot password!">
+                                    <color key="titleColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90980392156862744" green="0.96078431372549022" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="6bb-2N-A8U" secondAttribute="trailing" constant="30" id="AdA-T9-QoC"/>
+                            <constraint firstItem="N1e-YY-8sU" firstAttribute="top" secondItem="Q0T-zT-d2o" secondAttribute="bottom" constant="70" id="J4j-v1-aJa"/>
+                            <constraint firstItem="O6f-K5-SPX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="Tyo-79-4zL"/>
+                            <constraint firstItem="Zgh-PX-m4F" firstAttribute="top" secondItem="O6f-K5-SPX" secondAttribute="bottom" constant="20" id="Wcj-fQ-vLm"/>
+                            <constraint firstItem="O6f-K5-SPX" firstAttribute="top" secondItem="N1e-YY-8sU" secondAttribute="bottom" constant="30" id="ZUG-Us-WGU"/>
+                            <constraint firstAttribute="trailing" secondItem="Zgh-PX-m4F" secondAttribute="trailing" constant="30" id="a31-op-iUf"/>
+                            <constraint firstItem="N1e-YY-8sU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iTc-Gd-Lgm"/>
+                            <constraint firstAttribute="trailing" secondItem="O6f-K5-SPX" secondAttribute="trailing" constant="30" id="mjT-id-woA"/>
+                            <constraint firstItem="Zgh-PX-m4F" firstAttribute="leading" secondItem="O6f-K5-SPX" secondAttribute="leading" id="vsP-FR-hhr"/>
+                            <constraint firstItem="6bb-2N-A8U" firstAttribute="top" secondItem="Zgh-PX-m4F" secondAttribute="bottom" constant="20" id="xqd-YO-iOX"/>
+                            <constraint firstItem="6bb-2N-A8U" firstAttribute="leading" secondItem="Zgh-PX-m4F" secondAttribute="leading" id="yvh-3e-1ON"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="p93-2W-93Y" appends="YES" id="3dB-rf-Unw"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="Lui-n6-yv2"/>
+                    <connections>
+                        <outlet property="btnLogin" destination="6bb-2N-A8U" id="4EP-x5-Flr"/>
+                        <outlet property="passwordTextField" destination="Zgh-PX-m4F" id="Wlb-lO-Pyu"/>
+                        <outlet property="phoneTextField" destination="O6f-K5-SPX" id="uBI-Lj-oT7"/>
+                        <segue destination="gIG-4Z-TsF" kind="push" identifier="SegueToMyTours" id="PLp-6H-T4T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="p93-2W-93Y">
+                    <connections>
+                        <action selector="onTapScreen:" destination="BYZ-38-t0r" id="7vu-5V-PyP"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1024" y="-190"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="F4D-sK-PRF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lvb-oP-oqd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Eb-4p-Y2K">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="5I6-k7-mly"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G3R-CC-1Xo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="493.5" y="-189.5"/>
+        </scene>
+        <!--My Tours View Controller-->
+        <scene sceneID="F6g-Zn-zkM">
+            <objects>
+                <viewController storyboardIdentifier="MyToursView" id="gIG-4Z-TsF" customClass="MyToursViewController" customModule="TourGuideTracking" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JQP-bo-R7Y"/>
+                        <viewControllerLayoutGuide type="bottom" id="ibt-JW-ZFk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ee8-NR-0LX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MY TOURS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAw-B8-b6h">
+                                <frame key="frameInset" minX="75" minY="148" width="170" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="V7O-gK-uOC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V4z-NG-z6o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1523" y="-190"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo_tripadvisor" width="550" height="370"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_0.fullscreen"/>
+    </simulatedMetricsContainer>
+</document>
