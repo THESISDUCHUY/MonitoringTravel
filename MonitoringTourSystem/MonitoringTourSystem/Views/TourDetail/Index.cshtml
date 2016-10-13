@@ -238,9 +238,9 @@
                     <h3>Thông tin chi tiết tour</h3>
                 </header>
                 <div id="tour-details" class="panel-body" style="background-color: white; border: 1px solid #EAEBED; height: 75%;">
-                    <div class="alert alert-info">
-                        Chọn tour bất kỳ để xem chi tiết.
-                    </div>
+                    @{
+                        Html.RenderPartial("ScheduleTourTimeline", Model);
+                    }
                 </div>
                 <style>
                     div.list-tour {

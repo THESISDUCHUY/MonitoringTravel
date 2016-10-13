@@ -140,7 +140,7 @@ namespace MonitoringTourSystem.Controllers
                         return_date = obj.return_date,
                         tourist_quantity = obj.tourist_quantity,
                         status = statusTour.ToString(),
-                        description = "N'" + obj.description,
+                        description = "N'" + obj.description + "'",
                         day = obj.day,
                         cover_photo = pathImage,
                         is_foreign_tour = foreignTour,

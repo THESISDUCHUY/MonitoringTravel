@@ -27,15 +27,19 @@ namespace MonitoringTourSystem.Controllers
             listPlace = MonitoringTourSystem.places.ToList();
             var listTourVietNam = listTour.Where(x => x.is_foreign_tour == 0).ToList();
             var listTourForeign = listTour.Where(x => x.is_foreign_tour == 1).ToList();
-            var model = new TourDetailViewModel() { ListTour = listTour, ListTourVietNam = listTourVietNam, ListTourForeign = listTourForeign };
+            var model = new TourDetailViewModel() { ListTour = listTour, ListTourVietNam = listTourVietNam, ListTourForeign = listTourForeign, ListScheduleDay = null, TourGuideName = null, TourItem = null };
             return View("Index", model);
         }
 
         [HttpGet]
         public ActionResult GetDetailTour(int id)
         {
-           
-            if(!IsStartTourActive)
+            listTour = MonitoringTourSystem.tours.ToList();
+            listPlace = MonitoringTourSystem.places.ToList();
+            var listTourVietNam = listTour.Where(x => x.is_foreign_tour == 0).ToList();
+            var listTourForeign = listTour.Where(x => x.is_foreign_tour == 1).ToList();
+
+            if (!IsStartTourActive)
             {
                 // Nothing
             }
@@ -53,11 +57,14 @@ namespace MonitoringTourSystem.Controllers
             for (int i = 0; i < listSchedule.Count; i++)
             {
                 var a = (listSchedule[i].time - listSchedule[indexStart].time).TotalHours;
-                if ((listSchedule[i].time - listSchedule[indexStart].time).TotalHours >= 24)
+                if ((listSchedule[i].time - listSchedule[indexStart].time).TotalHours >= 24 || (listSchedule[i].time.Day > listSchedule[indexStart].time.Day))
                 {
                     var tourSchedule = new List<tour_schedule>();
                     for(int j = indexStart; j < i ; j++)
                     {
+                        int place_id = Convert.ToInt32(listSchedule[j].place_id);
+                        var image = listPlace.Where(x => x.place_id == place_id).First();
+                        listSchedule[j].image = image.cover_photo;
                         tourSchedule.Add(listSchedule[j]);
 
                     }
@@ -91,9 +98,9 @@ namespace MonitoringTourSystem.Controllers
                                  select tourGuide).ToList();
             var touItem = listTour.Where(x => x.tour_id == id).First();
 
-            var model = new TourDetailViewModel() { TourItem = touItem, ListScheduleDay = ListScheduleDay, TourGuideName = tourGuideName[0].tourguide_name };
+            var model = new TourDetailViewModel() { ListTour = listTour, ListTourVietNam = listTourVietNam, ListTourForeign = listTourForeign, TourItem = touItem, ListScheduleDay = ListScheduleDay, TourGuideName = tourGuideName[0].tourguide_name };
             ModelPass = model;
-            return PartialView("ScheduleTourTimeline", model);
+            return PartialView("Index", model);
         }
 
         [HttpGet]

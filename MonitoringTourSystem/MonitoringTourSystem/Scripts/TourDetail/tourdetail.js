@@ -4,7 +4,7 @@
         type: "GET",
     })
     .done(function (partialViewResult) {
-        $("#tour-details").html(partialViewResult);
+        //$("#tour-details").html(partialViewResult);
     });
 }
 

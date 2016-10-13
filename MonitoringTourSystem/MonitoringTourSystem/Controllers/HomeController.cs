@@ -15,36 +15,18 @@ namespace MonitoringTourSystem.Controllers
     public class HomeController : Controller
     {
         public readonly monitoring_tour_v3Entities MonitoringTourSystem = new monitoring_tour_v3Entities();
+
+        public static List<ListTourWithTourGuide> ListManageTour { get; set; }
+
+
+
         public static List<tourguide> ListTourGuide { get; set; }
-        public static List<tourguide> ListTourGuideActive { get; set; }
+        public static List<tourguide> ListTourInfo { get; set; }
         public static List<ListTourWithTourGuide> ListStoreForSearch { get; set; }
-        public static List<tour> ListTour { get; set; }
         public ActionResult Index()
         {
-            //int instance Tour guide active
-            ListTourGuideActive = new List<tourguide>();
 
-            //Get all list tour guide
-            ListTourGuide = MonitoringTourSystem.tourguides.ToList();
-
-            //Get all list tour
-            ListTour = MonitoringTourSystem.tours.ToList();
-
-            // Get list tour is activing
-            var listTourActive = (from tourGuide in MonitoringTourSystem.tours 
-                                         where tourGuide.status == "Opening"
-                                         select tourGuide).ToList();
-
-            for (int i = 0; i < listTourActive.Count; i++)
-            {
-                var tourGuideActive = ListTourGuide.Where(obj => obj.tourguide_id == listTourActive[i].tourguide_id);
-                foreach (var item in tourGuideActive)
-                {
-                    ListTourGuideActive.Add(item);
-                }
-            }
-
-            var td = (from s in MonitoringTourSystem.tours
+            var tourManage = (from s in MonitoringTourSystem.tours
                       join r in MonitoringTourSystem.tourguides on s.tourguide_id equals r.tourguide_id
                       where s.status == StatusTour.Running.ToString()
                      select new
@@ -54,18 +36,21 @@ namespace MonitoringTourSystem.Controllers
 
                      }).ToList();
 
+            
+
             var tourWithTourGuide = new List<ListTourWithTourGuide>();
 
-            for (int i = 0; i < td.Count; i++)
+            for (int i = 0; i < tourManage.Count; i++)
             {
-                tourWithTourGuide.Add(new ListTourWithTourGuide() { Tour = td[i].TourSelect, TourGuide = td[i].TourGuideSelect });
+                tourWithTourGuide.Add(new ListTourWithTourGuide() { Tour = tourManage[i].TourSelect, TourGuide = tourManage[i].TourGuideSelect });
             }
+
             ListStoreForSearch = tourWithTourGuide;
+            ListManageTour = tourWithTourGuide;
             var model = new HomeViewModel() {OptionRenderView = 1, TourWithTourGuide = tourWithTourGuide};
             
             return View("Index", model);
         }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -77,7 +62,6 @@ namespace MonitoringTourSystem.Controllers
             ViewBag.Message = "Your contact page.";
             return View();
         }
-
         static float longFake = 0.001f;
         static float lagFake = 0.001f;
 
@@ -106,7 +90,12 @@ namespace MonitoringTourSystem.Controllers
         [HttpGet]
         public JsonResult CreateMarker()
         {
-            var jsonString = JsonConvert.SerializeObject(ListTourGuideActive);
+            //Get list tour is active
+
+            var jsonString = JsonConvert.SerializeObject(new
+            {
+                objectArray = ListManageTour
+            });
             return Json(jsonString, JsonRequestBehavior.AllowGet);
         }
 

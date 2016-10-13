@@ -244,6 +244,7 @@
     <Compile Include="ViewModel\CreateTourViewModel.cs" />
     <Compile Include="ViewModel\EditTourViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
+    <Compile Include="ViewModel\ManageTour.cs" />
     <Compile Include="ViewModel\TourDetailViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -264,6 +265,7 @@
     <Content Include="Content\Images\ic_start.png" />
     <Content Include="Content\Images\ic_status.png" />
     <Content Include="Content\Images\ic_statuss.png" />
+    <Content Include="Content\Images\ic_warning.png" />
     <Content Include="Content\Images\karma-13545.jpg" />
     <Content Include="Content\Images\lalu-13545.jpg" />
     <Content Include="Content\Images\morakot2-13545.jpg" />
