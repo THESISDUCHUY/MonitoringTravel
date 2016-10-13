@@ -58,7 +58,10 @@ class LoginViewController: UIViewController {
                         UserDefaults.standard.set(tourguide?.accessToken,forKey: Keys.TOURGUIDE_ACCESSTOKEN)
                         if(tourguide?.tourGuideId != nil){
                             
-                            self.performSegue(withIdentifier: SegueIdentifier.TO_MY_TOURS, sender: self)
+                            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                            let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: ViewIdentifier.MYTOURS_VIEW) as UIViewController
+                            self.present(initViewController, animated: true, completion: nil)
+                            //self.performSegue(withIdentifier: SegueIdentifier.TO_MY_TOURS, sender: self)
                         }
                     }
                     else {

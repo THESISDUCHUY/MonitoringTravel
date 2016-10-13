@@ -11,6 +11,7 @@ import Foundation
 class Singleton{
     static let sharedInstance = Singleton()
     var tourguide:TourGuide?
+    var tours:[Tour]?
     private init(){
     }
 }

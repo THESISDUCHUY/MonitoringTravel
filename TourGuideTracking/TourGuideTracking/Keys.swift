@@ -21,3 +21,7 @@ struct ViewIdentifier{
     static let LOGIN_VIEW:String = "LoginView"
     static let MYTOURS_VIEW:String = "MyToursView"
 }
+
+struct CellIdentifier{
+    static let TOUR_CELL:String = "TourTableViewCell"
+}
