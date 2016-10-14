@@ -13,5 +13,7 @@ class Singleton{
     var tourguide:TourGuide?
     var tours:[Tour]?
     private init(){
+        self.tourguide = TourGuide()
+        self.tours = [Tour]()
     }
 }
