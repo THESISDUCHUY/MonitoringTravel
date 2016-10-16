@@ -156,6 +156,7 @@
     <Property Name="warner_id" Type="Int32" Nullable="false" />
     <Property Name="receiver_id" Type="Int32" Nullable="false" />
     <Property Name="status" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="warning_id" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="warning">
     <Key>
@@ -168,5 +169,6 @@
     <Property Name="status" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="latitude" Type="Double" Nullable="false" />
     <Property Name="longitude" Type="Double" Nullable="false" />
+    <Property Name="distance" Type="Double" />
   </EntityType>
 </Schema>

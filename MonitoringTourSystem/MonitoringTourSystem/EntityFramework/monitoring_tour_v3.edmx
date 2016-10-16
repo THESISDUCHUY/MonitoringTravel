@@ -98,7 +98,7 @@
           <Property Name="time" Type="datetime" Precision="0" Nullable="false" />
           <Property Name="description" Type="text" Nullable="false" />
           <Property Name="image" Type="text" />
-          <Property Name="nameProvince" Type="text" Nullable="false" />
+          <Property Name="nameProvince" Type="text" />
         </EntityType>
         <EntityType Name="tourguide">
           <Key>
@@ -142,19 +142,21 @@
           <Key>
             <PropertyRef Name="warning_id" />
           </Key>
-          <Property Name="warning_id" Type="int" Nullable="false" />
+          <Property Name="warning_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="warning_name" Type="text" Nullable="false" />
           <Property Name="type" Type="text" Nullable="false" />
           <Property Name="description" Type="text" Nullable="false" />
           <Property Name="status" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="latitude" Type="double" Nullable="false" />
           <Property Name="longitude" Type="double" Nullable="false" />
+          <Property Name="distance" Type="double" />
         </EntityType>
         <EntityType Name="warning_receiver">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="warning_id" Type="int" Nullable="false" />
           <Property Name="warner_id" Type="int" Nullable="false" />
           <Property Name="receiver_id" Type="int" Nullable="false" />
           <Property Name="status" Type="text" Nullable="false" />
@@ -334,6 +336,7 @@
           <Property Name="warner_id" Type="Int32" Nullable="false" />
           <Property Name="receiver_id" Type="Int32" Nullable="false" />
           <Property Name="status" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="warning_id" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="warning">
           <Key>
@@ -346,6 +349,7 @@
           <Property Name="status" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="latitude" Type="Double" Nullable="false" />
           <Property Name="longitude" Type="Double" Nullable="false" />
+          <Property Name="distance" Type="Double" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -500,6 +504,7 @@
           <EntitySetMapping Name="warning_receiver">
             <EntityTypeMapping TypeName="not_useModel.warning_receiver">
               <MappingFragment StoreEntitySet="warning_receiver">
+                <ScalarProperty Name="warning_id" ColumnName="warning_id" />
                 <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="receiver_id" ColumnName="receiver_id" />
                 <ScalarProperty Name="warner_id" ColumnName="warner_id" />
@@ -510,6 +515,7 @@
           <EntitySetMapping Name="warnings">
             <EntityTypeMapping TypeName="not_useModel.warning">
               <MappingFragment StoreEntitySet="warning">
+                <ScalarProperty Name="distance" ColumnName="distance" />
                 <ScalarProperty Name="longitude" ColumnName="longitude" />
                 <ScalarProperty Name="latitude" ColumnName="latitude" />
                 <ScalarProperty Name="status" ColumnName="status" />

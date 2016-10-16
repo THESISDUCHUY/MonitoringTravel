@@ -3,8 +3,6 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
 <script>
     function searchTour() {
         var id = $('#nametour').val();
@@ -17,12 +15,9 @@
         });
     }
 </script>
-
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
 <link rel="stylesheet" type="text/css" href="~/Scripts/Home/css/chat.css">
 <link rel="stylesheet" type="text/css" href="~/Scripts/Home/css/homestyle.css">
 
@@ -66,8 +61,15 @@
                                 </div>
                             </div>
                             <div id="menu1" class="tab-pane fade" style="padding-left: 10px; padding-right: 10px; padding-top: 10px; margin-top: 10px;">
-                                <h3>Menu 1</h3>
-                                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                <div class="alert alert-success" style="margin-top: 10px;">
+                                    Danh sách cảnh báo
+                                </div>
+                                <div id="list-tour" style="height: 100% ; overflow-y: hidden">
+                                    @{
+                                        Html.RenderPartial("ListWarning", Model);
+                                    }
+                                </div>
+
                             </div>
                             <div id="menu2" class="tab-pane fade" style="padding-left: 10px; padding-right: 10px; padding-top: 10px; margin-top: 10px;">
                                 <h3>Menu 2</h3>
@@ -76,41 +78,7 @@
 
                         </div>
                     </div>
-                </div>
-                    @*<div style="width:100%; background-color: white; height: 100%; border-radius: 3px; border: 1px solid #EAEBED">
-                <div style="height: 7%;  border-top-left-radius: 5px; border-top-right-radius: 5px;">
-                    <p style="padding-top: 16px; margin-left: 12px; font-size: 16px;">Tìm kiếm nhanh</p>
-                </div>
-                <div style="height: 1%;">
-                </div>
-                <div class="dropdown" style="height: 7%;  padding-left: 4px; padding-right: 4px;">
-                    <button class="btn" style="width: 100% ;" type="button" data-toggle="dropdown">
-                        <span>Tìm Theo Tỉnh Thành</span>
-                        <span class="caret"></span>
-                    </button>
-                </div>
-                <div style="height: 1%;">
-                </div>
-                <div style="height: 7%; padding-left: 4px; padding-right: 4px;">
-                    <div id="searchform">
-                        <div class="input-group">
-                            <input type="text" class="form-control" style="text-transform:uppercase" placeholder="Tìm kiếm tour theo mã..." id="nametour" onkeyup="searchTour();" name="query" value="">
-                            <div class="input-group-btn">
-                                <button type="submit" id="Search" class="btn">
-                                    <i class="fa fa-search" style="color: gray" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="group-list-tour" style="height: 77%;">
-                    <div id="list-tour" style="height: 100% ; overflow-y: hidden">
-                        @{
-                            Html.RenderPartial("ListTourGuide", Model);
-                        }
-                    </div>
-                </div>
-            </div>*@
+                </div>    
                 </div>
             <div class="col-sm-9" style="height: 100%;  ">
                 <div style="height: 10%; background-color: transparent;">
@@ -176,7 +144,6 @@
         </div>
     </div>
 </div>
-
 <div class="containr">
     <!-- Modal -->
     <div id="myModal" class="modal fade" style="height: 100%" role="dialog">
@@ -252,8 +219,9 @@
         </div>
     </div>
 </div>
+
 <script>
-    // For Warning
+    // For Warning POPup
     var marker1;
     var map1;
     var geocoder;
@@ -261,21 +229,20 @@
 
     //For Home
     var marker, map;
+    var pinColor = "FE7569";
+    var pinColorSelect = "1FB5AD"
+    var pinImage;
+    var pinImageSelect;
     var listMarker = new Array();
     var longfake = 0.0000000001;
     var lagfake = 0.0000000001
     var listPosition = [];
     var listInforwindow = [];
 
-
+    // FOR WARNING PROPERTY
     var listInfowindowWarning = [];
     var listMarkerWarning = new Array();
-
-    var pinColor = "FE7569";
-    var pinColorSelect = "1FB5AD"
-
-    var pinImage;
-    var pinImageSelect;
+    var listCircle = new Array();
 
     function initAutocomplete() {
         map1 = new google.maps.Map(document.getElementById('map_canvas1'), {
@@ -638,8 +605,6 @@
                 return SlidingMarker;
 
             }));
-        
-
         //FOR ANIMATION
         // Animated Marker Movement. Robert Gerlach 2012-2013 https://github.com/combatwombat/marker-animate
         // MIT license
@@ -731,21 +696,16 @@
 
             animateStep(this, (new Date()).getTime());
         }
-
         LoadMarker();
-        getWarningPosition();
+        loadMarkerWarning();
     }
-
-
-    function addMarkerWarning(lat, long)
+    function addMarkerWarning(distance, lat, long)
     {
         closeAllOfInfoWindow();
         var myLatlngWarning = new google.maps.LatLng(lat, long);
-
-    
         var circle = new google.maps.Circle({
             map: map,
-            radius: 1000,    // 10 miles in metres
+            radius: distance * 1000,    // 10 miles in metres
             fillColor: '#FF0000',
             strokeWeight: 1,
             strokeColor: "#f59d21",
@@ -755,17 +715,17 @@
         map.setCenter(myLatlngWarning);
         map.setZoom(15);
     }
-    
-
     function closeAllOfInfoWindow()
     {
         
+        for (j = 0; j < listInfowindowWarning.length; j++) {
+            listInfowindowWarning[j].close();
+        }
         for (i = 0; i < listInforwindow.length; i++)
         {
             listInforwindow[i].close();
         }
     }
-    
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGdBwIy95layOTnAy1Ovp07urh0OxQrp4&libraries=places&callback=initAutocomplete" async defer></script>
 <link href="~/Content/DropdowSelect/select2.min.css" rel="stylesheet" />
@@ -774,11 +734,11 @@
 <link rel="stylesheet" href="~/Scripts/sweetalert.css">
 <script>
 
-    var optionDistance = ["10 KM ", "20 KM ", "30 KM"];
+    // FOR POPUP WARNING
+    var optionDistance = ["3KM", "5KM", "10 KM ", "20 KM ", "30 KM"];
     var categoriesWarning = ["Khủng Bố", "Thời Tiết", "Giao Thông", "Khác"];
     var lat;
     var long;
-
     $(document).on('change', '#distanceWarning', function () {
 
         //alert(categories);
@@ -790,7 +750,6 @@
         getListTourWarning(distance, lat, long);
 
     });
-
     $(document).ready(function()
     {
         $("#myModal").on("shown.bs.modal", function () {
@@ -813,11 +772,7 @@
             });
 
         });
-    });
-
-    var panPath = [];
-    var panQueue = [];
-    var STEPS = 50;
+    }); 
     function placeMarker(location) {
 
         var latMarker = location.toString().replace("(", "").replace(")","").split(",")[0];
@@ -837,7 +792,6 @@
             getListTourWarning(distance, latMarker, longMarker);
         }
     }
-
     function geocodeLatLng(geocoder, map, infowindow, latClick, longClick) {
 
         var latlng = { lat: latClick, lng: longClick };
@@ -857,7 +811,6 @@
             }
         });
     }
-
     function getListTourWarning(distance, latTemp, longTemp)
     {
         latSendWarning = latTemp;
@@ -878,6 +831,10 @@
         });
     }
 
+
+
+
+    // FOR WARNING IN HOME
     var latSendWarning;
     var longSendWarning;
     function sendWarning()
@@ -918,7 +875,8 @@
                 Long: longSendWarning,
                 WarningName: warningName,
                 DescriptionWarning: descriptionWarning,
-                CategoryWarnig: categories
+                CategoryWarnig: categories,
+                Distance: distance
             },
             success: function (result) {
 
@@ -930,7 +888,7 @@
                 }
                 else {
                     swal("Gửi cảnh báo!", message, "success")
-                    getWarningPosition();
+                    loadMarkerWarning();
                    
                 }
             },
@@ -939,8 +897,7 @@
             }
         });
     }
-
-    function getWarningPosition()
+    function loadMarkerWarning()
     {
         $.ajax({
             url: "/Home/GetWarningPosition/",
@@ -975,15 +932,25 @@
                     listInfowindowWarning[index] = new google.maps.InfoWindow({
                         content: title
                     });
+                    
+                    listCircle[index] = new google.maps.Circle({
+                        map: map,
+                        radius: 0,    // 10 miles in metres
+                        fillColor: '#FF0000',
+                        strokeWeight: 1,
+                        strokeColor: "#f59d21",
+                    });
+                    listCircle[index].bindTo('center', listMarkerWarning[index], 'position');
 
                     google.maps.event.addListener(listMarkerWarning[index], "click", function () {
+                        closeAllOfInfoWindow();
                         listInfowindowWarning[index].open(map, listMarkerWarning[index]);                          
                     });
                 });
 
                 if (latSendWarning != null) {
-                    alert(latSendWarning);
-                    addMarkerWarning(latSendWarning, longSendWarning);
+                    var distance = $("#distanceWarning").val();
+                    addMarkerWarning(distance, latSendWarning, longSendWarning);
                 }
                
             },
@@ -993,7 +960,62 @@
         });
         
     }
+    function selectMarkerWarning(id) {
+        $.ajax({
+            url: "/Home/GetMarkerWarningSelected/" + id,
+            type: "GET",
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            async: true,
+            processData: false,
+            cache: false,
+            success: function (result) {
+                var results = $.parseJSON(result);
+                $(results).each(function (index, value) {
+                    var longitude = this['longitude'];
+                    var laitude = this['latitude'];
+                    var distance = this['distance']
+                    var location = new google.maps.LatLng(laitude, longitude);
+                    panTo(laitude, longitude);
+                   
 
+                    for (j = 0; j < listCircle.length; j++)
+                    {
+                        listCircle[j].setMap(null);
+                    }
+                    listCircle[id - 1] = new google.maps.Circle({
+                        map: map,
+                        radius: distance * 1000,    // 10 miles in metres
+                        fillColor: '#FF0000',
+                        strokeWeight: 1,
+                        strokeColor: "#f59d21",
+                    });
+                    listCircle[id - 1].bindTo('center', listMarkerWarning[id - 1], 'position');
+                    closeAllOfInfoWindow();
+                    listInfowindowWarning[id - 1].open(map, listMarkerWarning[id - 1]);
+                    map.setZoom(10);
+                });
+            },
+            error: function (xhr) {
+                alert('error');
+            }
+        });
+    }
+    function animateMapZoomTo(map, targetZoom) {
+        var currentZoom = arguments[2] || map.getZoom();
+        if (currentZoom != targetZoom) {
+            google.maps.event.addListenerOnce(map, 'zoom_changed', function (event) {
+                animateMapZoomTo(map, targetZoom, currentZoom + (targetZoom > currentZoom ? 1 : -1));
+            });
+            setTimeout(function () { map.setZoom(currentZoom) }, 80);
+        }
+    }
+
+
+    // FOR TOURGUIDE MARKER
+    var panPath = [];
+    var panQueue = [];
+    var STEPS = 50;
     function LoadMarker() {
         $.ajax({
             url: "/Home/CreateMarker/",
@@ -1114,19 +1136,15 @@
             success: function (result) {
                 var results = $.parseJSON(result);
                 $(results).each(function (index, value) {
-
                     var longitude = this['longitude'];
                     var laitude = this['latitude'];
                     var location = new google.maps.LatLng(laitude, longitude);
                     panTo(laitude, longitude);
                     map.setZoom(15);
                     for (i = 0 ; i < listMarker.length; i++) {
-
                         listMarker[i].setIcon(pinImage);
-
                     }
                     listMarker[id - 1].setIcon(pinImageSelect);
-
                 });
             },
             error: function (xhr) {

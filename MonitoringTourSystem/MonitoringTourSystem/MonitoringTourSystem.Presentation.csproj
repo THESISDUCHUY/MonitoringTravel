@@ -510,6 +510,7 @@
     <Content Include="Views\CreateTour\CreateTourChoose.cshtml" />
     <Content Include="Views\EditTour\EditTourForeign.cshtml" />
     <Content Include="Views\Home\ListTourGuideWarning.cshtml" />
+    <Content Include="Views\Home\ListWarning.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -2,9 +2,11 @@
 
 @{
     if (Model == null || Model.TourWithTourGuide == null)
-        {
-            <p>Không có tour nào đang hoạt động</p>
-        }
+    {
+        <div class="alert alert-info" style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">
+            Không có tour nào nằm trong bán kính này.
+        </div>
+    }
     else
     {
         foreach (var item in Model.TourWithTourGuide)

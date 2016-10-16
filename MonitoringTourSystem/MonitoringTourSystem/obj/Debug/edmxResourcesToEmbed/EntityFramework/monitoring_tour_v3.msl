@@ -148,6 +148,7 @@
     <EntitySetMapping Name="warning_receiver">
       <EntityTypeMapping TypeName="not_useModel.warning_receiver">
         <MappingFragment StoreEntitySet="warning_receiver">
+          <ScalarProperty Name="warning_id" ColumnName="warning_id" />
           <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="receiver_id" ColumnName="receiver_id" />
           <ScalarProperty Name="warner_id" ColumnName="warner_id" />
@@ -158,6 +159,7 @@
     <EntitySetMapping Name="warnings">
       <EntityTypeMapping TypeName="not_useModel.warning">
         <MappingFragment StoreEntitySet="warning">
+          <ScalarProperty Name="distance" ColumnName="distance" />
           <ScalarProperty Name="longitude" ColumnName="longitude" />
           <ScalarProperty Name="latitude" ColumnName="latitude" />
           <ScalarProperty Name="status" ColumnName="status" />

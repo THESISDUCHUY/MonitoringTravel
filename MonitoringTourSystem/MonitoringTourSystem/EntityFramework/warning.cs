@@ -21,5 +21,6 @@ namespace MonitoringTourSystem.EntityFramework
         public string status { get; set; }
         public double latitude { get; set; }
         public double longitude { get; set; }
+        public Nullable<double> distance { get; set; }
     }
 }

@@ -10,8 +10,8 @@ namespace MonitoringTourSystem.ViewModel
 {
     public class HomeViewModel
     {
-        public List<tour> ListLocationTourGuide { get; set; }
         public List<ListTourWithTourGuide> TourWithTourGuide { get; set; }
+        public List<WarningWithReceiver> ListWarningWithReceiver { get; set; }
         public int OptionRenderView { get; set; }
     }
 
@@ -19,5 +19,13 @@ namespace MonitoringTourSystem.ViewModel
     {
         public tour Tour { get; set; }
         public tourguide TourGuide { get; set; }
+        public List<warning_receiver> ListWarning { get; set; }
+    }
+
+
+    public class WarningWithReceiver
+    {
+        public warning Warning { get; set; }
+        public List<warning_receiver> ListWarningReceiver { get; set; }
     }
 }

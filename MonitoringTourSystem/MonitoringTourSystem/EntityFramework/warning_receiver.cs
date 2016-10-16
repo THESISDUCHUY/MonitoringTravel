@@ -18,5 +18,6 @@ namespace MonitoringTourSystem.EntityFramework
         public int warner_id { get; set; }
         public int receiver_id { get; set; }
         public string status { get; set; }
+        public int warning_id { get; set; }
     }
 }
