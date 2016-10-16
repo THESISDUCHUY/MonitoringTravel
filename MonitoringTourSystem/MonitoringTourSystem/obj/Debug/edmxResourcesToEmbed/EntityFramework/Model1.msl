@@ -1,17 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="not_useModelStoreContainer" CdmEntityContainer="monitoring_tour_v3Entities">
+  <EntityContainerMapping StorageEntityContainer="not_useStoreContainer" CdmEntityContainer="not_useEntities">
     <EntitySetMapping Name="countries">
-      <EntityTypeMapping TypeName="not_useModel.country">
+      <EntityTypeMapping TypeName="not_use.country">
         <MappingFragment StoreEntitySet="country">
           <ScalarProperty Name="country_id" ColumnName="country_id" />
-          <ScalarProperty Name="country_name" ColumnName="country_name" />
           <ScalarProperty Name="description" ColumnName="description" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="managers">
-      <EntityTypeMapping TypeName="not_useModel.manager">
+      <EntityTypeMapping TypeName="not_use.manager">
         <MappingFragment StoreEntitySet="manager">
           <ScalarProperty Name="manager_id" ColumnName="manager_id" />
           <ScalarProperty Name="manager_name" ColumnName="manager_name" />
@@ -25,7 +24,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="messages">
-      <EntityTypeMapping TypeName="not_useModel.message">
+      <EntityTypeMapping TypeName="not_use.message">
         <MappingFragment StoreEntitySet="message">
           <ScalarProperty Name="message_id" ColumnName="message_id" />
           <ScalarProperty Name="sender_id" ColumnName="sender_id" />
@@ -37,11 +36,11 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="places">
-      <EntityTypeMapping TypeName="not_useModel.place">
+      <EntityTypeMapping TypeName="not_use.place">
         <MappingFragment StoreEntitySet="place">
+          <ScalarProperty Name="country_id" ColumnName="country_id" />
           <ScalarProperty Name="place_id" ColumnName="place_id" />
           <ScalarProperty Name="province_id" ColumnName="province_id" />
-          <ScalarProperty Name="country_id" ColumnName="country_id" />
           <ScalarProperty Name="place_name" ColumnName="place_name" />
           <ScalarProperty Name="contact" ColumnName="contact" />
           <ScalarProperty Name="address" ColumnName="address" />
@@ -52,7 +51,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="provinces">
-      <EntityTypeMapping TypeName="not_useModel.province">
+      <EntityTypeMapping TypeName="not_use.province">
         <MappingFragment StoreEntitySet="province">
           <ScalarProperty Name="province_id" ColumnName="province_id" />
           <ScalarProperty Name="province_name" ColumnName="province_name" />
@@ -62,8 +61,9 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tours">
-      <EntityTypeMapping TypeName="not_useModel.tour">
+      <EntityTypeMapping TypeName="not_use.tour">
         <MappingFragment StoreEntitySet="tour">
+          <ScalarProperty Name="is_foreign_tour" ColumnName="is_foreign_tour" />
           <ScalarProperty Name="tour_id" ColumnName="tour_id" />
           <ScalarProperty Name="tour_code" ColumnName="tour_code" />
           <ScalarProperty Name="manager_id" ColumnName="manager_id" />
@@ -76,12 +76,11 @@
           <ScalarProperty Name="description" ColumnName="description" />
           <ScalarProperty Name="day" ColumnName="day" />
           <ScalarProperty Name="cover_photo" ColumnName="cover_photo" />
-          <ScalarProperty Name="is_foreign_tour" ColumnName="is_foreign_tour" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tour_participants">
-      <EntityTypeMapping TypeName="not_useModel.tour_participants">
+      <EntityTypeMapping TypeName="not_use.tour_participants">
         <MappingFragment StoreEntitySet="tour_participants">
           <ScalarProperty Name="tour_participants1" ColumnName="tour_participants" />
           <ScalarProperty Name="tour_id" ColumnName="tour_id" />
@@ -90,9 +89,9 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tour_schedule">
-      <EntityTypeMapping TypeName="not_useModel.tour_schedule">
+      <EntityTypeMapping TypeName="not_use.tour_schedule">
         <MappingFragment StoreEntitySet="tour_schedule">
-          <ScalarProperty Name="nameProvince" ColumnName="nameProvince" />
+          <ScalarProperty Name="image" ColumnName="image" />
           <ScalarProperty Name="tour_schedule1" ColumnName="tour_schedule" />
           <ScalarProperty Name="tour_id" ColumnName="tour_id" />
           <ScalarProperty Name="place_id" ColumnName="place_id" />
@@ -100,12 +99,11 @@
           <ScalarProperty Name="vehicle" ColumnName="vehicle" />
           <ScalarProperty Name="time" ColumnName="time" />
           <ScalarProperty Name="description" ColumnName="description" />
-          <ScalarProperty Name="image" ColumnName="image" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tourguides">
-      <EntityTypeMapping TypeName="not_useModel.tourguide">
+      <EntityTypeMapping TypeName="not_use.tourguide">
         <MappingFragment StoreEntitySet="tourguide">
           <ScalarProperty Name="tourguide_id" ColumnName="tourguide_id" />
           <ScalarProperty Name="tourguide_name" ColumnName="tourguide_name" />
@@ -120,7 +118,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tourists">
-      <EntityTypeMapping TypeName="not_useModel.tourist">
+      <EntityTypeMapping TypeName="not_use.tourist">
         <MappingFragment StoreEntitySet="tourist">
           <ScalarProperty Name="tourist_id" ColumnName="tourist_id" />
           <ScalarProperty Name="tourist_name" ColumnName="tourist_name" />
@@ -135,7 +133,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="trackings">
-      <EntityTypeMapping TypeName="not_useModel.tracking">
+      <EntityTypeMapping TypeName="not_use.tracking">
         <MappingFragment StoreEntitySet="tracking">
           <ScalarProperty Name="tracking_id" ColumnName="tracking_id" />
           <ScalarProperty Name="tour_id" ColumnName="tour_id" />
@@ -145,26 +143,26 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="warning_receiver">
-      <EntityTypeMapping TypeName="not_useModel.warning_receiver">
-        <MappingFragment StoreEntitySet="warning_receiver">
+    <EntitySetMapping Name="warnings">
+      <EntityTypeMapping TypeName="not_use.warning">
+        <MappingFragment StoreEntitySet="warning">
+          <ScalarProperty Name="warning_name" ColumnName="warning_name" />
+          <ScalarProperty Name="warning_id" ColumnName="warning_id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="description" ColumnName="description" />
           <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="receiver_id" ColumnName="receiver_id" />
-          <ScalarProperty Name="warner_id" ColumnName="warner_id" />
-          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="warnings">
-      <EntityTypeMapping TypeName="not_useModel.warning">
-        <MappingFragment StoreEntitySet="warning">
-          <ScalarProperty Name="longitude" ColumnName="longitude" />
-          <ScalarProperty Name="latitude" ColumnName="latitude" />
+    <EntitySetMapping Name="warning_receiver">
+      <EntityTypeMapping TypeName="not_use.warning_receiver">
+        <MappingFragment StoreEntitySet="warning_receiver">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="warner_id" ColumnName="warner_id" />
+          <ScalarProperty Name="receiver_id" ColumnName="receiver_id" />
           <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="description" ColumnName="description" />
-          <ScalarProperty Name="type" ColumnName="type" />
-          <ScalarProperty Name="warning_name" ColumnName="warning_name" />
-          <ScalarProperty Name="warning_id" ColumnName="warning_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

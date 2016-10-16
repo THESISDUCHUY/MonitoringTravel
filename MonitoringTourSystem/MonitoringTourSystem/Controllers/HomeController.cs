@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -15,28 +16,27 @@ namespace MonitoringTourSystem.Controllers
     public class HomeController : Controller
     {
         public readonly monitoring_tour_v3Entities MonitoringTourSystem = new monitoring_tour_v3Entities();
-
         public static List<ListTourWithTourGuide> ListManageTour { get; set; }
 
-
-
+        public static List<ListTourWithTourGuide> ListTourGuideWarning { get; set; }
         public static List<tourguide> ListTourGuide { get; set; }
-        public static List<tourguide> ListTourInfo { get; set; }
         public static List<ListTourWithTourGuide> ListStoreForSearch { get; set; }
+
         public ActionResult Index()
         {
 
+            ListTourGuide = MonitoringTourSystem.tourguides.ToList();
+
+            // Join tourguide table and tour table with key is tourguide_id
             var tourManage = (from s in MonitoringTourSystem.tours
-                      join r in MonitoringTourSystem.tourguides on s.tourguide_id equals r.tourguide_id
-                      where s.status == StatusTour.Running.ToString()
-                     select new
-                     {
-                        TourSelect = s,
-                        TourGuideSelect = r,
+                              join r in MonitoringTourSystem.tourguides on s.tourguide_id equals r.tourguide_id
+                              where s.status == StatusTour.Running.ToString()
+                              select new
+                              {
+                                  TourSelect = s,
+                                  TourGuideSelect = r,
 
-                     }).ToList();
-
-            
+                              }).ToList();
 
             var tourWithTourGuide = new List<ListTourWithTourGuide>();
 
@@ -47,14 +47,14 @@ namespace MonitoringTourSystem.Controllers
 
             ListStoreForSearch = tourWithTourGuide;
             ListManageTour = tourWithTourGuide;
-            var model = new HomeViewModel() {OptionRenderView = 1, TourWithTourGuide = tourWithTourGuide};
-            
+            var model = new HomeViewModel() { OptionRenderView = 1, TourWithTourGuide = tourWithTourGuide };
+
             return View("Index", model);
+
         }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
             return View();
         }
         public ActionResult Contact()
@@ -66,27 +66,40 @@ namespace MonitoringTourSystem.Controllers
         static float lagFake = 0.001f;
 
 
-        //[HttpGet]
-        //public JsonResult GetLocationTourGuide()
-        //{
-        //    for (int i = 0; i < ListTourGuide.Count; i++)
-        //    {
-        //        if (i % 2 == 0)
-        //        {
-        //            ListTourGuide[i].latitude = (float.Parse(ListTourGuide[i].latitude) + lagFake);
-        //            ListTourGuide[i].longitude = (float.Parse(ListTourGuide[i].longitude) + lagFake);
-        //        }
-        //        else
-        //        {
-        //            ListTourGuide[i].latitude = ListTourGuide[i].latitude) - lagFake;
-        //            ListTourGuide[i].longitude = ListTourGuide[i].longitude) - lagFake;
-        //        }
-        //    }
-        //    longFake = longFake + 0.001f;
-        //    lagFake = lagFake + 0.001f;
-        //    var jsonString = JsonConvert.SerializeObject(ListTourGuideActive);
-        //    return Json(jsonString, JsonRequestBehavior.AllowGet);
-        //}
+        #region Get location and fake location
+
+        [HttpGet]
+        public JsonResult GetLocationTourGuide()
+        {
+
+            ListTourGuide = MonitoringTourSystem.tourguides.ToList();
+
+            for (int i = 0; i < ListTourGuide.Count; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    ListTourGuide[i].latitude = ListTourGuide[i].latitude + lagFake;
+                    ListTourGuide[i].longitude = ListTourGuide[i].longitude + lagFake;
+
+                }
+                else
+                {
+                    ListTourGuide[i].latitude = ListTourGuide[i].latitude - lagFake;
+                    ListTourGuide[i].longitude = ListTourGuide[i].longitude - lagFake;
+                }
+            }
+
+            longFake = longFake + 0.001f;
+            lagFake = lagFake + 0.001f;
+
+            var jsonString = JsonConvert.SerializeObject(ListTourGuide);
+            return Json(jsonString, JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
+
+        #region Create Marker for tour is running
+
         [HttpGet]
         public JsonResult CreateMarker()
         {
@@ -99,6 +112,10 @@ namespace MonitoringTourSystem.Controllers
             return Json(jsonString, JsonRequestBehavior.AllowGet);
         }
 
+        #endregion
+
+
+        #region Get location of any marker
         [HttpGet]
         public JsonResult GetLocationMarkerSelected(int id)
         {
@@ -108,9 +125,13 @@ namespace MonitoringTourSystem.Controllers
         }
 
 
+        #endregion
+
+
+        #region Search tour guide
         public ActionResult SearchTourGuide(string id)
         {
-           
+
             if (id != null)
             {
                 id = id.ToUpper();
@@ -124,6 +145,8 @@ namespace MonitoringTourSystem.Controllers
                 return PartialView("ListTourGuide", model);
             }
         }
+
+        #endregion
 
         //public ActionResult RenderHomeOption(int id)
         //{
@@ -140,5 +163,122 @@ namespace MonitoringTourSystem.Controllers
         //    return null;
         //}
 
+
+        #region Caculator distance and warning
+
+        [HttpPost]
+        public ActionResult GetListForWarning( Warning obj )
+        {
+            ListTourGuideWarning = new List<ListTourWithTourGuide>();
+
+            for (int i = 0; i < ListManageTour.Count; i++)
+            {
+                var a = GetDistanceFromLatLonInKm(obj.Lat, obj.Long, ListManageTour[i].TourGuide.latitude, ListManageTour[i].TourGuide.longitude);
+                if (GetDistanceFromLatLonInKm(obj.Lat, obj.Long, ListManageTour[i].TourGuide.latitude, ListManageTour[i].TourGuide.longitude) < obj.Distance)
+                {
+                    ListTourGuideWarning.Add(ListManageTour[i]);
+                }
+            }
+            var model = new HomeViewModel() { OptionRenderView = 1, TourWithTourGuide = ListTourGuideWarning };
+            return View("ListTourGuideWarning", model);
+        }
+
+        // Distance beetween two point
+        double GetDistanceFromLatLonInKm(double lat1,
+                                 double lon1,
+                                 double lat2,
+                                 double lon2)
+        {
+            var R = 6371d; // Radius of the earth in km
+            var dLat = Deg2Rad(lat2 - lat1);  // deg2rad below
+            var dLon = Deg2Rad(lon2 - lon1);
+            var a =
+              Math.Sin(dLat / 2d) * Math.Sin(dLat / 2d) +
+              Math.Cos(Deg2Rad(lat1)) * Math.Cos(Deg2Rad(lat2)) *
+              Math.Sin(dLon / 2d) * Math.Sin(dLon / 2d);
+            var c = 2d * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1d - a));
+            var d = R * c; // Distance in km
+            return d;
+        }
+        double Deg2Rad(double deg)
+        {
+            return deg * (Math.PI / 180d);
+        }
+
+        //send waring 
+
+
+        public JsonResult SendWarning(Warning obj)
+        {
+            try
+            {
+                if (obj != null && ListTourGuideWarning.Count != 0)
+                {
+                    using (var context = new monitoring_tour_v3Entities())
+                    {
+                        var warningModel = new warning()
+                        {
+                            warning_name = obj.WarningName,
+                            description = obj.DescriptionWarning,
+                            latitude = obj.Lat,
+                            longitude = obj.Long,
+                            status = StatusWarning.Opening.ToString(),
+                            type = obj.CategoryWarnig,
+
+                        };
+                        var warningData = context.Set<warning>();
+                        warningData.Add(warningModel);
+                        context.SaveChanges();
+                    }
+
+
+
+                    for (int i = 0; i < ListTourGuideWarning.Count; i++)
+                    {
+                        var warningReceiver = new warning_receiver()
+                        {
+                            receiver_id = ListTourGuideWarning[i].Tour.tourguide_id,
+                            status = StatusWarning.Opening.ToString(),
+                            warner_id = 1,
+                        };
+
+                        using (var context = new monitoring_tour_v3Entities())
+                        {
+                            var warningReceviceData = context.Set<warning_receiver>();
+                            warningReceviceData.Add(warningReceiver);
+                            context.SaveChanges();
+                        }
+                    }
+
+                    Response.StatusCode = (int)HttpStatusCode.OK;
+                    var result = new { Success = true, Message = "Send successful" };
+                    return Json(result, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    Response.StatusCode = (int)HttpStatusCode.OK;
+                    var result = new { Success = false, Message = "Danh sách tour nhận cảnh báo rỗng" };
+                    return Json(result, JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch(Exception ex)
+            {
+                Response.StatusCode = (int)HttpStatusCode.BadGateway;
+                var result = new { Success = false, Message = "Send failed" };
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [HttpGet]
+        public JsonResult GetWarningPosition()
+        {
+            var listWarning = new List<warning>();
+
+            listWarning = MonitoringTourSystem.warnings.ToList();
+            var jsonString = JsonConvert.SerializeObject(listWarning);
+
+            return Json(jsonString, JsonRequestBehavior.AllowGet);
+        }
+        #endregion
     }
 }

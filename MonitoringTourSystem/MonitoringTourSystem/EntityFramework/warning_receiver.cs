@@ -12,11 +12,11 @@ namespace MonitoringTourSystem.EntityFramework
     using System;
     using System.Collections.Generic;
     
-    public partial class province
+    public partial class warning_receiver
     {
-        public string province_id { get; set; }
-        public string province_name { get; set; }
-        public int country_id { get; set; }
-        public string description { get; set; }
+        public int id { get; set; }
+        public int warner_id { get; set; }
+        public int receiver_id { get; set; }
+        public string status { get; set; }
     }
 }

@@ -1,4 +1,7 @@
-﻿ var marker, map;
+﻿
+
+
+var marker, map;
 var listMarker = new Array();
 var longfake = 0.0000000001;
 var lagfake = 0.0000000001
@@ -168,7 +171,7 @@ function LoadMarker() {
                     '<span style="color: gray; font-size: 12px; margin-left: 20px;">' + departure_date + ' - ' + return_date + '</span>' +
                     '</div>' +
                     '<div class="list-tour" style="height: 20px; margin-top: 8px; margin-left: 15px;" id="nav-accordion">' +                 
-                    '<span style="color: blue; font-size: 12px; margin-left: 20px; float: right;"><a href="'+tourDetail+'" style="color: blue;">Xem chi tiết</a></span>' +
+                    '<span style="color: blue; font-size: 12px; margin-left: 20px; float: right;"><a href="'+tourDetail+'"  style="color: blue;">Xem chi tiết</a></span>' +
                     '</div>' +
                     '</div>' +
                     '</div>' +
@@ -178,10 +181,10 @@ function LoadMarker() {
                     '<img src="/Content/Images/ic_message.png" width="30" height="30" style=" margin-left: 10px; float: right;"/>' +
                     '</div>'+
                     '<div style="float: right; height: 100%; width: 20%; ">' +
-                    '<img src="/Content/Images/ic_warning.png" width="28" height="28" style=" margin-left: 20px; float: right;"/>' +
-                    '</div>' +
+                    '<a href="#" data-toggle="modal" data-target="#myModal"><img src="/Content/Images/ic_warning.png" width="28" height="28" style=" margin-left: 20px; float: right;"/></a>' +
+                    '</div>'+
                     '<div style="float: right; height: 100%; width: 20%;"></div>' +
-                    '</div>' +
+                    '</div>'+
                     '</div>';
 
                 var count = function () {

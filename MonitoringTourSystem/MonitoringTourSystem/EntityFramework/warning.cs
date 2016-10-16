@@ -15,10 +15,11 @@ namespace MonitoringTourSystem.EntityFramework
     public partial class warning
     {
         public int warning_id { get; set; }
-        public int warner_id { get; set; }
-        public int tourist_id { get; set; }
+        public string warning_name { get; set; }
         public string type { get; set; }
         public string description { get; set; }
         public string status { get; set; }
+        public double latitude { get; set; }
+        public double longitude { get; set; }
     }
 }

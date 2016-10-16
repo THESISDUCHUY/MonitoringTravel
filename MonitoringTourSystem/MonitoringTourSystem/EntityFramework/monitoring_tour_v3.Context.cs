@@ -25,6 +25,7 @@ namespace MonitoringTourSystem.EntityFramework
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<country> countries { get; set; }
         public virtual DbSet<manager> managers { get; set; }
         public virtual DbSet<message> messages { get; set; }
         public virtual DbSet<place> places { get; set; }
@@ -35,7 +36,7 @@ namespace MonitoringTourSystem.EntityFramework
         public virtual DbSet<tourguide> tourguides { get; set; }
         public virtual DbSet<tourist> tourists { get; set; }
         public virtual DbSet<tracking> trackings { get; set; }
+        public virtual DbSet<warning_receiver> warning_receiver { get; set; }
         public virtual DbSet<warning> warnings { get; set; }
-        public virtual DbSet<country> countries { get; set; }
     }
 }

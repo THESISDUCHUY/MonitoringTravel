@@ -232,6 +232,9 @@
     <Compile Include="EntityFramework\warning.cs">
       <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityFramework\warning_receiver.cs">
+      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -240,6 +243,8 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Province.cs" />
     <Compile Include="Models\StatusTour.cs" />
+    <Compile Include="Models\StatusWarning.cs" />
+    <Compile Include="Models\Warning.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\CreateTourViewModel.cs" />
     <Compile Include="ViewModel\EditTourViewModel.cs" />
@@ -260,6 +265,7 @@
     <Content Include="Content\Images\ic_delete.png" />
     <Content Include="Content\Images\ic_edit.png" />
     <Content Include="Content\Images\ic_logo.png" />
+    <Content Include="Content\Images\ic_marker_warning.png" />
     <Content Include="Content\Images\ic_pause.png" />
     <Content Include="Content\Images\ic_pausetour.png" />
     <Content Include="Content\Images\ic_start.png" />
@@ -503,6 +509,7 @@
     <Content Include="Views\TourDetail\ListTourForeign.cshtml" />
     <Content Include="Views\CreateTour\CreateTourChoose.cshtml" />
     <Content Include="Views\EditTour\EditTourForeign.cshtml" />
+    <Content Include="Views\Home\ListTourGuideWarning.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

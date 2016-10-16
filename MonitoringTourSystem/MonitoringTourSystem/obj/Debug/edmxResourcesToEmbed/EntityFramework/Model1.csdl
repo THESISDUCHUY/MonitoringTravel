@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="not_useModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="not_use" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="country">
     <Key>
       <PropertyRef Name="country_id" />
     </Key>
     <Property Name="country_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="country_name" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="country_name" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="manager">
     <Key>
@@ -38,13 +38,13 @@
     </Key>
     <Property Name="place_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="province_id" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="country_id" Type="Int32" Nullable="false" />
     <Property Name="place_name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="contact" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="address" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="cover_photo" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="latitude" Type="Double" Nullable="false" />
     <Property Name="longitude" Type="Double" Nullable="false" />
+    <Property Name="country_id" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="province">
     <Key>
@@ -92,8 +92,7 @@
     <Property Name="vehicle" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="time" Type="DateTime" Nullable="false" />
     <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="image" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
-    <Property Name="nameProvince" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="image" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="tourguide">
     <Key>
@@ -133,7 +132,35 @@
     <Property Name="latitude" Type="Double" Nullable="false" />
     <Property Name="longitude" Type="Double" Nullable="false" />
   </EntityType>
-  <EntityContainer Name="monitoring_tour_v3Entities" annotation:LazyLoadingEnabled="true">
+  <EntityType Name="warning">
+    <Key>
+      <PropertyRef Name="warning_id" />
+      <PropertyRef Name="type" />
+      <PropertyRef Name="description" />
+      <PropertyRef Name="status" />
+      <PropertyRef Name="warning_name" />
+    </Key>
+    <Property Name="warning_id" Type="Int32" Nullable="false" />
+    <Property Name="type" Type="String" MaxLength="18" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="latitude" Type="Double" />
+    <Property Name="longitude" Type="Double" />
+    <Property Name="warning_name" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="warning_receiver">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="warner_id" />
+      <PropertyRef Name="receiver_id" />
+      <PropertyRef Name="status" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="warner_id" Type="Int32" Nullable="false" />
+    <Property Name="receiver_id" Type="Int32" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="not_useEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="countries" EntityType="Self.country" />
     <EntitySet Name="managers" EntityType="Self.manager" />
     <EntitySet Name="messages" EntityType="Self.message" />
@@ -145,28 +172,7 @@
     <EntitySet Name="tourguides" EntityType="Self.tourguide" />
     <EntitySet Name="tourists" EntityType="Self.tourist" />
     <EntitySet Name="trackings" EntityType="Self.tracking" />
-    <EntitySet Name="warning_receiver" EntityType="not_useModel.warning_receiver" />
-    <EntitySet Name="warnings" EntityType="not_useModel.warning" />
+    <EntitySet Name="warnings" EntityType="Self.warning" />
+    <EntitySet Name="warning_receiver" EntityType="Self.warning_receiver" />
   </EntityContainer>
-  <EntityType Name="warning_receiver">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
-    <Property Name="warner_id" Type="Int32" Nullable="false" />
-    <Property Name="receiver_id" Type="Int32" Nullable="false" />
-    <Property Name="status" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="warning">
-    <Key>
-      <PropertyRef Name="warning_id" />
-    </Key>
-    <Property Name="warning_id" Type="Int32" Nullable="false" />
-    <Property Name="warning_name" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
-    <Property Name="type" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
-    <Property Name="description" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
-    <Property Name="status" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="latitude" Type="Double" Nullable="false" />
-    <Property Name="longitude" Type="Double" Nullable="false" />
-  </EntityType>
 </Schema>

@@ -27,8 +27,6 @@ namespace MonitoringTourSystem.EntityFramework
         public int day { get; set; }
         public string cover_photo { get; set; }
         public int is_foreign_tour { get; set; }
-
         public List<tour_schedule> ListTourSchedule { get; set; }
-
     }
 }
