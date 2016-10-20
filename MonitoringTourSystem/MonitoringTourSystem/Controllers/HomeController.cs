@@ -1,5 +1,4 @@
-﻿
-using MonitoringTourSystem.EntityFramework;
+﻿using MonitoringTourSystem.EntityFramework;
 using MonitoringTourSystem.Models;
 using MonitoringTourSystem.ViewModel;
 using Newtonsoft.Json;
@@ -9,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MonitoringTourSystem.Controllers
 {
@@ -22,24 +22,36 @@ namespace MonitoringTourSystem.Controllers
         public static List<tourguide> ListTourGuide { get; set; }
         public static List<ListTourWithTourGuide> ListStoreForSearch { get; set; }
 
+        public static  manager managerID { get; set; }
+
+        public static List<tourguide> ListTourTestRealtime = new List<tourguide>();
+
         public ActionResult Index()
         {
+
+
+            string username = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
+
+             managerID = MonitoringTourSystem.managers.Where(s => s.email == username).ToList().FirstOrDefault();
+
             ListTourGuide = MonitoringTourSystem.tourguides.ToList();
             // Join tourguide table and tour table with key is tourguide_id
             var tourManage = (from s in MonitoringTourSystem.tours
                               join r in MonitoringTourSystem.tourguides on s.tourguide_id equals r.tourguide_id
-                              where s.status == StatusTour.Running.ToString()
+                              where s.status == StatusTour.Running.ToString() && s.manager_id == managerID.manager_id
                               select new
                               {
                                   TourSelect = s,
                                   TourGuideSelect = r,
 
                               }).ToList();
+
             var tourWithTourGuide = new List<ListTourWithTourGuide>();
 
             for (int i = 0; i < tourManage.Count; i++)
             {
                 tourWithTourGuide.Add(new ListTourWithTourGuide() { Tour = tourManage[i].TourSelect, TourGuide = tourManage[i].TourGuideSelect });
+                ListTourTestRealtime.Add(tourManage[i].TourGuideSelect);
             }
             ListStoreForSearch = tourWithTourGuide;
             ListManageTour = tourWithTourGuide;
@@ -51,13 +63,17 @@ namespace MonitoringTourSystem.Controllers
 
             //Get listwarning is opening
             var listWarning = MonitoringTourSystem.warnings.Where(s => s.status == StatusWarning.Opening.ToString()).ToList();
+
             // Get list receiver warning
-            var listReceiverWarning = MonitoringTourSystem.warning_receiver.ToList();
+            var listReceiverWarning = MonitoringTourSystem.warning_receiver.Where(s => s.warner_id == managerID.manager_id).ToList();
 
             for (int i = 0; i < listWarning.Count; i++)
             {
                 var listReceiverOfWarning = listReceiverWarning.Where(s => s.warning_id == listWarning[i].warning_id).ToList();
-                ListWarningWithReceiver.Add(new WarningWithReceiver() { Warning = listWarning[i], ListWarningReceiver = listReceiverOfWarning });
+                if(listReceiverOfWarning.Count != 0)
+                {
+                    ListWarningWithReceiver.Add(new WarningWithReceiver() { Warning = listWarning[i], ListWarningReceiver = listReceiverOfWarning, QuanityRecevied = listReceiverOfWarning.Where(x => x.status == StatusWarning.Received.ToString()).ToList().Count });
+                }
             }
 
 
@@ -65,6 +81,11 @@ namespace MonitoringTourSystem.Controllers
             return View("Index", model);
 
         }
+        public ActionResult Stock()
+        {
+            return View("Stock");
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -85,26 +106,26 @@ namespace MonitoringTourSystem.Controllers
         public JsonResult GetLocationTourGuide()
         {
 
-            ListTourGuide = MonitoringTourSystem.tourguides.ToList();
-            for (int i = 0; i < ListTourGuide.Count; i++)
+            //ListTourGuide = MonitoringTourSystem.tourguides.Where(s => s).ToList();
+            for (int i = 0; i < ListTourTestRealtime.Count; i++)
             {
                 if (i % 2 == 0)
                 {
-                    ListTourGuide[i].latitude = ListTourGuide[i].latitude + lagFake;
-                    ListTourGuide[i].longitude = ListTourGuide[i].longitude + lagFake;
+                    ListTourTestRealtime[i].latitude = ListTourTestRealtime[i].latitude + lagFake;
+                    ListTourTestRealtime[i].longitude = ListTourTestRealtime[i].longitude + lagFake;
 
                 }
                 else
                 {
-                    ListTourGuide[i].latitude = ListTourGuide[i].latitude - lagFake;
-                    ListTourGuide[i].longitude = ListTourGuide[i].longitude - lagFake;
+                    ListTourTestRealtime[i].latitude = ListTourTestRealtime[i].latitude - lagFake;
+                    ListTourTestRealtime[i].longitude = ListTourTestRealtime[i].longitude - lagFake;
                 }
             }
 
             longFake = longFake + 0.001f;
             lagFake = lagFake + 0.001f;
 
-            var jsonString = JsonConvert.SerializeObject(ListTourGuide);
+            var jsonString = JsonConvert.SerializeObject(ListTourTestRealtime);
             return Json(jsonString, JsonRequestBehavior.AllowGet);
         }
 
@@ -190,6 +211,32 @@ namespace MonitoringTourSystem.Controllers
             return View("ListTourGuideWarning", model);
         }
 
+
+        [HttpPost]
+        public ActionResult GetListWarning()
+        {
+            // Get list warning
+            var ListWarningWithReceiver = new List<WarningWithReceiver>();
+
+            //Get listwarning is opening
+            var listWarning = MonitoringTourSystem.warnings.Where(s => s.status == StatusWarning.Opening.ToString()).ToList();
+
+            // Get list receiver warning
+            var listReceiverWarning = MonitoringTourSystem.warning_receiver.Where(s => s.warner_id == managerID.manager_id).ToList();
+
+            for (int i = 0; i < listWarning.Count; i++)
+            {
+                var listReceiverOfWarning = listReceiverWarning.Where(s => s.warning_id == listWarning[i].warning_id).ToList();
+                if (listReceiverOfWarning.Count != 0)
+                {
+                    ListWarningWithReceiver.Add(new WarningWithReceiver() { Warning = listWarning[i], ListWarningReceiver = listReceiverOfWarning, QuanityRecevied = listReceiverOfWarning.Where(x => x.status == StatusWarning.Received.ToString()).ToList().Count });
+                }
+            }
+
+            var model = new HomeViewModel() { OptionRenderView = 1, TourWithTourGuide = null, ListWarningWithReceiver = ListWarningWithReceiver };
+            return View("ListWarning", model);
+        }
+
         // Distance beetween two point
         double GetDistanceFromLatLonInKm(double lat1, double lon1, double lat2, double lon2)
         {
@@ -213,15 +260,7 @@ namespace MonitoringTourSystem.Controllers
         {
             try
             {
-                int warningID;
-                try
-                {
-                    warningID = MonitoringTourSystem.warnings.Max(x => x.warning_id) + 1;
-                }
-                catch
-                {
-                    warningID = 0;
-                }
+                int warningID;            
                 if (obj != null && ListTourGuideWarning.Count != 0)
                 {
                     using (var context = new monitoring_tour_v3Entities())
@@ -240,6 +279,8 @@ namespace MonitoringTourSystem.Controllers
                         warningData.Add(warningModel);
                         context.SaveChanges();
                     }
+
+                    warningID = MonitoringTourSystem.warnings.Max(x => x.warning_id);
                     for (int i = 0; i < ListTourGuideWarning.Count; i++)
                     {
                         var warningReceiver = new warning_receiver()
@@ -247,7 +288,7 @@ namespace MonitoringTourSystem.Controllers
                             warning_id = warningID,
                             receiver_id = ListTourGuideWarning[i].Tour.tourguide_id,
                             status = StatusWarning.Opening.ToString(),
-                            warner_id = 1,
+                            warner_id = managerID.manager_id,
                         };
 
                         using (var context = new monitoring_tour_v3Entities())
@@ -257,6 +298,8 @@ namespace MonitoringTourSystem.Controllers
                             context.SaveChanges();
                         }
                     }
+
+
 
                     Response.StatusCode = (int)HttpStatusCode.OK;
                     var result = new { Success = true, Message = "Gửi cảnh báo thành công!" };
@@ -280,31 +323,41 @@ namespace MonitoringTourSystem.Controllers
         [HttpGet]
         public JsonResult GetWarningPosition()
         {
-            var listWarning = new List<warning>();
 
-            listWarning = MonitoringTourSystem.warnings.ToList();
-            var jsonString = JsonConvert.SerializeObject(listWarning);
+            var listWarningReceiver = MonitoringTourSystem.warning_receiver.Where(s => s.warner_id == managerID.manager_id).GroupBy(x => x.warning_id).Select(y => y.FirstOrDefault()).ToList();
+
+            var listWarningAll = MonitoringTourSystem.warnings.ToList();
+
+            var listWarningOfUser = new List<warning>();
+            for (int i = 0; i < listWarningReceiver.Count; i++)
+            {
+                var warningItem = listWarningAll.Where(x => x.warning_id == listWarningReceiver[i].warning_id).FirstOrDefault();
+                listWarningOfUser.Add(warningItem);
+            }
+
+            //
+            var jsonString = JsonConvert.SerializeObject(listWarningOfUser);
             return Json(jsonString, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet]
-        public void GetListWarning()
-        {
+        //[HttpGet]
+        //public void GetListWarning()
+        //{
 
-            var ListWarningWithReceiver = new List<WarningWithReceiver>();
+        //    var ListWarningWithReceiver = new List<WarningWithReceiver>();
         
-            //Get listwarning is opening
-            var listWarning = MonitoringTourSystem.warnings.Where(s => s.status == StatusWarning.Opening.ToString()).ToList();
-            // Get list receiver warning
-            var listReceiverWarning = MonitoringTourSystem.warning_receiver.ToList();
+        //    //Get listwarning is opening
+        //    var listWarning = MonitoringTourSystem.warnings.Where(s => s.status == StatusWarning.Opening.ToString()).ToList();
+        //    // Get list receiver warning
+        //    var listReceiverWarning = MonitoringTourSystem.warning_receiver.ToList();
 
-            for (int i = 0; i < listWarning.Count; i++)
-            {
-                var listReceiverOfWarning = listReceiverWarning.Where(s => s.warning_id == listWarning[i].warning_id).ToList();
-                ListWarningWithReceiver.Add(new WarningWithReceiver() { Warning = listWarning[i], ListWarningReceiver = listReceiverOfWarning });
-            }
+        //    for (int i = 0; i < listWarning.Count; i++)
+        //    {
+        //        var listReceiverOfWarning = listReceiverWarning.Where(s => s.warning_id == listWarning[i].warning_id).ToList();
+        //        ListWarningWithReceiver.Add(new WarningWithReceiver() { Warning = listWarning[i], ListWarningReceiver = listReceiverOfWarning });
+        //    }
 
-        }
+        //}
 
         [HttpGet]
         public JsonResult GetMarkerWarningSelected(int id)

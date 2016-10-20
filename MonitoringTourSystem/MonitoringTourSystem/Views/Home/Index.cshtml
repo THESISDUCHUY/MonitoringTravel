@@ -3,6 +3,16 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="~/Scripts/Home/css/chat.css">
+<link rel="stylesheet" type="text/css" href="~/Scripts/Home/css/homestyle.css">
+
+<script src="~/Scripts/jquery.signalR-2.2.1.js"></script>
+<script src="http://localhost:13062/signalr/hubs"></script>
+
 <script>
     function searchTour() {
         var id = $('#nametour').val();
@@ -14,12 +24,23 @@
             $("#list-tour").html(partialViewResult);
         });
     }
+
+    //var userId;
+
+    //$.connection.hub.url = 'http://localhost:13062/signalr';
+
+    //var myHub = $.connection.warningHub;
+
+    //$(function () {
+    //    //// Start the hub
+    //    window.hubReady = $.connection.hub.start();
+    //});
+    //$.connection.hub.start().done(function () {
+    //    // Call the server side function AFTER the connection has been started
+    //    myHub.server.createUser();
+    //    //invoke for the user data
+    //});
 </script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="~/Scripts/Home/css/chat.css">
-<link rel="stylesheet" type="text/css" href="~/Scripts/Home/css/homestyle.css">
 
 <div id="main-content" style="background-color: #1FB5AD; height: 100%;">
     <div class="wrapper" style="background-color: white; height: 87.5%; padding-top: 15px;">
@@ -50,7 +71,7 @@
                                             <option style="font-size: 18px;" value="0" disabled selected>Chọn miền</option>
                                         </select>   
                                     </div>
-                                    <div class="alert alert-success" style="margin-top: 10px;">
+                                    <div id="DemoAjaxClick" class="alert alert-success" style="margin-top: 10px;">
                                         Tour đang hoạt động
                                     </div>
                                     <div id="list-tour" style="height: 100% ; overflow-y: hidden">
@@ -64,7 +85,7 @@
                                 <div class="alert alert-success" style="margin-top: 10px;">
                                     Danh sách cảnh báo
                                 </div>
-                                <div id="list-tour" style="height: 100% ; overflow-y: hidden">
+                                <div id="list-warning-reciver" style="height: 100% ; overflow-y: hidden">
                                     @{
                                         Html.RenderPartial("ListWarning", Model);
                                     }
@@ -215,7 +236,6 @@
                     <button type="button" onclick="sendWarning();"  class="btn btn-primary" >Gửi cảnh báo</button>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
@@ -256,11 +276,19 @@
 
           google.maps.event.addListener(map1, "click", function (event) {
                   
-                
-                  placeMarker(event.latLng);
-                  var latitude = event.latLng.lat();
-                  var longitude = event.latLng.lng();
-                  geocodeLatLng(geocoder, map1, infowindow,latitude,longitude);
+            placeMarker(event.latLng);
+            var latitude = event.latLng.lat();
+            var longitude = event.latLng.lng();
+            geocodeLatLng(geocoder, map1, infowindow, latitude, longitude);
+
+            var location = {
+                Laitude: latitude,
+                Longitude: longitude,
+            }
+            
+            //myHub.server.updateLocation(location);
+              
+
           });
           // Create the search box and link it to the UI element.
           var input = document.getElementById('pac-input');
@@ -310,9 +338,6 @@
             map1.fitBounds(bounds);
         });
 
-
-
-
         // FOR HOME ONLY
         var myLatlng = new google.maps.LatLng(10.824638, 106.627733);
         var mapOptions = {
@@ -322,24 +347,31 @@
         }
         map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
 
-        pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
-        new google.maps.Size(21, 34),
-        new google.maps.Point(0, 0),
-        new google.maps.Point(10, 34));
+        //pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+        //new google.maps.Size(21, 34),
+        //new google.maps.Point(0, 0),
+        //new google.maps.Point(10, 34));
+
+        var pinImage = {
+            url: 'http://localhost:20261/Content/Images/ic_marker_warning.png', // image is 512 x 512
+            scaledSize: new google.maps.Size(50, 50)
+        };
 
 
-        pinImageSelect = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColorSelect,
-        new google.maps.Size(21, 34),
-        new google.maps.Point(0, 0),
-        new google.maps.Point(10, 34));
+        var pinImageSelect = {
+            url: 'http://localhost:20261/Content/Images/ic_marker_warning.png', // image is 512 x 512
+            scaledSize: new google.maps.Size(50, 50)
+        };
+        //pinImageSelect = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColorSelect,
+        //new google.maps.Size(21, 34),
+        //new google.maps.Point(0, 0),
+        //new google.maps.Point(10, 34));
 
 
-        pinImageWarning = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColorSelect,
-        new google.maps.Size(21, 34),
-        new google.maps.Point(0, 0),
-        new google.maps.Point(10, 34));
-
-
+        //pinImageWarning = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColorSelect,
+        //new google.maps.Size(21, 34),
+        //new google.maps.Point(0, 0),
+        //new google.maps.Point(10, 34));
 
         // SLIDING MARKER   
         /* global define,module,require,google */
@@ -739,6 +771,7 @@
     var categoriesWarning = ["Khủng Bố", "Thời Tiết", "Giao Thông", "Khác"];
     var lat;
     var long;
+
     $(document).on('change', '#distanceWarning', function () {
 
         //alert(categories);
@@ -755,23 +788,43 @@
         $("#myModal").on("shown.bs.modal", function () {
             google.maps.event.trigger(map1, "resize");
 
+            
             for (i = 0; i < optionDistance.length; i++)
             {
-                $("#distanceWarning").append(new Option(optionDistance[i], optionDistance[i].split(" ")[0]));
+                $("#distanceWarning:last").append(new Option(optionDistance[i], optionDistance[i].split(" ")[0]));
             }
-            $("#distanceWarning").select2({
+            $("#distanceWarning:last").select2({
 
             });
 
             for (i = 0; i < categoriesWarning.length; i++)
             {
-                $("#categoriesWarning").append(new Option(categoriesWarning[i], i.toString()));
+                $("#categoriesWarning:last").append(new Option(categoriesWarning[i], i.toString()));
             }
-            $("#categoriesWarning").select2({
+            $("#categoriesWarning:last").select2({
 
             });
+            if (optionDistance.length != 0) {
+                optionDistance.length = 0;
+            }
+
+            if (categoriesWarning.length != 0) {
+                categoriesWarning.length = 0;
+            }
 
         });
+
+
+        //myHub.client.selectSeat = function (message) {
+        //    swal(message.Laitude.toString());
+        //    var currentLocation = new google.maps.LatLng(message.Laitude, message.Longitude);
+        //    MoverMarker(currentLocation, 1)
+        //};
+
+        //myHub.client.receiverWarning = function (message) {
+        //    swal("Co canh bao moi");
+        //};
+
     }); 
     function placeMarker(location) {
 
@@ -831,9 +884,6 @@
         });
     }
 
-
-
-
     // FOR WARNING IN HOME
     var latSendWarning;
     var longSendWarning;
@@ -866,6 +916,13 @@
             return;
         }
 
+        var dataSend = {
+            WarningName: warningName,
+            Description: descriptionWarning,
+            Categories: categories,
+            Distance: distance
+        }
+
         $.ajax({
             url: "/Home/SendWarning",
             type: "POST",
@@ -888,8 +945,9 @@
                 }
                 else {
                     swal("Gửi cảnh báo!", message, "success")
+                    //myHub.server.sendWarning(dataSend);
                     loadMarkerWarning();
-                   
+                    getListWarning();
                 }
             },
             error: function (xhr) {
@@ -897,6 +955,19 @@
             }
         });
     }
+
+    function getListWarning()
+    {
+        $.ajax({
+            url: "/Home/GetListWarning",
+            type: "POST",
+
+        })
+        .done(function (partialViewResult) {
+            $("#list-warning-reciver").html(partialViewResult);
+        });
+    }
+
     function loadMarkerWarning()
     {
         $.ajax({
@@ -1010,7 +1081,6 @@
             setTimeout(function () { map.setZoom(currentZoom) }, 80);
         }
     }
-
 
     // FOR TOURGUIDE MARKER
     var panPath = [];
@@ -1282,11 +1352,7 @@
                 padding: 18px 0 18px 12px;
                 font-size: 14px;
                 outline: none;
-                -webkit-transition: all 0.3s ease;
-                -moz-transition: all 0.3s ease;
-                -o-transition: all 0.3s ease;
-                -ms-transition: all 0.3s ease;
-                transition: all 0.3s ease;
+                margin-top: -25px;
             }
 
                 ul.list-tour li a:hover {

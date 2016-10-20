@@ -37,7 +37,9 @@ namespace MonitoringTourSystem.Controllers.Account
             {
                 if (item.email == username && item.password == password)
                 {
+                    //thay vi username mày thay thành user_id
                     FormsAuthentication.SetAuthCookie(username, true);
+                    
                     if (Url.IsLocalUrl(ReturnUrl))
                     {
 

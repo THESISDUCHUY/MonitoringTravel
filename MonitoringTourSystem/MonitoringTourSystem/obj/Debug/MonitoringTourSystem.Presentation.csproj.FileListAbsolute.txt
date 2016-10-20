@@ -146,3 +146,14 @@ F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\obj\Debug\MonitoringTourSystem.Presentation.csprojResolveAssemblyReference.cache
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\obj\Debug\MonitoringTourSystem.dll
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\obj\Debug\MonitoringTourSystem.pdb
+F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.AspNet.SignalR.Core.dll
+F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.Owin.dll
+F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.Owin.Security.dll
+F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Owin.dll
+F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.AspNet.SignalR.Core.xml
+F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.Owin.xml
+F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.Owin.Security.xml

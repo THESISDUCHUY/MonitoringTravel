@@ -27,5 +27,7 @@ namespace MonitoringTourSystem.ViewModel
     {
         public warning Warning { get; set; }
         public List<warning_receiver> ListWarningReceiver { get; set; }
+
+        public int QuanityRecevied { get; set; }
     }
 }
