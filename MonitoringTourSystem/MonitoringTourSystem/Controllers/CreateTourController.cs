@@ -1,6 +1,6 @@
-﻿
-using MonitoringTourSystem.EntityFramework;
+﻿using MonitoringTourSystem.Infrastructures.EntityFramework;
 using MonitoringTourSystem.Models;
+using MonitoringTourSystem.Services;
 using MonitoringTourSystem.ViewModel;
 using Newtonsoft.Json;
 using System;
@@ -10,9 +10,11 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MonitoringTourSystem.Controllers
 {
+    [Authorize]
     public class CreateTourController : Controller
     {
         
@@ -63,9 +65,10 @@ namespace MonitoringTourSystem.Controllers
         [HttpGet]
         public JsonResult GetListTourGuide()
         {
-            var listTourGuide = MonitoringTourSystem.tourguides.ToList();
-            var jsonString = JsonConvert.SerializeObject(listTourGuide);
-            return Json(jsonString, JsonRequestBehavior.AllowGet);
+            //var listTourGuide = MonitoringTourSystem.tourguides.ToList();
+            //var jsonString = JsonConvert.SerializeObject(listTourGuide);
+            //return Json(jsonString, JsonRequestBehavior.AllowGet);
+            return null;
         }
 
         [HttpGet]
@@ -90,16 +93,22 @@ namespace MonitoringTourSystem.Controllers
 
         //Get list country
         [HttpGet]
-
         public JsonResult GetCountry()
         {
             var listCountry = MonitoringTourSystem.countries.ToList();
+            listCountry.Remove(listCountry.Where(s => s.country_id == 84).FirstOrDefault());
             var jsonString = JsonConvert.SerializeObject(listCountry);
             return Json(jsonString, JsonRequestBehavior.AllowGet);
         }
+
         [HttpPost]
         public JsonResult AddNewTour(tour obj)
         {
+            ManagerServices _managerServices = new ManagerServices();
+            string username = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
+
+            var managerId = _managerServices.GetUserID(username);
+
             int foreignTour = 0;
 
             if(isForeignTour == false)
@@ -118,15 +127,6 @@ namespace MonitoringTourSystem.Controllers
             }
             else
             {
-                int tourID;
-                try
-                {
-                    tourID = MonitoringTourSystem.tours.Max(x => x.tour_id);
-                }
-                catch
-                {
-                    tourID = 0;
-                }
                 var statusTour = StatusTour.Opening;
                 try
                 {
@@ -134,7 +134,7 @@ namespace MonitoringTourSystem.Controllers
                     {
                         tourguide_id = obj.tourguide_id,
                         tour_code = obj.tour_code,
-                        manager_id = obj.manager_id,
+                        manager_id = managerId,
                         tour_name = obj.tour_name,
                         departure_date = obj.departure_date,
                         return_date = obj.return_date,
@@ -146,11 +146,19 @@ namespace MonitoringTourSystem.Controllers
                         is_foreign_tour = foreignTour,
                     };
 
-                    for(int i = 0; i < obj.ListTourSchedule.Count; i++)
+                    using (var context = new monitoring_tour_v3Entities())
+                    {
+                        var tourModelData = context.Set<tour>();
+                        tourModelData.Add(tourModel);
+                        context.SaveChanges();
+                    }
+
+                    var tourID = MonitoringTourSystem.tours.Max(x => x.tour_id);
+                    for (int i = 0; i < obj.ListTourSchedule.Count; i++)
                     {
                         obj.ListTourSchedule[i].tour_id = tourID + 1;
                     }
-                    if (AddNewTour(tourModel, obj.ListTourSchedule))
+                    if (AddNewTour(obj.ListTourSchedule))
                     {
                         Response.StatusCode = (int)HttpStatusCode.OK;
                         var result = new { Success = true, Message = "Add Successful" };
@@ -172,19 +180,14 @@ namespace MonitoringTourSystem.Controllers
             }
         }
 
-
-       
-
         // Add data to database
-        public bool AddNewTour(tour tourModel, List<tour_schedule> tourScheduleModel)
+        public bool AddNewTour(List<tour_schedule> tourScheduleModel)
         {
             try
             {
                 // Insert database to tour table
                 using (var context = new monitoring_tour_v3Entities())
                 {
-                    var tourModelData = context.Set<tour>();
-                    tourModelData.Add(tourModel);
                     foreach(var item in tourScheduleModel)
                     {
                         var tourScheduleData = context.Set<tour_schedule>();
@@ -215,8 +218,51 @@ namespace MonitoringTourSystem.Controllers
                     file.InputStream.CopyTo(ms);
                     byte[] array = ms.GetBuffer();
                 }
+                var result = new { Success = true, PathImage = pathImage };
+                return Json(result, JsonRequestBehavior.AllowGet);
             }
-            return null;
+            else
+            {
+                var result = new { Success = false, PathImage = "Upload hình thất bại, vui lòng thử lại" };
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [HttpPost]
+        public JsonResult GetTourGuideAvailable(DateTime departuredate, DateTime returndate)
+        {
+
+
+            var lstTourGuideAvaible = (from s in MonitoringTourSystem.tours
+                                         where (returndate > s.return_date && departuredate > s.return_date) || (departuredate < s.departure_date && returndate < s.departure_date)
+                                       select s).ToList();
+
+
+            var lstAllTourGuideIsProcessing = MonitoringTourSystem.tours.ToList();
+
+            for (int i = 0; i < lstTourGuideAvaible.Count; i++)
+            {
+                var item = lstAllTourGuideIsProcessing.Where(s => s.tourguide_id == lstTourGuideAvaible[i].tourguide_id).FirstOrDefault();
+
+                if (item != null)
+                {
+                    lstAllTourGuideIsProcessing.Remove(item);
+                }
+            }
+            // After remove lstAllTourGuideIsProcessing is lstTourguideNotAvailble
+
+            var lstTourGuide = MonitoringTourSystem.tourguides.ToList();
+
+            for(int i = 0; i < lstAllTourGuideIsProcessing.Count; i++)
+            {
+                var item = lstTourGuide.Where(s => s.tourguide_id == lstAllTourGuideIsProcessing[i].tourguide_id).FirstOrDefault();
+                if (item != null)
+                {
+                    lstTourGuide.Remove(item);
+                }
+            }
+            var jsonString = JsonConvert.SerializeObject(lstTourGuide);
+            return Json(jsonString, JsonRequestBehavior.AllowGet);
         }
     }
 }

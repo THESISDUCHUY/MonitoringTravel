@@ -1,5 +1,5 @@
 ﻿using MonitoringTourSystem.Controllers;
-using MonitoringTourSystem.EntityFramework;
+using MonitoringTourSystem.Infrastructures.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;

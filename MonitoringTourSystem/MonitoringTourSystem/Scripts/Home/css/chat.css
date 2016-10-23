@@ -355,8 +355,6 @@ emoji.funny{background-image: url(http://i.imgur.com/qKia58V.png);}
 }
 
 ::-webkit-scrollbar-button {
-    display: block;
-    height: 26px;
 }
 
 /* T Y P E */

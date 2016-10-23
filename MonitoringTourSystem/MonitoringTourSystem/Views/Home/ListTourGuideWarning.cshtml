@@ -1,7 +1,7 @@
 ﻿@model MonitoringTourSystem.ViewModel.HomeViewModel
 
 @{
-    if (Model == null || Model.TourWithTourGuide == null || Model.TourWithTourGuide.Count == 0)
+    if (Model == null || Model.ListTourIsProcessing == null || Model.ListTourIsProcessing.Count == 0)
     {
         <div class="alert alert-info" style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">
             Không có tour nào nằm trong bán kính này.
@@ -9,7 +9,7 @@
     }
     else
     {
-        foreach (var item in Model.TourWithTourGuide)
+        foreach (var item in Model.ListTourIsProcessing)
         {
             <ul class="list-tour" id="nav-accordion">
                 <li class="sub-menu">

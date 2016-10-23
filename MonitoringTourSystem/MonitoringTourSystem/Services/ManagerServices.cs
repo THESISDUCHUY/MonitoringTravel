@@ -1,15 +1,17 @@
-﻿using System.Web.Security;
+﻿using MonitoringTourSystem.Infrastructures;
+using System;
+using System.Linq;
+using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MonitoringTourSystem.Services
 {
-    public class ManagerServices
+    public class ManagerServices : Controller
     {
-
-        //public string GetUserID()
-        //{
-        //    string username = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
-
-
-        //}
+        protected DbContext _dbContextPool = new DbContext();
+        public  int GetUserID(string username)
+        {
+            return Convert.ToInt32(username);
+        }
     }
 }

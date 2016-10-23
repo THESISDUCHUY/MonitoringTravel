@@ -1,4 +1,5 @@
-﻿using MonitoringTourSystem.EntityFramework;
+﻿using MonitoringTourSystem.Infrastructures.EntityFramework;
+using MonitoringTourSystem.Services;
 using MonitoringTourSystem.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -7,23 +8,26 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using System.Xml.Linq;
+using System.Web.Security;
 
 namespace MonitoringTourSystem.Controllers
 {
-
+    [Authorize]
     public class EditTourController : Controller
     {
         static string pathImage;
         EditTourViewModel Model = new EditTourViewModel();
-        private static List<tour> listTour = new List<tour>();
         public readonly monitoring_tour_v3Entities MonitoringTourSystem = new monitoring_tour_v3Entities();
         private static int idInt;
+        protected ManagerServices _managerServices = new ManagerServices();
         // GET: EditTour
         public ActionResult EditTour(string id)
         {
+            string username = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
+            var userId = _managerServices.GetUserID(username);
+
             idInt = Convert.ToInt32(id);
-            listTour = MonitoringTourSystem.tours.ToList();
+            var listTour = MonitoringTourSystem.tours.ToList();
 
             int indexDay = 0;
             int indexStart = 0;
@@ -165,11 +169,12 @@ namespace MonitoringTourSystem.Controllers
         [HttpPost]
         public JsonResult UpdateTour(tour obj)
         {
+            string username = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
+            var userId = _managerServices.GetUserID(username);
             string pathCoverPhoto = null;
             int isForeignTour = 0;
             try
-            {
-                
+            {          
                 var tourSelect = MonitoringTourSystem.tours.Where(x => x.tour_id == idInt).FirstOrDefault();
                 if (pathImage == null)
                 {
@@ -179,7 +184,7 @@ namespace MonitoringTourSystem.Controllers
 
                 tourSelect.tourguide_id = obj.tourguide_id;
                 tourSelect.tour_code = obj.tour_code;
-                tourSelect.manager_id = obj.manager_id;
+                tourSelect.manager_id = userId;
                 tourSelect.tour_name = obj.tour_name;
                 tourSelect.departure_date = obj.departure_date;
                 tourSelect.return_date = obj.return_date;
@@ -206,8 +211,6 @@ namespace MonitoringTourSystem.Controllers
                     }
                     context.SaveChanges();
                 }
-
-                
                 Response.StatusCode = (int)HttpStatusCode.OK;
                 var result = new { Success = true, Message = "Add Successful" };
                 return Json(result, JsonRequestBehavior.AllowGet);
@@ -218,7 +221,6 @@ namespace MonitoringTourSystem.Controllers
                 var result = new { Success = false, Message = ex.Message };
                 return Json(result, JsonRequestBehavior.AllowGet);
             }
-
         }
 
         public ActionResult FileUpload(HttpPostedFileBase file)

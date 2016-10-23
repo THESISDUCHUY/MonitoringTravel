@@ -73,14 +73,15 @@ function deleteTour(id) {
             type: "GET",
             success: function (result) {
                 swal("Đã xóa!", "Tour đã được xóa thành công!", "success");
+                setTimeout(function () {
+                    window.location.href = "http://localhost:20261/TourDetail/";
+                }, 2000);
             },
             error: function (xhr) {
                 alert('Xóa không thành công');
             }
         });
-        setTimeout(function () {
-            location.reload();
-        }, 2000);
+        
               
     });
 }

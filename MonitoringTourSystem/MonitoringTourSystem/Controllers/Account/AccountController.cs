@@ -1,4 +1,4 @@
-﻿using MonitoringTourSystem.EntityFramework;
+﻿using MonitoringTourSystem.Infrastructures.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,8 +37,9 @@ namespace MonitoringTourSystem.Controllers.Account
             {
                 if (item.email == username && item.password == password)
                 {
+                    var userId = MonitoringTourSystem.managers.Where(s => s.email == username).ToList().FirstOrDefault().manager_id;
                     //thay vi username mày thay thành user_id
-                    FormsAuthentication.SetAuthCookie(username, true);
+                    FormsAuthentication.SetAuthCookie(userId.ToString(), true);
                     
                     if (Url.IsLocalUrl(ReturnUrl))
                     {

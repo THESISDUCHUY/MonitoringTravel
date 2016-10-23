@@ -1,5 +1,6 @@
-﻿using MonitoringTourSystem.EntityFramework;
+﻿using MonitoringTourSystem.Infrastructures.EntityFramework;
 using MonitoringTourSystem.Models;
+using MonitoringTourSystem.Services;
 using MonitoringTourSystem.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -7,24 +8,24 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MonitoringTourSystem.Controllers
 {
+    [Authorize]
     public class TourDetailController : Controller
     {
         public readonly monitoring_tour_v3Entities MonitoringTourSystem = new monitoring_tour_v3Entities();
         public bool IsStartTourActive;
-        public static TourDetailViewModel ModelPass;
-        // GET: TourDetail
-        private static List<tour> listTour = new List<tour>();
-
-        private static List<place> listPlace = new List<place>();
+        protected ManagerServices _managerServices = new ManagerServices();
 
 
         public ActionResult Index()
         {
-            listTour = MonitoringTourSystem.tours.ToList();
-            listPlace = MonitoringTourSystem.places.ToList();
+            string username = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
+            var userId = _managerServices.GetUserID(username);
+            var listTour = MonitoringTourSystem.tours.Where(s => s.manager_id == userId).ToList();
+            var listPlace = MonitoringTourSystem.places.ToList();
             var listTourVietNam = listTour.Where(x => x.is_foreign_tour == 0).ToList();
             var listTourForeign = listTour.Where(x => x.is_foreign_tour == 1).ToList();
             var model = new TourDetailViewModel() { ListTour = listTour, ListTourVietNam = listTourVietNam, ListTourForeign = listTourForeign, ListScheduleDay = null, TourGuideName = null, TourItem = null };
@@ -34,8 +35,8 @@ namespace MonitoringTourSystem.Controllers
         [HttpGet]
         public ActionResult GetDetailTour(int id)
         {
-            listTour = MonitoringTourSystem.tours.ToList();
-            listPlace = MonitoringTourSystem.places.ToList();
+            var listTour = MonitoringTourSystem.tours.ToList();
+            var listPlace = MonitoringTourSystem.places.ToList();
             var listTourVietNam = listTour.Where(x => x.is_foreign_tour == 0).ToList();
             var listTourForeign = listTour.Where(x => x.is_foreign_tour == 1).ToList();
 
@@ -99,13 +100,17 @@ namespace MonitoringTourSystem.Controllers
             var touItem = listTour.Where(x => x.tour_id == id).First();
 
             var model = new TourDetailViewModel() { ListTour = listTour, ListTourVietNam = listTourVietNam, ListTourForeign = listTourForeign, TourItem = touItem, ListScheduleDay = ListScheduleDay, TourGuideName = tourGuideName[0].tourguide_name };
-            ModelPass = model;
             return PartialView("Index", model);
         }
 
         [HttpGet]
         public ActionResult SearchTourVietNam(string id)
         {
+            string username = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
+            var userId = _managerServices.GetUserID(username);
+
+            var listTour = MonitoringTourSystem.tours.Where(s => s.manager_id == userId);
+
             if (id != null)
             {
                 id = id.ToUpper();
@@ -126,6 +131,11 @@ namespace MonitoringTourSystem.Controllers
         [HttpGet]
         public ActionResult SearchTourForeign(string id)
         {
+            string username = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
+            var userId = _managerServices.GetUserID(username);
+
+            var listTour = MonitoringTourSystem.tours.Where(s => s.manager_id == userId);
+
             if (id != null)
             {
                 id = id.ToUpper();
@@ -147,7 +157,12 @@ namespace MonitoringTourSystem.Controllers
         [HttpPost]
         public ActionResult SearchByDateAndTown(string regionSearch, DateTime dateSearch)
         {
-            if(regionSearch != null && dateSearch != null && regionSearch != "Chọn miền")
+            string username = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
+            var userId = _managerServices.GetUserID(username);
+
+            var listTour = MonitoringTourSystem.tours.Where(s => s.manager_id == userId);
+
+            if (regionSearch != null && dateSearch != null && regionSearch != "Chọn miền")
             {
                 var listTourSearch = (from item in listTour
                                       where (item.departure_date < dateSearch && item.return_date > dateSearch) && item.is_foreign_tour == 0
@@ -191,11 +206,18 @@ namespace MonitoringTourSystem.Controllers
         [HttpGet]
         public ActionResult DeleteTour(string id)
         {
+            string username = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
+            var userId = _managerServices.GetUserID(username);
+
+            var listTour = MonitoringTourSystem.tours.Where(s => s.manager_id == userId).ToList();
+
             try
             {
                 var idInt = Convert.ToInt32(id);
                 using (var context = new monitoring_tour_v3Entities())
                 {
+
+                    
                     var tour = (from item in context.tours
                                 where item.tour_id == idInt
                                 select item).First();
@@ -227,7 +249,6 @@ namespace MonitoringTourSystem.Controllers
 
         public ActionResult EditTour(string id)
         {
-            TempData["TouDetail"] = ModelPass;
             return RedirectToAction(id, "EditTour/EditTour");
         }
     }

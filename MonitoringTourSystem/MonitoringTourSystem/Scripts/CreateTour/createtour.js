@@ -20,10 +20,12 @@
             type: 'post',
             url: '/CreateTour/FileUpload',
             data: formData,
-            success: function (status) {
-                if (status != 'error') {
-                    var my_path = "MediaUploader/" + status;
-                    $("#myUploadedImg").attr("src", my_path);
+            success: function (result) {
+                var pathImage = result.PathImage;
+                var success = result.Success;
+                if (success == true) {
+                    console.log(pathImage);
+                    $("#myUploadedImg").attr("src", "http://localhost:20261/Content/Images/" + pathImage);
                 }
             },
             processData: false,
@@ -72,30 +74,6 @@
             alert('error');
         }
     });
-    $.ajax({
-        url: "/CreateTour/GetListTourGuide",
-        type: "GET",
-        dataType: 'json',
-        contentType: 'application/json; charset=utf-8',
-        async: true,
-        processData: false,
-        cache: false,
-        success: function (result) {
-            var results = $.parseJSON(result);
-            $(results).each(function (index, value) {
-                var tourGuideID = this['tourguide_id'];
-                var tourGuideName = this['tourguide_name'];
-                $("#tourguide").append(new Option(tourGuideName, tourGuideID))
-            });
-            $("#tourguide").select2({
-
-            });
-        },
-        error: function (xhr) {
-            alert('error');
-        }
-    });
-
     $(document).on('change', '.schedule-form .tour-travel .provience', function () {
 
         var parent = $(this).parent();
@@ -126,11 +104,8 @@
             }
         });
 
-
         parent.closest('.tour-travel').children().find('.vehicalschedule:last').select2({
             data: vehecial
-
-
         });
     });
 
@@ -141,7 +116,6 @@
         $('.datepicker_end').datetimepicker({
 
         });
-
     }
     $(add_button).click(function (e) { //on add input button click
         e.preventDefault();
@@ -225,6 +199,47 @@
 
 });
 
+
+
+function getTourGuideAvailable()
+{
+
+    var startday = $("#startday").val();
+    var endday = $("#endday").val();
+
+    if (startday > endday)
+    {
+        swal("Vui lòng chọn thời gian bắt đầu nhỏ hơn thời gian kết thúc!")
+        return;
+    }
+    $.ajax({
+        url: "/CreateTour/GetTourGuideAvailable",
+        type: "POST",
+        data: {
+
+            departuredate: startday,
+            returndate: endday
+        },
+        success: function (result) {
+            var results = $.parseJSON(result);
+            $('#tourguide').empty();
+            $(results).each(function (index, value) {
+
+                var tourGuideID = this['tourguide_id'];
+                var tourGuideName = this['tourguide_name'];
+                $("#tourguide:last").append(new Option(tourGuideName, tourGuideID))
+            });
+            $("#tourguide:last").select2({
+
+            });
+        },
+        error: function (xhr) {
+            
+        }
+    });
+
+}
+
 function addNewTour() {
     var isValidSchedule;
     var listSchedule = [];
@@ -238,6 +253,8 @@ function addNewTour() {
     var endday = $("#endday").val();
     var description = $("#descriptionTour").val();
     var cover_photo = "photo";
+
+
     if (tourcode == null || tourcode == "") {
         swal("Vui lòng nhập mã tour!")
         return;
@@ -300,11 +317,11 @@ function addNewTour() {
             return;
         }
 
-            //else if(time < startday || time > endday)
-            //{
-            //    swal("Thời gian " + time + " phải nằm trong khoảng thời gian bắt đầu và kết thúc tour");
-            //    isValidSchedule = false;
-            //}
+        //else if(time < startday || time > endday)
+        //{
+        //    swal("Thời gian " + time + " phải nằm trong khoảng thời gian bắt đầu và kết thúc tour");
+        //    isValidSchedule = false;
+        //}
         else if (placenameVal == "0") {
             swal("Nhập địa điểm tour!");
             isValidSchedule = false;
