@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="monitoringtour" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^F:\\Ky\ 9\\Khoa\ Luan\\Github\\MonitoringTourSystem\\MonitoringTourSystem\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^F:\\Ky\ 9\\Khoa\ Luan\\Github\\MonitoringTourSystem\\MonitoringTourSystem\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="server=localhost;user id=root;database=not_use" tags="">
+    <parameterEntry kind="XmlFile" scope="F:\\Ky\ 9\\Khoa\ Luan\\Github\\MonitoringTourSystem\\MonitoringTourSystem\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="monitoring_tour_v3Entities-Web.config Connection String" description="" value="metadata=res://*/Infrastructures.EntityFramework.monitoring_tour_v3.csdl|res://*/Infrastructures.EntityFramework.monitoring_tour_v3.ssdl|res://*/Infrastructures.EntityFramework.monitoring_tour_v3.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=localhost;user id=root;database=not_use&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="F:\\Ky\ 9\\Khoa\ Luan\\Github\\MonitoringTourSystem\\MonitoringTourSystem\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='monitoring_tour_v3Entities']/@connectionString" />
+  </parameter>
+  <parameter name="LocalMySqlServer-Web.config Connection String" description="LocalMySqlServer Connection String used in web.config by the application to access the database." value="" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="F:\\Ky\ 9\\Khoa\ Luan\\Github\\MonitoringTourSystem\\MonitoringTourSystem\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='LocalMySqlServer']/@connectionString" />
+  </parameter>
+</parameters>

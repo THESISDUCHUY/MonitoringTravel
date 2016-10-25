@@ -16,6 +16,7 @@ namespace MonitoringTourSystem.Infrastructures.EntityFramework
     {
         public int warning_id { get; set; }
         public string warning_name { get; set; }
+        public bool is_group { get; set; }
         public string type { get; set; }
         public string description { get; set; }
         public string status { get; set; }

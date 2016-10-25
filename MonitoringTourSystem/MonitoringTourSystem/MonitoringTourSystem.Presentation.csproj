@@ -237,62 +237,62 @@
     <Compile Include="DemoSignalR\StockTicker.cs" />
     <Compile Include="DemoSignalR\StockTickerHub .cs" />
     <Compile Include="Infrastructures\DbContext.cs" />
-    <Compile Include="Infrastructures\EntityFramework\country.cs">
-      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Infrastructures\EntityFramework\manager.cs">
-      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Infrastructures\EntityFramework\message.cs">
-      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Infrastructures\EntityFramework\monitoring_tour_v3.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>monitoring_tour_v3.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Infrastructures\EntityFramework\monitoring_tour_v3.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Infrastructures\EntityFramework\monitoring_tour_v3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>monitoring_tour_v3.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Infrastructures\EntityFramework\place.cs">
-      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Infrastructures\EntityFramework\province.cs">
-      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Infrastructures\EntityFramework\tour.cs">
-      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Infrastructures\EntityFramework\tourguide.cs">
-      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Infrastructures\EntityFramework\tourist.cs">
-      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Infrastructures\EntityFramework\tour_participants.cs">
-      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Infrastructures\EntityFramework\tour_schedule.cs">
-      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Infrastructures\EntityFramework\tracking.cs">
-      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Infrastructures\EntityFramework\warning.cs">
-      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Infrastructures\EntityFramework\warning_receiver.cs">
-      <DependentUpon>monitoring_tour_v3.tt</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructures\EntityFramework\country.cs">
+      <DependentUpon>monitoring_tour_v3Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructures\EntityFramework\manager.cs">
+      <DependentUpon>monitoring_tour_v3Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructures\EntityFramework\message.cs">
+      <DependentUpon>monitoring_tour_v3Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructures\EntityFramework\monitoring_tour_v3Entities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>monitoring_tour_v3Entities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructures\EntityFramework\monitoring_tour_v3Entities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>monitoring_tour_v3Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructures\EntityFramework\monitoring_tour_v3Entities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>monitoring_tour_v3Entities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructures\EntityFramework\place.cs">
+      <DependentUpon>monitoring_tour_v3Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructures\EntityFramework\province.cs">
+      <DependentUpon>monitoring_tour_v3Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructures\EntityFramework\tour.cs">
+      <DependentUpon>monitoring_tour_v3Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructures\EntityFramework\tourguide.cs">
+      <DependentUpon>monitoring_tour_v3Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructures\EntityFramework\tourist.cs">
+      <DependentUpon>monitoring_tour_v3Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructures\EntityFramework\tour_participants.cs">
+      <DependentUpon>monitoring_tour_v3Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructures\EntityFramework\tour_schedule.cs">
+      <DependentUpon>monitoring_tour_v3Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructures\EntityFramework\tracking.cs">
+      <DependentUpon>monitoring_tour_v3Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructures\EntityFramework\warning.cs">
+      <DependentUpon>monitoring_tour_v3Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructures\EntityFramework\warning_receiver.cs">
+      <DependentUpon>monitoring_tour_v3Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructures\Implements\Admin.cs" />
     <Compile Include="Infrastructures\Implements\Home.cs" />
@@ -348,15 +348,15 @@
     <Content Include="Content\Images\karma-13545.jpg" />
     <Content Include="Content\Images\lalu-13545.jpg" />
     <Content Include="Content\Images\morakot2-13545.jpg" />
-    <Content Include="Infrastructures\EntityFramework\monitoring_tour_v3.Context.tt">
+    <Content Include="Infrastructures\EntityFramework\monitoring_tour_v3Entities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>monitoring_tour_v3.edmx</DependentUpon>
-      <LastGenOutput>monitoring_tour_v3.Context.cs</LastGenOutput>
+      <DependentUpon>monitoring_tour_v3Entities.edmx</DependentUpon>
+      <LastGenOutput>monitoring_tour_v3Entities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Infrastructures\EntityFramework\monitoring_tour_v3.tt">
+    <Content Include="Infrastructures\EntityFramework\monitoring_tour_v3Entities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>monitoring_tour_v3.edmx</DependentUpon>
-      <LastGenOutput>monitoring_tour_v3.cs</LastGenOutput>
+      <DependentUpon>monitoring_tour_v3Entities.edmx</DependentUpon>
+      <LastGenOutput>monitoring_tour_v3Entities.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\CreateTour\createforeigntour.js" />
     <Content Include="Scripts\Home\css\chat.css" />
@@ -520,12 +520,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <EntityDeploy Include="Infrastructures\EntityFramework\monitoring_tour_v3.edmx">
+    <EntityDeploy Include="Infrastructures\EntityFramework\monitoring_tour_v3Entities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>monitoring_tour_v3.Designer.cs</LastGenOutput>
+      <LastGenOutput>monitoring_tour_v3Entities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Infrastructures\EntityFramework\monitoring_tour_v3.edmx.diagram">
-      <DependentUpon>monitoring_tour_v3.edmx</DependentUpon>
+    <Content Include="Infrastructures\EntityFramework\monitoring_tour_v3Entities.edmx.diagram">
+      <DependentUpon>monitoring_tour_v3Entities.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CreateTour\createtour.js" />
