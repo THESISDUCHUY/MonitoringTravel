@@ -348,6 +348,8 @@
     <Content Include="Content\Images\karma-13545.jpg" />
     <Content Include="Content\Images\lalu-13545.jpg" />
     <Content Include="Content\Images\morakot2-13545.jpg" />
+    <Content Include="Content\loading.gif" />
+    <Content Include="Content\sending.gif" />
     <Content Include="Infrastructures\EntityFramework\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -527,6 +529,7 @@
     <Content Include="Infrastructures\EntityFramework\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\monitoringtour - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CreateTour\createtour.js" />
     <Content Include="Scripts\Home\home.js" />

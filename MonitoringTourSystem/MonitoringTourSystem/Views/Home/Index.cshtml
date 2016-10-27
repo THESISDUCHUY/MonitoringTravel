@@ -16,6 +16,7 @@
 <script>
     function searchTour() {
         var id = $('#nametour').val();
+        $("#list-tour").html("<img src='/Content/loading.gif' style='display: block; margin: auto;'> ");
         $.ajax({
             url: "/Home/SearchTourGuide/" + id,
             type: "GET",    
@@ -77,6 +78,7 @@
                                         @{
                                             Html.RenderPartial("ListTourGuide", Model);
                                         }
+                                     
                                     </div>
                                 </div>
                             </div>
@@ -210,9 +212,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row" style="height: 74.5%";>
-                                <input id="pac-input" class="controls" type="text" placeholder="Tìm địa điểm cảnh báo" style="font-family: Roboto,Arial,sans-serif; border-radius: 4px;font-size: 12px;">
-                                <div id="map_canvas1" style="height:100%; width: 100%;">
+                            <div class="row" style="height: 74.5%; display: flex;";>
+                                <input id="pac-input" class="controls" type="text" placeholder="Tìm địa điểm cảnh báo" style="font-family: Roboto,Arial,sans-serif; border-radius: 4px;font-size: 12px; flex: 1;">
+                                <div id="map_canvas1" style="height:100%; width: 100%; position: relative;">
+                                   
+                                </div>
+                                <div id="processwaning" style="height:80%; width: 100%; position: absolute; display: none">
+                                    <img src='~/Content/sending.gif' style='display: block; margin: auto;'> 
                                 </div>
                             </div>
                         </div>
@@ -234,6 +240,7 @@
                     </div>
                 </div>
                 <div class="modal-footer" style="height: 10%;">
+                    <div id="processwaning" style="height: 100%; width: 100px; float: left"></div>
                     <button type="button" onclick="sendWarning();"  class="btn btn-primary" >Gửi cảnh báo</button>
                 </div>
             </div>
@@ -1049,6 +1056,8 @@
     {
         latSendWarning = latTemp;
         longSendWarning = longTemp;
+
+        $("#list-tour-warning").html("<img src='/Content/loading.gif' style='display: block; margin: auto;'> ");
         $.ajax({
             url: "/Home/GetListForWarning",
             type: "POST",
@@ -1101,8 +1110,11 @@
             Categories: categories,
             Distance: distance
         }
-
+ 
+        document.getElementById("processwaning").style.display = "block";
         $.ajax({
+
+          
             url: "/Home/SendWarning",
             type: "POST",
             data: {
@@ -1128,6 +1140,7 @@
                     loadMarkerWarning();
                     getListWarning();
                 }
+                document.getElementById("processwaning").style.display = "none";
             },
             error: function (xhr) {
                 sweetAlert("Oops...", "Gửi cảnh báo thất bại, vui lòng thử lại", "error");
@@ -1168,7 +1181,7 @@
                     var myLatlngWarning = new google.maps.LatLng(laitude, longitude);
 
                     var imageMarkerWarning = {
-                        url: 'http://localhost:20261/Content/Images/ic_marker_warning.png', // image is 512 x 512
+                        url: '/Content/Images/ic_marker_warning.png', // image is 512 x 512
                         scaledSize: new google.maps.Size(50, 62)
                     };
 
@@ -1344,6 +1357,8 @@
     var panQueue = [];
     var STEPS = 50;
     function LoadMarker() {
+
+       
         $.ajax({
             url: "/Home/CreateMarker/",
             type: "GET",
@@ -1366,11 +1381,12 @@
                     var return_date = results.objectArray[i].Tour.return_date.split('T')[0];
                     var tourDetail = '/TourDetail/GetDetailTour/' + results.objectArray[i].Tour.tour_id;
                     var currentLocation = new google.maps.LatLng(laitude, longitude);
+                    var cover_image = results.objectArray[i].TourGuide.display_photo;
 
                     var contentString = '<div style="width: 300px;background: white;height: 150px;background: while;">' +
                         '<div style="height: 68%;">' +
-                        '<div style="float: left; width: 35%; height: 100%; background: red;">' +
-                        '<img style="width: 100%; height: 100%; background: red;" src="https://fbcdn-photos-b-a.akamaihd.net/hphotos-ak-xtp1/v/t1.0-0/p206x206/13620075_715125938628840_3925566649508034087_n.jpg?oh=3e2062e509862f4e898c8bfe3714c999&oe=58A211A1&__gda__=1487320374_107ddfdc334185bf70ca54924993fbd4"/>' +
+                        '<div style="float: left; width: 35%; height: 100%;">' +
+                        '<img style="width: 100%; height: 100%;" src="/Content/Images/' + cover_image + '"/>' +
                         '</div>' +
                         '<div style="float: right; width: 65%; height: 100%;">' +
                         '<div class="list-tour" style="height: 25px; margin-top: 0px; margin-left: 5px;" id="nav-accordion">' +
@@ -1419,7 +1435,7 @@
         window.setTimeout(function () {
 
             var pinImage = {
-                url: 'http://localhost:20261/Content/Images/icon_marker.png', // image is 512 x 512
+                url: '/Content/Images/icon_marker.png', // image is 512 x 512
                 scaledSize: new google.maps.Size(48, 64)
             };
 
@@ -1449,13 +1465,13 @@
     function getMarkerSelected(id) {
 
         var pinImage = {
-            url: 'http://localhost:20261/Content/Images/icon_marker.png', // image is 512 x 512
+            url: '/Content/Images/icon_marker.png', // image is 512 x 512
             scaledSize: new google.maps.Size(48, 64)
         };
 
 
         var pinImageSelect = {
-            url: 'http://localhost:20261/Content/Images/icon_marker_select.png', // image is 512 x 512
+            url: '/Content/Images/icon_marker_select.png', // image is 512 x 512
             scaledSize: new google.maps.Size(48, 64)
         };
 

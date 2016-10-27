@@ -109,11 +109,12 @@ namespace MonitoringTourSystem.Controllers
             string username = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
             var userId = _managerServices.GetUserID(username);
 
-            var listTour = MonitoringTourSystem.tours.Where(s => s.manager_id == userId);
+            List<tour> listTour; 
 
-            if (id != null)
+            if (id != null && id.Length > 2)
             {
                 id = id.ToUpper();
+                listTour = MonitoringTourSystem.tours.Where(s => s.manager_id == userId).ToList();
                 var listTourSearch = (from item in listTour
                                       where item.tour_code.ToString().Contains(id) && item.is_foreign_tour == 0
                                       select item).ToList();
@@ -122,6 +123,7 @@ namespace MonitoringTourSystem.Controllers
             } 
             else
             {
+                listTour = MonitoringTourSystem.tours.Where(s => s.manager_id == userId).ToList();
                 var listTourSearch = listTour.Where(x => x.is_foreign_tour == 0).ToList();
                 var model = new TourDetailViewModel() { ListTourVietNam = listTourSearch };
                 return PartialView("ListTourVietNam", model);
@@ -134,10 +136,11 @@ namespace MonitoringTourSystem.Controllers
             string username = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
             var userId = _managerServices.GetUserID(username);
 
-            var listTour = MonitoringTourSystem.tours.Where(s => s.manager_id == userId);
+            List<tour> listTour; 
 
-            if (id != null)
+            if (id != null && id.Length > 2)
             {
+                listTour = MonitoringTourSystem.tours.Where(s => s.manager_id == userId).ToList();
                 id = id.ToUpper();
                 var listTourSearch = (from item in listTour
                                       where item.tour_code.ToString().Contains(id) && item.is_foreign_tour == 1
@@ -147,6 +150,7 @@ namespace MonitoringTourSystem.Controllers
             }
             else
             {
+                listTour = MonitoringTourSystem.tours.Where(s => s.manager_id == userId).ToList();
                 var listTourSearch = listTour.Where(x => x.is_foreign_tour == 1).ToList();
                 var model = new TourDetailViewModel() { ListTourForeign = listTourSearch };
                 return PartialView("ListTourForeign", model);

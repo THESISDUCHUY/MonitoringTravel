@@ -118,25 +118,22 @@ namespace MonitoringTourSystem.Infrastructures.Implements
             }
             return tourWithTourGuide;
         }
+
+        
         public List<TourIsProcessing> SearchTourGuide(string username, string id)
         {
-            var listSearch = GetTourIsProcessing(username);
-            if (id != null)
+            List<TourIsProcessing> listSearch;
+            if (id != null && id.Length > 3)
             {
-                if (id.Length >= 2)
-                {
-                    id = id.ToUpper();
-                    var listSearchResult = (listSearch.Where(x => x.Tour.tour_code.Contains(id))).ToList();
-                    return listSearchResult;
-                }
-                else
-                {
-                    return listSearch;  
-                }
+                System.Threading.Thread.Sleep(1000);
+                listSearch = GetTourIsProcessing(username);
+                id = id.ToUpper();
+                var listSearchResult = (listSearch.Where(x => x.Tour.tour_code.Contains(id))).ToList();
+                return listSearchResult;
             }
             else
             {
-                return listSearch;
+                return listSearch = GetTourIsProcessing(username);
             }
         }
 

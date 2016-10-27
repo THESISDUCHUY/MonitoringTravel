@@ -207,6 +207,12 @@ function getTourGuideAvailable()
     var startday = $("#startday").val();
     var endday = $("#endday").val();
 
+    if (startday == null || startday == null || endday == null || endday == null)
+    {
+        swal("Vui lòng chọn thời gian bắt đầu và kết thúc!")
+        return;
+    }
+
     if (startday > endday)
     {
         swal("Vui lòng chọn thời gian bắt đầu nhỏ hơn thời gian kết thúc!")
