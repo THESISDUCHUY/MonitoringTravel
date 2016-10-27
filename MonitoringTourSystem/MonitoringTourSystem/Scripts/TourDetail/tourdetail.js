@@ -10,29 +10,35 @@
 
 function searchTour() {
     var id = $('#nametourVietNam').val();
+    $("#list-tour-vietnam").html("<img src='/Content/loading.gif' style='display: block; margin: auto;'> ");
     $.ajax({
         url: "/TourDetail/SearchTourVietNam/" + id,
         type: "GET",
     })
     .done(function (partialViewResult) {
         $("#list-tour-vietnam").html(partialViewResult);
+       
     });
 }
 
 function searchTourForeign() {
     var id = $('#nametourForeign').val();
+    $("#list-tour-foreign").html("<img src='/Content/loading.gif' style='display: block; margin: auto;'> ");
     $.ajax({
         url: "/TourDetail/SearchTourForeign/" + id,
         type: "GET",
     })
     .done(function (partialViewResult) {
         $("#list-tour-foreign").html(partialViewResult);
+        
     });
 }
 
 function searchWithDateAndTown() {
     var dayValue = $("#daysearch").val();
     var region = $("#region").val();
+
+    $("#list-tour-vietnam").html("<img src='/Content/loading.gif' style='display: block; margin: auto;'> ");
     $.ajax({
         url: "/TourDetail/SearchByDateAndTown",
         type: "POST",

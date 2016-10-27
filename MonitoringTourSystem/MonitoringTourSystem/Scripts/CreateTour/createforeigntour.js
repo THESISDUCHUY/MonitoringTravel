@@ -13,6 +13,17 @@
     var listTourGuide = [];
     var listProvince = [];
 
+    $("#datetimepicker1").on("dp.change", function (e) {
+        getTourGuideAvailable();
+    });
+
+
+    $("#datetimepicker3").on("dp.change", function (e) {
+
+        getTourGuideAvailable();
+
+    });
+
     function sendFile(file) {
         var formData = new FormData();
         formData.append('file', $('#f_UploadImage')[0].files[0]);
@@ -235,18 +246,19 @@ function getTourGuideAvailable() {
 
 
     if (startday == null || startday == null || endday == null || endday == null) {
-        swal("Vui lòng chọn thời gian bắt đầu và kết thúc!")
+        $('#warning').text("Vui lòng chọn ngày bắt đầu và kết thúc");
         return;
     }
     if (startday > endday) {
-        swal("Vui lòng chọn thời gian bắt đầu nhỏ hơn thời gian kết thúc!")
+        $('#warning').text("Vui lòng chọn ngày bắt đầu nhỏ kết thúc");
         return;
     }
+
+    $("#processgettourguide").html("<img src='/Content/process_small.gif' width='20' height='20' style='margin-left: 20px;' /> ");
     $.ajax({
         url: "/CreateTour/GetTourGuideAvailable",
         type: "POST",
         data: {
-
             departuredate: startday,
             returndate: endday
         },
@@ -262,6 +274,8 @@ function getTourGuideAvailable() {
             $("#tourguide:last").select2({
 
             });
+            $('#warning').text("");
+            $("#processgettourguide").html("");
         },
         error: function (xhr) {
 

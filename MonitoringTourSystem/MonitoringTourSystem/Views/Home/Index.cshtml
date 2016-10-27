@@ -1196,9 +1196,6 @@
                     listInfowindowWarning[index] = new google.maps.InfoWindow({
                         content: title
                     });
-                    
-                    
-
                     google.maps.event.addListener(listMarkerWarning[index], "click", function () {
                         closeAllOfInfoWindow();
                         listInfowindowWarning[index].open(map, listMarkerWarning[index]);                          

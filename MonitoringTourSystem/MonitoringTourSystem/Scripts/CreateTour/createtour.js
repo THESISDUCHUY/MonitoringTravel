@@ -13,6 +13,17 @@
     var listTourGuide = [];
     var listProvince = [];
 
+    $("#datetimepicker1").on("dp.change", function (e) {
+        getTourGuideAvailable();
+    });
+
+
+    $("#datetimepicker3").on("dp.change", function (e) {
+       
+        getTourGuideAvailable();
+        
+    });
+
     function sendFile(file) {
         var formData = new FormData();
         formData.append('file', $('#f_UploadImage')[0].files[0]);
@@ -207,18 +218,22 @@ function getTourGuideAvailable()
     var startday = $("#startday").val();
     var endday = $("#endday").val();
 
-    if (startday == null || startday == null || endday == null || endday == null)
+    if (startday == null || startday == "" || endday == null || endday == "")
     {
-        swal("Vui lòng chọn thời gian bắt đầu và kết thúc!")
+        $('#warning').text("Vui lòng chọn ngày bắt đầu và kết thúc");
         return;
     }
 
     if (startday > endday)
     {
-        swal("Vui lòng chọn thời gian bắt đầu nhỏ hơn thời gian kết thúc!")
+        $('#warning').text("Vui lòng chọn ngày bắt đầu nhỏ kết thúc");
         return;
     }
+    $("#processgettourguide").html("<img src='/Content/process_small.gif' width='20' height='20' style='margin-left: 20px;' /> ");
     $.ajax({
+       
+
+        
         url: "/CreateTour/GetTourGuideAvailable",
         type: "POST",
         data: {
@@ -233,11 +248,13 @@ function getTourGuideAvailable()
 
                 var tourGuideID = this['tourguide_id'];
                 var tourGuideName = this['tourguide_name'];
+                $('#warning').text("");
                 $("#tourguide:last").append(new Option(tourGuideName, tourGuideID))
             });
             $("#tourguide:last").select2({
 
             });
+            $("#processgettourguide").html("");
         },
         error: function (xhr) {
             
@@ -369,6 +386,9 @@ function addNewTour() {
         listSchedule = [];
         return;
     }
+
+    $("#processaddtour").html("<img src='/Content/loading.gif' style='display: block; margin: auto;'> ");
+
     $.ajax({
         url: "/CreateTour/AddNewTour",
         type: "POST",
@@ -389,6 +409,7 @@ function addNewTour() {
         },
         success: function (result) {
             swal("Thêm Tour!", "Bạn đã thêm tour thành công!", "success")
+            $("#processaddtour").html("");
             location.reload();
         },
         error: function (xhr) {
