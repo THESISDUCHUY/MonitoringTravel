@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //init googlemap
+        GMSServices.provideAPIKey(API_KEYs.GoogleMap)
         
         //check logged in already
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -27,14 +31,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             && Settings.tourguide_accesstoken != nil {
             // currentUser is not nil
             // set up app for valid in user
-            self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: ViewIdentifier.MYTOURS_VIEW)
-            return true // don't load the rootViewController from your storyboard (if you have an initial view set)
-        } else { // there is no current user
+            return tourGuideGet(storyboard: storyboard)
+            
+        } /*else { // there is no current user
             // set up app for new or non logged in user
             self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: ViewIdentifier.LOGIN_VIEW)
             return true
-        }
-        //return true
+        }*/
+        return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -57,6 +61,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func tourGuideGet(storyboard:UIStoryboard)->Bool{
+        NetworkService<TourGuide>.makeGetRequest(URL: URLs.makeURL(url: URLs.URL_GET_TOURGUIDE, param: Settings.tourguide_id!) ){
+            response, error in
+            if error == nil{
+                let message = response?.message
+                if message == nil{
+                    let tourguide = response?.data
+                    Singleton.sharedInstance.tourguide = tourguide
+                    self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: ViewIdentifier.MYTOURS_VIEW)
+                }
+                else{
+                    
+                }
+            }
+            else{
+                
+            }
+        }
+        return true // don't load the rootViewController from your storyboard (if you have an initial view set)
     }
 
 

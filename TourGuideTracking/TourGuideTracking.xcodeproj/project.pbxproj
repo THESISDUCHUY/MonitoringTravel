@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4AD4E316B780E4C4C893030D /* Pods_TourGuideTracking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 814F744039AF77D618A56FBA /* Pods_TourGuideTracking.framework */; };
 		5A381E391DADD69D005F2EAE /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A381E381DADD69D005F2EAE /* Singleton.swift */; };
+		5A381E3C1DAE07FF005F2EAE /* TourTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A381E3B1DAE07FF005F2EAE /* TourTableViewCell.swift */; };
+		5A433BEB1DB09B1F004A6D94 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A433BEA1DB09B1F004A6D94 /* MapViewController.swift */; };
+		5A433BED1DB09B61004A6D94 /* TourInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A433BEC1DB09B61004A6D94 /* TourInfoViewController.swift */; };
 		5A5FEBE51DAC837B0026F021 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5FEBE41DAC837B0026F021 /* Constants.swift */; };
 		5A5FEBE71DAC8E540026F021 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5FEBE61DAC8E540026F021 /* NetworkService.swift */; };
 		5A64ADA31DA610F5004775F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64ADA21DA610F5004775F5 /* AppDelegate.swift */; };
@@ -31,6 +34,9 @@
 		30165A930F7E48DEEBFB913E /* Pods-TourGuideTracking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourGuideTracking.release.xcconfig"; path = "Pods/Target Support Files/Pods-TourGuideTracking/Pods-TourGuideTracking.release.xcconfig"; sourceTree = "<group>"; };
 		5468F0B5A9CD9B35219EEEDA /* Pods-TourGuideTracking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourGuideTracking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TourGuideTracking/Pods-TourGuideTracking.debug.xcconfig"; sourceTree = "<group>"; };
 		5A381E381DADD69D005F2EAE /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
+		5A381E3B1DAE07FF005F2EAE /* TourTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourTableViewCell.swift; sourceTree = "<group>"; };
+		5A433BEA1DB09B1F004A6D94 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		5A433BEC1DB09B61004A6D94 /* TourInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourInfoViewController.swift; sourceTree = "<group>"; };
 		5A5FEBE41DAC837B0026F021 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5A5FEBE61DAC8E540026F021 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		5A64AD9F1DA610F5004775F5 /* TourGuideTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TourGuideTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +76,24 @@
 				814F744039AF77D618A56FBA /* Pods_TourGuideTracking.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5A381E3A1DAE060F005F2EAE /* MyTours */ = {
+			isa = PBXGroup;
+			children = (
+				5A66E1B21DAD490B00AFBCA9 /* MyToursViewController.swift */,
+				5A381E3B1DAE07FF005F2EAE /* TourTableViewCell.swift */,
+			);
+			name = MyTours;
+			sourceTree = "<group>";
+		};
+		5A433BE71DB09AE7004A6D94 /* TourDetails */ = {
+			isa = PBXGroup;
+			children = (
+				5A433BEA1DB09B1F004A6D94 /* MapViewController.swift */,
+				5A433BEC1DB09B61004A6D94 /* TourInfoViewController.swift */,
+			);
+			name = TourDetails;
 			sourceTree = "<group>";
 		};
 		5A5FEBE11DAC80BE0026F021 /* Helpers */ = {
@@ -166,8 +190,9 @@
 		5A64ADB61DA61347004775F5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5A433BE71DB09AE7004A6D94 /* TourDetails */,
+				5A381E3A1DAE060F005F2EAE /* MyTours */,
 				5A64ADB81DA6138A004775F5 /* LoginViewController.swift */,
-				5A66E1B21DAD490B00AFBCA9 /* MyToursViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -316,16 +341,19 @@
 				5A381E391DADD69D005F2EAE /* Singleton.swift in Sources */,
 				5A64ADB91DA6138A004775F5 /* LoginViewController.swift in Sources */,
 				5A66E1AB1DACE19500AFBCA9 /* TourGuide.swift in Sources */,
+				5A433BED1DB09B61004A6D94 /* TourInfoViewController.swift in Sources */,
 				5A5FEBE71DAC8E540026F021 /* NetworkService.swift in Sources */,
 				5A66E1AF1DAD41B900AFBCA9 /* Keys.swift in Sources */,
 				5AE98D651DABF7E400606592 /* ResponseData.swift in Sources */,
 				5A66E1B11DAD42CD00AFBCA9 /* Settings.swift in Sources */,
 				5AE98D671DAC021900606592 /* Tour.swift in Sources */,
+				5A381E3C1DAE07FF005F2EAE /* TourTableViewCell.swift in Sources */,
 				5A66E1B31DAD490B00AFBCA9 /* MyToursViewController.swift in Sources */,
 				5A5FEBE51DAC837B0026F021 /* Constants.swift in Sources */,
 				5A64ADBD1DA62C9D004775F5 /* Location.swift in Sources */,
 				5A66E1AD1DAD406D00AFBCA9 /* Alert.swift in Sources */,
 				5A64ADA31DA610F5004775F5 /* AppDelegate.swift in Sources */,
+				5A433BEB1DB09B1F004A6D94 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,7 +420,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -436,7 +464,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

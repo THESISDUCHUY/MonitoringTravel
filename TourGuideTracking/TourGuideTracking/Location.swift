@@ -11,6 +11,14 @@ class Location:Mappable{
     var latitude:Double?
     var longitude:Double?
     
+    init(){
+        
+    }
+    
+    init(latitude:Double, longitude:Double){
+        self.latitude = latitude
+        self.longitude = longitude
+    }
     required init?(map: Map) {
         
     }

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import MBProgressHUD
 
 class LoginViewController: UIViewController {
     
@@ -43,7 +43,7 @@ class LoginViewController: UIViewController {
             alertMessage(userMessage: "Phone number invalid!")
         }
         else{
-           
+            MBProgressHUD.showAdded(to: self.view, animated: true)
             let parameters:[String:Any] = ["phone":phoneTextField.text!, "password":passwordTextField.text!]
             NetworkService<TourGuide>.makePostRequest(URL: URLs.URL_LOGIN, data: parameters){
                 response, error in
@@ -53,20 +53,23 @@ class LoginViewController: UIViewController {
                         //set data 
                         let tourguide = response?.data
                         
-                        //save setting tourist_id, access_token
-                        UserDefaults.standard.set(tourguide?.tourGuideId,forKey: Keys.TOURGUIDE_ID)
-                        UserDefaults.standard.set(tourguide?.accessToken,forKey: Keys.TOURGUIDE_ACCESSTOKEN)
-                        if(tourguide?.tourGuideId != nil){
-                            
-                            self.performSegue(withIdentifier: SegueIdentifier.TO_MY_TOURS, sender: self)
+                            if(tourguide?.tourGuideId != nil){
+                                //save setting tourist_id, access_token
+                                UserDefaults.standard.set(tourguide?.tourGuideId,forKey: Keys.TOURGUIDE_ID)
+                                UserDefaults.standard.set(tourguide?.accessToken,forKey: Keys.TOURGUIDE_ACCESSTOKEN)
+                            Settings.tourguide_id = tourguide?.tourGuideId
+                            Settings.tourguide_accesstoken = tourguide?.accessToken
+                            self.tourGuideGet()
                         }
                     }
                     else {
                         self.alertMessage(userMessage: message!)
+                        MBProgressHUD.hide(for: self.view, animated: true)
                     }
                 }
                 else{
                     self.alertMessage(userMessage:"Đã có lỗi xảy ra!")
+                     MBProgressHUD.hide(for: self.view, animated: true)
                 }
             }
         }
@@ -110,5 +113,31 @@ class LoginViewController: UIViewController {
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func tourGuideGet(){
+        NetworkService<TourGuide>.makeGetRequest(URL: URLs.makeURL(url: URLs.URL_GET_TOURGUIDE, param: Settings.tourguide_id!) ){
+            response, error in
+            if error == nil{
+                let message = response?.message
+                if message == nil{
+                    let tourguide = response?.data
+                    Singleton.sharedInstance.tourguide = tourguide
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    
+                    //naviagate to MyTours View
+                    let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: ViewIdentifier.MYTOURS_VIEW) as UIViewController
+                    self.present(initViewController, animated: true, completion: nil)
+                    //self.performSegue(withIdentifier: SegueIdentifier.TO_MY_TOURS, sender: self)
+                }
+                else{
+                    
+                }
+            }
+            else{
+                
+            }
+        }
     }
 }

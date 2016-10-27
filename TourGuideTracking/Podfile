@@ -6,6 +6,9 @@ target 'TourGuideTracking' do
   use_frameworks!
   pod 'AlamofireObjectMapper', '~> 4.0'
   pod 'Alamofire'
+  pod 'MBProgressHUD'
+  pod 'AFNetworking'
+  pod 'GoogleMaps'
   # Pods for TourGuideTracking
 
 end
