@@ -10,13 +10,14 @@ import UIKit
 import ObjectMapper
 class Place:Mappable{
     
-    var placeId:Int = 0
-    var provinceId:Int = 0
-    var placeName:String = ""
-    var contact:String = ""
-    var address:String = ""
-    var coverPhoto:String = ""
-
+    var placeId:Int!
+    var provinceId:Int!
+    var name:String!
+    var contact:String!
+    var address:String!
+    var coverPhoto:String!
+    var location:Location!
+    var description:String!
     required init?(map: Map) {
     
     }
@@ -24,9 +25,11 @@ class Place:Mappable{
     func mapping(map: Map) {
         self.placeId <- map["place_id"]
         self.provinceId <- map["province_id"]
-        self.placeName <- map["place_name"]
+        self.name <- map["place_name"]
         self.contact <- map["contact"]
         self.address <- map["address"]
         self.coverPhoto <- map["cover_photo"]
+        self.location <- map["location"]
+        self.description <- map["description"]
     }
 }

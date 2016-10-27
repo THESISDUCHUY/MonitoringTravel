@@ -11,10 +11,10 @@ import ObjectMapper
 class TourGuide: Mappable {
     var tourGuideId:Int?
     var accessToken:String?
-    var name:String? = ""
-    var phone:String? = ""
+    var name:String?
+    var phone:String?
     var email:String? = ""
-    var displayPhoto:String? = ""
+    var displayPhoto:String?
     var location:Location?
     
     required init?(map: Map) {
