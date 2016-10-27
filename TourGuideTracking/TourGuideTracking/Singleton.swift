@@ -12,8 +12,12 @@ class Singleton{
     static let sharedInstance = Singleton()
     var tourguide:TourGuide?
     var tours:[Tour]?
+    var places:[Place]?
+    var tourists:[Tourist]?
     private init(){
         self.tourguide = TourGuide()
         self.tours = [Tour]()
+        self.places = [Place]()
+        self.tourists = [Tourist]()
     }
 }

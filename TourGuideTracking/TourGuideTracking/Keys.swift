@@ -16,6 +16,7 @@ struct Keys{
 
 struct SegueIdentifier{
     static let TO_MY_TOURS:String = "SegueToMyTours"
+    static let TO_TAB_BAR:String = "SegueToTabBar"
 }
 
 struct ViewIdentifier{
