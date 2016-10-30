@@ -171,5 +171,32 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="connections">
+      <EntityTypeMapping TypeName="sql6141630Model.connection">
+        <MappingFragment StoreEntitySet="connection">
+          <ScalarProperty Name="connected" ColumnName="connected" />
+          <ScalarProperty Name="user_agent" ColumnName="user_agent" />
+          <ScalarProperty Name="connection_id" ColumnName="connection_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="conversation_room">
+      <EntityTypeMapping TypeName="sql6141630Model.conversation_room">
+        <MappingFragment StoreEntitySet="conversation_room">
+          <ScalarProperty Name="room_name" ColumnName="room_name" />
+          <ScalarProperty Name="room_id" ColumnName="room_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_realtime">
+      <EntityTypeMapping TypeName="sql6141630Model.user_realtime">
+        <MappingFragment StoreEntitySet="user_realtime">
+          <ScalarProperty Name="room_id" ColumnName="room_id" />
+          <ScalarProperty Name="connection_id" ColumnName="connection_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

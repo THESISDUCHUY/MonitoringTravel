@@ -14,7 +14,7 @@ namespace MonitoringTourSystem.Models
         public string WarningName { get; set; }
         public string DescriptionWarning { get; set; }
 
-
+        public List<string> ListTourGuideId { get; set; }
 
     }
 }

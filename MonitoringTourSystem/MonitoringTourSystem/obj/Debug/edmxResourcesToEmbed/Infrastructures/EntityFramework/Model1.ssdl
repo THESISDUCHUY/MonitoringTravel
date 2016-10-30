@@ -1,5 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="sql6141630Model.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.sql6141630.connection' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="connection">
+    <Key>
+      <PropertyRef Name="connection_id" />
+      <PropertyRef Name="user_agent" />
+      <PropertyRef Name="connected" />
+    </Key>
+    <Property Name="connection_id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_agent" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="connected" Type="bool" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.sql6141630.conversation_room' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="conversation_room">
+    <Key>
+      <PropertyRef Name="room_id" />
+      <PropertyRef Name="room_name" />
+    </Key>
+    <Property Name="room_id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="room_name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="country">
     <Key>
       <PropertyRef Name="country_id" />
@@ -133,6 +155,20 @@
     <Property Name="latitude" Type="double" Nullable="false" />
     <Property Name="longitude" Type="double" Nullable="false" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.sql6141630.user_realtime' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="user_realtime">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="user_name" />
+      <PropertyRef Name="connection_id" />
+      <PropertyRef Name="room_id" />
+    </Key>
+    <Property Name="user_id" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="user_name" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="connection_id" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="room_id" Type="char" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="warning">
     <Key>
       <PropertyRef Name="warning_id" />
@@ -171,5 +207,26 @@
     <EntitySet Name="tracking" EntityType="Self.tracking" Schema="sql6141630" store:Type="Tables" />
     <EntitySet Name="warning" EntityType="Self.warning" Schema="sql6141630" store:Type="Tables" />
     <EntitySet Name="warning_receiver" EntityType="Self.warning_receiver" Schema="sql6141630" store:Type="Tables" />
+    <EntitySet Name="connection" EntityType="Self.connection" store:Type="Tables" store:Schema="sql6141630">
+      <DefiningQuery>SELECT
+`connection`.`connection_id`, 
+`connection`.`user_agent`, 
+`connection`.`connected`
+FROM `connection` AS `connection`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="conversation_room" EntityType="Self.conversation_room" store:Type="Tables" store:Schema="sql6141630">
+      <DefiningQuery>SELECT
+`conversation_room`.`room_id`, 
+`conversation_room`.`room_name`
+FROM `conversation_room` AS `conversation_room`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="user_realtime" EntityType="Self.user_realtime" store:Type="Tables" store:Schema="sql6141630">
+      <DefiningQuery>SELECT
+`user_realtime`.`user_id`, 
+`user_realtime`.`user_name`, 
+`user_realtime`.`connection_id`, 
+`user_realtime`.`room_id`
+FROM `user_realtime` AS `user_realtime`</DefiningQuery>
+    </EntitySet>
   </EntityContainer>
 </Schema>

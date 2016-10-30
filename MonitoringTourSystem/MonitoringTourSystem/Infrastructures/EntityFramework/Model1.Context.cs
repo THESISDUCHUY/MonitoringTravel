@@ -38,5 +38,8 @@ namespace MonitoringTourSystem.Infrastructures.EntityFramework
         public virtual DbSet<tracking> trackings { get; set; }
         public virtual DbSet<warning> warnings { get; set; }
         public virtual DbSet<warning_receiver> warning_receiver { get; set; }
+        public virtual DbSet<connection> connections { get; set; }
+        public virtual DbSet<conversation_room> conversation_room { get; set; }
+        public virtual DbSet<user_realtime> user_realtime { get; set; }
     }
 }

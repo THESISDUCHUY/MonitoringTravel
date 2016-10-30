@@ -137,7 +137,22 @@ namespace MonitoringTourSystem.Controllers
             string username = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
             var lstTourWarningResult = homeControllerService.GetTourForWarningOption(obj, username);
             var model = new HomeViewModel() { OptionRenderView = 1, ListTourIsProcessing = lstTourWarningResult };
+
+
             return View("ListTourGuideWarning", model);
+        }
+
+        [HttpPost]
+        public JsonResult GetListForWarningJson(Warning obj)
+        {
+            string username = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
+            var lstTourWarningResult = homeControllerService.GetTourForWarningOption(obj, username);
+
+            var jsonString = JsonConvert.SerializeObject(new
+            {
+                objectArray = lstTourWarningResult
+            });
+            return Json(jsonString, JsonRequestBehavior.AllowGet);
         }
 
 

@@ -18,6 +18,9 @@
         <EntityTypeShape EntityType="sql6141630Model.tracking" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="sql6141630Model.warning" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="sql6141630Model.warning_receiver" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sql6141630Model.connection" Width="1.5" PointX="9.375" PointY="7.75" />
+        <EntityTypeShape EntityType="sql6141630Model.conversation_room" Width="1.5" PointX="9.375" PointY="10.75" />
+        <EntityTypeShape EntityType="sql6141630Model.user_realtime" Width="1.5" PointX="11.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

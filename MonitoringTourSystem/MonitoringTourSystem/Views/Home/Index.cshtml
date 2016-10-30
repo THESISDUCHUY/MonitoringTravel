@@ -9,39 +9,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="~/Scripts/Home/css/chat.css">
 <link rel="stylesheet" type="text/css" href="~/Scripts/Home/css/homestyle.css">
+<script src="~/Scripts/jquery.signalR-2.2.1.js"></script>
 
-@*<script src="~/Scripts/jquery.signalR-2.2.1.js"></script>
-<script src="http://localhost:13062/signalr/hubs"></script>*@
-
-<script>
-    function searchTour() {
-        var id = $('#nametour').val();
-        $("#list-tour").html("<img src='/Content/loading.gif' style='display: block; margin: auto;'> ");
-        $.ajax({
-            url: "/Home/SearchTourGuide/" + id,
-            type: "GET",    
-        })
-        .done(function (partialViewResult) {
-            $("#list-tour").html(partialViewResult);
-        });
-    }
-
-    //var userId;
-
-    //$.connection.hub.url = 'http://localhost:13062/signalr';
-
-    //var myHub = $.connection.warningHub;
-
-    //$(function () {
-    //    //// Start the hub
-    //    window.hubReady = $.connection.hub.start();
-    //});
-    //$.connection.hub.start().done(function () {
-    //    // Call the server side function AFTER the connection has been started
-    //    myHub.server.createUser();
-    //    //invoke for the user data
-    //});
-</script>
 <title>@ViewBag.Title</title>
 <div id="main-content" style="background-color: #1FB5AD; height: 100%;">
     <div class="wrapper" style="background-color: white; height: 87.5%; padding-top: 15px;">
@@ -113,7 +82,7 @@
                         </div>
                         <div class="col-sm-6" style="margin-left: -15px;">
                             <div style="border-bottom: 3px solid #00C377; float: left;">
-                                <a href="#" style="padding-top: 14px; font-size: 12px; color: #FF5722; font-weight: bold; text-decoration: none">GỬI TIN NHẮN</a>
+                                <a href="#" onclick="sendTo(2);" style="padding-top: 14px; font-size: 12px; color: #FF5722; font-weight: bold; text-decoration: none">GỬI TIN NHẮN</a>
                             </div>
                         </div>
                     </div>
@@ -135,7 +104,7 @@
                                 <img alt="" src="~/Content/Images/loading-process.png" height="20" width="20">
                             </div>
                             <div style="height: 100%; float: left; width: 70%;">
-                                <p style="color: white; vertical-align:top; font-size: 20px; text-align: right; padding-right: 12px;">@Model.NumberOfTourProcessing</p>
+                                <p id="numberofuseronline" style="color: white; vertical-align:top; font-size: 20px; text-align: right; padding-right: 12px;">0</p>
                                 <p style="color: white; font-size: 12px; text-align: right; padding-right: 12px;"> Hoạt động</p>
                             </div>
                         </div>
@@ -302,6 +271,78 @@
         </div>
     </div>
 </div>
+
+<script>
+    function searchTour() {
+        var id = $('#nametour').val();
+        $("#list-tour").html("<img src='/Content/loading.gif' style='display: block; margin: auto;'> ");
+        $.ajax({
+            url: "/Home/SearchTourGuide/" + id,
+            type: "GET",
+        })
+        .done(function (partialViewResult) {
+            $("#list-tour").html(partialViewResult);
+        });
+    }
+
+    //var userId;
+
+    var connection = $.hubConnection('http://localhost:20261');
+
+    var myHub = connection.createHubProxy('hubServer');
+
+    // for listening
+    myHub.on('updateNumberOfOnline', function (numberOfOnline) {
+
+        alert(numberOfOnline);
+
+        $("#numberofuseronline").text(numberOfOnline);
+    });
+
+
+    myHub.on('sendMessager', function (numberOfOnline) {
+
+        alert(numberOfOnline); 
+    });
+
+    myHub.on('receiveLoaction', function (listLocation) {
+
+        for (i = 0; i < listMarker.length; i++) {
+
+            if (listMarker[i].tourguiderid == listLocation.tourGuideId) {
+                var longitude = listLocation.longitude;
+                var laitude = listLocation.latitude;
+                var currentLocation = new google.maps.LatLng(laitude, longitude);
+                MoverMarker(currentLocation, i);
+            }
+            break;
+        }
+
+    });
+
+    myHub.on('receiveLoaction', function (listLocation) {
+
+        for (i = 0; i < listMarker.length; i++) {
+
+            if (listMarker[i].tourguiderid == listLocation.tourGuideId) {
+                var longitude = listLocation.longitude;
+                var laitude = listLocation.latitude;
+                var currentLocation = new google.maps.LatLng(laitude, longitude);
+                MoverMarker(currentLocation, i);
+            }
+            break;
+        }
+
+    });
+
+
+    // start connection
+    connection.start().done(function () {
+       // doing after connected
+    });
+
+
+</script>
 
 <script>
     // For Warning POPUP GROUP
@@ -883,18 +924,19 @@
 <script>
 
     // FOR POPUP WARNING
-    var optionDistance = ["3KM", "5KM", "10 KM ", "20 KM ", "30 KM"];
+    var optionDistance = ["3 KM", "5 KM", "10 KM ", "20 KM ", "30 KM"];
     var categoriesWarning = ["Khủng Bố", "Thời Tiết", "Giao Thông", "Khác"];
 
-    var optionDistance1 = ["3KM", "5KM", "10 KM ", "20 KM ", "30 KM"];
+    var optionDistance1 = ["3 KM", "5 KM", "10 KM ", "20 KM ", "30 KM"];
     var categoriesWarning1 = ["Khủng Bố", "Thời Tiết", "Giao Thông", "Khác"];
 
     var lat;
     var long;
 
+    var listTourGuideWarning = [];
+
     $(document).on('change', '#distanceWarning', function () {
 
-        //alert(categories);
         var distance = $("#distanceWarning").val();
         if (distance == null)
         {
@@ -906,6 +948,7 @@
         }
         getListTourWarning(distance, lat, long);
     });
+
     $(document).ready(function()
     {
         $("#myModal").on("shown.bs.modal", function () {
@@ -962,17 +1005,6 @@
             }
 
         });
-
-
-        //myHub.client.selectSeat = function (message) {
-        //    swal(message.Laitude.toString());
-        //    var currentLocation = new google.maps.LatLng(message.Laitude, message.Longitude);
-        //    MoverMarker(currentLocation, 1)
-        //};
-
-        //myHub.client.receiverWarning = function (message) {
-        //    swal("Co canh bao moi");
-        //};
 
     }); 
     function placeMarker(location) {
@@ -1052,6 +1084,7 @@
             }
         });
     }
+
     function getListTourWarning(distance, latTemp, longTemp)
     {
         latSendWarning = latTemp;
@@ -1067,12 +1100,42 @@
                 Lat: latTemp,
                 Long: longTemp,
             },
-
+            
         })
         .done(function (partialViewResult) {
-                $("#list-tour-warning").html(partialViewResult);
+            getListTourWarningJson(distance, latTemp, longTemp);
+            $("#list-tour-warning").html(partialViewResult);
         });
     }
+
+    function getListTourWarningJson(distance, latTemp, longTemp) {
+
+        latSendWarning = latTemp;
+        longSendWarning = longTemp;
+        listTourGuideWarning = [];
+        $.ajax({
+            url: "/Home/GetListForWarningJson",
+            type: "POST",
+            data: {
+
+                Distance: distance,
+                Lat: latTemp,
+                Long: longTemp,
+            },
+            success: function (result) {
+
+                var results = $.parseJSON(result);
+                for (i = 0; i < results.objectArray.length; i++) {
+
+                    var tourguideID = results.objectArray[i].Tour.tourguide_id;
+                    alert(tourguideID);
+                    listTourGuideWarning.push(tourguideID);
+                }
+                
+            },
+        })
+    }
+
     // FOR WARNING GROUP IN HOME
     var latSendWarning;
     var longSendWarning;
@@ -1108,13 +1171,19 @@
             WarningName: warningName,
             Description: descriptionWarning,
             Categories: categories,
-            Distance: distance
+            Distance: distance,
+           
         }
- 
+
         document.getElementById("processwaning").style.display = "block";
+
+        //Realtime.
+
+
+        myHub.invoke('SendMessageTo', listTourGuideWarning, "chao ban");
+
         $.ajax({
 
-          
             url: "/Home/SendWarning",
             type: "POST",
             data: {
@@ -1124,7 +1193,8 @@
                 WarningName: warningName,
                 DescriptionWarning: descriptionWarning,
                 CategoryWarnig: categories,
-                Distance: distance
+                Distance: distance,
+                ListTourGuideId : listTourGuideWarning
             },
             success: function (result) {
 

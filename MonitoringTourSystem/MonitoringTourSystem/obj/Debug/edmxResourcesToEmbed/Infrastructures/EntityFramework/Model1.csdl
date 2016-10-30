@@ -171,5 +171,38 @@
     <EntitySet Name="trackings" EntityType="Self.tracking" />
     <EntitySet Name="warnings" EntityType="Self.warning" />
     <EntitySet Name="warning_receiver" EntityType="Self.warning_receiver" />
+    <EntitySet Name="connections" EntityType="sql6141630Model.connection" />
+    <EntitySet Name="conversation_room" EntityType="sql6141630Model.conversation_room" />
+    <EntitySet Name="user_realtime" EntityType="sql6141630Model.user_realtime" />
   </EntityContainer>
+  <EntityType Name="connection">
+    <Key>
+      <PropertyRef Name="connection_id" />
+      <PropertyRef Name="user_agent" />
+      <PropertyRef Name="connected" />
+    </Key>
+    <Property Name="connection_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="user_agent" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="connected" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="conversation_room">
+    <Key>
+      <PropertyRef Name="room_id" />
+      <PropertyRef Name="room_name" />
+    </Key>
+    <Property Name="room_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="room_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="user_realtime">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="user_name" />
+      <PropertyRef Name="connection_id" />
+      <PropertyRef Name="room_id" />
+    </Key>
+    <Property Name="user_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="user_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="connection_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="room_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

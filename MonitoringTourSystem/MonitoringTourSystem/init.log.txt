@@ -1,0 +1,1585 @@
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" could Not be loaded when searching for Hubs. [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\MySql.Web\v4.0_6.9.9.0__c5687fc88969c44d\MySql.Web.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" could Not be loaded when searching for Hubs. [C:\Users\Duc KaKa\AppData\Local\Temp\Temporary ASP.NET Files\root\33a49bd3\c8d41411\assembly\dl3\aa93bc20\0069daf9_f56dd001\Microsoft.AspNet.Identity.Owin.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" could Not be loaded when searching for Hubs. [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\MySql.Web\v4.0_6.9.9.0__c5687fc88969c44d\MySql.Web.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" could Not be loaded when searching for Hubs. [C:\Users\Duc KaKa\AppData\Local\Temp\Temporary ASP.NET Files\root\33a49bd3\c8d41411\assembly\dl3\aa93bc20\0069daf9_f56dd001\Microsoft.AspNet.Identity.Owin.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" could Not be loaded when searching for Hubs. [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\MySql.Web\v4.0_6.9.9.0__c5687fc88969c44d\MySql.Web.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" could Not be loaded when searching for Hubs. [C:\Users\Duc KaKa\AppData\Local\Temp\Temporary ASP.NET Files\root\33a49bd3\c8d41411\assembly\dl3\aa93bc20\0069daf9_f56dd001\Microsoft.AspNet.Identity.Owin.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" could Not be loaded when searching for Hubs. [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\MySql.Web\v4.0_6.9.9.0__c5687fc88969c44d\MySql.Web.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" could Not be loaded when searching for Hubs. [C:\Users\Duc KaKa\AppData\Local\Temp\Temporary ASP.NET Files\root\33a49bd3\c8d41411\assembly\dl3\aa93bc20\0069daf9_f56dd001\Microsoft.AspNet.Identity.Owin.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" could Not be loaded when searching for Hubs. [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\MySql.Web\v4.0_6.9.9.0__c5687fc88969c44d\MySql.Web.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" could Not be loaded when searching for Hubs. [C:\Users\Duc KaKa\AppData\Local\Temp\Temporary ASP.NET Files\root\33a49bd3\c8d41411\assembly\dl3\aa93bc20\0069daf9_f56dd001\Microsoft.AspNet.Identity.Owin.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" could Not be loaded when searching for Hubs. [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\MySql.Web\v4.0_6.9.9.0__c5687fc88969c44d\MySql.Web.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" could Not be loaded when searching for Hubs. [C:\Users\Duc KaKa\AppData\Local\Temp\Temporary ASP.NET Files\root\33a49bd3\c8d41411\assembly\dl3\aa93bc20\0069daf9_f56dd001\Microsoft.AspNet.Identity.Owin.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: Attempting download of new URL file:///C:/Users/Duc KaKa/AppData/Local/Temp/Temporary ASP.NET Files/root/33a49bd3/c8d41411/Microsoft.Owin.Security.OAuth.DLL.
+LOG: Attempting download of new URL file:///C:/Users/Duc KaKa/AppData/Local/Temp/Temporary ASP.NET Files/root/33a49bd3/c8d41411/Microsoft.Owin.Security.OAuth/Microsoft.Owin.Security.OAuth.DLL.
+LOG: Attempting download of new URL file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/bin/Microsoft.Owin.Security.OAuth.DLL.
+LOG: Attempting download of new URL file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/bin/Microsoft.Owin.Security.OAuth/Microsoft.Owin.Security.OAuth.DLL.
+LOG: Attempting download of new URL file:///C:/Users/Duc KaKa/AppData/Local/Temp/Temporary ASP.NET Files/root/33a49bd3/c8d41411/Microsoft.Owin.Security.OAuth.EXE.
+LOG: Attempting download of new URL file:///C:/Users/Duc KaKa/AppData/Local/Temp/Temporary ASP.NET Files/root/33a49bd3/c8d41411/Microsoft.Owin.Security.OAuth/Microsoft.Owin.Security.OAuth.EXE.
+LOG: Attempting download of new URL file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/bin/Microsoft.Owin.Security.OAuth.EXE.
+LOG: Attempting download of new URL file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/bin/Microsoft.Owin.Security.OAuth/Microsoft.Owin.Security.OAuth.EXE.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" could Not be loaded when searching for Hubs. [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\MySql.Web\v4.0_6.9.9.0__c5687fc88969c44d\MySql.Web.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" could Not be loaded when searching for Hubs. [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\vs\33a49bd3\c8d41411\assembly\dl3\2ae6a428\0069daf9_f56dd001\Microsoft.AspNet.Identity.Owin.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" could Not be loaded when searching for Hubs. [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\MySql.Web\v4.0_6.9.9.0__c5687fc88969c44d\MySql.Web.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" could Not be loaded when searching for Hubs. [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\33a49bd3\c8d41411\assembly\dl3\7f82644d\0069daf9_f56dd001\Microsoft.AspNet.Identity.Owin.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" could Not be loaded when searching for Hubs. [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\MySql.Web\v4.0_6.9.9.0__c5687fc88969c44d\MySql.Web.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" could Not be loaded when searching for Hubs. [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\vs\33a49bd3\c8d41411\assembly\dl3\2ae6a428\0069daf9_f56dd001\Microsoft.AspNet.Identity.Owin.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" could Not be loaded when searching for Hubs. [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\MySql.Web\v4.0_6.9.9.0__c5687fc88969c44d\MySql.Web.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" could Not be loaded when searching for Hubs. [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\vs\33a49bd3\c8d41411\assembly\dl3\2ae6a428\0069daf9_f56dd001\Microsoft.AspNet.Identity.Owin.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" could Not be loaded when searching for Hubs. [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\MySql.Web\v4.0_6.9.9.0__c5687fc88969c44d\MySql.Web.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" could Not be loaded when searching for Hubs. [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\33a49bd3\c8d41411\assembly\dl3\7f82644d\0069daf9_f56dd001\Microsoft.AspNet.Identity.Owin.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" could Not be loaded when searching for Hubs. [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\MySql.Web\v4.0_6.9.9.0__c5687fc88969c44d\MySql.Web.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" could Not be loaded when searching for Hubs. [C:\Users\Duc KaKa\AppData\Local\Temp\Temporary ASP.NET Files\root\33a49bd3\c8d41411\assembly\dl3\aa93bc20\0069daf9_f56dd001\Microsoft.AspNet.Identity.Owin.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" could Not be loaded when searching for Hubs. [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\MySql.Web\v4.0_6.9.9.0__c5687fc88969c44d\MySql.Web.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" could Not be loaded when searching for Hubs. [C:\Users\Duc KaKa\AppData\Local\Temp\Temporary ASP.NET Files\root\33a49bd3\c8d41411\assembly\dl3\aa93bc20\0069daf9_f56dd001\Microsoft.AspNet.Identity.Owin.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" could Not be loaded when searching for Hubs. [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\MySql.Web\v4.0_6.9.9.0__c5687fc88969c44d\MySql.Web.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" could Not be loaded when searching for Hubs. [C:\Users\Duc KaKa\AppData\Local\Temp\Temporary ASP.NET Files\root\33a49bd3\c8d41411\assembly\dl3\aa93bc20\0069daf9_f56dd001\Microsoft.AspNet.Identity.Owin.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" could Not be loaded when searching for Hubs. [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\MySql.Web\v4.0_6.9.9.0__c5687fc88969c44d\MySql.Web.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" could Not be loaded when searching for Hubs. [C:\Users\Duc KaKa\AppData\Local\Temp\Temporary ASP.NET Files\root\33a49bd3\c8d41411\assembly\dl3\aa93bc20\0069daf9_f56dd001\Microsoft.AspNet.Identity.Owin.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" could Not be loaded when searching for Hubs. [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\MySql.Web\v4.0_6.9.9.0__c5687fc88969c44d\MySql.Web.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" could Not be loaded when searching for Hubs. [C:\Users\Duc KaKa\AppData\Local\Temp\Temporary ASP.NET Files\root\33a49bd3\c8d41411\assembly\dl3\aa93bc20\0069daf9_f56dd001\Microsoft.AspNet.Identity.Owin.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" could Not be loaded when searching for Hubs. [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\MySql.Web\v4.0_6.9.9.0__c5687fc88969c44d\MySql.Web.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" could Not be loaded when searching for Hubs. [C:\Users\Duc KaKa\AppData\Local\Temp\Temporary ASP.NET Files\root\33a49bd3\c8d41411\assembly\dl3\aa93bc20\0069daf9_f56dd001\Microsoft.AspNet.Identity.Owin.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" could Not be loaded when searching for Hubs. [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\MySql.Web\v4.0_6.9.9.0__c5687fc88969c44d\MySql.Web.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" could Not be loaded when searching for Hubs. [C:\Users\Duc KaKa\AppData\Local\Temp\Temporary ASP.NET Files\root\33a49bd3\c8d41411\assembly\dl3\aa93bc20\0069daf9_f56dd001\Microsoft.AspNet.Identity.Owin.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" could Not be loaded when searching for Hubs. [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\MySql.Web\v4.0_6.9.9.0__c5687fc88969c44d\MySql.Web.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" could Not be loaded when searching for Hubs. [C:\Users\Duc KaKa\AppData\Local\Temp\Temporary ASP.NET Files\root\33a49bd3\c8d41411\assembly\dl3\aa93bc20\0069daf9_f56dd001\Microsoft.AspNet.Identity.Owin.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" could Not be loaded when searching for Hubs. [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\MySql.Web\v4.0_6.9.9.0__c5687fc88969c44d\MySql.Web.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" could Not be loaded when searching for Hubs. [C:\Users\Duc KaKa\AppData\Local\Temp\Temporary ASP.NET Files\root\33a49bd3\c8d41411\assembly\dl3\aa93bc20\0069daf9_f56dd001\Microsoft.AspNet.Identity.Owin.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" could Not be loaded when searching for Hubs. [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\MySql.Web\v4.0_6.9.9.0__c5687fc88969c44d\MySql.Web.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Some of the classes from assembly "Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" could Not be loaded when searching for Hubs. [C:\Users\Duc KaKa\AppData\Local\Temp\Temporary ASP.NET Files\root\33a49bd3\c8d41411\assembly\dl3\aa93bc20\0069daf9_f56dd001\Microsoft.AspNet.Identity.Owin.dll]
+Original exception type: ReflectionTypeLoadException
+Original exception message: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : Loader exceptions messages: 
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+
+SignalR.ReflectedHubDescriptorProvider Warning: 0 : System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+
+=== Pre-bind state information ===
+LOG: DisplayName = Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+LOG: Appbase = file:///F:/Ky 9/Khoa Luan/Github/MonitoringTourSystem/MonitoringTourSystem/
+LOG: Initial PrivatePath = F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin
+Calling assembly : Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\web.config
+LOG: Using host configuration file: C:\Users\Duc KaKa\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+LOG: The same bind was seen before, and was failed with hr = 0x80070002.
+
+

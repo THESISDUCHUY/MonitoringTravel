@@ -148,13 +148,9 @@ namespace MonitoringTourSystem.Infrastructures.Implements
         {
             try
             {
-
-                var lstTourGuideForWarning = GetTourIsProcessing(userName);
-
-                var userID = _managerServices.GetUserID(userName);
-
-                int warningID;
-                if (obj != null && lstTourGuideForWarning.Count != 0)
+                var userId = _managerServices.GetUserID(userName);
+                int warningId;
+                if (obj != null && obj.ListTourGuideId.Count != 0)
                 {
                     using (var context = _dbContextPool.GetContext())
                     {
@@ -173,16 +169,16 @@ namespace MonitoringTourSystem.Infrastructures.Implements
                         context.SaveChanges();
                     }
 
-                    warningID = _dbContextPool.GetContext().warnings.Max(x => x.warning_id);
+                    warningId = _dbContextPool.GetContext().warnings.Max(x => x.warning_id);
 
-                    for (int i = 0; i < lstTourGuideForWarning.Count; i++)
+                    for (int i = 0; i < obj.ListTourGuideId.Count; i++)
                     {
                         var warningReceiver = new warning_receiver()
                         {
-                            warning_id = warningID,
-                            receiver_id = lstTourGuideForWarning[i].Tour.tourguide_id,
+                            warning_id = warningId,
+                            receiver_id = Convert.ToInt32(obj.ListTourGuideId[i]),
                             status = StatusWarning.Opening.ToString(),
-                            warner_id = userID
+                            warner_id = userId
                         };
 
                         using (var context = new monitoring_tour_v3Entities())

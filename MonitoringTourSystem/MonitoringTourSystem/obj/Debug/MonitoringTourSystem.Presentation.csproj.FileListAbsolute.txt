@@ -30,6 +30,7 @@ F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.AspNet.SignalR.Core.dll
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.Owin.Cors.dll
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.Owin.dll
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.Owin.Host.SystemWeb.dll
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.Owin.Security.dll
@@ -44,6 +45,7 @@ F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\MySql.Dat
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\MySql.Web.dll
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Newtonsoft.Json.dll
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Owin.dll
+F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\System.Web.Cors.dll
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\System.Web.Helpers.dll
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\System.Web.Mvc.dll
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\System.Web.Optimization.dll
@@ -62,6 +64,7 @@ F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.Owin.xml
+F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.Owin.Cors.xml
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.Owin.Host.SystemWeb.xml
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.Owin.Security.xml
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.Practices.ServiceLocation.pdb
@@ -84,6 +87,6 @@ F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\EntityFra
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.AspNet.Identity.Core.xml
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.AspNet.Identity.Owin.xml
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\obj\Debug\MonitoringTourSystem.Presentation.csprojResolveAssemblyReference.cache
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\obj\Debug\MonitoringTourSystem.dll
 F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\obj\Debug\MonitoringTourSystem.pdb
+F:\Ky 9\Khoa Luan\Github\MonitoringTourSystem\MonitoringTourSystem\obj\Debug\MonitoringTourSystem.Presentation.csprojResolveAssemblyReference.cache
