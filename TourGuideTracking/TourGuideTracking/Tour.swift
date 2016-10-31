@@ -17,9 +17,12 @@ class Tour:Mappable{
     var status:String?
     var description:String?
     var coverPhoto:String?
-    var departureDate:Date?
-    var returnDate:Date?
+    var departureDate:String?
+    var returnDate:String?
     
+    init(){
+        
+    }
     required init(map:Map){
         
     }
@@ -35,5 +38,13 @@ class Tour:Mappable{
         self.coverPhoto <- map["cover_photo"]
         self.departureDate <- map["departure_date"]
         self.returnDate <- map["return_date"]
+    }
+    
+    func convertDate(){
+        let strTime = "2015-07-27 19:29:50"
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        formatter.date(from: strTime)
+    
     }
 }

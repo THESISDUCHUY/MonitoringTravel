@@ -14,13 +14,12 @@ class MyToursViewController: UIViewController, UITableViewDataSource, UITableVie
 
 
     @IBOutlet weak var toursTableView: UITableView!
+    var selectedTour = Tour()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //toursTableView.delegate = self
         self.navigationItem.hidesBackButton = true
-        
-        //get tourguide info
         toursGet()
         self.toursTableView.dataSource = self
         self.toursTableView.delegate = self

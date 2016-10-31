@@ -31,6 +31,8 @@
 		5AD59BEB1DB9B5F60007E055 /* TouristInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD59BEA1DB9B5F60007E055 /* TouristInfoWindow.swift */; };
 		5AD59BED1DB9C2610007E055 /* PlaceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD59BEC1DB9C2610007E055 /* PlaceDetailsViewController.swift */; };
 		5AD59BF11DBA1D870007E055 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD59BF01DBA1D870007E055 /* ContactsViewController.swift */; };
+		5AD99B3F1DC1E1A5004CE706 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD99B3E1DC1E1A5004CE706 /* CustomTabBarController.swift */; };
+		5AD99B411DC23EFA004CE706 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD99B401DC23EFA004CE706 /* Schedule.swift */; };
 		5AE7DCC81DB7496400512E05 /* CustomInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AE7DCC71DB7496400512E05 /* CustomInfoWindow.xib */; };
 		5AE7DCCA1DB74A8900512E05 /* CustomInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE7DCC91DB74A8900512E05 /* CustomInfoWindow.swift */; };
 		5AE98D651DABF7E400606592 /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE98D641DABF7E400606592 /* ResponseData.swift */; };
@@ -65,6 +67,8 @@
 		5AD59BEA1DB9B5F60007E055 /* TouristInfoWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouristInfoWindow.swift; sourceTree = "<group>"; };
 		5AD59BEC1DB9C2610007E055 /* PlaceDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetailsViewController.swift; sourceTree = "<group>"; };
 		5AD59BF01DBA1D870007E055 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		5AD99B3E1DC1E1A5004CE706 /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		5AD99B401DC23EFA004CE706 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		5AE7DCC71DB7496400512E05 /* CustomInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomInfoWindow.xib; sourceTree = "<group>"; };
 		5AE7DCC91DB74A8900512E05 /* CustomInfoWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfoWindow.swift; sourceTree = "<group>"; };
 		5AE98D641DABF7E400606592 /* ResponseData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 				5A433BEC1DB09B61004A6D94 /* TourInfoViewController.swift */,
 				5AD59BEC1DB9C2610007E055 /* PlaceDetailsViewController.swift */,
 				5AD59BF01DBA1D870007E055 /* ContactsViewController.swift */,
+				5AD99B3E1DC1E1A5004CE706 /* CustomTabBarController.swift */,
 			);
 			name = TourDetails;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 				5AE98D661DAC021900606592 /* Tour.swift */,
 				5A66E1AA1DACE19500AFBCA9 /* TourGuide.swift */,
 				5A2303951DB6707700894859 /* Tourist.swift */,
+				5AD99B401DC23EFA004CE706 /* Schedule.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -366,11 +372,13 @@
 				5A64ADB91DA6138A004775F5 /* LoginViewController.swift in Sources */,
 				5AE7DCCA1DB74A8900512E05 /* CustomInfoWindow.swift in Sources */,
 				5A66E1AB1DACE19500AFBCA9 /* TourGuide.swift in Sources */,
+				5AD99B411DC23EFA004CE706 /* Schedule.swift in Sources */,
 				5A433BED1DB09B61004A6D94 /* TourInfoViewController.swift in Sources */,
 				5A5FEBE71DAC8E540026F021 /* NetworkService.swift in Sources */,
 				5A66E1AF1DAD41B900AFBCA9 /* Keys.swift in Sources */,
 				5AE98D651DABF7E400606592 /* ResponseData.swift in Sources */,
 				5AD59BED1DB9C2610007E055 /* PlaceDetailsViewController.swift in Sources */,
+				5AD99B3F1DC1E1A5004CE706 /* CustomTabBarController.swift in Sources */,
 				5A2303961DB6707700894859 /* Tourist.swift in Sources */,
 				5A66E1B11DAD42CD00AFBCA9 /* Settings.swift in Sources */,
 				5AE98D671DAC021900606592 /* Tour.swift in Sources */,

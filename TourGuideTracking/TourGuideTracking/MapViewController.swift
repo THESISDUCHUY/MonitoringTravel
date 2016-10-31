@@ -20,6 +20,8 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tabBar = (self.tabBarController as! CustomTabBarController)
+        tabBar.currentTour = tour
         //displaySegmented.selectedSegmentIndex = 0
         self.mapView.delegate = self
         getPlacesLocation()
