@@ -8,6 +8,7 @@
 import UIKit
 struct URLs {
     static let URL_BASE:String = "http://localhost/tourtracking"
+    //static let URL_BASE:String = "http://tourtracking.esy.es/tourtracking"
     static let URL_IMAGE_BASE:String = "http://localhost/tourtracking/images"
     static let URL_LOGIN:String = URL_BASE + "/login"
     static let URL_GET_TOURGUIDE = URL_BASE + "/tourguides"

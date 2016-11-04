@@ -13,6 +13,8 @@
 		5A381E3C1DAE07FF005F2EAE /* TourTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A381E3B1DAE07FF005F2EAE /* TourTableViewCell.swift */; };
 		5A433BEB1DB09B1F004A6D94 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A433BEA1DB09B1F004A6D94 /* MapViewController.swift */; };
 		5A433BED1DB09B61004A6D94 /* TourInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A433BEC1DB09B61004A6D94 /* TourInfoViewController.swift */; };
+		5A5ECECA1DC8381A00AFFFDF /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5ECEC91DC8381A00AFFFDF /* ScheduleCell.swift */; };
+		5A5ECECC1DC87D0800AFFFDF /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5ECECB1DC87D0800AFFFDF /* ContactViewController.swift */; };
 		5A5FEBE51DAC837B0026F021 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5FEBE41DAC837B0026F021 /* Constants.swift */; };
 		5A5FEBE71DAC8E540026F021 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5FEBE61DAC8E540026F021 /* NetworkService.swift */; };
 		5A64ADA31DA610F5004775F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64ADA21DA610F5004775F5 /* AppDelegate.swift */; };
@@ -27,10 +29,11 @@
 		5A66E1B11DAD42CD00AFBCA9 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A66E1B01DAD42CD00AFBCA9 /* Settings.swift */; };
 		5A66E1B31DAD490B00AFBCA9 /* MyToursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A66E1B21DAD490B00AFBCA9 /* MyToursViewController.swift */; };
 		5A66E1B61DAD507100AFBCA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A66E1B41DAD507100AFBCA9 /* Main.storyboard */; };
+		5A8797391DCC97C7004E549D /* ScheduleDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8797381DCC97C7004E549D /* ScheduleDay.swift */; };
+		5AC5C4AE1DCB2E5800461DCC /* TourInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC5C4AD1DCB2E5800461DCC /* TourInfoCell.swift */; };
 		5AD59BE91DB9AF370007E055 /* TouristInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AD59BE81DB9AF370007E055 /* TouristInfoWindow.xib */; };
 		5AD59BEB1DB9B5F60007E055 /* TouristInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD59BEA1DB9B5F60007E055 /* TouristInfoWindow.swift */; };
 		5AD59BED1DB9C2610007E055 /* PlaceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD59BEC1DB9C2610007E055 /* PlaceDetailsViewController.swift */; };
-		5AD59BF11DBA1D870007E055 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD59BF01DBA1D870007E055 /* ContactsViewController.swift */; };
 		5AD99B3F1DC1E1A5004CE706 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD99B3E1DC1E1A5004CE706 /* CustomTabBarController.swift */; };
 		5AD99B411DC23EFA004CE706 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD99B401DC23EFA004CE706 /* Schedule.swift */; };
 		5AE7DCC81DB7496400512E05 /* CustomInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AE7DCC71DB7496400512E05 /* CustomInfoWindow.xib */; };
@@ -47,6 +50,8 @@
 		5A381E3B1DAE07FF005F2EAE /* TourTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourTableViewCell.swift; sourceTree = "<group>"; };
 		5A433BEA1DB09B1F004A6D94 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		5A433BEC1DB09B61004A6D94 /* TourInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourInfoViewController.swift; sourceTree = "<group>"; };
+		5A5ECEC91DC8381A00AFFFDF /* ScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
+		5A5ECECB1DC87D0800AFFFDF /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		5A5FEBE41DAC837B0026F021 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5A5FEBE61DAC8E540026F021 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		5A64AD9F1DA610F5004775F5 /* TourGuideTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TourGuideTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,10 +68,11 @@
 		5A66E1B01DAD42CD00AFBCA9 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		5A66E1B21DAD490B00AFBCA9 /* MyToursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyToursViewController.swift; sourceTree = "<group>"; };
 		5A66E1B51DAD507100AFBCA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5A8797381DCC97C7004E549D /* ScheduleDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDay.swift; sourceTree = "<group>"; };
+		5AC5C4AD1DCB2E5800461DCC /* TourInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourInfoCell.swift; sourceTree = "<group>"; };
 		5AD59BE81DB9AF370007E055 /* TouristInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TouristInfoWindow.xib; sourceTree = "<group>"; };
 		5AD59BEA1DB9B5F60007E055 /* TouristInfoWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouristInfoWindow.swift; sourceTree = "<group>"; };
 		5AD59BEC1DB9C2610007E055 /* PlaceDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetailsViewController.swift; sourceTree = "<group>"; };
-		5AD59BF01DBA1D870007E055 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		5AD99B3E1DC1E1A5004CE706 /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		5AD99B401DC23EFA004CE706 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		5AE7DCC71DB7496400512E05 /* CustomInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomInfoWindow.xib; sourceTree = "<group>"; };
@@ -110,8 +116,8 @@
 				5A433BEA1DB09B1F004A6D94 /* MapViewController.swift */,
 				5A433BEC1DB09B61004A6D94 /* TourInfoViewController.swift */,
 				5AD59BEC1DB9C2610007E055 /* PlaceDetailsViewController.swift */,
-				5AD59BF01DBA1D870007E055 /* ContactsViewController.swift */,
 				5AD99B3E1DC1E1A5004CE706 /* CustomTabBarController.swift */,
+				5A5ECECB1DC87D0800AFFFDF /* ContactViewController.swift */,
 			);
 			name = TourDetails;
 			sourceTree = "<group>";
@@ -196,6 +202,7 @@
 				5A66E1AA1DACE19500AFBCA9 /* TourGuide.swift */,
 				5A2303951DB6707700894859 /* Tourist.swift */,
 				5AD99B401DC23EFA004CE706 /* Schedule.swift */,
+				5A8797381DCC97C7004E549D /* ScheduleDay.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -227,6 +234,8 @@
 				5AE7DCC91DB74A8900512E05 /* CustomInfoWindow.swift */,
 				5AD59BE81DB9AF370007E055 /* TouristInfoWindow.xib */,
 				5AD59BEA1DB9B5F60007E055 /* TouristInfoWindow.swift */,
+				5A5ECEC91DC8381A00AFFFDF /* ScheduleCell.swift */,
+				5AC5C4AD1DCB2E5800461DCC /* TourInfoCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -367,19 +376,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A64ADBB1DA624EB004775F5 /* Place.swift in Sources */,
-				5AD59BF11DBA1D870007E055 /* ContactsViewController.swift in Sources */,
 				5A381E391DADD69D005F2EAE /* Singleton.swift in Sources */,
 				5A64ADB91DA6138A004775F5 /* LoginViewController.swift in Sources */,
 				5AE7DCCA1DB74A8900512E05 /* CustomInfoWindow.swift in Sources */,
 				5A66E1AB1DACE19500AFBCA9 /* TourGuide.swift in Sources */,
+				5AC5C4AE1DCB2E5800461DCC /* TourInfoCell.swift in Sources */,
 				5AD99B411DC23EFA004CE706 /* Schedule.swift in Sources */,
 				5A433BED1DB09B61004A6D94 /* TourInfoViewController.swift in Sources */,
 				5A5FEBE71DAC8E540026F021 /* NetworkService.swift in Sources */,
+				5A5ECECA1DC8381A00AFFFDF /* ScheduleCell.swift in Sources */,
 				5A66E1AF1DAD41B900AFBCA9 /* Keys.swift in Sources */,
 				5AE98D651DABF7E400606592 /* ResponseData.swift in Sources */,
 				5AD59BED1DB9C2610007E055 /* PlaceDetailsViewController.swift in Sources */,
 				5AD99B3F1DC1E1A5004CE706 /* CustomTabBarController.swift in Sources */,
 				5A2303961DB6707700894859 /* Tourist.swift in Sources */,
+				5A5ECECC1DC87D0800AFFFDF /* ContactViewController.swift in Sources */,
+				5A8797391DCC97C7004E549D /* ScheduleDay.swift in Sources */,
 				5A66E1B11DAD42CD00AFBCA9 /* Settings.swift in Sources */,
 				5AE98D671DAC021900606592 /* Tour.swift in Sources */,
 				5AD59BEB1DB9B5F60007E055 /* TouristInfoWindow.swift in Sources */,

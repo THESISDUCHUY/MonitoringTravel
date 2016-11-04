@@ -20,7 +20,7 @@ class MyToursViewController: UIViewController, UITableViewDataSource, UITableVie
         
         //toursTableView.delegate = self
         self.navigationItem.hidesBackButton = true
-        toursGet()
+        tourGuideGet()
         self.toursTableView.dataSource = self
         self.toursTableView.delegate = self
         //toursGet()
@@ -66,6 +66,27 @@ class MyToursViewController: UIViewController, UITableViewDataSource, UITableVie
         let tourDetails = nav.topViewController as! MapViewController
         tourDetails.tour = Singleton.sharedInstance.tours?[index!]
     }
+    
+    func tourGuideGet(){
+        NetworkService<TourGuide>.makeGetRequest(URL: URLs.makeURL(url: URLs.URL_GET_TOURGUIDE, param: Settings.tourguide_id!) ){
+            response, error in
+            if error == nil{
+                let message = response?.message
+                if message == nil{
+                    let tourguide = response?.data
+                    Singleton.sharedInstance.tourguide = tourguide
+                    self.toursGet()
+                }
+                else{
+                    
+                }
+            }
+            else{
+                
+            }
+        }
+    }
+    
     func toursGet(){
         MBProgressHUD.showAdded(to: self.view, animated: true)
         NetworkService<Tour>.makeGetRequest(URL: URLs.makeURL_EXTEND(url:URLs.URL_GET_TOURGUIDE, extend: URL_EXTEND.TOURS, param: (Singleton.sharedInstance.tourguide?.tourGuideId)!)){

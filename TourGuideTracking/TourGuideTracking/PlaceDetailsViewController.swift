@@ -16,6 +16,7 @@ class PlaceDetailsViewController: UIViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+
     @IBOutlet weak var scrollView: UIScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,13 +24,16 @@ class PlaceDetailsViewController: UIViewController {
     }
     
     func setValue(){
-        if (place.coverPhoto) != nil{
+        if place.coverPhoto != ""{
             self.coverImageView.setImageWith(URL(string:place.coverPhoto)!)
         }
         self.nameLabel.text = place.name
         self.contactLabel.text = place.contact
         self.addressLabel.text = place.address
         self.descriptionLabel.text = place.description
-        self.scrollView.contentSize.height = descriptionLabel.frame.size.height + descriptionLabel.frame.origin.y + 100
+        self.descriptionLabel.sizeToFit()
+        let h = descriptionLabel.frame.size.height + descriptionLabel.frame.origin.y
+        self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, h, 0)
+        
     }
 }

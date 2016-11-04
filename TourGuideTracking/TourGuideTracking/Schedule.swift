@@ -12,7 +12,10 @@ class Schedule: Mappable{
     var place_id:Int?
     var place_name:String?
     var vehicle:String?
+    var timestamp:NSDate?
+    var timestampString:String?
     var time:String?
+    var date:String?
     var description:String?
     
     required init?(map: Map){
@@ -22,7 +25,24 @@ class Schedule: Mappable{
         self.place_id <- map["place_id"]
         self.place_name <- map["place_name"]
         self.vehicle <- map["vehicle"]
-        self.time <- map["time"]
         self.description <- map["description"]
+        self.timestampString <- map["time"]
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyy-MM-dd HH:mm:ss"
+        self.timestamp = formatter.date(from: timestampString!)! as NSDate?
+        self.time = getTime()
+        self.date = getDate()
+    }
+    
+    func getTime() -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        return formatter.string(from: timestamp! as Date)
+    }
+    
+    func getDate() -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+        return formatter.string(from: timestamp! as Date)
     }
 }

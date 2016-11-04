@@ -31,8 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             && Settings.tourguide_accesstoken != nil {
             // currentUser is not nil
             // set up app for valid in user
-            return tourGuideGet(storyboard: storyboard)
-            
+           self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: ViewIdentifier.MYTOURS_VIEW)
         } /*else { // there is no current user
             // set up app for new or non logged in user
             self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: ViewIdentifier.LOGIN_VIEW)
@@ -62,28 +61,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
-    func tourGuideGet(storyboard:UIStoryboard)->Bool{
-        NetworkService<TourGuide>.makeGetRequest(URL: URLs.makeURL(url: URLs.URL_GET_TOURGUIDE, param: Settings.tourguide_id!) ){
-            response, error in
-            if error == nil{
-                let message = response?.message
-                if message == nil{
-                    let tourguide = response?.data
-                    Singleton.sharedInstance.tourguide = tourguide
-                    self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: ViewIdentifier.MYTOURS_VIEW)
-                }
-                else{
-                    
-                }
-            }
-            else{
-                
-            }
-        }
-        return true // don't load the rootViewController from your storyboard (if you have an initial view set)
-    }
-
-
 }
 

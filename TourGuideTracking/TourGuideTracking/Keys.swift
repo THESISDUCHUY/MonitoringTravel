@@ -29,6 +29,8 @@ struct ViewIdentifier{
 
 struct CellIdentifier{
     static let TOUR_CELL:String = "TourTableViewCell"
+    static let SCHEDULE_CELL:String = "ScheduleCell"
+    static let TOUR_INFO_CELL:String = "TourInfoCell"
 }
 
 struct API_KEYs{

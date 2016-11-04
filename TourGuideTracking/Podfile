@@ -9,6 +9,7 @@ target 'TourGuideTracking' do
   pod 'MBProgressHUD'
   pod 'AFNetworking'
   pod 'GoogleMaps'
+  pod 'SwiftR'
   # Pods for TourGuideTracking
 
 end
