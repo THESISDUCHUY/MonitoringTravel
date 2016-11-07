@@ -17,14 +17,16 @@ class Tour:Mappable{
     var status:String?
     var description:String?
     var coverPhoto:String?
-    var departureDate:String?
+    var departureDate:Date?
     var departureDateString:String?
-    var returnDate:String?
+    var returnDate:Date?
+    var returnDateString:String?
     var day:Int?
     
     init(){
         
     }
+    
     required init(map:Map){
         
     }
@@ -38,19 +40,20 @@ class Tour:Mappable{
         self.name <- map["tour_name"]
         self.description <- map["description"]
         self.coverPhoto <- map["cover_photo"]
-        self.departureDate <- map["departure_date"]
-        self.returnDate <- map["return_date"]
+        self.departureDateString <- map["departure_date"]
+        self.returnDateString <- map["return_date"]
         self.day <- map["day"]
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let date = formatter.date(from: departureDate!)
-        self.departureDateString = convertDate(timestamp: date!)
+        self.departureDate = formatter.date(from: departureDateString!)!
+        self.returnDate = formatter.date(from: returnDateString!)
+        
     }
     
-    func convertDate(timestamp:Date) -> String{
+    func getDate(date:Date) -> String{
         let formatter = DateFormatter()
         //formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         formatter.dateFormat = "dd-MM-yyyy"
-        return formatter.string(from: timestamp as Date)
+        return formatter.string(from: date)
     }
 }

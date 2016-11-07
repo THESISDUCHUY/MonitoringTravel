@@ -9,28 +9,35 @@
 import UIKit
 
 class ScheduleDay{
-    var schedules:[Schedule]?// = [Schedule]()
-    var tour:Tour?
+    var schedules:[Schedule]?
     var date:Date?
-    init(schedules: [Schedule], tour:Tour) {
-        self.schedules = schedules
-        self.tour = tour
-    }
     
-    func get(){
-        var schedulesDay:[[Schedule]] = [[Schedule]]()
-        var day = tour?.day
+    init(){
+        self.schedules = [Schedule]()
+        self.date = Date()
+    }
+    static func getSchdulesDay(allSchedules:[Schedule], tour:Tour) -> [ScheduleDay]{
+        var schedulesDay:[ScheduleDay] = [ScheduleDay]()
+        var day = tour.day
+        var departure = tour.departureDate
         while(day! > 0){
-            var temp:[Schedule] = [Schedule]()
-            for schedule in schedules!{
-                if schedule.date == tour?.departureDateString{
-                    temp.append(schedule)
+            let scheduleDay = ScheduleDay()
+            scheduleDay.date = departure
+            for schedule in allSchedules{
+                if (schedule.getDate() == tour.getDate(date: departure!)){
+                    scheduleDay.schedules?.append(schedule)
                 }
             }
-            schedulesDay.append(temp)
+            schedulesDay.append(scheduleDay)
+            departure = departure?.addingTimeInterval(24*60*60)
             day = day! - 1
         }
-        
-        //schedules[0].
+        return schedulesDay
+    }
+    
+    func getDateString() -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+        return formatter.string(from: date!)
     }
 }

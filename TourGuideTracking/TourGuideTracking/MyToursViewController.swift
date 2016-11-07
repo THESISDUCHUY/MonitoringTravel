@@ -56,7 +56,7 @@ class MyToursViewController: UIViewController, UITableViewDataSource, UITableVie
 
         //let appDelegate = UIApplication.shared.delegate as! AppDelegate
         //appDelegate.window?.rootViewController = tabBarController
-        performSegue(withIdentifier: SegueIdentifier.TO_TAB_BAR, sender: self)
+        performSegue(withIdentifier: SegueIdentifier.TAB_BAR, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -68,6 +68,7 @@ class MyToursViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tourGuideGet(){
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         NetworkService<TourGuide>.makeGetRequest(URL: URLs.makeURL(url: URLs.URL_GET_TOURGUIDE, param: Settings.tourguide_id!) ){
             response, error in
             if error == nil{
@@ -82,8 +83,9 @@ class MyToursViewController: UIViewController, UITableViewDataSource, UITableVie
                 }
             }
             else{
-                
+                Alert.showAlertMessage(userMessage: MESSAGES.error, vc: self)
             }
+             MBProgressHUD.hide(for: self.view, animated: true)
         }
     }
     
@@ -96,6 +98,7 @@ class MyToursViewController: UIViewController, UITableViewDataSource, UITableVie
                 if message == nil{
                     let tours:[Tour] = (response?.listData)!
                     Singleton.sharedInstance.tours = tours
+                     MBProgressHUD.hide(for: self.view, animated: true)
                     self.toursTableView.reloadData()
                 }
                 else{
@@ -104,7 +107,7 @@ class MyToursViewController: UIViewController, UITableViewDataSource, UITableVie
                 
             }
             else{
-                
+                Alert.showAlertMessage(userMessage: MESSAGES.error, vc: self)
             }
             MBProgressHUD.hide(for: self.view, animated: true)
         }

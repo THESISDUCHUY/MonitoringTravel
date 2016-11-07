@@ -16,3 +16,8 @@ class Alert{
         vc.present(alert, animated: true, completion: nil)
     }
 }
+
+class MESSAGES{
+    static let error:String = "Đã có lỗi xảy ra!"
+    
+}

@@ -14,8 +14,6 @@ class Schedule: Mappable{
     var vehicle:String?
     var timestamp:NSDate?
     var timestampString:String?
-    var time:String?
-    var date:String?
     var description:String?
     
     required init?(map: Map){
@@ -28,10 +26,8 @@ class Schedule: Mappable{
         self.description <- map["description"]
         self.timestampString <- map["time"]
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyy-MM-dd HH:mm:ss"
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         self.timestamp = formatter.date(from: timestampString!)! as NSDate?
-        self.time = getTime()
-        self.date = getDate()
     }
     
     func getTime() -> String{

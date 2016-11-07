@@ -18,7 +18,7 @@ class ScheduleCell: UITableViewCell {
     var schedule:Schedule!{
         didSet{
             nameLabel.text = schedule.place_name
-            timeLabel.text = schedule.time
+            timeLabel.text = schedule.getTime()
             vehicleLabel.text = schedule.vehicle
         }
     }

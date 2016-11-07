@@ -13,20 +13,21 @@ class TourInfoViewController: UIViewController {
     
     @IBOutlet weak var tourInfoTableView: UITableView!
     var tour:Tour!
-    var schedules:[Schedule]!
+    //var schedules:[Schedule]!
+    var schedulesDay:[ScheduleDay]!
     var selectedArray : [NSMutableArray] = []
+    var currentPlaceSelected:Place!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //set row height dynamic
         //self.tourInfoTableView.rowHeight = UITableViewAutomaticDimension
         //self.tourInfoTableView.estimatedRowHeight = 140
-        
+        schedulesDay = [ScheduleDay]()
         tourInfoTableView.delegate = self
         tourInfoTableView.dataSource = self
         tourInfoTableView.reloadData()
         self.tour = (tabBarController as! CustomTabBarController).currentTour
-        self.schedules = [Schedule]()
         getTourSchedule()
     }
     
@@ -40,7 +41,7 @@ class TourInfoViewController: UIViewController {
                 if message == nil{
                     let schedules = response?.listData
                     //Singleton.sharedInstance.schedules = schedules
-                    self.schedules = schedules
+                    self.schedulesDay = ScheduleDay.getSchdulesDay(allSchedules: schedules!, tour: self.tour)
                     self.tourInfoTableView.reloadData()
                 }
                 else{
@@ -55,40 +56,34 @@ class TourInfoViewController: UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailsVC = segue.destination as! PlaceDetailsViewController
-        detailsVC.place = Singleton.sharedInstance.places[7]
+        detailsVC.place = currentPlaceSelected
     }
 }
 
 extension TourInfoViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
-        case 0:
+        if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.TOUR_INFO_CELL) as! TourInfoCell
             cell.tour = tour
             return cell
-        case 1:
+        }
+        else{
             let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.SCHEDULE_CELL) as! ScheduleCell
-            cell.schedule = schedules[indexPath.row]
+            cell.schedule = schedulesDay[indexPath.section - 1].schedules?[indexPath.row]
             return cell
-
-        default:
-            return UITableViewCell()
         }
        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return schedulesDay.count + 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
+        if section == 0{
             return 1
-        case 1:
-            return schedules?.count ?? 0
-        default:
-            return 0
-            
+        }
+        else{
+            return (schedulesDay[section - 1].schedules?.count)!
         }
         //return 2//schedules?.count ?? 0
     }
@@ -97,14 +92,24 @@ extension TourInfoViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 1:
-            return "Ngày 1 - 20/01/2017"
-        default:
+        if section == 0{
             return ""
+        }
+        else{
+            return schedulesDay[section - 1].getDateString()
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let place_id = schedulesDay[indexPath.section - 1].schedules?[indexPath.row].place_id
+        for place in Singleton.sharedInstance.places{
+            if place.placeId == place_id{
+                self.currentPlaceSelected = place
+                break
+            }
+        }
+        self.performSegue(withIdentifier: SegueIdentifier.PLACE_DETAIL, sender: self)
+    }
 
     /*func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let titleHeader =  "Ngày 1 - 20/01/2017" // Also set on button
@@ -126,11 +131,9 @@ extension TourInfoViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 382
-        case 1:
-            return 96
+            return 400
         default:
-            return 0
+            return 70
         }
     }
 }

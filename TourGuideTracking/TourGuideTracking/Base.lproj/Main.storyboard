@@ -102,220 +102,6 @@
             </objects>
             <point key="canvasLocation" x="1367" y="-204"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="lf8-7V-qKI">
-            <objects>
-                <viewController storyboardIdentifier="TourInfoView" automaticallyAdjustsScrollViewInsets="NO" id="a6B-3f-k0E" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="kHP-Pa-bty"/>
-                        <viewControllerLayoutGuide type="bottom" id="mRM-bi-qMc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="BCs-lu-nzp">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QcY-6Z-tcU">
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXw-Dc-Neb">
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Singapore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ldn-pE-kX7">
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kết thúc:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOj-HX-nBJ">
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thời gian:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekn-ca-esK">
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 ngày" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0x-DT-4EE">
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SG1610" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIO-dR-SXi">
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mã tour:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4x-vE-7XE">
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19:00 02/01/2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUD-vP-c8r">
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Số du khách:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vtq-QS-o2K">
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qdx-gR-gxg">
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lịch trình tour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSY-Gf-16i">
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="101" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ING-Rj-pZl">
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ScheduleCell" rowHeight="101" id="p2c-iX-9fD" customClass="ScheduleCell" customModule="TourGuideTracking" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="355" height="101"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p2c-iX-9fD" id="sKe-5E-DZY">
-                                                            <frame key="frameInset" width="322" height="100"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Singapore Flyer" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBb-ov-UaA">
-                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pmc-L7-Jgq">
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W84-ad-Stk">
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vehicle:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTX-Zj-u9s">
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMr-kc-hd2">
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstItem="cMr-kc-hd2" firstAttribute="top" secondItem="cTX-Zj-u9s" secondAttribute="top" id="7hf-ES-uxn"/>
-                                                                <constraint firstItem="rBb-ov-UaA" firstAttribute="top" secondItem="sKe-5E-DZY" secondAttribute="top" constant="10" id="8CV-hn-7Jt"/>
-                                                                <constraint firstItem="cTX-Zj-u9s" firstAttribute="top" secondItem="Pmc-L7-Jgq" secondAttribute="bottom" constant="10" id="B9N-ve-4py"/>
-                                                                <constraint firstItem="cTX-Zj-u9s" firstAttribute="leading" secondItem="rBb-ov-UaA" secondAttribute="leading" id="DjN-9S-bMR"/>
-                                                                <constraint firstItem="Pmc-L7-Jgq" firstAttribute="top" secondItem="rBb-ov-UaA" secondAttribute="bottom" constant="10" id="Km2-c2-bXQ"/>
-                                                                <constraint firstItem="W84-ad-Stk" firstAttribute="leading" secondItem="Pmc-L7-Jgq" secondAttribute="trailing" constant="28" id="MW9-QJ-0fm"/>
-                                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cTX-Zj-u9s" secondAttribute="bottom" constant="10" id="RZt-hC-Z78"/>
-                                                                <constraint firstItem="Pmc-L7-Jgq" firstAttribute="leading" secondItem="rBb-ov-UaA" secondAttribute="leading" id="aUg-mR-4ud"/>
-                                                                <constraint firstItem="rBb-ov-UaA" firstAttribute="leading" secondItem="sKe-5E-DZY" secondAttribute="leading" constant="10" id="myk-et-IDS"/>
-                                                                <constraint firstItem="W84-ad-Stk" firstAttribute="top" secondItem="Pmc-L7-Jgq" secondAttribute="top" id="o9y-nI-nHS"/>
-                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rBb-ov-UaA" secondAttribute="trailing" constant="10" id="xVI-U9-Fup"/>
-                                                                <constraint firstItem="cMr-kc-hd2" firstAttribute="leading" secondItem="cTX-Zj-u9s" secondAttribute="trailing" constant="12" id="zJD-27-65v"/>
-                                                            </constraints>
-                                                        </tableViewCellContentView>
-                                                        <connections>
-                                                            <outlet property="placeNameLabel" destination="rBb-ov-UaA" id="ba9-NI-DDw"/>
-                                                            <outlet property="timeLabel" destination="W84-ad-Stk" id="MYP-ZY-JqO"/>
-                                                            <outlet property="vehicleLabel" destination="cMr-kc-hd2" id="1nT-hG-hKT"/>
-                                                        </connections>
-                                                    </tableViewCell>
-                                                </prototypes>
-                                            </tableView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8:00 25/12/2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egu-Wh-x1h">
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Khởi hành:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3T-oC-7MS">
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="singapore" translatesAutoresizingMaskIntoConstraints="NO" id="ag2-SZ-GtL">
-                                                <frame key="frameInset" minY="2" width="375" height="190"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="190" id="RjN-dG-sC5"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="ag2-SZ-GtL" firstAttribute="top" secondItem="KXw-Dc-Neb" secondAttribute="top" id="00n-ba-jcj"/>
-                                            <constraint firstItem="fSY-Gf-16i" firstAttribute="top" secondItem="Vtq-QS-o2K" secondAttribute="bottom" constant="10" id="0FS-Ke-a9V"/>
-                                            <constraint firstItem="OIO-dR-SXi" firstAttribute="top" secondItem="Z4x-vE-7XE" secondAttribute="top" id="1GT-V5-IIl"/>
-                                            <constraint firstItem="Vtq-QS-o2K" firstAttribute="top" secondItem="ekn-ca-esK" secondAttribute="bottom" constant="10" id="6DH-gQ-aj9"/>
-                                            <constraint firstItem="Qdx-gR-gxg" firstAttribute="top" secondItem="Vtq-QS-o2K" secondAttribute="top" id="6uA-ha-g03"/>
-                                            <constraint firstItem="egu-Wh-x1h" firstAttribute="leading" secondItem="OIO-dR-SXi" secondAttribute="leading" id="8FA-2T-DNo"/>
-                                            <constraint firstItem="NOj-HX-nBJ" firstAttribute="leading" secondItem="Ldn-pE-kX7" secondAttribute="leading" id="9bw-cZ-C8K"/>
-                                            <constraint firstItem="OIO-dR-SXi" firstAttribute="leading" secondItem="KXw-Dc-Neb" secondAttribute="leading" constant="110" id="D1T-dN-Tm3"/>
-                                            <constraint firstItem="C3T-oC-7MS" firstAttribute="top" secondItem="Z4x-vE-7XE" secondAttribute="bottom" constant="10" id="Hih-d3-uUH"/>
-                                            <constraint firstItem="N0x-DT-4EE" firstAttribute="leading" secondItem="OIO-dR-SXi" secondAttribute="leading" id="ITs-rx-FhT"/>
-                                            <constraint firstItem="N0x-DT-4EE" firstAttribute="top" secondItem="ekn-ca-esK" secondAttribute="top" id="Jua-MJ-aFM"/>
-                                            <constraint firstItem="fSY-Gf-16i" firstAttribute="leading" secondItem="Ldn-pE-kX7" secondAttribute="leading" id="Lnh-X2-Omb"/>
-                                            <constraint firstItem="Z4x-vE-7XE" firstAttribute="leading" secondItem="Ldn-pE-kX7" secondAttribute="leading" id="MWo-pe-55J"/>
-                                            <constraint firstItem="Ldn-pE-kX7" firstAttribute="top" secondItem="ag2-SZ-GtL" secondAttribute="bottom" constant="10" id="MfY-Uo-adJ"/>
-                                            <constraint firstItem="egu-Wh-x1h" firstAttribute="top" secondItem="C3T-oC-7MS" secondAttribute="top" id="Of4-S2-Ucs"/>
-                                            <constraint firstItem="ING-Rj-pZl" firstAttribute="leading" secondItem="KXw-Dc-Neb" secondAttribute="leading" constant="10" id="Ohb-5u-Caw"/>
-                                            <constraint firstItem="Qdx-gR-gxg" firstAttribute="leading" secondItem="OIO-dR-SXi" secondAttribute="leading" id="UOL-5d-jV4"/>
-                                            <constraint firstItem="OUD-vP-c8r" firstAttribute="leading" secondItem="OIO-dR-SXi" secondAttribute="leading" id="VWP-uo-oJn"/>
-                                            <constraint firstAttribute="bottom" secondItem="ING-Rj-pZl" secondAttribute="bottom" constant="-305" id="Y5p-vS-uxe"/>
-                                            <constraint firstItem="Vtq-QS-o2K" firstAttribute="leading" secondItem="Ldn-pE-kX7" secondAttribute="leading" id="Zum-NP-yvC"/>
-                                            <constraint firstItem="ekn-ca-esK" firstAttribute="leading" secondItem="Ldn-pE-kX7" secondAttribute="leading" id="c9a-kt-bU6"/>
-                                            <constraint firstItem="ag2-SZ-GtL" firstAttribute="leading" secondItem="KXw-Dc-Neb" secondAttribute="leading" id="cLN-fm-fCB"/>
-                                            <constraint firstItem="NOj-HX-nBJ" firstAttribute="top" secondItem="C3T-oC-7MS" secondAttribute="bottom" constant="10" id="coS-LI-VnN"/>
-                                            <constraint firstItem="OUD-vP-c8r" firstAttribute="top" secondItem="NOj-HX-nBJ" secondAttribute="top" id="eQq-v3-fWa"/>
-                                            <constraint firstItem="ekn-ca-esK" firstAttribute="top" secondItem="NOj-HX-nBJ" secondAttribute="bottom" constant="10" id="gOU-8e-i4y"/>
-                                            <constraint firstItem="C3T-oC-7MS" firstAttribute="leading" secondItem="Ldn-pE-kX7" secondAttribute="leading" id="h4j-72-tjL"/>
-                                            <constraint firstAttribute="trailing" secondItem="ag2-SZ-GtL" secondAttribute="trailing" id="pbu-8z-6c9"/>
-                                            <constraint firstItem="Z4x-vE-7XE" firstAttribute="top" secondItem="Ldn-pE-kX7" secondAttribute="bottom" constant="10" id="vNS-mg-Ra1"/>
-                                            <constraint firstItem="ING-Rj-pZl" firstAttribute="top" secondItem="fSY-Gf-16i" secondAttribute="bottom" constant="10" id="xBo-X8-xWM"/>
-                                            <constraint firstAttribute="trailing" secondItem="ING-Rj-pZl" secondAttribute="trailing" constant="10" id="xqr-w6-D9o"/>
-                                            <constraint firstItem="Ldn-pE-kX7" firstAttribute="leading" secondItem="KXw-Dc-Neb" secondAttribute="leading" constant="10" id="zLz-oP-Zok"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="KXw-Dc-Neb" secondAttribute="bottom" id="ASQ-oD-zJK"/>
-                                    <constraint firstItem="KXw-Dc-Neb" firstAttribute="top" secondItem="QcY-6Z-tcU" secondAttribute="top" id="OUC-wG-GTK"/>
-                                    <constraint firstItem="KXw-Dc-Neb" firstAttribute="centerY" secondItem="QcY-6Z-tcU" secondAttribute="centerY" id="Sr4-zo-s5R"/>
-                                    <constraint firstAttribute="trailing" secondItem="KXw-Dc-Neb" secondAttribute="trailing" id="gJi-ql-vgY"/>
-                                    <constraint firstItem="KXw-Dc-Neb" firstAttribute="leading" secondItem="QcY-6Z-tcU" secondAttribute="leading" id="vpG-NP-x3S"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="mRM-bi-qMc" firstAttribute="top" secondItem="QcY-6Z-tcU" secondAttribute="bottom" id="7H1-nC-f5N"/>
-                            <constraint firstAttribute="trailing" secondItem="QcY-6Z-tcU" secondAttribute="trailing" id="8Lf-qa-uXS"/>
-                            <constraint firstItem="KXw-Dc-Neb" firstAttribute="width" secondItem="BCs-lu-nzp" secondAttribute="width" id="LPw-oZ-rmZ"/>
-                            <constraint firstItem="QcY-6Z-tcU" firstAttribute="leading" secondItem="BCs-lu-nzp" secondAttribute="leading" id="awV-4z-f9h"/>
-                            <constraint firstItem="QcY-6Z-tcU" firstAttribute="top" secondItem="kHP-Pa-bty" secondAttribute="bottom" id="j0H-fE-PvH"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="ODI-8b-vrs"/>
-                    <navigationItem key="navigationItem" id="EfR-in-qqS"/>
-                    <connections>
-                        <outlet property="coverImageView" destination="ag2-SZ-GtL" id="vKD-95-d8B"/>
-                        <outlet property="dayLabel" destination="N0x-DT-4EE" id="dmR-3D-879"/>
-                        <outlet property="departureTimeLabel" destination="egu-Wh-x1h" id="iZD-8Z-4Z8"/>
-                        <outlet property="returnTimeLabel" destination="OUD-vP-c8r" id="Eez-UK-wDe"/>
-                        <outlet property="scheduleTableView" destination="ING-Rj-pZl" id="6Dw-51-C4U"/>
-                        <outlet property="scrollView" destination="QcY-6Z-tcU" id="fYx-nU-QlA"/>
-                        <outlet property="tourCodeLabel" destination="OIO-dR-SXi" id="AHJ-Jo-MA7"/>
-                        <outlet property="tourNameLabel" destination="Ldn-pE-kX7" id="Nnr-0p-9ig"/>
-                        <outlet property="touristQuantityLabel" destination="Qdx-gR-gxg" id="XUX-OK-fSk"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="asy-an-a3J" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3708" y="1404"/>
-        </scene>
         <!--Tour Info View Controller-->
         <scene sceneID="Orr-KU-676">
             <objects>
@@ -331,11 +117,11 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="382" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wby-Nb-0dn">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="TourInfoCell" rowHeight="382" id="icm-68-8RI" customClass="TourInfoCell" customModule="TourGuideTracking" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="382"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="TourInfoCell" rowHeight="400" id="icm-68-8RI" customClass="TourInfoCell" customModule="TourGuideTracking" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="400"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="icm-68-8RI" id="VKK-Nw-5cj">
-                                            <frame key="frameInset" width="375" height="382"/>
+                                            <frame key="frameInset" width="375" height="400"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="singapore" translatesAutoresizingMaskIntoConstraints="NO" id="hIk-Vp-4H0">
@@ -398,10 +184,17 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lịch trình tour " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xm7-kU-vo3">
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="of6-uS-FzG" firstAttribute="leading" secondItem="8gH-vH-pLn" secondAttribute="leading" id="2FV-N2-STP"/>
+                                                <constraint firstItem="xm7-kU-vo3" firstAttribute="leading" secondItem="8gH-vH-pLn" secondAttribute="leading" id="4my-Nf-jQ2"/>
                                                 <constraint firstItem="hIk-Vp-4H0" firstAttribute="leading" secondItem="VKK-Nw-5cj" secondAttribute="leading" id="5F1-6I-y4J"/>
+                                                <constraint firstItem="xm7-kU-vo3" firstAttribute="top" secondItem="Lov-vR-JX1" secondAttribute="bottom" constant="10" id="5c3-V1-RDd"/>
                                                 <constraint firstItem="2Nx-8W-EA9" firstAttribute="leading" secondItem="3ks-qB-aeT" secondAttribute="leading" id="7DO-e0-KkP"/>
                                                 <constraint firstItem="hmY-oe-VuC" firstAttribute="leading" secondItem="8gH-vH-pLn" secondAttribute="leading" id="7Kr-mt-f1y"/>
                                                 <constraint firstItem="8gH-vH-pLn" firstAttribute="top" secondItem="hIk-Vp-4H0" secondAttribute="bottom" constant="10" id="GhE-bX-hKF"/>
@@ -438,8 +231,8 @@
                                             <outlet property="touristQuantityLabel" destination="zxq-2l-84g" id="byh-rX-j0V"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScheduleCell" rowHeight="95" id="B6Q-Be-2Mw" customClass="ScheduleCell" customModule="TourGuideTracking" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="410" width="375" height="95"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ScheduleCell" rowHeight="95" id="B6Q-Be-2Mw" customClass="ScheduleCell" customModule="TourGuideTracking" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="428" width="375" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B6Q-Be-2Mw" id="3vD-3Q-gnj">
                                             <frame key="frameInset" width="375" height="95"/>
@@ -500,6 +293,7 @@
                     <navigationItem key="navigationItem" id="QYe-cz-fAu"/>
                     <connections>
                         <outlet property="tourInfoTableView" destination="Wby-Nb-0dn" id="q8i-wj-yFX"/>
+                        <segue destination="jSO-tT-Ea3" kind="push" identifier="SeguePlaceDetail" id="bmQ-Cq-fg8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q7k-ho-sBk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -873,4 +667,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="bmQ-Cq-fg8"/>
+    </inferredMetricsTieBreakers>
 </document>
