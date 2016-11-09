@@ -11,6 +11,7 @@ import UIKit
 class ScheduleDay{
     var schedules:[Schedule]?
     var date:Date?
+    var isHidden:Bool = true
     
     init(){
         self.schedules = [Schedule]()

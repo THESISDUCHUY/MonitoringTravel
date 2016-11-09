@@ -20,15 +20,21 @@ class MapViewController: UIViewController {
     var markerSelected:Any!
     var chatHub: Hub?
     var connection: SignalR?
+    var cameraZoom:Float = 12.0
     
     var locationManager:CLLocationManager = CLLocationManager();
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationManager.startUpdatingLocation()
         locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
+        //set timer
+        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.onTimer), userInfo: nil, repeats: true)
+        
         let tabBar = (self.tabBarController as! CustomTabBarController)
         tabBar.currentTour = tour
         connectServer()
@@ -67,6 +73,7 @@ class MapViewController: UIViewController {
                     let places = response?.listData
                     Singleton.sharedInstance.places = places
                     self.displayPlacesOnMap()
+                    self.popupWarning()
                 }
                 else{
                     Alert.showAlertMessage(userMessage: message!, vc: self)
@@ -88,6 +95,7 @@ class MapViewController: UIViewController {
                     let tourists = response?.listData
                     Singleton.sharedInstance.tourists = tourists
                     self.displayTouristOnMap()
+                    //self.fakeLocation()
                     self.updateLocation(latitude: (tourists?[0].location?.latitude)!, longitude: (tourists?[0].location?.longitude)!)
                 }
                 else{
@@ -102,19 +110,25 @@ class MapViewController: UIViewController {
     
     func displayPlacesOnMap(){
         let places = Singleton.sharedInstance.places
-         self.setMapView(lat: (places?[0].location?.latitude!)!, long: (places?[0].location?.longitude!)!)
-        for place in places!{
-            creteMarker(latitude: place.location.latitude!, longitude: place.location.longitude!, data:place).map = mapView
+        if (places?.count)! > 0{
+            self.setMapView(lat: (places?[0].location?.latitude!)!, long: (places?[0].location?.longitude!)!)
+            for place in places!{
+                createMarker(latitude: place.location.latitude!, longitude: place.location.longitude!, data:place).map = mapView
+            }
         }
+
 
     }
     
     func displayTouristOnMap(){
         let tourists = Singleton.sharedInstance.tourists
-        self.setMapView(lat: (tourists?[0].location?.latitude!)!, long: (tourists?[0].location?.longitude!)!)
-        for tourist in tourists!{
-            creteMarker(latitude: tourist.location!.latitude!, longitude: tourist.location!.longitude!, data:tourist).map = mapView
+        if (tourists?.count)! > 0{
+            self.setMapView(lat: (tourists?[0].location?.latitude!)!, long: (tourists?[0].location?.longitude!)!)
+            for tourist in tourists!{
+                createMarker(latitude: tourist.location!.latitude!, longitude: tourist.location!.longitude!, data:tourist).map = mapView
+            }
         }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -178,7 +192,42 @@ class MapViewController: UIViewController {
             chatHub?.invoke("updateLocation", arguments: [latitude, longitude])
     }
 
+    func fakeLocation(){
+        //while(true){
+            for i in (0 ..< Singleton.sharedInstance.tourists.count){
+                if i % 2 == 0{
+                     Singleton.sharedInstance.tourists[i].location?.longitude =  (Singleton.sharedInstance.tourists[i].location?.longitude)! + 0.0001
+                }
+                else{
+                    Singleton.sharedInstance.tourists[i].location?.latitude =  (Singleton.sharedInstance.tourists[i].location?.latitude)! + 0.0001
+                }
+               
+            }
+            displayTouristOnMap()
+        //}
+    }
     
+    func onTimer() {
+        if displaySegmented.selectedSegmentIndex == 1{
+            cameraZoom = mapView.camera.zoom
+            self.fakeLocation()
+        }
+       
+    }
+    var popup:Warning!
+    func popupWarning(){
+        popup = Warning(frame: CGRect(x: 10, y: 240, width: UIScreen.main.bounds.width - 50, height: 180))
+        popup.contentLabel.text = "This is warning"
+        popup?.confirmButton.addTarget(self, action: #selector(onConfirmTouchUp(_:)), for: .touchUpInside)
+        createWarningMarker(latitude: 1.3368652, longitude: 103.7007477).map = mapView
+        let camera = GMSCameraPosition.camera(withLatitude: 1.3368652, longitude: 1.3368652, zoom: self.cameraZoom)
+        mapView.camera = camera
+        self.view.addSubview(popup!)
+    }
+    
+    func onConfirmTouchUp(_ sender: UIButton){
+        popup?.contentView.removeFromSuperview()
+    }
 }
 
 extension MapViewController: GMSMapViewDelegate{
@@ -209,26 +258,46 @@ extension MapViewController: GMSMapViewDelegate{
     }
     func setMapView(lat:Double = 0, long:Double = 0) {
         mapView.clear()
-        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 12.0)
+        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: self.cameraZoom)
         mapView.camera = camera
         mapView.isMyLocationEnabled = true
+        
     }
     
-    func creteMarker(latitude:Double, longitude:Double, data:AnyObject?) -> GMSMarker{
+    func createMarker(latitude:Double, longitude:Double, data:AnyObject?) -> GMSMarker{
         // Creates a marker in the center of the map.
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         marker.userData = data
         return marker
     }
+    
+    func createWarningMarker(latitude:Double, longitude:Double)-> GMSMarker{
+        // Creates a marker in the center of the map.
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        marker.icon = createMarkerIcon()
+        return marker
+    }
+
+    func createMarkerIcon() -> UIImage{
+        return UIImage(named: "warning1")!
+    }
 
 }
 
 extension MapViewController: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        if let hub = chatHub, {
-//            hub.invoke("updateLocation", arguments: ["37.121300", "-95.416603"])
-//        }
-        updateLocation(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude);
+        let location = locations.last
+        //setMapView(lat: (location?.coordinate.latitude)!, long: (location?.coordinate.longitude)!)
+        //creteMarker(latitude: (location?.coordinate.latitude)!, longitude: (location?.coordinate.longitude)!, data: nil).map = mapView
+        //print(location?.coordinate.latitude)
+        //print(location?.coordinate.longitude)
+        //locationManager.stopUpdatingLocation()
+        //updateLocation(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude);
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Error while updating location " + error.localizedDescription)
     }
 }

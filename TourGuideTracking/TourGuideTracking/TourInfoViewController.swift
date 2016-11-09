@@ -17,6 +17,7 @@ class TourInfoViewController: UIViewController {
     var schedulesDay:[ScheduleDay]!
     var selectedArray : [NSMutableArray] = []
     var currentPlaceSelected:Place!
+    var isHeaderTapped:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,6 +27,7 @@ class TourInfoViewController: UIViewController {
         schedulesDay = [ScheduleDay]()
         tourInfoTableView.delegate = self
         tourInfoTableView.dataSource = self
+        
         tourInfoTableView.reloadData()
         self.tour = (tabBarController as! CustomTabBarController).currentTour
         getTourSchedule()
@@ -83,7 +85,12 @@ extension TourInfoViewController : UITableViewDelegate, UITableViewDataSource{
             return 1
         }
         else{
-            return (schedulesDay[section - 1].schedules?.count)!
+            if(schedulesDay[section - 1].isHidden){
+                return 0
+            }
+            else{
+                return (schedulesDay[section - 1].schedules?.count)!
+            }
         }
         //return 2//schedules?.count ?? 0
     }
@@ -101,6 +108,10 @@ extension TourInfoViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0{
+            return
+        }
+        
         let place_id = schedulesDay[indexPath.section - 1].schedules?[indexPath.row].place_id
         for place in Singleton.sharedInstance.places{
             if place.placeId == place_id{
@@ -111,23 +122,44 @@ extension TourInfoViewController : UITableViewDelegate, UITableViewDataSource{
         self.performSegue(withIdentifier: SegueIdentifier.PLACE_DETAIL, sender: self)
     }
 
-    /*func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let titleHeader =  "Ngày 1 - 20/01/2017" // Also set on button
-        let  headerCell = UIView(frame: CGRect(x: 0   , y: 0, width: tableView.frame.size.width , height: 40 ))
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        var titleHeader:String =  ""
+        if section != 0{
+            titleHeader = schedulesDay[section - 1].getDateString()
+        }
+
+        let  headerCell = UIView(frame: CGRect(x: 0   , y: 0, width: tableView.frame.size.width , height: 50 ))
         headerCell.backgroundColor = UIColor.gray
-        let button  = UIButton(frame: headerCell.frame)
-        button.addTarget(self, action: Selector(("selectedSectionStoredButtonClicked:")), for: UIControlEvents.touchUpInside)
-        button.setTitle(titleHeader, for: UIControlState.normal)
         
-        button.tag = section
-        headerCell.addSubview(button)
+        let titleLabel = UILabel(frame: CGRect(x: 15, y: 0, width: 320, height: 30))
+        titleLabel.textColor = UIColor.black
+        titleLabel.font = UIFont(name: "Helvetica", size: 15)
+        titleLabel.text = titleHeader
+        headerCell.addSubview(titleLabel)
+        headerCell.tag = section
+        //let headerCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.SCHEDULE_CELL) as! ScheduleCell
+        //headerCell.headerCellSection = section
+        
+        // Add gesture
+    
+        let headerTapGesture = UITapGestureRecognizer()
+        headerTapGesture.addTarget(self, action:  #selector(onHeaderSectionTapped))
+        headerCell.addGestureRecognizer(headerTapGesture)
         
         return headerCell
     }
     
-    func selectedSectionStoredButtonClicked (sender : UIButton) {
-       
-    }*/
+    func onHeaderSectionTapped (sender: UITapGestureRecognizer) {
+        let headerCell = sender.view! as UIView
+        let section = headerCell.tag
+        if(schedulesDay[section - 1].isHidden){
+            schedulesDay[section - 1].isHidden = false
+        }
+        else{
+             schedulesDay[section - 1].isHidden = true
+        }
+        tourInfoTableView.reloadSections(IndexSet(integer:section), with: .automatic)
+    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:

@@ -34,6 +34,9 @@ struct CellIdentifier{
     static let TOUR_INFO_CELL:String = "TourInfoCell"
 }
 
+struct Xibs{
+    static let WARNING:String = "Warning"
+}
 struct API_KEYs{
     static let GoogleMap:String = "AIzaSyDCN4X9NUjNF_WX1sHq1WSUVK9PObdIC-s"
 }

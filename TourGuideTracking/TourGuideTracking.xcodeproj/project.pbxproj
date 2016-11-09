@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4AD4E316B780E4C4C893030D /* Pods_TourGuideTracking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 814F744039AF77D618A56FBA /* Pods_TourGuideTracking.framework */; };
+		5A0D6C0C1DD1A40700DF4892 /* Warning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D6C0B1DD1A40700DF4892 /* Warning.swift */; };
+		5A0D6C0E1DD1A41E00DF4892 /* Warning.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A0D6C0D1DD1A41E00DF4892 /* Warning.xib */; };
 		5A2303961DB6707700894859 /* Tourist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2303951DB6707700894859 /* Tourist.swift */; };
 		5A381E391DADD69D005F2EAE /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A381E381DADD69D005F2EAE /* Singleton.swift */; };
 		5A381E3C1DAE07FF005F2EAE /* TourTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A381E3B1DAE07FF005F2EAE /* TourTableViewCell.swift */; };
@@ -45,6 +47,8 @@
 /* Begin PBXFileReference section */
 		30165A930F7E48DEEBFB913E /* Pods-TourGuideTracking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourGuideTracking.release.xcconfig"; path = "Pods/Target Support Files/Pods-TourGuideTracking/Pods-TourGuideTracking.release.xcconfig"; sourceTree = "<group>"; };
 		5468F0B5A9CD9B35219EEEDA /* Pods-TourGuideTracking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourGuideTracking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TourGuideTracking/Pods-TourGuideTracking.debug.xcconfig"; sourceTree = "<group>"; };
+		5A0D6C0B1DD1A40700DF4892 /* Warning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Warning.swift; sourceTree = "<group>"; };
+		5A0D6C0D1DD1A41E00DF4892 /* Warning.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Warning.xib; sourceTree = "<group>"; };
 		5A2303951DB6707700894859 /* Tourist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tourist.swift; sourceTree = "<group>"; };
 		5A381E381DADD69D005F2EAE /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		5A381E3B1DAE07FF005F2EAE /* TourTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourTableViewCell.swift; sourceTree = "<group>"; };
@@ -236,6 +240,8 @@
 				5AD59BEA1DB9B5F60007E055 /* TouristInfoWindow.swift */,
 				5A5ECEC91DC8381A00AFFFDF /* ScheduleCell.swift */,
 				5AC5C4AD1DCB2E5800461DCC /* TourInfoCell.swift */,
+				5A0D6C0B1DD1A40700DF4892 /* Warning.swift */,
+				5A0D6C0D1DD1A41E00DF4892 /* Warning.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -314,6 +320,7 @@
 			files = (
 				5AD59BE91DB9AF370007E055 /* TouristInfoWindow.xib in Resources */,
 				5AE7DCC81DB7496400512E05 /* CustomInfoWindow.xib in Resources */,
+				5A0D6C0E1DD1A41E00DF4892 /* Warning.xib in Resources */,
 				5A66E1B61DAD507100AFBCA9 /* Main.storyboard in Resources */,
 				5A64ADAD1DA610F5004775F5 /* LaunchScreen.storyboard in Resources */,
 				5A64ADAA1DA610F5004775F5 /* Assets.xcassets in Resources */,
@@ -397,6 +404,7 @@
 				5AD59BEB1DB9B5F60007E055 /* TouristInfoWindow.swift in Sources */,
 				5A381E3C1DAE07FF005F2EAE /* TourTableViewCell.swift in Sources */,
 				5A66E1B31DAD490B00AFBCA9 /* MyToursViewController.swift in Sources */,
+				5A0D6C0C1DD1A40700DF4892 /* Warning.swift in Sources */,
 				5A5FEBE51DAC837B0026F021 /* Constants.swift in Sources */,
 				5A64ADBD1DA62C9D004775F5 /* Location.swift in Sources */,
 				5A66E1AD1DAD406D00AFBCA9 /* Alert.swift in Sources */,
