@@ -229,9 +229,7 @@ class MapViewController: BaseViewController {
             placeDetailsVC.place = markerSelected as! Place
         }
     }
-    
-    
-    
+
     
     
     //MARK: Realtime Server
@@ -380,28 +378,11 @@ class MapViewController: BaseViewController {
     func initCurrentLocation(receiver: String, tourguide: TourGuide, tour: Tour)
     {
         
-        let tourguideSer = [
-            "tourguide_id": tourguide.tourGuideId,
-            "tourguide_name": tourguide.name,
-            "phone": tourguide.phone,
-            "email": tourguide.email,
-            "display_photo" : tourguide.displayPhoto
-        ] as [String : Any]
-        
-        let tourSer = [
-            "tour_name" : tour.name,
-            "departure_date": tour.departureDate,
-            "return_date": tour.returnDate,
-            "tour_id": tour.tourId,
-            "cover_photo": tour.coverPhoto
-            
-            ] as [String : Any]
-        
         let user_lat = String(format: "%f", (locationManager.location?.coordinate.latitude)!)
         let user_long = String(format: "%f", (locationManager.location?.coordinate.longitude)!)
         
-        //[user_lat, user_long, receiver, tourguideSer, tour]
-        tourguideHub?.invoke("initMarkerNewConection", arguments: [user_lat, user_long, receiver, tourguideSer, tourSer]) { (result, error) in
+        
+        tourguideHub?.invoke("initMarkerNewConection", arguments: [user_lat, user_long, receiver, tourguide.tourGuideId!, tourguide.name!, tour.tourId!] ) { (result, error) in
             if let e = error {
                 #if DEBUG
                     
