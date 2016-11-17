@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LyX-R6-spr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LyX-R6-spr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -458,37 +458,37 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="374"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Vị trí cảnh báo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F2B-UO-o6G">
-                                                        <rect key="frame" x="8" y="36" width="359" height="30"/>
+                                                        <rect key="frame" x="8" y="32.5" width="359" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vi tri" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jd6-DC-hzI">
-                                                        <rect key="frame" x="8" y="8" width="30" height="20"/>
+                                                        <rect key="frame" x="8" y="8" width="27.5" height="16.5"/>
                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tieu de" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbM-fy-xpk">
-                                                        <rect key="frame" x="8" y="82" width="48" height="20"/>
+                                                        <rect key="frame" x="8" y="78.5" width="46.5" height="16.5"/>
                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nhập tiêu đề cảnh báo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4b2-PZ-B6l">
-                                                        <rect key="frame" x="8" y="110" width="359" height="30"/>
+                                                        <rect key="frame" x="8" y="103" width="359" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Noi dung" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tz3-eY-Cgw">
-                                                        <rect key="frame" x="8" y="156" width="60" height="20"/>
+                                                        <rect key="frame" x="8" y="149" width="57.5" height="16.5"/>
                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Nhập nội dung cảnh báo" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WX2-pK-oC3" customClass="TextViewRoundConner" customModule="TourGuideTracking" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="184" width="359" height="100"/>
+                                                        <rect key="frame" x="8" y="173.5" width="359" height="100"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="100" id="2X7-w9-qUU"/>
@@ -508,7 +508,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YxF-8b-1UY" customClass="ButtonRoundCorner" customModule="TourGuideTracking" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="304" width="359" height="45"/>
+                                                        <rect key="frame" x="8" y="293.5" width="359" height="45"/>
                                                         <color key="backgroundColor" red="0.0" green="0.76470588240000004" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="ODS-Ea-DqE"/>
@@ -1133,7 +1133,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ko-LR-ZLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3791" y="1110"/>
+            <point key="canvasLocation" x="2862" y="1090"/>
         </scene>
         <!--Duc Nguyen-->
         <scene sceneID="1gA-yP-rA1">
@@ -1563,7 +1563,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KxM-CV-ESO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5270" y="1012"/>
+            <point key="canvasLocation" x="3694" y="1135"/>
         </scene>
         <!--My Tours View Controller-->
         <scene sceneID="783-ye-PGU">
@@ -1693,7 +1693,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yhv-n4-8ST" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="152.80000000000001" y="977.36131934032994"/>
+            <point key="canvasLocation" x="-7" y="908"/>
         </scene>
         <!--More-->
         <scene sceneID="UtC-ET-LSx">
@@ -1852,7 +1852,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LBr-Pr-of3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1906" y="1176"/>
+            <point key="canvasLocation" x="1017" y="1090"/>
         </scene>
         <!--Warning-->
         <scene sceneID="etU-7q-OXn">
@@ -1987,7 +1987,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hYS-IA-inr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4455" y="399"/>
+            <point key="canvasLocation" x="3502" y="338"/>
         </scene>
         <!--Info Tour-->
         <scene sceneID="zAN-3s-yjB">
@@ -2220,7 +2220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H0f-12-loA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4142" y="-448"/>
+            <point key="canvasLocation" x="3791" y="-342"/>
         </scene>
         <!--Register-->
         <scene sceneID="yUi-qy-J9z">
@@ -2480,7 +2480,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bs8-Zh-fPU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="188" y="-491"/>
+            <point key="canvasLocation" x="-7" y="-490"/>
         </scene>
         <!--Login-->
         <scene sceneID="FEQ-IQ-l10">
@@ -2783,7 +2783,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qba-0A-u3r" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="contacts" id="yEM-0q-Vla"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="XBP-ll-FLF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XBP-ll-FLF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2799,15 +2799,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x3C-6a-xbw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2918" y="1135"/>
+            <point key="canvasLocation" x="2023" y="1072"/>
         </scene>
-        <!--Tracking-->
+        <!--Warning-->
         <scene sceneID="dZr-ot-1uj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bbF-aO-j7A" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Tracking" image="ic_tracking" id="WYi-8a-Sp0"/>
+                    <tabBarItem key="tabBarItem" title="Warning" image="ic_tracking" id="WYi-8a-Sp0"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="AKY-hh-hAI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="AKY-hh-hAI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2830,7 +2830,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LyX-R6-spr" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" misplaced="YES" id="YdP-Vd-Wau">
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="YdP-Vd-Wau">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -2844,7 +2844,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hzV-zK-lyK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-786.39999999999998" y="193.85307346326837"/>
+            <point key="canvasLocation" x="-1095" y="218"/>
         </scene>
         <!--Warning-->
         <scene sceneID="Dya-8C-4Jw">
@@ -2852,7 +2852,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fBd-bD-5KT" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Warning" image="ic_warning_tabbar" id="7oH-gA-Uzm"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Hrh-7A-rsy">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hrh-7A-rsy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.79215686269999996" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2867,7 +2867,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VON-sH-4hr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3511" y="382"/>
+            <point key="canvasLocation" x="2346" y="361"/>
         </scene>
     </scenes>
     <resources>
