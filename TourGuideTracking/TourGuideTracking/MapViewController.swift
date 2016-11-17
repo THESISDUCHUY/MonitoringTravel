@@ -41,6 +41,16 @@ class MapViewController: BaseViewController {
     @IBOutlet weak var vInfoTourist: UIView!
     @IBOutlet weak var consTopMenu: NSLayoutConstraint!
     
+    
+    @IBOutlet weak var vPopupWarning: ViewRoundCorner!
+    @IBOutlet weak var lbWarningName: UILabel!
+    
+    @IBOutlet weak var lbCateWarning: UILabel!
+    @IBOutlet weak var lbDescriptionWarning: UILabel!
+    @IBOutlet weak var lbPriotiryWarning: UILabel!
+    
+    @IBOutlet weak var btnDetailWarning: UIButton!
+    
     var tour:Tour!
     var tourguideHub: Hub?
     var connection: SignalR?
@@ -271,6 +281,54 @@ class MapViewController: BaseViewController {
             self?.tourguideHub?.on("initTouristConnected"){ args in
                 let touristName = args![2] as! String
                 self?.touristConnected(usernameTourist: touristName)
+                
+            }
+            
+            self?.tourguideHub?.on("managerOnline"){ args in
+                self?.initCurrentLocation(receiver: "MG_" + String(describing: (self?.tour.managerId)!), tourguide: Singleton.sharedInstance.tourguide!, tour: (self?.tour)!)
+            }
+            
+            self?.tourguideHub?.on("receiverWarning"){ args in
+                
+                let objectData: AnyObject = args![0] as AnyObject!
+                
+                print(objectData)
+
+                
+                let warningName = objectData["WarningName"] as? String
+                let categoryWarnig = objectData["CategoryWarnig"] as? String
+                let descriptiontionWarning = objectData["DescriptionWarning"] as? String
+                let lat = objectData["Lat"] as? Double
+                let long = objectData["Long"] as? Double
+                
+                self?.lbWarningName.text = warningName
+                self?.lbCateWarning.text = categoryWarnig
+                self?.lbDescriptionWarning.text = descriptiontionWarning
+                self?.lbPriotiryWarning.text = "Normal"
+                
+
+                let ivMarkerWarning = UIImage(named: "ic_marker_warning")
+                
+                let marker = GMSMarker()
+                marker.position = CLLocationCoordinate2D(latitude: lat!, longitude: long!)
+                marker.icon = ivMarkerWarning
+                marker.map = self?.mapView
+               
+                
+                let positionMarker = self?.mapView.projection.point(for: marker.position)
+                
+                let newPositionMarker = CGPoint(x: (positionMarker?.x)!, y: (positionMarker?.y)! - 100)
+                
+                let camera = GMSCameraUpdate.setTarget((self?.mapView.projection.coordinate(for:newPositionMarker))!)
+                
+                self?.mapView.animate(with: camera)
+
+                
+                UIView.animate(withDuration: 1, animations: { 
+                    
+                    self?.vPopupWarning.isHidden = false
+                    self?.view.layoutIfNeeded()
+                })
                 
             }
             
@@ -622,10 +680,10 @@ extension MapViewController: GMSMapViewDelegate{
     
     func setMapView(lat:Double = 0, long:Double = 0) {
         
-        mapView.clear()
-        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 12.0)
-        mapView.animate(to: camera)
-        mapView.isMyLocationEnabled = true
+//        mapView.clear()
+//        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 12.0)
+//        mapView.animate(to: camera)
+//        mapView.isMyLocationEnabled = true
         
     }
     
@@ -795,3 +853,5 @@ extension MapViewController: CLLocationManagerDelegate{
         //        updateLocation(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude);
     }
 }
+
+
