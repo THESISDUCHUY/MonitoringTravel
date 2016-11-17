@@ -27,6 +27,7 @@ PODS:
   - ObjectMapper (2.0.0)
   - SwiftR (0.12.0)
   - TPKeyboardAvoiding (1.3)
+  - UIColor_Hex_Swift (2.3)
 
 DEPENDENCIES:
   - AFNetworking
@@ -36,6 +37,7 @@ DEPENDENCIES:
   - MBProgressHUD
   - SwiftR
   - TPKeyboardAvoiding
+  - UIColor_Hex_Swift (~> 2.1)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -46,7 +48,8 @@ SPEC CHECKSUMS:
   ObjectMapper: aed2570edabbd3c9b26c939e1cabdb6558f933e0
   SwiftR: 2128cffaef5436cdbf9f1825f116339e3cf64497
   TPKeyboardAvoiding: a5138f318c06fb3e151f886e18ce4a72695d9cbe
+  UIColor_Hex_Swift: 18bb48e9f1ed16c87f4ea7bf7e03853b43030812
 
-PODFILE CHECKSUM: 04e02ccad12ee5a6d286f9681f14b8417336c6c9
+PODFILE CHECKSUM: 23c509f332d229ab1f1bc7c13c8f080fcc316cba
 
 COCOAPODS: 1.0.1
