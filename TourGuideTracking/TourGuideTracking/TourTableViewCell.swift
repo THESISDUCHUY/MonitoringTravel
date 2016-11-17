@@ -12,6 +12,8 @@ class TourTableViewCell: UITableViewCell {
 
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var tourNameLabel: UILabel!
+    
+    @IBOutlet weak var lbTime: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

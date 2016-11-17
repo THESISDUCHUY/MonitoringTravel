@@ -19,10 +19,11 @@ class MyToursViewController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
         
         //toursTableView.delegate = self
-        self.navigationItem.hidesBackButton = true
+        //self.navigationItem.hidesBackButton = true
         tourGuideGet()
         self.toursTableView.dataSource = self
         self.toursTableView.delegate = self
+        self.toursTableView.contentInset = UIEdgeInsets.zero
         //toursGet()
     }
     
@@ -37,6 +38,8 @@ class MyToursViewController: UIViewController, UITableViewDataSource, UITableVie
         let row = (indexPath as NSIndexPath).row
         cell.tourNameLabel.text = Singleton.sharedInstance.tours?[row].name
         cell.coverImageView.setImageWith(URL(string:(Singleton.sharedInstance.tours?[row].coverPhoto)!)!)
+        cell.lbTime.text = (Singleton.sharedInstance.tours?[row].departureDateString)! + " - " + (Singleton.sharedInstance.tours?[row].returnDateString)!
+        
         return cell
     }
     
@@ -56,7 +59,9 @@ class MyToursViewController: UIViewController, UITableViewDataSource, UITableVie
 
         //let appDelegate = UIApplication.shared.delegate as! AppDelegate
         //appDelegate.window?.rootViewController = tabBarController
-        performSegue(withIdentifier: SegueIdentifier.TAB_BAR, sender: self)
+        
+        performSegue(withIdentifier: SegueIdentifier.TO_TAB_BAR, sender: self)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -68,7 +73,6 @@ class MyToursViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tourGuideGet(){
-        MBProgressHUD.showAdded(to: self.view, animated: true)
         NetworkService<TourGuide>.makeGetRequest(URL: URLs.makeURL(url: URLs.URL_GET_TOURGUIDE, param: Settings.tourguide_id!) ){
             response, error in
             if error == nil{
@@ -83,14 +87,16 @@ class MyToursViewController: UIViewController, UITableViewDataSource, UITableVie
                 }
             }
             else{
-                Alert.showAlertMessage(userMessage: MESSAGES.error, vc: self)
+                
             }
-             MBProgressHUD.hide(for: self.view, animated: true)
         }
     }
     
+    
+    
     func toursGet(){
         MBProgressHUD.showAdded(to: self.view, animated: true)
+        
         NetworkService<Tour>.makeGetRequest(URL: URLs.makeURL_EXTEND(url:URLs.URL_GET_TOURGUIDE, extend: URL_EXTEND.TOURS, param: (Singleton.sharedInstance.tourguide?.tourGuideId)!)){
             response, error in
             if error == nil{
@@ -98,7 +104,6 @@ class MyToursViewController: UIViewController, UITableViewDataSource, UITableVie
                 if message == nil{
                     let tours:[Tour] = (response?.listData)!
                     Singleton.sharedInstance.tours = tours
-                     MBProgressHUD.hide(for: self.view, animated: true)
                     self.toursTableView.reloadData()
                 }
                 else{
@@ -107,7 +112,7 @@ class MyToursViewController: UIViewController, UITableViewDataSource, UITableVie
                 
             }
             else{
-                Alert.showAlertMessage(userMessage: MESSAGES.error, vc: self)
+                
             }
             MBProgressHUD.hide(for: self.view, animated: true)
         }

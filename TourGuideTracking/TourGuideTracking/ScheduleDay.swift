@@ -11,7 +11,7 @@ import UIKit
 class ScheduleDay{
     var schedules:[Schedule]?
     var date:Date?
-    var isHidden:Bool = true
+    var isHidden:Bool = false
     
     init(){
         self.schedules = [Schedule]()
@@ -41,4 +41,5 @@ class ScheduleDay{
         formatter.dateFormat = "dd-MM-yyyy"
         return formatter.string(from: date!)
     }
+
 }

@@ -10,6 +10,7 @@ target 'TourGuideTracking' do
   pod 'AFNetworking'
   pod 'GoogleMaps'
   pod 'SwiftR'
+  pod 'TPKeyboardAvoiding'
   # Pods for TourGuideTracking
 
 end

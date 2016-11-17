@@ -11,15 +11,16 @@ import UIKit
 class ScheduleCell: UITableViewCell {
 
 
-    @IBOutlet weak var vehicleLabel: UILabel!
+
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    
     var schedule:Schedule!{
         didSet{
             nameLabel.text = schedule.place_name
             timeLabel.text = schedule.getTime()
-            vehicleLabel.text = schedule.vehicle
+            descriptionLabel.text = schedule.description
         }
     }
     override func awakeFromNib() {

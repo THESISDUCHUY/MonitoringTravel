@@ -13,9 +13,22 @@ class CustomInfoWindow: UIView {
     
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBOutlet weak var vCoverPhoto: UIView!
+
+    @IBOutlet weak var vInfo: UIView!
+    @IBOutlet weak var ivCoverPhoto: UIImageView!
     var place:Place!{
         didSet{
+            
+            vInfo.layer.cornerRadius = 5
+            vInfo.layer.masksToBounds = true
+            vInfo.clipsToBounds = true
+
+            
             self.nameLabel.text = place.name
+            
+            
+           self.layoutIfNeeded()
         }
     }
 }

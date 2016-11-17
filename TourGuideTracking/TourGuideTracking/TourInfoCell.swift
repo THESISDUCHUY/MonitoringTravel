@@ -11,24 +11,22 @@ import AFNetworking
 
 class TourInfoCell: UITableViewCell {
 
+  
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var touristQuantityLabel: UILabel!
     @IBOutlet weak var dayLabel: UILabel!
-    @IBOutlet weak var returnDateLabel: UILabel!
-    @IBOutlet weak var departureDateLabel: UILabel!
-    @IBOutlet weak var tourCodeLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var tourCoverImageView: UIImageView!
-    
+    @IBOutlet weak var coverImageView: UIImageView!
     var tour:Tour!{
         didSet{
             touristQuantityLabel.text = String(format:"%d", tour.quantity!)
-            departureDateLabel.text = tour.getDate(date: tour.departureDate!)
-            returnDateLabel.text = tour.getDate(date: tour.returnDate!)
-            tourCodeLabel.text = tour.code
+            timeLabel.text = tour.returnDateString! + " - " + tour.departureDateString!
             nameLabel.text = tour.name
             dayLabel.text = String(format: "%d ngày", tour.day!)
+            descriptionLabel.text = tour.description
             if(tour.coverPhoto != ""){
-                tourCoverImageView.setImageWith(URL(string:tour.coverPhoto!)!)
+                coverImageView.setImageWith(URL(string:tour.coverPhoto!)!)
             }
         }
     }

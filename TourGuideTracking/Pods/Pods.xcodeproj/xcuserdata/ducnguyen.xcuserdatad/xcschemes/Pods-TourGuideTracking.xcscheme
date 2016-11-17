@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DF825C7D3C0A3078C9163452C3062516"
+               BlueprintIdentifier = "48C8B591A963AE0885709AE3CAF79274"
                BuildableName = "Pods_TourGuideTracking.framework"
                BlueprintName = "Pods-TourGuideTracking"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DF825C7D3C0A3078C9163452C3062516"
+            BlueprintIdentifier = "48C8B591A963AE0885709AE3CAF79274"
             BuildableName = "Pods_TourGuideTracking.framework"
             BlueprintName = "Pods-TourGuideTracking"
             ReferencedContainer = "container:Pods.xcodeproj">
@@ -60,15 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DF825C7D3C0A3078C9163452C3062516"
-            BuildableName = "Pods_TourGuideTracking.framework"
-            BlueprintName = "Pods-TourGuideTracking"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

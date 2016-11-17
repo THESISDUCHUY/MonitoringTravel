@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //init googlemap
         GMSServices.provideAPIKey(API_KEYs.GoogleMap)
         
-        //check logged in already
+        //check; logged in already
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
         Settings.tourguide_id = UserDefaults.standard.integer(forKey: Keys.TOURGUIDE_ID)

@@ -15,9 +15,8 @@ struct Keys{
 }
 
 struct SegueIdentifier{
-    static let MY_TOURS:String = "SegueToMyTours"
-    static let TAB_BAR:String = "SegueToTabBar"
-    static let PLACE_DETAIL:String = "SeguePlaceDetail"
+    static let TO_MY_TOURS:String = "SegueToMyTours"
+    static let TO_TAB_BAR:String = "SegueToTabBar"
 }
 
 struct ViewIdentifier{
@@ -34,9 +33,6 @@ struct CellIdentifier{
     static let TOUR_INFO_CELL:String = "TourInfoCell"
 }
 
-struct Xibs{
-    static let WARNING:String = "Warning"
-}
 struct API_KEYs{
-    static let GoogleMap:String = "AIzaSyDCN4X9NUjNF_WX1sHq1WSUVK9PObdIC-s"
+    static let GoogleMap:String = "AIzaSyCmmZj3F82dTWCuFOi416A-fX1gXNC2ZzM"
 }

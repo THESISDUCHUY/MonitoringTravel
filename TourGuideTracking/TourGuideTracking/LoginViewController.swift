@@ -21,9 +21,17 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        btnLogin.isEnabled = false
+        setRecognizer()
+        //btnLogin.isEnabled = false
         NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func setRecognizer(){
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTapScreen(_ : )))
+        // Attach it to a view of your choice. If it's a UIImageView, remember to enable user interaction
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(tapGestureRecognizer)
     }
     
     @IBAction func onTapScreen(_ sender: AnyObject) {
