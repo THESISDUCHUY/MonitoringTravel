@@ -11,6 +11,7 @@ target 'TourGuideTracking' do
   pod 'GoogleMaps'
   pod 'SwiftR'
   pod 'TPKeyboardAvoiding'
+  pod 'UIColor_Hex_Swift', '~> 2.1'
   # Pods for TourGuideTracking
 
 end

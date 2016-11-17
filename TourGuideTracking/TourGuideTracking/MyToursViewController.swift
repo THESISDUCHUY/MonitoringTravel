@@ -73,6 +73,7 @@ class MyToursViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tourGuideGet(){
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         NetworkService<TourGuide>.makeGetRequest(URL: URLs.makeURL(url: URLs.URL_GET_TOURGUIDE, param: Settings.tourguide_id!) ){
             response, error in
             if error == nil{
@@ -90,6 +91,7 @@ class MyToursViewController: UIViewController, UITableViewDataSource, UITableVie
                 
             }
         }
+        MBProgressHUD.hide(for: self.view, animated: true)
     }
     
     
