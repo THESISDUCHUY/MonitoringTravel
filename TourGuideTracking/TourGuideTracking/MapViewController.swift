@@ -16,12 +16,15 @@ public enum StatusConnection {
     case connected
     case disconnected
     case reconnected
+    case reconnecting
     case error
     case starting
+    case slow
 }
 
 class MapViewController: BaseViewController {
     
+    @IBOutlet weak var vIconStatusConnection: ViewRoundCorner!
     @IBOutlet weak var vStatusConnection: ViewRoundCorner!
     
     @IBOutlet weak var consVTopStatusTourist: NSLayoutConstraint!
@@ -66,6 +69,8 @@ class MapViewController: BaseViewController {
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+        locationManager.allowsBackgroundLocationUpdates = true
+        
         let tabBar = (self.tabBarController as! CustomTabBarController)
         tabBar.currentTour = tour
         connectServer()
@@ -247,7 +252,7 @@ class MapViewController: BaseViewController {
     func connectServer(){
         SwiftR.useWKWebView = false
         
-        SwiftR.signalRVersion = .v2_2_0
+        SwiftR.signalRVersion = .v2_2_1
         
         //let urlServerRealtime = "http://tourtrackingv2.azurewebsites.net/signalr/hubs"
         
@@ -255,12 +260,8 @@ class MapViewController: BaseViewController {
         
         connection = SwiftR.connect(urlServerRealtime) { [weak self]
             connection in
-            connection.queryString = ["USER_POSITION" : "TG", "MANAGER_ID" : "MG_" + String(describing: (self?.tour.managerId!)!) , "USER_ID" : "TG_" + String(describing: Singleton.sharedInstance.tourguide.tourGuideId!)]
+            connection.queryString = ["USER_POSITION" : "TG", "MANAGER_ID" : "MG_" + String(describing: (self?.tour.managerId!)!) , "USER_ID" : "TG_" + String(describing: Singleton.sharedInstance.tourguide.tourGuideId!), "USER_NAME" : String(describing: Singleton.sharedInstance.tourguide.name!)]
             self?.tourguideHub = connection.createHubProxy("hubServer")
-            
-            self?.tourguideHub?.on("broadcastMessage") { args in
-                
-            }
             
             self?.tourguideHub?.on("updateNumberOfOnline"){ args in
                 let groupName = args![0] as! String
@@ -300,6 +301,7 @@ class MapViewController: BaseViewController {
                 let descriptiontionWarning = objectData["DescriptionWarning"] as? String
                 let lat = objectData["Lat"] as? Double
                 let long = objectData["Long"] as? Double
+                let distance = objectData["Distance"] as! Double
                 
                 self?.lbWarningName.text = warningName
                 self?.lbCateWarning.text = categoryWarnig
@@ -313,6 +315,16 @@ class MapViewController: BaseViewController {
                 marker.position = CLLocationCoordinate2D(latitude: lat!, longitude: long!)
                 marker.icon = ivMarkerWarning
                 marker.map = self?.mapView
+                marker.userData = objectData
+                marker.title = "Warning"
+                
+         
+                let circ = GMSCircle(position: CLLocationCoordinate2D(latitude: lat!, longitude: long!), radius: distance * 1000)
+                circ.fillColor = UIColor(red: 255/255, green: 153/255, blue: 51/255, alpha: 0.2)
+                
+                circ.strokeColor = UIColor(red: 255/255, green: 153/255, blue: 51/255, alpha: 0.5)
+                circ.strokeWidth = 1;
+                circ.map = self?.mapView;
                
                 
                 let positionMarker = self?.mapView.projection.point(for: marker.position)
@@ -322,7 +334,6 @@ class MapViewController: BaseViewController {
                 let camera = GMSCameraUpdate.setTarget((self?.mapView.projection.coordinate(for:newPositionMarker))!)
                 
                 self?.mapView.animate(with: camera)
-
                 
                 UIView.animate(withDuration: 1, animations: { 
                     
@@ -333,43 +344,53 @@ class MapViewController: BaseViewController {
             }
             
         }
-        connection?.starting = { [weak self] in
+        
+        connection!.starting = { [weak self] in
+            print("Starting...")
             self?.updateStatusConnection(status: StatusConnection.starting)
-            
         }
         
-        connection?.reconnecting = { [weak self] in
-            self?.updateStatusConnection(status: StatusConnection.reconnected)
+        connection!.reconnecting = { [weak self] in
+            print("Reconnecting...")
+            self?.updateStatusConnection(status: StatusConnection.reconnecting)
         }
         
-        connection?.connected = { [weak self] in
+        connection!.connected = { [weak self] in
             
-            self?.isConnected = true
-            print("Connection ID: \(self?.connection?.connectionID!)")
+            print("Connection ID: \(self?.connection!.connectionID!)")
             self?.updateStatusConnection(status: StatusConnection.connected)
             
             self?.initCurrentLocation(receiver: "MG_" + String(describing: (self?.tour.managerId)!), tourguide: Singleton.sharedInstance.tourguide!, tour: (self?.tour)!)
         }
         
-        connection?.disconnected = { [weak self] in
-            self?.updateStatusConnection(status: StatusConnection.disconnected)
+        connection!.reconnected = { [weak self] in
             
-            
+            print("Reconnected. Connection ID: \(self?.connection?.connectionID!)")
+            self?.updateStatusConnection(status: StatusConnection.reconnected)
         }
         
-        connection?.reconnected = { [weak self] in
-            self?.updateStatusConnection(status: StatusConnection.connected)
+        connection!.disconnected = { [weak self] in
+            print("Disconnected...")
+            self?.updateStatusConnection(status: StatusConnection.disconnected)
         }
-        connection?.error = { error in
-            print("Error connect1: \(error)")
+        
+        connection!.connectionSlow = { print("Connection slow...") }
+        
+        connection!.error = { error in
             
-            self.updateStatusConnection(status: StatusConnection.error)
+            print("Error: \(error)")
+            // Here's an example of how to automatically reconnect after a timeout.
+            //
+            // For example, on the device, if the app is in the background long enough
+            // for the SignalR connection to time out, you'll get disconnected/error
+            // notifications when the app becomes active again.
             
             if let source = error?["source"] as? String, source == "TimeoutException" {
                 print("Connection timed out. Restarting...")
-                self.connection?.start()
+                self.connection!.start()
             }
         }
+        
         
     }
     
@@ -388,9 +409,11 @@ class MapViewController: BaseViewController {
             vStatusConnection.backgroundColor = UIColor(rgba: "#D7EBF9")
             lbStatusConnection.textColor = UIColor(rgba: "#6BA1C8")
             lbStatusConnection.text = "Staring connection..."
+            vIconStatusConnection.backgroundColor = UIColor(rgba: "#D7EBF9")
+
             
             UIView.animate(withDuration: 1, animations: {
-                self.consTopVStatusConnection.constant = 0
+                self.consTopVStatusConnection.constant = 5
                 self.view.layoutIfNeeded()
             })
             
@@ -401,6 +424,7 @@ class MapViewController: BaseViewController {
             vStatusConnection.backgroundColor = UIColor(rgba: "#D9F7D7")
             lbStatusConnection.textColor = UIColor(rgba: "#259360")
             lbStatusConnection.text = "Connected"
+            vIconStatusConnection.backgroundColor = UIColor(rgba: "#259360")
         }
         else if(status == .disconnected)
         {
@@ -408,18 +432,29 @@ class MapViewController: BaseViewController {
             lbStatusConnection.textColor = UIColor(rgba: "#CC3A3A")
             lbStatusConnection.text = "Disconnect"
             
-            alertDisconnection(receiver: "MG_" + String(describing: self.tour.managerId!), sender: "TG_" + String(describing: Singleton.sharedInstance.tourguide.tourGuideId!), senderUserName: Singleton.sharedInstance.tourguide.name!)
+            vIconStatusConnection.backgroundColor = UIColor(rgba: "#CC3A3A")
+            
+            //self.alertDisconnection(receiver: "MG_" + String(describing: self.tour.managerId!), sender: "TG_" + String(describing: Singleton.sharedInstance.tourguide.tourGuideId!), senderUserName: Singleton.sharedInstance.tourguide.name!)
             
             
             //            self.alertDisconnection(receiver:
             //                "MG_" + (self.tour.managerId! as! String), sender: "TG_" + (Singleton.sharedInstance.tourguide.tourGuideId! as! String))
             
         }
+        else if(status == .reconnecting)
+        {
+            vStatusConnection.backgroundColor = UIColor(rgba: "#D7EBF9")
+            lbStatusConnection.textColor = UIColor(rgba: "#6BA1C8")
+            lbStatusConnection.text = "Reconnecting..."
+            
+            vIconStatusConnection.backgroundColor = UIColor(rgba: "#6BA1C8")
+        }
         else if(status == .reconnected)
         {
             vStatusConnection.backgroundColor = UIColor(rgba: "#D7EBF9")
             lbStatusConnection.textColor = UIColor(rgba: "#6BA1C8")
-            lbStatusConnection.text = "Reconnecting"
+            lbStatusConnection.text = "Reconnected"
+            vIconStatusConnection.backgroundColor = UIColor(rgba: "#6BA1C8")
             
         }
         else if(status == .error)
@@ -427,6 +462,7 @@ class MapViewController: BaseViewController {
             vStatusConnection.backgroundColor = UIColor(rgba: "#F5DDDD")
             lbStatusConnection.textColor = UIColor(rgba: "#CC3A3A")
             lbStatusConnection.text = "Not found server"
+            vIconStatusConnection.backgroundColor = UIColor(rgba: "#CC3A3A")
             
         }
         
@@ -603,6 +639,7 @@ extension MapViewController: GMSMapViewDelegate{
     {
         hiddenPopupInfoTourist()
         hiddenPopupInfoPlace()
+        hiddenPopupWarning()
         if(markerSelected != nil)
         {
             if self.displaySegmented.selectedSegmentIndex == 0
@@ -619,6 +656,7 @@ extension MapViewController: GMSMapViewDelegate{
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         
         mapView.selectedMarker = marker
+       
         
         let positionMarker = mapView.projection.point(for: marker.position)
         
@@ -627,28 +665,41 @@ extension MapViewController: GMSMapViewDelegate{
         let camera = GMSCameraUpdate.setTarget(mapView.projection.coordinate(for:newPositionMarker))
         
         mapView.animate(with: camera)
+
+        print(marker.title)
         
-        if self.displaySegmented.selectedSegmentIndex == 0
+        if(marker.title == "Warning")
         {
-            if(markerSelected != nil)
-            {
-                removeMarkerSelect(marker: markerSelected!, latitude: (markerSelected?.position.latitude)!, longitude: (markerSelected?.position.longitude)!, data: markerSelected?.userData as AnyObject?, isTourist: false).map = mapView
-            }
-            updateMarkerSelect(marker: marker, latitude: marker.position.latitude, longitude: marker.position.longitude, data: marker.userData as AnyObject?, isTourist: false).map = mapView
-            showPopupInfoPlace()
+            let dataMarker = marker.userData as! Dictionary<String, Any>
+            showPopupWaring(dataWarning: dataMarker)
+            print(dataMarker)
+        
         }
-            
         else
         {
-            if(markerSelected != nil)
+            if self.displaySegmented.selectedSegmentIndex == 0
             {
-                removeMarkerSelect(marker: markerSelected!, latitude: (markerSelected?.position.latitude)!, longitude: (markerSelected?.position.longitude)!, data: markerSelected?.userData as AnyObject?, isTourist: true).map = mapView
+                if(markerSelected != nil)
+                {
+                    removeMarkerSelect(marker: markerSelected!, latitude: (markerSelected?.position.latitude)!, longitude: (markerSelected?.position.longitude)!, data: markerSelected?.userData as AnyObject?, isTourist: false).map = mapView
+                }
+                updateMarkerSelect(marker: marker, latitude: marker.position.latitude, longitude: marker.position.longitude, data: marker.userData as AnyObject?, isTourist: false).map = mapView
+                showPopupInfoPlace()
             }
-            updateMarkerSelect(marker: marker, latitude: marker.position.latitude, longitude: marker.position.longitude, data: marker.userData as AnyObject?, isTourist: true).map = mapView
-            showPopupInfoTourist()
-        }
+                
+            else
+            {
+                if(markerSelected != nil)
+                {
+                    removeMarkerSelect(marker: markerSelected!, latitude: (markerSelected?.position.latitude)!, longitude: (markerSelected?.position.longitude)!, data: markerSelected?.userData as AnyObject?, isTourist: true).map = mapView
+                }
+                updateMarkerSelect(marker: marker, latitude: marker.position.latitude, longitude: marker.position.longitude, data: marker.userData as AnyObject?, isTourist: true).map = mapView
+                showPopupInfoTourist()
+            }
+            
+            markerSelected = marker
         
-        markerSelected = marker
+        }
         return true
     }
     
@@ -805,6 +856,35 @@ extension MapViewController: GMSMapViewDelegate{
         
     }
     
+    func showPopupWaring(dataWarning: Dictionary<String, Any>)
+    {
+        
+        
+        let warningName = dataWarning["WarningName"] as? String
+        let categoryWarnig = dataWarning["CategoryWarnig"] as? String
+        let descriptiontionWarning = dataWarning["DescriptionWarning"] as? String
+        self.lbWarningName.text = warningName
+        self.lbCateWarning.text = categoryWarnig
+        self.lbDescriptionWarning.text = descriptiontionWarning
+        self.lbPriotiryWarning.text = "Normal"
+        
+        UIView.animate(withDuration: 1, animations: {
+            
+            self.vPopupWarning.isHidden = false
+            self.view.layoutIfNeeded()
+        })
+        
+    }
+    
+    func hiddenPopupWarning()
+    {
+        UIView.animate(withDuration: 1, animations: {
+            
+            self.vPopupWarning.isHidden = true
+            self.view.layoutIfNeeded()
+        })
+    }
+    
     func showPopupInfoTourist()
     {
         UIView.animate(withDuration: 0.3, animations:
@@ -847,10 +927,13 @@ extension MapViewController: GMSMapViewDelegate{
 
 extension MapViewController: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        //        if let hub = chatHub, {
-        //            hub.invoke("updateLocation", arguments: ["37.121300", "-95.416603"])
-        //        }
-        //        updateLocation(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude);
+        
+        print(locations[0].coordinate.latitude)
+        
+//                if let hub = chatHub, {
+//                    hub.invoke("updateLocation", arguments: ["37.121300", "-95.416603"])
+//                }
+                updateLocation(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude);
     }
 }
 
