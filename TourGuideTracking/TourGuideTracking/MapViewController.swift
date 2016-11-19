@@ -43,7 +43,7 @@ class MapViewController: BaseViewController {
     @IBOutlet weak var vMenu: UIView!
     @IBOutlet weak var vInfoTourist: UIView!
     @IBOutlet weak var consTopMenu: NSLayoutConstraint!
-    
+
     
     @IBOutlet weak var vPopupWarning: ViewRoundCorner!
     @IBOutlet weak var lbWarningName: UILabel!
@@ -59,6 +59,7 @@ class MapViewController: BaseViewController {
     var connection: SignalR?
     var locationManager:CLLocationManager = CLLocationManager();
     var markerSelected: GMSMarker?
+    var markerSelectedWarning: GMSMarker?
     
     var isConnected: Bool?
     
@@ -239,10 +240,25 @@ class MapViewController: BaseViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if self.displaySegmented.selectedSegmentIndex == 0{
-            let placeDetailsVC = segue.destination as! PlaceDetailsViewController
-            placeDetailsVC.place = markerSelected as! Place
+        
+        if(markerSelectedWarning?.title == "Warning")
+        {
+            hiddenPopupWarning()
+            let warningData =  markerSelectedWarning?.userData
+            
+            print("data select \(warningData)")
+            
+            let warningViewController = segue.destination as! WarningDetailViewController
+            warningViewController.warningData = warningData as! Dictionary<String, Any>?
+            
+            // markerSelected = nil
+            
         }
+        
+//        if self.displaySegmented.selectedSegmentIndex == 0{
+//            let placeDetailsVC = segue.destination as! PlaceDetailsViewController
+//            placeDetailsVC.place = markerSelected as! Place
+//        }
     }
 
     
@@ -340,6 +356,8 @@ class MapViewController: BaseViewController {
                     self?.vPopupWarning.isHidden = false
                     self?.view.layoutIfNeeded()
                 })
+                
+                self?.markerSelectedWarning = marker
                 
             }
             
@@ -673,6 +691,8 @@ extension MapViewController: GMSMapViewDelegate{
             let dataMarker = marker.userData as! Dictionary<String, Any>
             showPopupWaring(dataWarning: dataMarker)
             print(dataMarker)
+            
+            markerSelectedWarning = marker
         
         }
         else
