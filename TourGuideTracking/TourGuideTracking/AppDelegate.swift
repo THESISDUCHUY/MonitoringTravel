@@ -37,6 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: ViewIdentifier.LOGIN_VIEW)
             return true
         }*/
+        
+        UIApplication.shared.statusBarStyle = .lightContent
         return true
     }
 

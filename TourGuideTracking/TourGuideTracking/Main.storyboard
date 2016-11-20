@@ -90,10 +90,14 @@
                                                         <rect key="frame" x="0.0" y="48.5" width="375" height="25"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_priority" translatesAutoresizingMaskIntoConstraints="NO" id="dP2-dM-Vq8">
-                                                                <rect key="frame" x="3" y="-1" width="32" height="32"/>
+                                                                <rect key="frame" x="15" y="5" width="20" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="20" id="BWI-H0-TOX"/>
+                                                                    <constraint firstAttribute="height" constant="20" id="GW1-Ff-eJf"/>
+                                                                </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thoi Tiet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMh-9L-Vxj">
-                                                                <rect key="frame" x="47" y="7" width="100" height="17"/>
+                                                                <rect key="frame" x="47" y="7" width="100" height="16.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="100" id="P9L-bu-sm3"/>
                                                                 </constraints>
@@ -102,7 +106,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Khan Cap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kpt-Bh-PfT">
-                                                                <rect key="frame" x="311" y="7" width="52" height="17"/>
+                                                                <rect key="frame" x="311" y="7" width="52" height="16.5"/>
                                                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
                                                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -110,8 +114,8 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstItem="VMh-9L-Vxj" firstAttribute="leading" secondItem="Rky-cs-NuU" secondAttribute="leading" constant="47" id="3a8-eC-C9y"/>
                                                             <constraint firstItem="VMh-9L-Vxj" firstAttribute="leading" secondItem="dP2-dM-Vq8" secondAttribute="trailing" constant="12" id="Gdm-f9-o4Y"/>
+                                                            <constraint firstItem="dP2-dM-Vq8" firstAttribute="leading" secondItem="Rky-cs-NuU" secondAttribute="leading" constant="15" id="N0o-Tu-Ka2"/>
                                                             <constraint firstItem="VMh-9L-Vxj" firstAttribute="centerY" secondItem="dP2-dM-Vq8" secondAttribute="centerY" id="O8m-m7-sEZ"/>
                                                             <constraint firstAttribute="trailing" secondItem="Kpt-Bh-PfT" secondAttribute="trailing" constant="12" id="exv-zl-flh"/>
                                                             <constraint firstAttribute="height" constant="25" id="fcl-eg-bzk"/>
@@ -121,11 +125,11 @@
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cc-xg-QtB">
                                                         <rect key="frame" x="15" y="83.5" width="348" height="343.5"/>
-                                                        <mutableString key="text">Nàng có lẽ là lý do tôi tồn tại. 
+                                                        <string key="text">Nàng có lẽ là lý do tôi tồn tại. 
 Tôi sẽ ghi nhớ tiếng cười và những giọt nước mắt của nàng &lt;3
 Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello trình bày vào khoảng đầu thế kỉ XX. Bài hát là nỗi lòng của một chàng trai về mối tình đầu của mình, một mối tình sâu đậm, khắc sâu trong tim chàng suốt bao năm tháng của cuộc đời. cùng ad thưởng thức &amp; học bài hát tại đây nha mems Nàng có lẽ là lý do tôi tồn tại. 
 Tôi sẽ ghi nhớ tiếng cười và những giọt nước mắt của nàng &lt;3
-Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello trình bày vào khoảng đầu thế kỉ XX. Bài hát là nỗi lòng của một chàng trai về mối tình đầu của mình, một mối tình sâu đậm, khắc sâu trong tim chàng suốt bao năm tháng của cuộc đời. cùng ad thưởng thức &amp; học bài hát tại đây nha mems </mutableString>
+Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello trình bày vào khoảng đầu thế kỉ XX. Bài hát là nỗi lòng của một chàng trai về mối tình đầu của mình, một mối tình sâu đậm, khắc sâu trong tim chàng suốt bao năm tháng của cuộc đời. cùng ad thưởng thức &amp; học bài hát tại đây nha mems </string>
                                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1416,7 +1420,7 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="180" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="KGV-jQ-ZIX">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.7317307692307693" green="0.7317307692307693" blue="0.7317307692307693" alpha="0.091379310344827588" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="TourTableViewCell" rowHeight="180" id="d8W-6W-37t" customClass="TourTableViewCell" customModule="TourGuideTracking" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1" width="375" height="180"/>
@@ -1426,32 +1430,57 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0zL-jV-Dg3">
-                                                    <rect key="frame" x="0.0" y="1" width="375" height="178"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="179"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aEx-tb-Qv2">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="178"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="179"/>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3dC-8E-0Vb">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="178"/>
-                                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="179"/>
+                                                            <subviews>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gER-d5-AV0" customClass="ViewRoundCorner" customModule="TourGuideTracking" customModuleProvider="target">
+                                                                    <rect key="frame" x="8" y="8" width="15" height="15"/>
+                                                                    <color key="backgroundColor" red="0.0" green="0.79370701310000003" blue="0.5406031013" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="15" id="DDt-cD-Dze"/>
+                                                                        <constraint firstAttribute="width" constant="15" id="bjD-Uc-DdS"/>
+                                                                    </constraints>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                            <real key="value" value="7.5"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </view>
+                                                            </subviews>
+                                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstItem="gER-d5-AV0" firstAttribute="top" secondItem="3dC-8E-0Vb" secondAttribute="top" constant="8" id="0DO-RX-baL"/>
+                                                                <constraint firstItem="gER-d5-AV0" firstAttribute="leading" secondItem="3dC-8E-0Vb" secondAttribute="leading" constant="8" id="qUT-h3-1aO"/>
+                                                            </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cm4-yG-dGL">
-                                                            <rect key="frame" x="161" y="55" width="54" height="28"/>
-                                                            <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="20"/>
+                                                            <rect key="frame" x="168.5" y="60.5" width="39" height="19.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_day_left" translatesAutoresizingMaskIntoConstraints="NO" id="G4I-fU-YZS">
+                                                            <rect key="frame" x="138.5" y="60" width="20" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="20" id="cOe-ik-GL9"/>
+                                                                <constraint firstAttribute="height" constant="20" id="guX-kz-yWN"/>
+                                                            </constraints>
+                                                        </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VAC-P3-U2O">
-                                                            <rect key="frame" x="161" y="93" width="53" height="30"/>
+                                                            <rect key="frame" x="149" y="80" width="78" height="30"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3w-2n-U7H">
-                                                                    <rect key="frame" x="12" y="6.5" width="29" height="17"/>
-                                                                    <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
+                                                                    <rect key="frame" x="12" y="1.5" width="54" height="27.5"/>
+                                                                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="20"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" red="0.90196078431372551" green="0.23921568627450979" blue="0.21568627450980393" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="DsP-FX-vyv"/>
                                                                 <constraint firstAttribute="trailing" secondItem="J3w-2n-U7H" secondAttribute="trailing" constant="12" id="Gs6-do-mZ4"/>
@@ -1466,11 +1495,13 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                                         <constraint firstItem="3dC-8E-0Vb" firstAttribute="bottom" secondItem="aEx-tb-Qv2" secondAttribute="bottom" id="32d-xB-l3g"/>
                                                         <constraint firstAttribute="bottom" secondItem="aEx-tb-Qv2" secondAttribute="bottom" id="7t0-1C-r3e"/>
                                                         <constraint firstItem="aEx-tb-Qv2" firstAttribute="leading" secondItem="0zL-jV-Dg3" secondAttribute="leading" id="9Ka-Uy-CID"/>
+                                                        <constraint firstItem="cm4-yG-dGL" firstAttribute="leading" secondItem="G4I-fU-YZS" secondAttribute="trailing" constant="10" id="BAB-ue-XRP"/>
                                                         <constraint firstItem="3dC-8E-0Vb" firstAttribute="trailing" secondItem="aEx-tb-Qv2" secondAttribute="trailing" id="E1M-8V-SHj"/>
                                                         <constraint firstItem="3dC-8E-0Vb" firstAttribute="top" secondItem="aEx-tb-Qv2" secondAttribute="top" id="HbS-4x-bga"/>
                                                         <constraint firstAttribute="trailing" secondItem="aEx-tb-Qv2" secondAttribute="trailing" id="OSd-a8-uFl"/>
                                                         <constraint firstItem="3dC-8E-0Vb" firstAttribute="leading" secondItem="aEx-tb-Qv2" secondAttribute="leading" id="SzT-iY-vnx"/>
-                                                        <constraint firstItem="VAC-P3-U2O" firstAttribute="top" secondItem="cm4-yG-dGL" secondAttribute="bottom" constant="10" id="Uko-jH-loW"/>
+                                                        <constraint firstItem="VAC-P3-U2O" firstAttribute="top" secondItem="cm4-yG-dGL" secondAttribute="bottom" id="Uko-jH-loW"/>
+                                                        <constraint firstItem="G4I-fU-YZS" firstAttribute="centerY" secondItem="cm4-yG-dGL" secondAttribute="centerY" id="ehO-eX-rID"/>
                                                         <constraint firstItem="VAC-P3-U2O" firstAttribute="centerX" secondItem="0zL-jV-Dg3" secondAttribute="centerX" id="hD0-LH-OGy"/>
                                                         <constraint firstItem="aEx-tb-Qv2" firstAttribute="top" secondItem="0zL-jV-Dg3" secondAttribute="top" id="kEO-dR-fgo"/>
                                                         <constraint firstItem="cm4-yG-dGL" firstAttribute="centerX" secondItem="0zL-jV-Dg3" secondAttribute="centerX" id="lOi-TW-ec0"/>
@@ -1482,14 +1513,15 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                                 <constraint firstAttribute="bottomMargin" secondItem="0zL-jV-Dg3" secondAttribute="bottom" constant="-7" id="0NI-qQ-MoM"/>
                                                 <constraint firstItem="0zL-jV-Dg3" firstAttribute="leading" secondItem="SHb-qO-EBO" secondAttribute="leadingMargin" constant="-8" id="14r-Aq-Fqs"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="0zL-jV-Dg3" secondAttribute="trailing" constant="-8" id="bjl-Xv-yLB"/>
-                                                <constraint firstItem="0zL-jV-Dg3" firstAttribute="top" secondItem="SHb-qO-EBO" secondAttribute="topMargin" constant="-7" id="sJY-1Q-LAv"/>
+                                                <constraint firstItem="0zL-jV-Dg3" firstAttribute="top" secondItem="SHb-qO-EBO" secondAttribute="topMargin" constant="-8" id="sJY-1Q-LAv"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="coverImageView" destination="aEx-tb-Qv2" id="rX8-zj-Wlc"/>
-                                            <outlet property="lbTime" destination="J3w-2n-U7H" id="e4F-KT-fAb"/>
-                                            <outlet property="tourNameLabel" destination="cm4-yG-dGL" id="duI-eZ-2IG"/>
+                                            <outlet property="lbTime" destination="cm4-yG-dGL" id="oPA-Bf-Xek"/>
+                                            <outlet property="tourNameLabel" destination="J3w-2n-U7H" id="GWZ-7Y-HkX"/>
+                                            <outlet property="vStatusActive" destination="gER-d5-AV0" id="oRh-am-vBs"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1497,14 +1529,14 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bgb-IK-RsD">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3F5-iK-h29">
-                                        <rect key="frame" x="170" y="31" width="36" height="22"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Danh Sách Tour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3F5-iK-h29">
+                                        <rect key="frame" x="125.5" y="31" width="124" height="22"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.0" green="0.79370701310000003" blue="0.5406031013" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.792156862745098" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.19607843137254902" green="0.20000000000000001" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="7KB-q0-5sS"/>
                                     <constraint firstItem="3F5-iK-h29" firstAttribute="centerX" secondItem="Bgb-IK-RsD" secondAttribute="centerX" id="LH3-Yu-hVI"/>
@@ -1523,6 +1555,7 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                             <constraint firstItem="KGV-jQ-ZIX" firstAttribute="top" secondItem="a0a-V9-ABu" secondAttribute="top" constant="64" id="oHH-Rs-zoH"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="toursTableView" destination="KGV-jQ-ZIX" id="YsN-Mi-nkh"/>
                         <segue destination="0sO-hB-rA2" kind="show" identifier="SegueToTabBar" id="910-2u-e0g"/>
@@ -1530,7 +1563,7 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yhv-n4-8ST" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="188" y="205"/>
+            <point key="canvasLocation" x="188" y="204.64767616191907"/>
         </scene>
         <!--More-->
         <scene sceneID="UtC-ET-LSx">
@@ -1566,13 +1599,13 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duc Nguyen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSQ-ML-QyF">
-                                        <rect key="frame" x="77" y="18" width="80" height="20"/>
+                                        <rect key="frame" x="77" y="18" width="79.5" height="19.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                         <color key="textColor" red="0.32549019610000002" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, How are you !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tx4-N4-dvb">
-                                        <rect key="frame" x="77" y="40" width="112" height="17"/>
+                                        <rect key="frame" x="77" y="39.5" width="111.5" height="16.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
                                         <color key="textColor" red="0.63137254899999995" green="0.63137254899999995" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1629,13 +1662,13 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nhat Nguyen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZsA-gn-l1e">
-                                        <rect key="frame" x="77" y="18" width="86" height="20"/>
+                                        <rect key="frame" x="77" y="18" width="86" height="19.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                         <color key="textColor" red="0.32549019610000002" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You want to hang out with me..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HY4-J7-dYo">
-                                        <rect key="frame" x="77" y="40" width="177" height="17"/>
+                                        <rect key="frame" x="77" y="39.5" width="177" height="16.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
                                         <color key="textColor" red="0.63137254899999995" green="0.63137254899999995" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1722,7 +1755,7 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Khung bo tai Thai Lan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXy-mU-59U">
-                                        <rect key="frame" x="55" y="18" width="232" height="20"/>
+                                        <rect key="frame" x="55" y="18" width="232" height="19.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                         <color key="textColor" red="0.32549019610000002" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1775,7 +1808,7 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Ngap lut tai Tp Ho Chi Minh - Quan 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbr-LT-Reu">
-                                        <rect key="frame" x="55" y="18" width="232" height="20"/>
+                                        <rect key="frame" x="55" y="18" width="232" height="19.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                         <color key="textColor" red="0.32549019610000002" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1985,7 +2018,7 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                                         <rect key="frame" x="375" y="0.0" width="375" height="509"/>
                                                         <subviews>
                                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PBc-dx-1Id">
-                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="509"/>
+                                                                <rect key="frame" x="0.0" y="20" width="375" height="489"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             </tableView>
                                                         </subviews>
@@ -1993,7 +2026,7 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                                         <constraints>
                                                             <constraint firstItem="PBc-dx-1Id" firstAttribute="leading" secondItem="lbZ-lh-d9W" secondAttribute="leading" id="7DT-VG-fZL"/>
                                                             <constraint firstAttribute="trailing" secondItem="PBc-dx-1Id" secondAttribute="trailing" id="8mR-NG-aEr"/>
-                                                            <constraint firstItem="PBc-dx-1Id" firstAttribute="top" secondItem="lbZ-lh-d9W" secondAttribute="top" id="Wrv-Lq-W5J"/>
+                                                            <constraint firstItem="PBc-dx-1Id" firstAttribute="top" secondItem="lbZ-lh-d9W" secondAttribute="top" constant="20" id="Wrv-Lq-W5J"/>
                                                             <constraint firstAttribute="bottom" secondItem="PBc-dx-1Id" secondAttribute="bottom" id="gaB-K2-icb"/>
                                                         </constraints>
                                                     </view>
@@ -2221,13 +2254,13 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                                 <rect key="frame" x="0.0" y="357" width="375" height="92"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By Signing up your are agreeing to our" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgz-I1-NQe">
-                                                        <rect key="frame" x="81" y="8" width="214" height="17"/>
+                                                        <rect key="frame" x="80.5" y="8" width="214" height="16.5"/>
                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
                                                         <color key="textColor" red="0.34510067109999998" green="0.34510952230000003" blue="0.34510475400000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hmJ-rA-0yt">
-                                                        <rect key="frame" x="90" y="25" width="196" height="26"/>
+                                                        <rect key="frame" x="90" y="24.5" width="196" height="26"/>
                                                         <state key="normal">
                                                             <attributedString key="attributedTitle">
                                                                 <fragment content="Term of Service ">
@@ -2357,19 +2390,19 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                         <rect key="frame" x="0.0" y="140" width="375" height="314"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMx-W2-wuP">
-                                                <rect key="frame" x="182" y="282" width="22" height="17"/>
+                                                <rect key="frame" x="182.5" y="282.5" width="21.5" height="16.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
                                                 <color key="textColor" red="0.0" green="0.79370701310000003" blue="0.5406031013" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By Signing in you are agreeing to our" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7V-6n-cQa">
-                                                <rect key="frame" x="85" y="260" width="205" height="17"/>
+                                                <rect key="frame" x="85" y="261" width="205" height="16.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
                                                 <color key="textColor" red="0.0" green="0.79370701310000003" blue="0.5406031013" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Di1-Yw-rSL">
-                                                <rect key="frame" x="77" y="188.5" width="222" height="46.5"/>
+                                                <rect key="frame" x="77" y="189.5" width="222" height="46.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Di1-Yw-rSL" secondAttribute="height" multiplier="740:155" id="N4L-wp-ApU"/>
                                                 </constraints>
@@ -2382,7 +2415,7 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnB-Q8-fhD">
-                                                <rect key="frame" x="91" y="284" width="89" height="15"/>
+                                                <rect key="frame" x="91.5" y="284" width="89" height="15"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="Term of Service">
                                                         <attributes>
@@ -2408,17 +2441,17 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YO8-yk-QBr">
-                                                <rect key="frame" x="137" y="144.5" width="102" height="29"/>
+                                                <rect key="frame" x="137" y="145.5" width="102" height="29"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="12"/>
                                                 <state key="normal" title="QUÊN MẬT KHẨU">
                                                     <color key="titleColor" red="0.69572693109999995" green="0.69574350119999995" blue="0.69573456050000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efI-B8-F6T">
-                                                <rect key="frame" x="91" y="260" width="194" height="39"/>
+                                                <rect key="frame" x="91.5" y="261" width="193.5" height="38"/>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lQY-3c-aEc">
-                                                <rect key="frame" x="65" y="96.5" width="245" height="40"/>
+                                                <rect key="frame" x="65" y="97.5" width="245" height="40"/>
                                                 <subviews>
                                                     <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AR6-d5-v7R">
                                                         <rect key="frame" x="0.0" y="39" width="245" height="1"/>
@@ -2455,7 +2488,7 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1GK-r2-kbm">
-                                                <rect key="frame" x="65" y="41.5" width="245" height="40"/>
+                                                <rect key="frame" x="65" y="42.5" width="245" height="40"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ncb-pc-0sh">
                                                         <rect key="frame" x="0.0" y="39" width="245" height="1"/>
@@ -2523,7 +2556,7 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                         <rect key="frame" x="0.0" y="575" width="375" height="92"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chưa có tài khoản TourGuide" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TxP-D3-OmU">
-                                                <rect key="frame" x="89" y="8" width="197" height="20"/>
+                                                <rect key="frame" x="89.5" y="8" width="196.5" height="20"/>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14.5"/>
                                                 <color key="textColor" red="0.34510067109999998" green="0.34510952230000003" blue="0.34510475400000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -2718,7 +2751,7 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cảnh báo - Duc Nguyen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0K-Ec-LUS">
-                                                        <rect key="frame" x="42" y="45" width="198" height="25"/>
+                                                        <rect key="frame" x="42.5" y="45" width="197.5" height="25"/>
                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -2874,7 +2907,7 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                                 <state key="normal" image="ic_call"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGo-Xz-BhF">
-                                                <rect key="frame" x="260" y="9" width="32" height="17"/>
+                                                <rect key="frame" x="260" y="9.5" width="32" height="16.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -2911,7 +2944,7 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V0i-4E-typ" customClass="ViewRoundCorner" customModule="TourGuideTracking" customModuleProvider="target">
-                                <rect key="frame" x="38" y="289" width="300" height="70"/>
+                                <rect key="frame" x="37.5" y="323.5" width="300" height="70"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYq-zi-oAF">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="70"/>
@@ -2926,7 +2959,7 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+849999222" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kxv-WG-FDU">
-                                                <rect key="frame" x="10" y="40" width="80" height="20"/>
+                                                <rect key="frame" x="10" y="40.5" width="80" height="19.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -2943,10 +2976,12 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="2mX-od-2Vb"/>
                                     <constraint firstItem="aYq-zi-oAF" firstAttribute="top" secondItem="V0i-4E-typ" secondAttribute="top" id="X64-qB-KpU"/>
                                     <constraint firstItem="aYq-zi-oAF" firstAttribute="leading" secondItem="V0i-4E-typ" secondAttribute="leading" id="a3a-nF-loN"/>
                                     <constraint firstAttribute="bottom" secondItem="aYq-zi-oAF" secondAttribute="bottom" id="dbe-IG-2pW"/>
                                     <constraint firstAttribute="trailing" secondItem="aYq-zi-oAF" secondAttribute="trailing" id="rE3-9m-ZR5"/>
+                                    <constraint firstAttribute="width" constant="300" id="y3p-xO-NnK"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -2955,7 +2990,7 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LzK-W7-WQs" customClass="ViewRoundCorner" customModule="TourGuideTracking" customModuleProvider="target">
-                                <rect key="frame" x="-5" y="69" width="307" height="28"/>
+                                <rect key="frame" x="-5" y="69" width="130" height="28"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kKI-bB-QjS" customClass="ViewRoundCorner" customModule="TourGuideTracking" customModuleProvider="target">
                                         <rect key="frame" x="12" y="9" width="10" height="10"/>
@@ -2982,16 +3017,10 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duc Nguyen -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Djg-SN-7aq">
-                                        <rect key="frame" x="122" y="5" width="82" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Djg-SN-7aq">
+                                        <rect key="frame" x="122" y="14.5" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
                                         <color key="textColor" red="0.28122301736300714" green="0.5334313395728929" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 Tourist Active" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GtG-Wg-AGh">
-                                        <rect key="frame" x="207" y="5" width="92" height="18"/>
-                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
-                                        <color key="textColor" red="0.2812230174" green="0.5334313396" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -3001,15 +3030,13 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                     <constraint firstItem="msS-wD-Rgn" firstAttribute="leading" secondItem="F6q-Re-4H6" secondAttribute="trailing" constant="5" id="B8a-YU-5O1"/>
                                     <constraint firstAttribute="height" constant="28" id="Eoo-cc-hsb"/>
                                     <constraint firstItem="Djg-SN-7aq" firstAttribute="centerY" secondItem="LzK-W7-WQs" secondAttribute="centerY" id="IkF-F4-qTG"/>
-                                    <constraint firstItem="GtG-Wg-AGh" firstAttribute="centerY" secondItem="LzK-W7-WQs" secondAttribute="centerY" id="Iyd-Gq-yta"/>
                                     <constraint firstItem="F6q-Re-4H6" firstAttribute="leading" secondItem="kKI-bB-QjS" secondAttribute="trailing" constant="5" id="JIB-Kn-Kuj"/>
                                     <constraint firstItem="msS-wD-Rgn" firstAttribute="centerY" secondItem="LzK-W7-WQs" secondAttribute="centerY" id="N33-k1-4dt"/>
+                                    <constraint firstAttribute="trailing" secondItem="Djg-SN-7aq" secondAttribute="trailing" constant="8" id="OL5-cY-hgM"/>
                                     <constraint firstAttribute="bottom" secondItem="F6q-Re-4H6" secondAttribute="bottom" constant="5" id="S3l-lW-prr"/>
-                                    <constraint firstItem="GtG-Wg-AGh" firstAttribute="leading" secondItem="Djg-SN-7aq" secondAttribute="trailing" constant="3" id="UvX-Lp-AAB"/>
                                     <constraint firstItem="kKI-bB-QjS" firstAttribute="leading" secondItem="LzK-W7-WQs" secondAttribute="leading" constant="12" id="Z8M-m6-aMw"/>
                                     <constraint firstItem="F6q-Re-4H6" firstAttribute="top" secondItem="LzK-W7-WQs" secondAttribute="top" constant="5" id="eOS-2j-D35"/>
                                     <constraint firstItem="kKI-bB-QjS" firstAttribute="centerY" secondItem="LzK-W7-WQs" secondAttribute="centerY" id="fDn-vL-VV1"/>
-                                    <constraint firstAttribute="trailing" secondItem="GtG-Wg-AGh" secondAttribute="trailing" constant="8.5" id="jXc-5s-nAK"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -3021,7 +3048,7 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                 <rect key="frame" x="0.0" y="24" width="375" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3l-SU-zqy">
-                                        <rect key="frame" x="12" y="10" width="36" height="20"/>
+                                        <rect key="frame" x="12" y="10.5" width="35.5" height="19.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -3090,7 +3117,7 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                         <rect key="frame" x="0.0" y="0.0" width="309" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Khung bo tai Thai Lan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fz6-9Q-whh">
-                                                <rect key="frame" x="33" y="8" width="264" height="20"/>
+                                                <rect key="frame" x="33" y="8.5" width="264" height="19.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -3110,13 +3137,13 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thoi Tiet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ue-fP-GO3">
-                                                <rect key="frame" x="47" y="38" width="46" height="17"/>
+                                                <rect key="frame" x="47" y="38.5" width="46" height="16.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Khan Cap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BkU-5A-my4">
-                                                <rect key="frame" x="245" y="38" width="52" height="17"/>
+                                                <rect key="frame" x="245" y="38.5" width="52" height="16.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -3188,7 +3215,6 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZCM-hj-1y1">
                                                         <rect key="frame" x="0.0" y="0.0" width="25" height="165"/>
                                                         <connections>
-                                                            <action selector="detailWarningSelect:" destination="SDe-pa-elP" eventType="touchUpInside" id="Jvf-I8-4l3"/>
                                                             <segue destination="7DY-b9-aFs" kind="show" id="kzS-GG-Sc3"/>
                                                         </connections>
                                                     </button>
@@ -3252,25 +3278,23 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                             <constraint firstItem="LzK-W7-WQs" firstAttribute="leading" secondItem="LNi-6s-ohd" secondAttribute="leading" constant="-5" id="7oi-va-Drk"/>
                             <constraint firstAttribute="trailing" secondItem="lyU-bG-3B6" secondAttribute="trailing" id="9jC-zJ-8r0"/>
                             <constraint firstItem="lyU-bG-3B6" firstAttribute="leading" secondItem="LNi-6s-ohd" secondAttribute="leading" id="AmD-Rk-vBg"/>
-                            <constraint firstItem="V0i-4E-typ" firstAttribute="top" secondItem="XX5-K7-Hzd" secondAttribute="top" id="FgC-mx-SYq"/>
                             <constraint firstItem="lyU-bG-3B6" firstAttribute="top" secondItem="iT4-1m-SXx" secondAttribute="bottom" id="Loy-c3-mZ4"/>
+                            <constraint firstItem="V0i-4E-typ" firstAttribute="centerY" secondItem="LNi-6s-ohd" secondAttribute="centerY" constant="25" id="MU2-x6-9ob"/>
                             <constraint firstAttribute="trailing" secondItem="aUA-9g-OnR" secondAttribute="trailing" id="PxY-je-ttV"/>
                             <constraint firstItem="aUA-9g-OnR" firstAttribute="leading" secondItem="LNi-6s-ohd" secondAttribute="leading" id="TyU-fN-OA1"/>
                             <constraint firstItem="aUA-9g-OnR" firstAttribute="top" secondItem="iT4-1m-SXx" secondAttribute="bottom" constant="-40" id="Uz2-1j-wXY"/>
                             <constraint firstAttribute="trailing" secondItem="DbZ-Yu-I2C" secondAttribute="trailing" id="YCL-1A-dG4"/>
-                            <constraint firstItem="V0i-4E-typ" firstAttribute="bottom" secondItem="XX5-K7-Hzd" secondAttribute="bottom" id="YRt-uI-Zmd"/>
                             <constraint firstAttribute="trailing" secondItem="4gh-U3-t7O" secondAttribute="trailing" id="YSl-eT-FTa"/>
                             <constraint firstItem="DbZ-Yu-I2C" firstAttribute="top" secondItem="iT4-1m-SXx" secondAttribute="bottom" id="YWx-CH-hpp"/>
                             <constraint firstItem="XX5-K7-Hzd" firstAttribute="centerY" secondItem="LNi-6s-ohd" secondAttribute="centerY" constant="-10" id="a3n-zv-oE2"/>
                             <constraint firstItem="rKV-Jf-JF9" firstAttribute="top" secondItem="DbZ-Yu-I2C" secondAttribute="bottom" id="c8r-Y0-w8G"/>
                             <constraint firstItem="XX5-K7-Hzd" firstAttribute="centerX" secondItem="LNi-6s-ohd" secondAttribute="centerX" id="fuv-ck-Ewn"/>
                             <constraint firstItem="4gh-U3-t7O" firstAttribute="leading" secondItem="LNi-6s-ohd" secondAttribute="leading" id="gPM-nK-TTG"/>
-                            <constraint firstItem="V0i-4E-typ" firstAttribute="trailing" secondItem="XX5-K7-Hzd" secondAttribute="trailing" id="gQn-R2-n2Z"/>
                             <constraint firstItem="bOV-Nq-EgA" firstAttribute="centerY" secondItem="LNi-6s-ohd" secondAttribute="centerY" constant="-30" id="jJJ-7u-370"/>
                             <constraint firstItem="LzK-W7-WQs" firstAttribute="top" secondItem="iT4-1m-SXx" secondAttribute="bottom" constant="5" id="lPQ-eh-gcB"/>
-                            <constraint firstItem="V0i-4E-typ" firstAttribute="leading" secondItem="XX5-K7-Hzd" secondAttribute="leading" id="n0K-f4-3zL"/>
                             <constraint firstItem="rKV-Jf-JF9" firstAttribute="top" secondItem="lyU-bG-3B6" secondAttribute="bottom" id="ncj-2q-2Pm"/>
                             <constraint firstItem="DbZ-Yu-I2C" firstAttribute="leading" secondItem="LNi-6s-ohd" secondAttribute="leading" id="pC5-iW-zkA"/>
+                            <constraint firstItem="V0i-4E-typ" firstAttribute="centerX" secondItem="LNi-6s-ohd" secondAttribute="centerX" id="qOM-z0-upK"/>
                             <constraint firstItem="bOV-Nq-EgA" firstAttribute="width" secondItem="LNi-6s-ohd" secondAttribute="width" multiplier="334:375" id="ud4-cT-8p1"/>
                             <constraint firstItem="4gh-U3-t7O" firstAttribute="top" secondItem="iT4-1m-SXx" secondAttribute="bottom" constant="-536" id="ues-XP-io0"/>
                             <constraint firstItem="bOV-Nq-EgA" firstAttribute="centerX" secondItem="LNi-6s-ohd" secondAttribute="centerX" id="y5T-F1-VBb"/>
@@ -3313,10 +3337,15 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                         <outlet property="consVTopStatusTourist" destination="Uz2-1j-wXY" id="nLF-vm-ZRn"/>
                         <outlet property="displaySegmented" destination="B28-vP-w7w" id="GSm-XR-6IC"/>
                         <outlet property="lbCateWarning" destination="5ue-fP-GO3" id="zc8-oT-Wyy"/>
+                        <outlet property="lbContactPlacePopup" destination="Kxv-WG-FDU" id="L2u-jv-b0D"/>
                         <outlet property="lbDescriptionWarning" destination="8z8-l2-PbQ" id="clb-NN-9M0"/>
+                        <outlet property="lbDistanceTourist" destination="xGo-Xz-BhF" id="dsy-Qz-cr2"/>
+                        <outlet property="lbNamePlacePopup" destination="xWB-uD-T8L" id="uWe-2j-CUb"/>
                         <outlet property="lbPriotiryWarning" destination="BkU-5A-my4" id="ZE2-zV-9pD"/>
                         <outlet property="lbStatusConnection" destination="F6q-Re-4H6" id="7HE-fV-gRn"/>
                         <outlet property="lbStatusTourist" destination="S3l-SU-zqy" id="RC4-R8-1lQ"/>
+                        <outlet property="lbTouristName" destination="uix-G8-a0m" id="O1K-sk-5db"/>
+                        <outlet property="lbUserName" destination="Djg-SN-7aq" id="SgT-qA-Lar"/>
                         <outlet property="lbWarningName" destination="Fz6-9Q-whh" id="3PD-Ne-dfT"/>
                         <outlet property="mapView" destination="lyU-bG-3B6" id="CN0-iS-TFs"/>
                         <outlet property="tvWarning" destination="dx8-rY-eoa" id="YdQ-Lz-T9Q"/>
@@ -3387,6 +3416,7 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
         <image name="ic_avatar" width="103" height="103"/>
         <image name="ic_call" width="64" height="64"/>
         <image name="ic_close" width="21" height="21"/>
+        <image name="ic_day_left" width="64" height="64"/>
         <image name="ic_duc2" width="335" height="271"/>
         <image name="ic_forward" width="64" height="64"/>
         <image name="ic_pin_drop" width="84" height="138"/>

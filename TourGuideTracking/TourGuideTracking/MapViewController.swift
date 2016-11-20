@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import GoogleMaps
 import SwiftR
+import MBProgressHUD
 import UIColor_Hex_Swift
 
 public enum StatusConnection {
@@ -24,6 +25,11 @@ public enum StatusConnection {
 
 class MapViewController: BaseViewController {
     
+    @IBOutlet weak var lbDistanceTourist: UILabel!
+    @IBOutlet weak var lbTouristName: UILabel!
+    @IBOutlet weak var lbContactPlacePopup: UILabel!
+    @IBOutlet weak var lbNamePlacePopup: UILabel!
+    @IBOutlet weak var lbUserName: UILabel!
     @IBOutlet weak var vIconStatusConnection: ViewRoundCorner!
     @IBOutlet weak var vStatusConnection: ViewRoundCorner!
     
@@ -129,10 +135,7 @@ class MapViewController: BaseViewController {
                 
         })
         
-        alertDisconnection(receiver: "MG_" + String(describing: self.tour.managerId!), sender: "TG_" + String(describing: Singleton.sharedInstance.tourguide.tourGuideId!), senderUserName: Singleton.sharedInstance.tourguide.name!)
-        
-        
-        SwiftR.stopAll()
+        //SwiftR.stopAll()
         
     }
     @IBAction func displayLocationSegmentedValueChanged(_ sender: AnyObject) {
@@ -177,6 +180,9 @@ class MapViewController: BaseViewController {
     
     //get tour location
     func getPlacesLocation(){
+        
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        
         let url = URLs.makeURL_EXTEND(url: URLs.URL_GET_TOURS, extend: URL_EXTEND.PLACES, param: tour.tourId!)
         NetworkService<Place>.makeGetRequest(URL: url){
             response, error in
@@ -195,9 +201,16 @@ class MapViewController: BaseViewController {
                 Alert.showAlertMessage(userMessage: ERROR_MESSAGE.CONNECT_SERVER , vc: self)
             }
         }
+        
+        MBProgressHUD.hide(for: self.view, animated: true)
+        
     }
     
     func getTouristsLocation(){
+        
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+
+        
         let url = URLs.makeURL_EXTEND(url: URLs.URL_GET_TOURS, extend: URL_EXTEND.TOURISTS_LOCATION, param: tour.tourId!)
         NetworkService<Tourist>.makeGetRequest(URL: url){
             response, error in
@@ -216,6 +229,8 @@ class MapViewController: BaseViewController {
                 Alert.showAlertMessage(userMessage: ERROR_MESSAGE.CONNECT_SERVER, vc: self)
             }
         }
+        
+        MBProgressHUD.hide(for: self.view, animated: true)
     }
     
     func displayPlacesOnMap(){
@@ -232,7 +247,7 @@ class MapViewController: BaseViewController {
     
     func displayTouristOnMap(){
         let tourists = Singleton.sharedInstance.tourists
-        self.setMapView(lat: (tourists?[0].location?.latitude!)!, long: (tourists?[0].location?.longitude!)!)
+        //self.setMapView(lat: (tourists?[0].location?.latitude!)!, long: (tourists?[0].location?.longitude!)!)
         
         for tourist in tourists!{
             createMarker(latitude: tourist.location!.latitude!, longitude: tourist.location!.longitude!, data:tourist, isTourist: true).map = mapView
@@ -278,7 +293,7 @@ class MapViewController: BaseViewController {
             connection in
             connection.queryString = ["USER_POSITION" : "TG", "MANAGER_ID" : "MG_" + String(describing: (self?.tour.managerId!)!) , "USER_ID" : "TG_" + String(describing: Singleton.sharedInstance.tourguide.tourGuideId!), "USER_NAME" : String(describing: Singleton.sharedInstance.tourguide.name!)]
             self?.tourguideHub = connection.createHubProxy("hubServer")
-            
+            self?.lbUserName.text = Singleton.sharedInstance.tourguide.name!
             self?.tourguideHub?.on("updateNumberOfOnline"){ args in
                 let groupName = args![0] as! String
                 let numberOfOnline = args![1] as! String
@@ -416,7 +431,7 @@ class MapViewController: BaseViewController {
         
         vStatusConnection.backgroundColor = UIColor(rgba: "#D9F7D7")
         lbStatusConnection.textColor = UIColor(rgba: "#259360")
-        lbStatusConnection.text = "Connected: " + number + " Tourist"
+        lbStatusConnection.text = "Connected - " + number + " Tourist"
     }
     
     func updateStatusConnection(status: StatusConnection )
@@ -424,7 +439,7 @@ class MapViewController: BaseViewController {
         if(status == .starting)
         {
             
-            vStatusConnection.backgroundColor = UIColor(rgba: "#D7EBF9")
+            vStatusConnection.backgroundColor = UIColor(rgba: "#FFFFFF")
             lbStatusConnection.textColor = UIColor(rgba: "#6BA1C8")
             lbStatusConnection.text = "Staring connection..."
             vIconStatusConnection.backgroundColor = UIColor(rgba: "#D7EBF9")
@@ -704,7 +719,14 @@ extension MapViewController: GMSMapViewDelegate{
                     removeMarkerSelect(marker: markerSelected!, latitude: (markerSelected?.position.latitude)!, longitude: (markerSelected?.position.longitude)!, data: markerSelected?.userData as AnyObject?, isTourist: false).map = mapView
                 }
                 updateMarkerSelect(marker: marker, latitude: marker.position.latitude, longitude: marker.position.longitude, data: marker.userData as AnyObject?, isTourist: false).map = mapView
+                
+                let dataPlacePopup = marker.userData as! Place
+                lbNamePlacePopup.text = dataPlacePopup.name
+                lbContactPlacePopup.text = dataPlacePopup.contact
+                
                 showPopupInfoPlace()
+                
+                
             }
                 
             else
@@ -714,6 +736,11 @@ extension MapViewController: GMSMapViewDelegate{
                     removeMarkerSelect(marker: markerSelected!, latitude: (markerSelected?.position.latitude)!, longitude: (markerSelected?.position.longitude)!, data: markerSelected?.userData as AnyObject?, isTourist: true).map = mapView
                 }
                 updateMarkerSelect(marker: marker, latitude: marker.position.latitude, longitude: marker.position.longitude, data: marker.userData as AnyObject?, isTourist: true).map = mapView
+                
+                let dataTourist = marker.userData as! Tourist
+                lbTouristName.text = dataTourist.name
+                lbDistanceTourist.text = "Caculating..."
+                
                 showPopupInfoTourist()
             }
             
@@ -766,18 +793,30 @@ extension MapViewController: GMSMapViewDelegate{
         
         if isTourist{
             
+            let infoData = marker.userData as! Tourist
             let ivmarker = UIImage(named: "2")
-            let ivAvatar = UIImage(named: "ic_avatar")
             
-            drawMarker(marker: marker, image: ivAvatar!, markerImage: ivmarker!)
+
+            let url = URL(string: infoData.displayPhoto!)
+
+            
+            if let data = try? Data(contentsOf: url!){
+                
+                let ivAvatar = UIImage(data: data)
+                drawMarker(marker: marker, image: ivAvatar!, markerImage: ivmarker!, isTourist: isTourist)
+            }
+            else
+            {
+                let ivAvatar = UIImage(named: "ic_avatar")
+                drawMarker(marker: marker, image: ivAvatar!, markerImage: ivmarker!, isTourist: isTourist)
+            }
             
             
         }else{
             
-            let ivmarker = UIImage(named: "3")
+            let ivmarker = UIImage(named: "ic_flag")
             let ivAvatar = UIImage(named: "ic_avatar")
-            
-            drawMarker(marker: marker, image: ivAvatar!, markerImage: ivmarker!)
+            drawMarker(marker: marker, image: ivAvatar!, markerImage: ivmarker!, isTourist: isTourist)
         }
         
         return marker
@@ -791,16 +830,14 @@ extension MapViewController: GMSMapViewDelegate{
             
             let ivmarker = UIImage(named: "4")
             let ivAvatar = UIImage(named: "ic_avatar")
-            
-            drawMarker(marker: marker, image: ivAvatar!, markerImage: ivmarker!)
-            
+            drawMarker(marker: marker, image: ivAvatar!, markerImage: ivmarker!, isTourist: isTourist)
             
         }else{
             
-            let ivmarker = UIImage(named: "4")
+            let ivmarker = UIImage(named: "ic_flag")
             let ivAvatar = UIImage(named: "ic_avatar")
             
-            drawMarker(marker: marker, image: ivAvatar!, markerImage: ivmarker!)
+           drawMarker(marker: marker, image: ivAvatar!, markerImage: ivmarker!, isTourist: isTourist)
         }
         return marker
     }
@@ -813,16 +850,15 @@ extension MapViewController: GMSMapViewDelegate{
             
             let ivmarker = UIImage(named: "2")
             let ivAvatar = UIImage(named: "ic_avatar")
-            
-            drawMarker(marker: marker, image: ivAvatar!, markerImage: ivmarker!)
+            drawMarker(marker: marker, image: ivAvatar!, markerImage: ivmarker!, isTourist: isTourist)
             
             
         }else{
             
-            let ivmarker = UIImage(named: "3")
+            let ivmarker = UIImage(named: "ic_flag")
             let ivAvatar = UIImage(named: "ic_avatar")
             
-            drawMarker(marker: marker, image: ivAvatar!, markerImage: ivmarker!)
+            drawMarker(marker: marker, image: ivAvatar!, markerImage: ivmarker!, isTourist: isTourist)
         }
         markerSelected = nil
         return marker
@@ -830,49 +866,77 @@ extension MapViewController: GMSMapViewDelegate{
     
     
     
-    func drawMarker(marker: GMSMarker ,image: UIImage, markerImage: UIImage ) {
+    func drawMarker(marker: GMSMarker ,image: UIImage, markerImage: UIImage , isTourist: Bool) {
         
-        let markerWidth  = 64
-        let markerHeight = 76
-        
-        let imageWith = 58
-        let topSpace = 3
-        
-        if(image == nil && markerImage == nil)
+        if(isTourist)
         {
-            return
+            let markerWidth  = 64
+            let markerHeight = 76
+            
+            let imageWith = 58
+            let topSpace = 3
+            
+            if(image == nil && markerImage == nil)
+            {
+                return
+            }
+            
+            let vTemp = UIView(frame: CGRect(x: 0, y: 0, width: markerWidth, height: markerHeight))
+            vTemp.backgroundColor = UIColor.clear
+            
+            let ivMarker = UIImageView(frame: CGRect(x: 0, y: 0, width: markerWidth, height: markerHeight))
+            ivMarker.backgroundColor = UIColor.clear
+            
+            
+            
+            let ivPhoto = UIImageView(frame: CGRect(x: topSpace, y: topSpace, width: imageWith, height: imageWith))
+            ivPhoto.backgroundColor = UIColor.clear
+            ivPhoto.contentMode = UIViewContentMode.scaleAspectFill
+            ivPhoto.clipsToBounds = true
+            ivPhoto.layer.cornerRadius = ivPhoto.frame.size.width / 2
+            ivPhoto.layer.masksToBounds = true
+            
+            
+            vTemp.addSubview(ivPhoto)
+            vTemp.addSubview(ivMarker)
+            
+            ivMarker.image = markerImage
+            ivPhoto.image = image
+            
+            UIGraphicsBeginImageContextWithOptions(vTemp.bounds.size, false, image.scale)
+            vTemp.layer.render(in: UIGraphicsGetCurrentContext()!)
+            
+            let finalImage = UIGraphicsGetImageFromCurrentImageContext()
+            
+            UIGraphicsEndImageContext()
+            
+            marker.icon = finalImage
         }
         
-        let vTemp = UIView(frame: CGRect(x: 0, y: 0, width: markerWidth, height: markerHeight))
-        vTemp.backgroundColor = UIColor.clear
-        
-        let ivMarker = UIImageView(frame: CGRect(x: 0, y: 0, width: markerWidth, height: markerHeight))
-        ivMarker.backgroundColor = UIColor.clear
-        
-        
-        
-        let ivPhoto = UIImageView(frame: CGRect(x: topSpace, y: topSpace, width: imageWith, height: imageWith))
-        ivPhoto.backgroundColor = UIColor.clear
-        ivPhoto.contentMode = UIViewContentMode.scaleAspectFill
-        ivPhoto.clipsToBounds = true
-        ivPhoto.layer.cornerRadius = ivPhoto.frame.size.width / 2
-        ivPhoto.layer.masksToBounds = true
-        
-        
-        vTemp.addSubview(ivPhoto)
-        vTemp.addSubview(ivMarker)
-        
-        ivMarker.image = markerImage
-        ivPhoto.image = image
-        
-        UIGraphicsBeginImageContextWithOptions(vTemp.bounds.size, false, image.scale)
-        vTemp.layer.render(in: UIGraphicsGetCurrentContext()!)
-        
-        let finalImage = UIGraphicsGetImageFromCurrentImageContext()
-        
-        UIGraphicsEndImageContext()
-        
-        marker.icon = finalImage
+        else
+        {
+            let markerWidth  = 65
+            let markerHeight = 60
+            
+            let vTemp = UIView(frame: CGRect(x: 0, y: 0, width: markerWidth, height: markerHeight))
+            vTemp.backgroundColor = UIColor.clear
+            
+            let ivMarker = UIImageView(frame: CGRect(x: 27, y: 20, width: 40, height: 40))
+            ivMarker.backgroundColor = UIColor.clear
+      
+            vTemp.addSubview(ivMarker)
+            
+            ivMarker.image = markerImage
+            
+            UIGraphicsBeginImageContextWithOptions(vTemp.bounds.size, false, markerImage.scale)
+            vTemp.layer.render(in: UIGraphicsGetCurrentContext()!)
+            
+            let finalImage = UIGraphicsGetImageFromCurrentImageContext()
+            
+            UIGraphicsEndImageContext()
+            
+            marker.icon = finalImage
+        }
         
     }
     

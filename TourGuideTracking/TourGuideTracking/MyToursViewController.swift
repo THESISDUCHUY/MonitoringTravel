@@ -37,12 +37,57 @@ class MyToursViewController: UIViewController, UITableViewDataSource, UITableVie
         
         let row = (indexPath as NSIndexPath).row
         cell.tourNameLabel.text = Singleton.sharedInstance.tours?[row].name
-        cell.coverImageView.setImageWith(URL(string:(Singleton.sharedInstance.tours?[row].coverPhoto)!)!)
-        cell.lbTime.text = (Singleton.sharedInstance.tours?[row].departureDateString)! + " - " + (Singleton.sharedInstance.tours?[row].returnDateString)!
+        
+        let imageURL = Singleton.sharedInstance.tours?[row].coverPhoto?.replacingOccurrences(of: " ", with:
+        "%20")
+        
+        
+        cell.coverImageView.setImageWith(URL(string:imageURL!)!)
+//        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        let startdayDate = Singleton.sharedInstance.tours?[row].departureDate!
+        
+        let date = NSDate()
+        let calendar = NSCalendar.current
+        
+        let year = calendar.component(.year, from: date as Date)
+        let moth = calendar.component(.month, from: date as Date)
+        let day = calendar.component(.day, from: date as Date)
+        let hour = calendar.component(.hour, from: date as Date)
+        let minutes = calendar.component(.minute, from: date as Date)
+        let second = calendar.component(.second, from: date as Date)
+        
+        let stringTimeNow = String(year) + "-" + String(moth) + "-" + String(day) + " " + String(hour) + ":" + String(minutes) + ":" + String(second)
+        
+        let stringTimeDate = dateFormatter.date(from: stringTimeNow)
+        
+        let totalDay = daysBetweenDates(startDate: startdayDate!, currentDate: stringTimeDate!)
+        
+        if(totalDay == 0 || totalDay < 0)
+        {
+            cell.lbTime.text = "Đang hoạt động"
+            cell.vStatusActive.isHidden = false
+            
+        }
+        else
+        {
+            cell.lbTime.text = "Khởi hành sau " + String(totalDay) + " ngày"
+            cell.vStatusActive.isHidden = true
+        }
         
         return cell
     }
+
     
+
+    
+    func daysBetweenDates(startDate: Date, currentDate: Date) -> Int {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([Calendar.Component.day], from: currentDate, to: startDate)
+        return components.day!
+    }
      //naviagate to MyTours View
     func tableView(_ tableView: UITableView, didSelectRowAt: IndexPath){
        
