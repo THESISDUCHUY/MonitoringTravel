@@ -9,7 +9,9 @@
 import UIKit
 import GoogleMaps
 
-class WarningViewController: UIViewController {
+import SwiftR
+
+class WarningViewController: BaseViewController {
 
     @IBOutlet weak var contentTextView: TextViewRoundConner!
     @IBOutlet weak var mapView: GMSMapView!
@@ -26,6 +28,9 @@ class WarningViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(WarningViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(WarningViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 
+    }
+    @IBAction func sendWarning(_ sender: Any) {
+        SwiftR.stopAll()
     }
 
     override func didReceiveMemoryWarning() {

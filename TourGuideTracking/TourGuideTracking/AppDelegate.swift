@@ -8,12 +8,14 @@
 
 import UIKit
 import GoogleMaps
+import SwiftR
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -37,6 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: ViewIdentifier.LOGIN_VIEW)
             return true
         }*/
+        
+        UIApplication.shared.statusBarStyle = .lightContent
         return true
     }
 

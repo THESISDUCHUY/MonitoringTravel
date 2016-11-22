@@ -8,6 +8,7 @@
 
 import UIKit
 import AFNetworking
+import MBProgressHUD
 
 class TourInfoViewController: UIViewController {
     
@@ -54,6 +55,9 @@ class TourInfoViewController: UIViewController {
     }
     
     func getTourSchedule(){
+        
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+
         let url = URLs.makeURL_EXTEND(url: URLs.URL_GET_TOURS, extend: URL_EXTEND.SCHEDULE, param: tour.tourId!)
          NetworkService<Schedule>.makeGetRequest(URL: url){
             response, error in
@@ -74,6 +78,9 @@ class TourInfoViewController: UIViewController {
             }
 
         }
+        
+        MBProgressHUD.hide(for: self.view, animated: true)
+
     }
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -149,11 +156,14 @@ extension TourInfoViewController : UITableViewDelegate, UITableViewDataSource{
             var titleHeader:String =  ""
             titleHeader = schedulesDay[section].getDateString()
             
-            let  headerCell = UIView(frame: CGRect(x: 0   , y: 0, width: tableView.frame.size.width , height: 40 ))
+            let  headerCell = UIView(frame: CGRect(x: -5   , y: 0, width: tableView.frame.size.width , height: 40 ))
             headerCell.backgroundColor = UIColor.white
             
-            let headerBackground = UIView(frame: CGRect(x: 0   , y: 0, width: 160 , height: 25 ))
+            let headerBackground = UIView(frame: CGRect(x: 0   , y: 0, width: 130 , height: 25 ))
             headerBackground.backgroundColor = UIColor(colorLiteralRed: 64/255, green: 165/255, blue: 226/255, alpha: 0.85)
+            
+            headerBackground.layer.cornerRadius = 5
+            
             headerCell.addSubview(headerBackground)
             
             let titleLabel = UILabel(frame: CGRect(x: 15, y: 0, width: 160, height: 25))
