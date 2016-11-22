@@ -11,9 +11,7 @@ import SwiftR
 
 class BaseViewController: UIViewController {
     
-    var tour:Tour!
-    var tourguideHub: Hub?
-    var connection: SignalR?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

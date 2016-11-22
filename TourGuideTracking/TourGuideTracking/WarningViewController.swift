@@ -15,6 +15,8 @@ class WarningViewController: BaseViewController {
 
     @IBOutlet weak var mapView: GMSMapView!
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,7 +29,25 @@ class WarningViewController: BaseViewController {
 
     }
     @IBAction func sendWarning(_ sender: Any) {
-        tourguideHub?.invoke("updatePositionTourGuide", arguments: [senderId, latitude, longitude, receiver])
+        
+            appDelegate.tourguideHub?.invoke("updatePositionTourGuide", arguments: ["TG_1", "1234", "24324324", "MG_1"] ) { (result, error) in
+                if let e = error {
+                    #if DEBUG
+                        
+                        self.showMessage("Error initMarkerNewConection: \(e)")
+                        
+                    #else
+                        
+                    #endif
+                    
+                } else {
+                    print("Success!")
+                    if let r = result {
+                        print("Result: \(r)")
+                    }
+                }
+            }
+
     }
 
     override func didReceiveMemoryWarning() {
