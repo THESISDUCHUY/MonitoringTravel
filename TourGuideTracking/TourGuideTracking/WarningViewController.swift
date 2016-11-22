@@ -11,8 +11,11 @@ import GoogleMaps
 
 class WarningViewController: UIViewController {
 
+    @IBOutlet weak var contentTextView: TextViewRoundConner!
     @IBOutlet weak var mapView: GMSMapView!
     
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var locationTextFiled: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,6 +33,9 @@ class WarningViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onWarningButton(_ sender: Any) {
+        
+    }
     func setRecognizer(){
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTapScreen(_ : )))
         // Attach it to a view of your choice. If it's a UIImageView, remember to enable user interaction
@@ -63,5 +69,11 @@ class WarningViewController: UIViewController {
                 self.view.frame.origin.y += keyboardSize.height/2
             }
         }
+    }
+}
+
+extension WarningViewController:  GMSMapViewDelegate{
+    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+        locationTextFiled.text = "\(mapView.camera.target.latitude), \(mapView.camera.target.longitude)"
     }
 }

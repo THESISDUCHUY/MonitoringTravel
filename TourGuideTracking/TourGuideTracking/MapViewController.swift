@@ -239,10 +239,6 @@ class MapViewController: BaseViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if self.displaySegmented.selectedSegmentIndex == 0{
-            let placeDetailsVC = segue.destination as! PlaceDetailsViewController
-            placeDetailsVC.place = markerSelected as! Place
-        }
     }
 
     
