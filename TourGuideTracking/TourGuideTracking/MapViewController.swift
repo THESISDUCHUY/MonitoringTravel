@@ -552,9 +552,9 @@ class MapViewController: BaseViewController {
     
     func updateLocation(latitude:Double, longitude:Double){
         
-        let receiver = "MG_" + String(describing: (self.tour.managerId)!)
-        let senderId =  Singleton.sharedInstance.tourguide!.tourGuideId
-        tourguideHub?.invoke("updatePositionTourGuide", arguments: [senderId, latitude, longitude, receiver])
+//        let receiver = "MG_" + String(describing: (self.tour.managerId)!)
+//        let senderId =  Singleton.sharedInstance.tourguide!.tourGuideId
+//        tourguideHub?.invoke("updatePositionTourGuide", arguments: [senderId, latitude, longitude, receiver])
     }
     
     // MARK: Tourist
