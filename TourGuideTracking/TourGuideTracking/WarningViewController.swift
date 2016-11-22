@@ -27,7 +27,7 @@ class WarningViewController: BaseViewController {
 
     }
     @IBAction func sendWarning(_ sender: Any) {
-        SwiftR.stopAll()
+        tourguideHub?.invoke("updatePositionTourGuide", arguments: [senderId, latitude, longitude, receiver])
     }
 
     override func didReceiveMemoryWarning() {
