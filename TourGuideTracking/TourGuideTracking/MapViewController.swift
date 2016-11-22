@@ -65,11 +65,15 @@ class MapViewController: BaseViewController {
     var locationManager:CLLocationManager = CLLocationManager();
     var markerSelected: GMSMarker?
     var markerSelectedWarning: GMSMarker?
-    
+    var tour:Tour!
     var isConnected: Bool?
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         self.tabBarController?.hidesBottomBarWhenPushed = true
         locationManager.startUpdatingLocation()
@@ -78,6 +82,7 @@ class MapViewController: BaseViewController {
         locationManager.allowsBackgroundLocationUpdates = true
         
         let tabBar = (self.tabBarController as! CustomTabBarController)
+        
         tabBar.currentTour = tour
         connectServer()
         //displaySegmented.selectedSegmentIndex = 0
@@ -287,18 +292,18 @@ class MapViewController: BaseViewController {
         
         SwiftR.signalRVersion = .v2_2_1
         
-        let urlServerRealtime = "http://tourtrackingv2.azurewebsites.net/signalr/hubs"
+        //let urlServerRealtime = "http://tourtrackingv2.azurewebsites.net/signalr/hubs"
         
-        //let urlServerRealtime = "http://192.168.0.104:3407/signalr/hubs"
+        let urlServerRealtime = "http://192.168.0.106:3407/signalr/hubs"
         
-        connection = SwiftR.connect(urlServerRealtime) { [weak self]
+        appDelegate.connection = SwiftR.connect(urlServerRealtime) { [weak self]
             connection in
             connection.queryString = ["USER_POSITION" : "TG", "MANAGER_ID" : "MG_" + String(describing: (self?.tour.managerId!)!) , "USER_ID" : "TG_" + String(describing: Singleton.sharedInstance.tourguide.tourGuideId!), "USER_NAME" : String(describing: Singleton.sharedInstance.tourguide.name!)]
-            self?.tourguideHub = connection.createHubProxy("hubServer")
+            self?.appDelegate.tourguideHub = connection.createHubProxy("hubServer")
             self?.lbUserName.text = Singleton.sharedInstance.tourguide.name!
             
             
-            self?.tourguideHub?.on("updateNumberOfOnline"){ args in
+            self?.appDelegate.tourguideHub?.on("updateNumberOfOnline"){ args in
                 let groupName = args![0] as! String
                 let numberOfOnline = args![1] as! String
                 
@@ -314,17 +319,17 @@ class MapViewController: BaseViewController {
                 }
             }
             
-            self?.tourguideHub?.on("initTouristConnected"){ args in
+            self?.appDelegate.tourguideHub?.on("initTouristConnected"){ args in
                 let touristName = args![2] as! String
                 self?.touristConnected(usernameTourist: touristName)
                 
             }
             
-            self?.tourguideHub?.on("managerOnline"){ args in
+            self?.appDelegate.tourguideHub?.on("managerOnline"){ args in
                 self?.initCurrentLocation(receiver: "MG_" + String(describing: (self?.tour.managerId)!), tourguide: Singleton.sharedInstance.tourguide!, tour: (self?.tour)!)
             }
             
-            self?.tourguideHub?.on("receiverWarning"){ args in
+            self?.appDelegate.tourguideHub?.on("receiverWarning"){ args in
                 
                 let objectData: AnyObject = args![0] as AnyObject!
                 
@@ -382,43 +387,43 @@ class MapViewController: BaseViewController {
             
         }
         
-        connection!.starting = { [weak self] in
+        appDelegate.connection!.starting = { [weak self] in
             print("Starting...")
             self?.updateStatusConnection(status: StatusConnection.starting)
         }
         
-        connection!.reconnecting = { [weak self] in
+        appDelegate.connection!.reconnecting = { [weak self] in
             print("Reconnecting...")
             self?.updateStatusConnection(status: StatusConnection.reconnecting)
         }
         
-        connection!.connected = { [weak self] in
+        appDelegate.connection!.connected = { [weak self] in
             
-            print("Connection ID: \(self?.connection!.connectionID!)")
+            print("Connection ID: \(self?.appDelegate.connection!.connectionID!)")
             self?.updateStatusConnection(status: StatusConnection.connected)
             
             self?.initCurrentLocation(receiver: "MG_" + String(describing: (self?.tour.managerId)!), tourguide: Singleton.sharedInstance.tourguide!, tour: (self?.tour)!)
         }
         
-        connection!.reconnected = { [weak self] in
+        appDelegate.connection!.reconnected = { [weak self] in
             
-            print("Reconnected. Connection ID: \(self?.connection?.connectionID!)")
+            print("Reconnected. Connection ID: \(self?.appDelegate.connection?.connectionID!)")
             self?.updateStatusConnection(status: StatusConnection.reconnected)
         }
         
-        connection!.disconnected = { [weak self] in
+        appDelegate.connection!.disconnected = { [weak self] in
             print("Disconnected...")
             self?.updateStatusConnection(status: StatusConnection.disconnected)
         }
         
-        connection!.connectionSlow = { print("Connection slow...") }
+        appDelegate.connection!.connectionSlow = { print("Connection slow...") }
         
-        connection!.error = { error in
+        appDelegate.connection!.error = { error in
             
             print("Error: \(error)")
             if let source = error?["source"] as? String, source == "TimeoutException" {
                 print("Connection timed out. Restarting...")
-                self.connection!.start()
+                self.appDelegate.connection!.start()
             }
         }
         
@@ -507,7 +512,7 @@ class MapViewController: BaseViewController {
         let user_long = String(format: "%f", (locationManager.location?.coordinate.longitude)!)
         
         
-        tourguideHub?.invoke("initMarkerNewConection", arguments: [user_lat, user_long, receiver, tourguide.tourGuideId!, tourguide.name!, tour.tourId!] ) { (result, error) in
+        appDelegate.tourguideHub?.invoke("initMarkerNewConection", arguments: [user_lat, user_long, receiver, tourguide.tourGuideId!, tourguide.name!, tour.tourId!] ) { (result, error) in
             if let e = error {
                 #if DEBUG
                     
@@ -529,7 +534,7 @@ class MapViewController: BaseViewController {
     
     func alertDisconnection(receiver: String, sender: String, senderUserName: String)
     {
-        tourguideHub?.invoke("removeUserDisconnection", arguments: [receiver, sender, senderUserName] ) { (result, error) in
+        appDelegate.tourguideHub?.invoke("removeUserDisconnection", arguments: [receiver, sender, senderUserName] ) { (result, error) in
             if let e = error {
                 #if DEBUG
                     
