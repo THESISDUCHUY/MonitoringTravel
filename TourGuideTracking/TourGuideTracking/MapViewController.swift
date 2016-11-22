@@ -296,6 +296,8 @@ class MapViewController: BaseViewController {
             connection.queryString = ["USER_POSITION" : "TG", "MANAGER_ID" : "MG_" + String(describing: (self?.tour.managerId!)!) , "USER_ID" : "TG_" + String(describing: Singleton.sharedInstance.tourguide.tourGuideId!), "USER_NAME" : String(describing: Singleton.sharedInstance.tourguide.name!)]
             self?.tourguideHub = connection.createHubProxy("hubServer")
             self?.lbUserName.text = Singleton.sharedInstance.tourguide.name!
+            
+            
             self?.tourguideHub?.on("updateNumberOfOnline"){ args in
                 let groupName = args![0] as! String
                 let numberOfOnline = args![1] as! String

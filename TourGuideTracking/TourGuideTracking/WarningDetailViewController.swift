@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMaps
 
-class WarningDetailViewController: UIViewController {
+class WarningDetailViewController: BaseViewController {
 
     @IBOutlet weak var vMapView: GMSMapView!
     
