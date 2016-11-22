@@ -20,7 +20,7 @@ class WarningViewController: BaseViewController {
     @IBOutlet weak var locationTextFiled: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        mapView.delegate = self
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
         self.tabBarController?.hidesBottomBarWhenPushed = true
@@ -30,7 +30,7 @@ class WarningViewController: BaseViewController {
 
     }
     @IBAction func sendWarning(_ sender: Any) {
-        tourguideHub?.invoke("updatePositionTourGuide", arguments: [senderId, latitude, longitude, receiver])
+       // tourguideHub?.invoke("updatePositionTourGuide", arguments: [senderId, latitude, longitude, receiver])
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,7 +59,7 @@ class WarningViewController: BaseViewController {
          }*/
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0{
-                self.view.frame.origin.y -= keyboardSize.height/2
+                self.view.frame.origin.y -= keyboardSize.height/1.5
             }
         }
     }
@@ -71,7 +71,7 @@ class WarningViewController: BaseViewController {
          }*/
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y != 0{
-                self.view.frame.origin.y += keyboardSize.height/2
+                self.view.frame.origin.y += keyboardSize.height/1.5
             }
         }
     }

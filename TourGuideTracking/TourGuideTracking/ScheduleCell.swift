@@ -21,6 +21,13 @@ class ScheduleCell: UITableViewCell {
             nameLabel.text = schedule.place_name
             timeLabel.text = schedule.getTime()
             descriptionLabel.text = schedule.description
+            for place in Singleton.sharedInstance.places{
+                if schedule.place_id == place.placeId{
+                    coverImageView.setImageWith(URL(string:place.coverPhoto)!)
+                    break
+                }
+            }
+        
         }
     }
     override func awakeFromNib() {
