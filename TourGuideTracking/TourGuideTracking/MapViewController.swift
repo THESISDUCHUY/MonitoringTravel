@@ -12,6 +12,7 @@ import GoogleMaps
 import SwiftR
 import MBProgressHUD
 import UIColor_Hex_Swift
+import SDWebImage
 
 public enum StatusConnection {
     case connected
@@ -60,9 +61,7 @@ class MapViewController: BaseViewController {
     
     @IBOutlet weak var btnDetailWarning: UIButton!
     
-    var tour:Tour!
-    var tourguideHub: Hub?
-    var connection: SignalR?
+    
     var locationManager:CLLocationManager = CLLocationManager();
     var markerSelected: GMSMarker?
     var markerSelectedWarning: GMSMarker?
@@ -89,6 +88,8 @@ class MapViewController: BaseViewController {
         self.mapView.addGestureRecognizer(gestPan)
         self.mapView.settings.consumesGesturesInView = false
         
+        mapView.isMyLocationEnabled = true
+        mapView.settings.myLocationButton = true
         
         self.mapView.delegate = self
         InitView()
@@ -101,6 +102,10 @@ class MapViewController: BaseViewController {
         if (Singleton.sharedInstance.places?.count == 0)
         {
             getPlacesLocation()
+        }
+        if(Singleton.sharedInstance.tourists?.count == 0)
+        {
+            getTouristsLocation()
         }
     }
     
@@ -149,32 +154,33 @@ class MapViewController: BaseViewController {
         }
         
         if displaySegmented.selectedSegmentIndex == 0{
-            if (Singleton.sharedInstance.places?.count == 0){
-                
-                getPlacesLocation()
-                
-            }
-            else{
-                
-                displayPlacesOnMap()
-                
-            }
+//            if (Singleton.sharedInstance.places?.count == 0){
+//                
+//                getPlacesLocation()
+//                
+//            }
+//            else{
+//                
+//                displayPlacesOnMap()
+//                
+//            }
+            self.setMapView(lat: (Singleton.sharedInstance.places?[0].location?.latitude!)!, long: (Singleton.sharedInstance.places?[0].location?.longitude!)!)
         }
             
             
         else{
-            
-            if Singleton.sharedInstance.tourists?.count == 0{
-                
-                
-                getTouristsLocation()
-                
-            }
-            else{
-                
-                displayTouristOnMap()
-                
-            }
+            self.setMapView(lat: (Singleton.sharedInstance.tourists?[0].location?.latitude!)!, long: (Singleton.sharedInstance.tourists?[0].location?.longitude!)!)
+//            if Singleton.sharedInstance.tourists?.count == 0{
+//                
+//                
+//                getTouristsLocation()
+//                
+//            }
+//            else{
+//                
+//                displayTouristOnMap()
+//                
+//            }
         }
     }
     
@@ -236,8 +242,7 @@ class MapViewController: BaseViewController {
     func displayPlacesOnMap(){
         
         let places = Singleton.sharedInstance.places
-        self.setMapView(lat: (places?[0].location?.latitude!)!, long: (places?[0].location?.longitude!)!)
-        
+//        self.setMapView(lat: (places?[0].location?.latitude!)!, long: (places?[0].location?.longitude!)!)
         for place in places!{
             createMarker(latitude: place.location.latitude!, longitude: place.location.longitude!, data:place, isTourist: false).map = mapView
         }
@@ -260,12 +265,9 @@ class MapViewController: BaseViewController {
         {
             hiddenPopupWarning()
             let warningData =  markerSelectedWarning?.userData
-            
             print("data select \(warningData)")
-            
             let warningViewController = segue.destination as! WarningDetailViewController
             warningViewController.warningData = warningData as! Dictionary<String, Any>?
-            
             // markerSelected = nil
             
         }
@@ -285,9 +287,9 @@ class MapViewController: BaseViewController {
         
         SwiftR.signalRVersion = .v2_2_1
         
-        //let urlServerRealtime = "http://tourtrackingv2.azurewebsites.net/signalr/hubs"
+        let urlServerRealtime = "http://tourtrackingv2.azurewebsites.net/signalr/hubs"
         
-        let urlServerRealtime = "http://192.168.0.104:3407/signalr/hubs"
+        //let urlServerRealtime = "http://192.168.0.104:3407/signalr/hubs"
         
         connection = SwiftR.connect(urlServerRealtime) { [weak self]
             connection in
@@ -412,12 +414,6 @@ class MapViewController: BaseViewController {
         connection!.error = { error in
             
             print("Error: \(error)")
-            // Here's an example of how to automatically reconnect after a timeout.
-            //
-            // For example, on the device, if the app is in the background long enough
-            // for the SignalR connection to time out, you'll get disconnected/error
-            // notifications when the app becomes active again.
-            
             if let source = error?["source"] as? String, source == "TimeoutException" {
                 print("Connection timed out. Restarting...")
                 self.connection!.start()
@@ -779,9 +775,9 @@ extension MapViewController: GMSMapViewDelegate{
     func setMapView(lat:Double = 0, long:Double = 0) {
         
 //        mapView.clear()
-//        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 12.0)
-//        mapView.animate(to: camera)
-//        mapView.isMyLocationEnabled = true
+        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 12.0)
+        mapView.animate(to: camera)
+        mapView.isMyLocationEnabled = true
         
     }
     
@@ -793,23 +789,25 @@ extension MapViewController: GMSMapViewDelegate{
         
         if isTourist{
             
-            let infoData = marker.userData as! Tourist
+            //let infoData = marker.userData as! Tourist
+            
             let ivmarker = UIImage(named: "2")
+            let imageURLTourist = "https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/14947705_776565815818185_1634697931523330369_n.jpg?oh=399772bfd843299a1be4cda045562422&oe=58BD1510"
+            downloadAndDrawMarke(marker: marker, imageURL: imageURLTourist, markerImage: ivmarker!, isTourist: isTourist)
             
-
-            let url = URL(string: infoData.displayPhoto!)
-
-            
-            if let data = try? Data(contentsOf: url!){
-                
-                let ivAvatar = UIImage(data: data)
-                drawMarker(marker: marker, image: ivAvatar!, markerImage: ivmarker!, isTourist: isTourist)
-            }
-            else
-            {
-                let ivAvatar = UIImage(named: "ic_avatar")
-                drawMarker(marker: marker, image: ivAvatar!, markerImage: ivmarker!, isTourist: isTourist)
-            }
+//            let url = URL(string: infoData.displayPhoto!)
+//
+//            
+//            if let data = try? Data(contentsOf: url!){
+//                
+//                let ivAvatar = UIImage(data: data)
+//                drawMarker(marker: marker, image: ivAvatar!, markerImage: ivmarker!, isTourist: isTourist)
+//            }
+//            else
+//            {
+//                let ivAvatar = UIImage(named: "ic_avatar")
+//                drawMarker(marker: marker, image: ivAvatar!, markerImage: ivmarker!, isTourist: isTourist)
+//            }
             
             
         }else{
@@ -829,8 +827,10 @@ extension MapViewController: GMSMapViewDelegate{
         if isTourist{
             
             let ivmarker = UIImage(named: "4")
-            let ivAvatar = UIImage(named: "ic_avatar")
-            drawMarker(marker: marker, image: ivAvatar!, markerImage: ivmarker!, isTourist: isTourist)
+            //let ivAvatar = UIImage(named: "ic_avatar")
+            //drawMarker(marker: marker, image: ivAvatar!, markerImage: ivmarker!, isTourist: isTourist)
+            let imageURLTourist = "https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/14947705_776565815818185_1634697931523330369_n.jpg?oh=399772bfd843299a1be4cda045562422&oe=58BD1510"
+            downloadAndDrawMarke(marker: marker, imageURL: imageURLTourist, markerImage: ivmarker!, isTourist: isTourist)
             
         }else{
             
@@ -848,9 +848,10 @@ extension MapViewController: GMSMapViewDelegate{
         
         if isTourist{
             
+            let imageURLTourist = "https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/14947705_776565815818185_1634697931523330369_n.jpg?oh=399772bfd843299a1be4cda045562422&oe=58BD1510"
             let ivmarker = UIImage(named: "2")
-            let ivAvatar = UIImage(named: "ic_avatar")
-            drawMarker(marker: marker, image: ivAvatar!, markerImage: ivmarker!, isTourist: isTourist)
+            //let ivAvatar = UIImage(named: "ic_avatar")
+            downloadAndDrawMarke(marker: marker, imageURL: imageURLTourist, markerImage: ivmarker!, isTourist: isTourist)
             
             
         }else{
@@ -866,7 +867,7 @@ extension MapViewController: GMSMapViewDelegate{
     
     
     
-    func drawMarker(marker: GMSMarker ,image: UIImage, markerImage: UIImage , isTourist: Bool) {
+    func drawMarker(marker: GMSMarker ,image: UIImage, markerImage: UIImage, isTourist: Bool) {
         
         if(isTourist)
         {
@@ -940,6 +941,28 @@ extension MapViewController: GMSMapViewDelegate{
         
     }
     
+    func downloadAndDrawMarke(marker: GMSMarker, imageURL: String, markerImage: UIImage,  isTourist: Bool)
+    {
+        let cacheImage = SDWebImageManager.shared().imageCache.imageFromMemoryCache(forKey: imageURL)
+        if(cacheImage == nil)
+        {
+            SDWebImageManager.shared().downloadImage(with: Foundation.URL(string: imageURL), options: SDWebImageOptions.highPriority, progress: { (receivedSize, expectedSize) in
+                
+                print("OK")
+            }, completed: { (image, Error, cacheType, finish, urlImage) in
+                
+                self.drawMarker(marker: marker, image: image!, markerImage: markerImage, isTourist: isTourist)
+                
+            })
+        }
+        else
+        {
+            drawMarker(marker: marker, image: cacheImage!, markerImage: markerImage, isTourist: isTourist)
+            
+        }
+        
+    }
+
     func showPopupWaring(dataWarning: Dictionary<String, Any>)
     {
         
