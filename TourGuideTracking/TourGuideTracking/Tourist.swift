@@ -21,5 +21,6 @@ class Tourist: Mappable{
         self.touristID <- map["tourist_id"]
         self.location <- map["location"]
         self.displayPhoto <- map["display_photo"]
+        self.name <- map["name"]
     }
 }

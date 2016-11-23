@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LyX-R6-spr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LyX-R6-spr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -2950,52 +2950,6 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V0i-4E-typ" customClass="ViewRoundCorner" customModule="TourGuideTracking" customModuleProvider="target">
-                                <rect key="frame" x="38" y="324" width="300" height="70"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYq-zi-oAF">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="70"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ba Na Hill" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWB-uD-T8L">
-                                                <rect key="frame" x="10" y="10" width="290" height="25"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="25" id="Pef-nW-kIY"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+849999222" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kxv-WG-FDU">
-                                                <rect key="frame" x="10" y="40" width="80" height="20"/>
-                                                <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="14"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="xWB-uD-T8L" firstAttribute="top" secondItem="aYq-zi-oAF" secondAttribute="top" constant="10" id="JvF-uw-0Yi"/>
-                                            <constraint firstAttribute="trailing" secondItem="xWB-uD-T8L" secondAttribute="trailing" id="K5x-eU-j3L"/>
-                                            <constraint firstItem="xWB-uD-T8L" firstAttribute="leading" secondItem="aYq-zi-oAF" secondAttribute="leading" constant="10" id="f8g-Xa-uJV"/>
-                                            <constraint firstItem="Kxv-WG-FDU" firstAttribute="leading" secondItem="aYq-zi-oAF" secondAttribute="leading" constant="10" id="g3X-go-Uym"/>
-                                            <constraint firstAttribute="bottom" secondItem="Kxv-WG-FDU" secondAttribute="bottom" constant="10" id="h7g-Hd-cLC"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="2mX-od-2Vb"/>
-                                    <constraint firstItem="aYq-zi-oAF" firstAttribute="top" secondItem="V0i-4E-typ" secondAttribute="top" id="X64-qB-KpU"/>
-                                    <constraint firstItem="aYq-zi-oAF" firstAttribute="leading" secondItem="V0i-4E-typ" secondAttribute="leading" id="a3a-nF-loN"/>
-                                    <constraint firstAttribute="bottom" secondItem="aYq-zi-oAF" secondAttribute="bottom" id="dbe-IG-2pW"/>
-                                    <constraint firstAttribute="trailing" secondItem="aYq-zi-oAF" secondAttribute="trailing" id="rE3-9m-ZR5"/>
-                                    <constraint firstAttribute="width" constant="300" id="y3p-xO-NnK"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LzK-W7-WQs" customClass="ViewRoundCorner" customModule="TourGuideTracking" customModuleProvider="target">
                                 <rect key="frame" x="-5" y="69" width="51" height="28"/>
                                 <subviews>
@@ -3279,6 +3233,71 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V0i-4E-typ" customClass="ViewRoundCorner" customModule="TourGuideTracking" customModuleProvider="target">
+                                <rect key="frame" x="38" y="298.5" width="300" height="100"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6rZ-0G-NEz">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PHp-sS-PMy">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="PHp-sS-PMy" firstAttribute="leading" secondItem="6rZ-0G-NEz" secondAttribute="leading" id="BTu-HY-HQm"/>
+                                            <constraint firstAttribute="trailing" secondItem="PHp-sS-PMy" secondAttribute="trailing" id="FZ5-YS-lOX"/>
+                                            <constraint firstAttribute="width" constant="100" id="GGe-kt-bhN"/>
+                                            <constraint firstAttribute="bottom" secondItem="PHp-sS-PMy" secondAttribute="bottom" id="h1w-WQ-ONJ"/>
+                                            <constraint firstItem="PHp-sS-PMy" firstAttribute="top" secondItem="6rZ-0G-NEz" secondAttribute="top" id="qgB-UV-8XQ"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYq-zi-oAF">
+                                        <rect key="frame" x="100" y="0.0" width="200" height="100"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ba Na Hill" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWB-uD-T8L">
+                                                <rect key="frame" x="10" y="10" width="190" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="Pef-nW-kIY"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+849999222" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kxv-WG-FDU">
+                                                <rect key="frame" x="10" y="40" width="80" height="20"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="14"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="Kxv-WG-FDU" firstAttribute="top" secondItem="xWB-uD-T8L" secondAttribute="bottom" constant="5" id="HkH-I1-aUi"/>
+                                            <constraint firstItem="xWB-uD-T8L" firstAttribute="top" secondItem="aYq-zi-oAF" secondAttribute="top" constant="10" id="JvF-uw-0Yi"/>
+                                            <constraint firstAttribute="trailing" secondItem="xWB-uD-T8L" secondAttribute="trailing" id="K5x-eU-j3L"/>
+                                            <constraint firstItem="xWB-uD-T8L" firstAttribute="leading" secondItem="aYq-zi-oAF" secondAttribute="leading" constant="10" id="f8g-Xa-uJV"/>
+                                            <constraint firstItem="Kxv-WG-FDU" firstAttribute="leading" secondItem="aYq-zi-oAF" secondAttribute="leading" constant="10" id="g3X-go-Uym"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="2mX-od-2Vb"/>
+                                    <constraint firstItem="6rZ-0G-NEz" firstAttribute="leading" secondItem="V0i-4E-typ" secondAttribute="leading" id="EFl-ES-65B"/>
+                                    <constraint firstItem="aYq-zi-oAF" firstAttribute="leading" secondItem="6rZ-0G-NEz" secondAttribute="trailing" id="UDL-p7-m4n"/>
+                                    <constraint firstItem="aYq-zi-oAF" firstAttribute="top" secondItem="V0i-4E-typ" secondAttribute="top" id="X64-qB-KpU"/>
+                                    <constraint firstItem="6rZ-0G-NEz" firstAttribute="top" secondItem="V0i-4E-typ" secondAttribute="top" id="cRG-EK-BGI"/>
+                                    <constraint firstAttribute="bottom" secondItem="aYq-zi-oAF" secondAttribute="bottom" id="dbe-IG-2pW"/>
+                                    <constraint firstAttribute="bottom" secondItem="6rZ-0G-NEz" secondAttribute="bottom" id="jeR-bQ-IKF"/>
+                                    <constraint firstAttribute="trailing" secondItem="aYq-zi-oAF" secondAttribute="trailing" id="rE3-9m-ZR5"/>
+                                    <constraint firstAttribute="width" constant="300" id="y3p-xO-NnK"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -3286,7 +3305,7 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                             <constraint firstAttribute="trailing" secondItem="lyU-bG-3B6" secondAttribute="trailing" id="9jC-zJ-8r0"/>
                             <constraint firstItem="lyU-bG-3B6" firstAttribute="leading" secondItem="LNi-6s-ohd" secondAttribute="leading" id="AmD-Rk-vBg"/>
                             <constraint firstItem="lyU-bG-3B6" firstAttribute="top" secondItem="iT4-1m-SXx" secondAttribute="bottom" id="Loy-c3-mZ4"/>
-                            <constraint firstItem="V0i-4E-typ" firstAttribute="centerY" secondItem="LNi-6s-ohd" secondAttribute="centerY" constant="25" id="MU2-x6-9ob"/>
+                            <constraint firstItem="V0i-4E-typ" firstAttribute="centerY" secondItem="LNi-6s-ohd" secondAttribute="centerY" constant="15" id="MU2-x6-9ob"/>
                             <constraint firstAttribute="trailing" secondItem="aUA-9g-OnR" secondAttribute="trailing" id="PxY-je-ttV"/>
                             <constraint firstItem="aUA-9g-OnR" firstAttribute="leading" secondItem="LNi-6s-ohd" secondAttribute="leading" id="TyU-fN-OA1"/>
                             <constraint firstItem="aUA-9g-OnR" firstAttribute="top" secondItem="iT4-1m-SXx" secondAttribute="bottom" constant="-40" id="Uz2-1j-wXY"/>
@@ -3343,6 +3362,7 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                         <outlet property="consTopVWarning" destination="wkW-r7-piR" id="7nf-mo-cFC"/>
                         <outlet property="consVTopStatusTourist" destination="Uz2-1j-wXY" id="nLF-vm-ZRn"/>
                         <outlet property="displaySegmented" destination="B28-vP-w7w" id="GSm-XR-6IC"/>
+                        <outlet property="ivCoverPhotoPlace" destination="PHp-sS-PMy" id="Hk3-WK-X91"/>
                         <outlet property="lbCateWarning" destination="5ue-fP-GO3" id="zc8-oT-Wyy"/>
                         <outlet property="lbContactPlacePopup" destination="Kxv-WG-FDU" id="L2u-jv-b0D"/>
                         <outlet property="lbDescriptionWarning" destination="8z8-l2-PbQ" id="clb-NN-9M0"/>
