@@ -12,12 +12,14 @@ import AFNetworking
 class TourInfoCell: UITableViewCell {
 
   
+    @IBOutlet weak var dayLeftLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var touristQuantityLabel: UILabel!
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var coverImageView: UIImageView!
+    
     var tour:Tour!{
         didSet{
             touristQuantityLabel.text = String(format:"%d", tour.quantity!)
@@ -28,6 +30,14 @@ class TourInfoCell: UITableViewCell {
             if(tour.coverPhoto != ""){
                 coverImageView.setImageWith(URL(string:tour.coverPhoto!)!)
             }
+            let dayLeft = tour.countDown(departureDate: tour.departureDate!, currentDate: Date())
+            if dayLeft > 0{
+                dayLeftLabel.text = "Còn \(dayLeft) ngày"
+            }
+            else{
+                dayLeftLabel.text = "Đang hoạt động"
+            }
+
         }
     }
     override func awakeFromNib() {

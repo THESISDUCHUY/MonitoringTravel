@@ -8,17 +8,19 @@
 
 import UIKit
 import GoogleMaps
+
 import SwiftR
 
 class WarningViewController: BaseViewController {
 
+    @IBOutlet weak var contentTextView: TextViewRoundConner!
     @IBOutlet weak var mapView: GMSMapView!
-    
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var locationTextFiled: UITextField!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        mapView.delegate = self
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
         self.tabBarController?.hidesBottomBarWhenPushed = true
@@ -28,7 +30,7 @@ class WarningViewController: BaseViewController {
 
     }
     @IBAction func sendWarning(_ sender: Any) {
-        
+       // tourguideHub?.invoke("updatePositionTourGuide", arguments: [senderId, latitude, longitude, receiver])
             appDelegate.tourguideHub?.invoke("updatePositionTourGuide", arguments: ["TG_1", "1234", "24324324", "MG_1"] ) { (result, error) in
                 if let e = error {
                     #if DEBUG
@@ -46,7 +48,6 @@ class WarningViewController: BaseViewController {
                     }
                 }
             }
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,6 +55,9 @@ class WarningViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onWarningButton(_ sender: Any) {
+        
+    }
     func setRecognizer(){
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTapScreen(_ : )))
         // Attach it to a view of your choice. If it's a UIImageView, remember to enable user interaction
@@ -72,7 +76,7 @@ class WarningViewController: BaseViewController {
          }*/
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0{
-                self.view.frame.origin.y -= keyboardSize.height/2
+                self.view.frame.origin.y -= keyboardSize.height/1.5
             }
         }
     }
@@ -84,8 +88,14 @@ class WarningViewController: BaseViewController {
          }*/
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y != 0{
-                self.view.frame.origin.y += keyboardSize.height/2
+                self.view.frame.origin.y += keyboardSize.height/1.5
             }
         }
+    }
+}
+
+extension WarningViewController:  GMSMapViewDelegate{
+    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+        locationTextFiled.text = "\(mapView.camera.target.latitude), \(mapView.camera.target.longitude)"
     }
 }

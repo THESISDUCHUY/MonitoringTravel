@@ -56,4 +56,11 @@ class Tour:Mappable{
         formatter.dateFormat = "dd-MM-yyyy"
         return formatter.string(from: date)
     }
+    
+    func countDown(departureDate:Date, currentDate:Date) -> Int{
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.day], from: currentDate, to: departureDate)
+        return components.day!
+    }
+
 }

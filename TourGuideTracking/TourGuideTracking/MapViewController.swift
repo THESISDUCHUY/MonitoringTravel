@@ -1036,7 +1036,7 @@ extension MapViewController: GMSMapViewDelegate{
 extension MapViewController: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        print(locations[0].coordinate.latitude)
+        //print(locations[0].coordinate.latitude)
         
 //                if let hub = chatHub, {
 //                    hub.invoke("updateLocation", arguments: ["37.121300", "-95.416603"])
