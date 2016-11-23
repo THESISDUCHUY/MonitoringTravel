@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TourGuideTracking/MapViewController.swift"
-            timestampString = "501523260.282257"
+            timestampString = "501528561.13927"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "306"
-            endingLineNumber = "306"
+            startingLineNumber = "301"
+            endingLineNumber = "301"
             landmarkName = "connectServer()"
             landmarkType = "7">
          </BreakpointContent>

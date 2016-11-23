@@ -153,39 +153,29 @@ class MapViewController: BaseViewController {
         hiddenPopupInfoPlace()
         hiddenPopupInfoTourist()
         if(markerSelected != nil)
-            
         {
             markerSelected = nil
         }
         
-        if displaySegmented.selectedSegmentIndex == 0{
-//            if (Singleton.sharedInstance.places?.count == 0){
-//                
-//                getPlacesLocation()
-//                
-//            }
-//            else{
-//                
-//                displayPlacesOnMap()
-//                
-//            }
-            self.setMapView(lat: (Singleton.sharedInstance.places?[0].location?.latitude!)!, long: (Singleton.sharedInstance.places?[0].location?.longitude!)!)
+        if displaySegmented.selectedSegmentIndex == 0
+        {
+            
+            if (Singleton.sharedInstance.places?.count != 0)
+            {
+                self.setMapView(lat: (Singleton.sharedInstance.places?[0].location?.latitude!)!, long: (Singleton.sharedInstance.places?[0].location?.longitude!)!)
+            }
+            
         }
-            
-            
-        else{
-            self.setMapView(lat: (Singleton.sharedInstance.tourists?[0].location?.latitude!)!, long: (Singleton.sharedInstance.tourists?[0].location?.longitude!)!)
-//            if Singleton.sharedInstance.tourists?.count == 0{
-//                
-//                
-//                getTouristsLocation()
-//                
-//            }
-//            else{
-//                
-//                displayTouristOnMap()
-//                
-//            }
+        else
+        {
+            if(Singleton.sharedInstance.tourists?.count != 0)
+            {
+                self.setMapView(lat: (Singleton.sharedInstance.tourists?[0].location?.latitude!)!, long: (Singleton.sharedInstance.tourists?[0].location?.longitude!)!)
+            }
+            else
+            {
+                
+            }
         }
     }
     
@@ -205,11 +195,13 @@ class MapViewController: BaseViewController {
                     self.displayPlacesOnMap()
                 }
                 else{
-                    Alert.showAlertMessage(userMessage: message!, vc: self)
+                    self.showMessage(message!)
+                
+
                 }
             }
             else {
-                Alert.showAlertMessage(userMessage: ERROR_MESSAGE.CONNECT_SERVER , vc: self)
+                self.showMessage(ERROR_MESSAGE.CONNECT_SERVER, title: "Error")
             }
         }
         
@@ -233,11 +225,14 @@ class MapViewController: BaseViewController {
                     self.displayTouristOnMap()
                 }
                 else{
-                    Alert.showAlertMessage(userMessage: message!, vc: self)
+                    //Alert.showAlertMessage(userMessage: message!, vc: self)
+                    self.showMessage(message!)
                 }
             }
             else{
-                Alert.showAlertMessage(userMessage: ERROR_MESSAGE.CONNECT_SERVER, vc: self)
+               // .showAlertMessage(userMessage: ERROR_MESSAGE.CONNECT_SERVER, vc: self)
+                
+                self.showMessage(ERROR_MESSAGE.CONNECT_SERVER, title: "Error")
             }
         }
         
@@ -356,7 +351,7 @@ class MapViewController: BaseViewController {
                 marker.icon = ivMarkerWarning
                 marker.map = self?.mapView
                 marker.userData = objectData
-                marker.title = "Warning"
+                marker.title = "WARNING"
                 
          
                 let circ = GMSCircle(position: CLLocationCoordinate2D(latitude: lat!, longitude: long!), radius: distance * 1000)
@@ -678,11 +673,11 @@ extension MapViewController: GMSMapViewDelegate{
         hiddenPopupWarning()
         if(markerSelected != nil)
         {
-            if self.displaySegmented.selectedSegmentIndex == 0
+            if (markerSelected?.title == "PLACE")
             {
                 removeMarkerSelect(marker: markerSelected!, latitude: (markerSelected?.position.latitude)!, longitude: (markerSelected?.position.longitude)!, data: markerSelected?.userData as AnyObject?, isTourist: false).map = mapView
             }
-            else
+            else if(markerSelected?.title == "TOURIST")
             {
                 removeMarkerSelect(marker: markerSelected!, latitude: (markerSelected?.position.latitude)!, longitude: (markerSelected?.position.longitude)!, data: markerSelected?.userData as AnyObject?, isTourist: true).map = mapView
             }
@@ -704,52 +699,45 @@ extension MapViewController: GMSMapViewDelegate{
 
         print(marker.title)
         
-        if(marker.title == "Warning")
+        if(marker.title == "WARNING")
         {
             let dataMarker = marker.userData as! Dictionary<String, Any>
             showPopupWaring(dataWarning: dataMarker)
             print(dataMarker)
-            
             markerSelectedWarning = marker
         
         }
-        else
+        else if(marker.title == "PLACE")
         {
-            if self.displaySegmented.selectedSegmentIndex == 0
+            if(markerSelected != nil)
             {
-                if(markerSelected != nil)
-                {
-                    removeMarkerSelect(marker: markerSelected!, latitude: (markerSelected?.position.latitude)!, longitude: (markerSelected?.position.longitude)!, data: markerSelected?.userData as AnyObject?, isTourist: false).map = mapView
-                }
-                updateMarkerSelect(marker: marker, latitude: marker.position.latitude, longitude: marker.position.longitude, data: marker.userData as AnyObject?, isTourist: false).map = mapView
-                
-                let dataPlacePopup = marker.userData as! Place
-                lbNamePlacePopup.text = dataPlacePopup.name
-                lbContactPlacePopup.text = dataPlacePopup.contact
-                
-                showPopupInfoPlace()
-                
-                
+                removeMarkerSelect(marker: markerSelected!, latitude: (markerSelected?.position.latitude)!, longitude: (markerSelected?.position.longitude)!, data: markerSelected?.userData as AnyObject?, isTourist: false).map = mapView
             }
-                
-            else
-            {
-                if(markerSelected != nil)
-                {
-                    removeMarkerSelect(marker: markerSelected!, latitude: (markerSelected?.position.latitude)!, longitude: (markerSelected?.position.longitude)!, data: markerSelected?.userData as AnyObject?, isTourist: true).map = mapView
-                }
-                updateMarkerSelect(marker: marker, latitude: marker.position.latitude, longitude: marker.position.longitude, data: marker.userData as AnyObject?, isTourist: true).map = mapView
-                
-                let dataTourist = marker.userData as! Tourist
-                lbTouristName.text = dataTourist.name
-                lbDistanceTourist.text = "Caculating..."
-                
-                showPopupInfoTourist()
-            }
+            updateMarkerSelect(marker: marker, latitude: marker.position.latitude, longitude: marker.position.longitude, data: marker.userData as AnyObject?, isTourist: false).map = mapView
             
-            markerSelected = marker
-        
+            let dataPlacePopup = marker.userData as! Place
+            lbNamePlacePopup.text = dataPlacePopup.name
+            lbContactPlacePopup.text = dataPlacePopup.contact
+            
+            showPopupInfoPlace()
+            
         }
+        else if(marker.title == "TOURIST")
+        {
+            if(markerSelected != nil)
+            {
+                removeMarkerSelect(marker: markerSelected!, latitude: (markerSelected?.position.latitude)!, longitude: (markerSelected?.position.longitude)!, data: markerSelected?.userData as AnyObject?, isTourist: true).map = mapView
+            }
+            updateMarkerSelect(marker: marker, latitude: marker.position.latitude, longitude: marker.position.longitude, data: marker.userData as AnyObject?, isTourist: true).map = mapView
+            
+            let dataTourist = marker.userData as! Tourist
+            lbTouristName.text = dataTourist.name
+            lbDistanceTourist.text = "Caculating..."
+            
+            showPopupInfoTourist()
+        }
+        
+        markerSelected = marker
         return true
     }
     
@@ -781,10 +769,10 @@ extension MapViewController: GMSMapViewDelegate{
     
     func setMapView(lat:Double = 0, long:Double = 0) {
         
-//        mapView.clear()
-        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 12.0)
-        mapView.animate(to: camera)
-        mapView.isMyLocationEnabled = true
+//      mapView.clear()
+//        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 12.0)
+//        mapView.animate(to: camera)
+//        mapView.isMyLocationEnabled = true
         
     }
     
@@ -794,9 +782,12 @@ extension MapViewController: GMSMapViewDelegate{
         marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         marker.userData = data
         
+        
         if isTourist{
             
             //let infoData = marker.userData as! Tourist
+            
+            marker.title = "TOURIST"
             
             let ivmarker = UIImage(named: "2")
             let imageURLTourist = "https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/14947705_776565815818185_1634697931523330369_n.jpg?oh=399772bfd843299a1be4cda045562422&oe=58BD1510"
@@ -819,6 +810,7 @@ extension MapViewController: GMSMapViewDelegate{
             
         }else{
             
+            marker.title = "PLACE"
             let ivmarker = UIImage(named: "ic_flag")
             let ivAvatar = UIImage(named: "ic_avatar")
             drawMarker(marker: marker, image: ivAvatar!, markerImage: ivmarker!, isTourist: isTourist)
@@ -864,7 +856,7 @@ extension MapViewController: GMSMapViewDelegate{
         }else{
             
             let ivmarker = UIImage(named: "ic_flag")
-            let ivAvatar = UIImage(named: "ic_avatar")
+            let ivAvatar = UIImage(named: "ic_flag")
             
             drawMarker(marker: marker, image: ivAvatar!, markerImage: ivmarker!, isTourist: isTourist)
         }
@@ -899,11 +891,11 @@ extension MapViewController: GMSMapViewDelegate{
             
             let ivPhoto = UIImageView(frame: CGRect(x: topSpace, y: topSpace, width: imageWith, height: imageWith))
             ivPhoto.backgroundColor = UIColor.clear
-            ivPhoto.contentMode = UIViewContentMode.scaleAspectFill
-            ivPhoto.clipsToBounds = true
-            ivPhoto.layer.cornerRadius = ivPhoto.frame.size.width / 2
-            ivPhoto.layer.masksToBounds = true
+            //ivPhoto.contentMode = UIViewContentMode.scaleAspectFill
+           
+            //ivPhoto.layer.cornerRadius = ivPhoto.frame.size.width / 2
             
+
             
             vTemp.addSubview(ivPhoto)
             vTemp.addSubview(ivMarker)
@@ -919,6 +911,8 @@ extension MapViewController: GMSMapViewDelegate{
             UIGraphicsEndImageContext()
             
             marker.icon = finalImage
+            
+            //vTemp.de
         }
         
         else
@@ -953,7 +947,7 @@ extension MapViewController: GMSMapViewDelegate{
         let cacheImage = SDWebImageManager.shared().imageCache.imageFromMemoryCache(forKey: imageURL)
         if(cacheImage == nil)
         {
-            SDWebImageManager.shared().downloadImage(with: Foundation.URL(string: imageURL), options: SDWebImageOptions.highPriority, progress: { (receivedSize, expectedSize) in
+            SDWebImageManager.shared().downloadImage(with: Foundation.URL(string: imageURL), options: [SDWebImageOptions.lowPriority,  SDWebImageOptions.continueInBackground], progress: { (receivedSize, expectedSize) in
                 
                 print("OK")
             }, completed: { (image, Error, cacheType, finish, urlImage) in

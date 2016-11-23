@@ -8,7 +8,6 @@
 
 import UIKit
 import GoogleMaps
-
 import SwiftR
 
 class WarningViewController: BaseViewController {
@@ -19,7 +18,7 @@ class WarningViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
         self.tabBarController?.hidesBottomBarWhenPushed = true
