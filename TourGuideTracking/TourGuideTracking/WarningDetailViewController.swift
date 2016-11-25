@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import SwiftR
 
 class WarningDetailViewController: BaseViewController {
 
@@ -25,7 +26,10 @@ class WarningDetailViewController: BaseViewController {
     
     
     var warningData : Dictionary<String, Any>?
-  
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    var warningId : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,6 +45,7 @@ class WarningDetailViewController: BaseViewController {
             let long = warningData?["Long"] as? Double
             let distance = warningData?["Distance"] as! Double
             
+            warningId = warningData?["WarningId"] as? String
             
             self.lbWarningName.text = warningName
             self.lbCategoryWarning.text = categoryWarnig
@@ -75,8 +80,30 @@ class WarningDetailViewController: BaseViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+ 
+    @IBAction func confirmWarning(_ sender: Any) {
+        
+        appDelegate.tourguideHub?.invoke("confirmWarning", arguments: [warningId, Singleton.sharedInstance.tourguide.tourGuideId] ) { (result, error) in
+            if let e = error {
+                #if DEBUG
+                    
+                    self.showMessage("Error confirmWarning: \(e)")
+                    
+                #else
+                    
+                #endif
+                
+            } else {
+                print("Success!")
+                if let r = result {
+                    print("Result: \(r)")
+                }
+            }
+        }
+    }
 
+    @IBAction func needHelp(_ sender: Any) {
+    }
     /*
     // MARK: - Navigation
 

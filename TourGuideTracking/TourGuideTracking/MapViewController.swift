@@ -209,8 +209,7 @@ class MapViewController: BaseViewController {
                 self.showMessage(ERROR_MESSAGE.CONNECT_SERVER, title: "Error")
             }
         }
-        
-       // MBProgressHUD.hide(for: self.view, animated: true)
+
     }
     
     func getTouristsLocation(){
@@ -225,7 +224,7 @@ class MapViewController: BaseViewController {
                     let tourists = response?.listData
                     Singleton.sharedInstance.tourists = tourists
                     
-                    MBProgressHUD.hide(for: self.view, animated: true)
+                    
 
                     self.displayTouristOnMap()
                     
@@ -242,24 +241,21 @@ class MapViewController: BaseViewController {
                 self.showMessage(ERROR_MESSAGE.CONNECT_SERVER, title: "Error")
             }
         }
-        
+        MBProgressHUD.hide(for: self.view, animated: true)
     }
     
     func displayPlacesOnMap(){
-        //MBProgressHUD.showAdded(to: self.view, animated: true)
+   
         let places = Singleton.sharedInstance.places
         for place in places!{
             createMarker(latitude: place.location.latitude!, longitude: place.location.longitude!, data:place, isTourist: false).map = mapView
         }
         self.setMapView(lat: (places?[0].location?.latitude!)!, long: (places?[0].location?.longitude!)!)
-        //MBProgressHUD.hide(for: self.view, animated: true)
     }
     
     
     func displayTouristOnMap(){
         
-        
-        //MBProgressHUD.showAdded(to: self.view, animated: true)
         let tourists = Singleton.sharedInstance.tourists
         
         for tourist in tourists!{
@@ -278,7 +274,7 @@ class MapViewController: BaseViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if(markerSelectedWarning?.title == "Warning")
+        if(markerSelectedWarning?.title == "WARNING")
         {
             hiddenPopupWarning()
             let warningData =  markerSelectedWarning?.userData
@@ -288,12 +284,12 @@ class MapViewController: BaseViewController {
             // markerSelected = nil
         }
     }
-
     
     
     //MARK: Realtime Server
     
     func connectServer(){
+        
         SwiftR.useWKWebView = false
         
         SwiftR.signalRVersion = .v2_2_1
@@ -712,7 +708,15 @@ extension MapViewController: GMSMapViewDelegate{
         {
             if(markerSelected != nil)
             {
-                removeMarkerSelect(marker: markerSelected!, latitude: (markerSelected?.position.latitude)!, longitude: (markerSelected?.position.longitude)!, data: markerSelected?.userData as AnyObject?, isTourist: false).map = mapView
+                if(markerSelected?.title == "PLACE")
+                {
+                    removeMarkerSelect(marker: markerSelected!, latitude: (markerSelected?.position.latitude)!, longitude: (markerSelected?.position.longitude)!, data: markerSelected?.userData as AnyObject?, isTourist: false).map = mapView
+                }
+                else if(marker.title == "TOURIST")
+                
+                {
+                    removeMarkerSelect(marker: markerSelected!, latitude: (markerSelected?.position.latitude)!, longitude: (markerSelected?.position.longitude)!, data: markerSelected?.userData as AnyObject?, isTourist: true).map = mapView
+                }
             }
             updateMarkerSelect(marker: marker, latitude: marker.position.latitude, longitude: marker.position.longitude, data: marker.userData as AnyObject?, isTourist: false).map = mapView
             
@@ -730,7 +734,8 @@ extension MapViewController: GMSMapViewDelegate{
                 let coverPhotoImage = UIImage(named: "default")
                 ivCoverPhotoPlace.image = coverPhotoImage
             }
-          
+            hiddenPopupInfoTourist()
+            hiddenPopupWarning()
             showPopupInfoPlace()
             
             
@@ -740,9 +745,18 @@ extension MapViewController: GMSMapViewDelegate{
         {
             if(markerSelected != nil)
             {
-                removeMarkerSelect(marker: markerSelected!, latitude: (markerSelected?.position.latitude)!, longitude: (markerSelected?.position.longitude)!, data: markerSelected?.userData as AnyObject?, isTourist: true).map = mapView
+                if(markerSelected?.title == "TOURIST")
+                {
+                    removeMarkerSelect(marker: markerSelected!, latitude: (markerSelected?.position.latitude)!, longitude: (markerSelected?.position.longitude)!, data: markerSelected?.userData as AnyObject?, isTourist: true).map = mapView
+                }
+                else if(markerSelected?.title == "PLACE")
+                {
+                    removeMarkerSelect(marker: markerSelected!, latitude: (markerSelected?.position.latitude)!, longitude: (markerSelected?.position.longitude)!, data: markerSelected?.userData as AnyObject?, isTourist: false).map = mapView
+                }
             }
             updateMarkerSelect(marker: marker, latitude: marker.position.latitude, longitude: marker.position.longitude, data: marker.userData as AnyObject?, isTourist: true).map = mapView
+            
+            
             
             let dataTourist = marker.userData as! Tourist
             lbTouristName.text = dataTourist.name
@@ -750,7 +764,9 @@ extension MapViewController: GMSMapViewDelegate{
             let markerLocation: CLLocation =  CLLocation(latitude: marker.position.latitude, longitude: marker.position.longitude)
            
             lbDistanceTourist.text = String(describing: distanceBetweenTwoLocations(source: locationManager.location!, destination: markerLocation)) + "m"
-          
+            
+            hiddenPopupInfoPlace()
+            hiddenPopupWarning()
             showPopupInfoTourist()
           
         }
@@ -853,7 +869,6 @@ extension MapViewController: GMSMapViewDelegate{
         if isTourist{
             
             marker.title = "TOURIST"
-            
             let ivmarker = UIImage(named: "4")
             let infoData = marker.userData as! Tourist
             

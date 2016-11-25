@@ -184,6 +184,9 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                                         <real key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="confirmWarning:" destination="7DY-b9-aFs" eventType="touchUpInside" id="2Dy-Iu-499"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -208,6 +211,9 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                                         <real key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="needHelp:" destination="7DY-b9-aFs" eventType="touchUpInside" id="2jV-Aa-7Jr"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -349,7 +355,7 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                                         </userDefinedRuntimeAttributes>
                                                     </textView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YxF-8b-1UY" customClass="ButtonRoundCorner" customModule="TourGuideTracking" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="304" width="359" height="45"/>
+                                                        <rect key="frame" x="8" y="329" width="359" height="45"/>
                                                         <color key="backgroundColor" red="0.0" green="0.76470588240000004" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="ODS-Ea-DqE"/>
@@ -374,7 +380,6 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                                     <constraint firstAttribute="trailing" secondItem="F2B-UO-o6G" secondAttribute="trailing" constant="8" id="5tA-Ve-T8g"/>
                                                     <constraint firstItem="WX2-pK-oC3" firstAttribute="leading" secondItem="boW-ZA-F1C" secondAttribute="leading" constant="8" id="6fX-Wh-sac"/>
                                                     <constraint firstItem="Tz3-eY-Cgw" firstAttribute="leading" secondItem="boW-ZA-F1C" secondAttribute="leading" constant="8" id="7wL-nK-Isk"/>
-                                                    <constraint firstItem="YxF-8b-1UY" firstAttribute="top" secondItem="WX2-pK-oC3" secondAttribute="bottom" constant="20" id="94r-HO-BDK"/>
                                                     <constraint firstItem="jd6-DC-hzI" firstAttribute="leading" secondItem="boW-ZA-F1C" secondAttribute="leading" constant="8" id="Flb-Xw-wHs"/>
                                                     <constraint firstItem="4b2-PZ-B6l" firstAttribute="leading" secondItem="boW-ZA-F1C" secondAttribute="leading" constant="8" id="Jjn-7P-vUo"/>
                                                     <constraint firstItem="F2B-UO-o6G" firstAttribute="top" secondItem="jd6-DC-hzI" secondAttribute="bottom" constant="8" id="Kuh-15-5No"/>
@@ -385,6 +390,7 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                                                     <constraint firstItem="4b2-PZ-B6l" firstAttribute="top" secondItem="pbM-fy-xpk" secondAttribute="bottom" constant="8" id="a4o-xI-GuL"/>
                                                     <constraint firstItem="jd6-DC-hzI" firstAttribute="top" secondItem="boW-ZA-F1C" secondAttribute="top" constant="8" id="aHo-Bt-tqy"/>
                                                     <constraint firstItem="Tz3-eY-Cgw" firstAttribute="top" secondItem="4b2-PZ-B6l" secondAttribute="bottom" constant="16" id="bAb-yN-hfD"/>
+                                                    <constraint firstAttribute="bottom" secondItem="YxF-8b-1UY" secondAttribute="bottom" id="mAd-n3-lUh"/>
                                                     <constraint firstItem="pbM-fy-xpk" firstAttribute="top" secondItem="F2B-UO-o6G" secondAttribute="bottom" constant="16" id="nfW-Td-X2t"/>
                                                     <constraint firstAttribute="trailing" secondItem="4b2-PZ-B6l" secondAttribute="trailing" constant="8" id="s46-e1-dkN"/>
                                                     <constraint firstItem="F2B-UO-o6G" firstAttribute="leading" secondItem="boW-ZA-F1C" secondAttribute="leading" constant="8" id="ugO-07-fyK"/>
@@ -3335,7 +3341,7 @@ Một ca khúc trữ tình về đề tài tình yêu được Elvis Costello tr
                             </connections>
                         </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="B28-vP-w7w">
-                            <rect key="frame" x="123.5" y="7" width="128" height="30"/>
+                            <rect key="frame" x="124" y="7" width="128" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.0" green="0.79215686269999996" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <segments>
