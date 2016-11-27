@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import SwiftR
 
 class WarningDetailViewController: BaseViewController {
 
@@ -25,13 +26,17 @@ class WarningDetailViewController: BaseViewController {
     
     
     var warningData : Dictionary<String, Any>?
-  
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var warningId : String?
+    var warningName: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         if(self.warningData != nil)
         {
-            let warningName = warningData?["WarningName"] as? String
+            warningName = warningData?["WarningName"] as? String
             let categoryWarnig = warningData?["CategoryWarnig"] as? String
             let descriptiontionWarning = warningData?["DescriptionWarning"] as? String
             
@@ -41,6 +46,7 @@ class WarningDetailViewController: BaseViewController {
             let long = warningData?["Long"] as? Double
             let distance = warningData?["Distance"] as! Double
             
+            warningId = warningData?["WarningId"] as? String
             
             self.lbWarningName.text = warningName
             self.lbCategoryWarning.text = categoryWarnig
@@ -75,8 +81,38 @@ class WarningDetailViewController: BaseViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+ 
+    @IBAction func confirmWarning(_ sender: Any) {
+        
+        let receiver = "MG_" + String(describing: appDelegate.tourShare.managerId!)
+        let sender = Singleton.sharedInstance.tourguide.name
+        
+        
+        appDelegate.tourguideHub?.invoke("confirmWarning", arguments: [warningId, warningName, Singleton.sharedInstance.tourguide.tourGuideId, sender, receiver] ) { (result, error) in
+            if let e = error {
+                #if DEBUG
+                    
+                    self.showMessage("Error confirmWarning: \(e)")
+                
+                #else
+                    
+                #endif
+                
+            } else {
+                
+                self.showMessage("Confirmed Warning scucessful", title: "Confirm")
+                self.btnConfirmWarning.isEnabled = false
+                
+                print("Success!")
+                if let r = result {
+                    print("Result: \(r)")
+                }
+            }
+        }
+    }
 
+    @IBAction func needHelp(_ sender: Any) {
+    }
     /*
     // MARK: - Navigation
 
