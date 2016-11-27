@@ -504,27 +504,30 @@ class MapViewController: BaseViewController {
     // Send location for Manager
     func initCurrentLocation(receiver: String, tourguide: TourGuide, tour: Tour)
     {
-        
-        let user_lat = String(format: "%f", (locationManager.location?.coordinate.latitude)!)
-        let user_long = String(format: "%f", (locationManager.location?.coordinate.longitude)!)
-        
-        
-        appDelegate.tourguideHub?.invoke("initMarkerNewConection", arguments: [user_lat, user_long, receiver, tourguide.tourGuideId!, tourguide.name!, tour.tourId!] ) { (result, error) in
-            if let e = error {
-                #if DEBUG
+        if(locationManager.location != nil)
+        {
+            let user_lat = String(format: "%f", (locationManager.location?.coordinate.latitude)!)
+            let user_long = String(format: "%f", (locationManager.location?.coordinate.longitude)!)
+            
+            
+            appDelegate.tourguideHub?.invoke("initMarkerNewConection", arguments: [user_lat, user_long, receiver, tourguide.tourGuideId!, tourguide.name!, tour.tourId!] ) { (result, error) in
+                if let e = error {
+                    #if DEBUG
+                        
+                        self.showMessage("Error initMarkerNewConection: \(e)")
+                        
+                    #else
+                        
+                    #endif
                     
-                    self.showMessage("Error initMarkerNewConection: \(e)")
-                    
-                #else
-                    
-                #endif
-                
-            } else {
-                print("Success!")
-                if let r = result {
-                    print("Result: \(r)")
+                } else {
+                    print("Success!")
+                    if let r = result {
+                        print("Result: \(r)")
+                    }
                 }
             }
+        
         }
     }
     
@@ -1104,7 +1107,10 @@ extension MapViewController: CLLocationManagerDelegate{
 //                if let hub = chatHub, {
 //                    hub.invoke("updateLocation", arguments: ["37.121300", "-95.416603"])
 //                }
+        if(locations != nil)
+        {
                 updateLocation(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude);
+        }
     }
 }
 
