@@ -25,8 +25,8 @@ class WarningTouristViewController: BaseViewController {
         mapView.settings.myLocationButton = true
         self.tabBarController?.hidesBottomBarWhenPushed = true
         setRecognizer()
-        NotificationCenter.default.addObserver(self, selector: #selector(WarningViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(WarningViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(WarningTouristViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(WarningTouristViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 
     }
     @IBAction func sendWarning(_ sender: Any) {
@@ -110,7 +110,7 @@ class WarningTouristViewController: BaseViewController {
     }
 }
 
-extension WarningViewController:  GMSMapViewDelegate{
+extension WarningTouristViewController:  GMSMapViewDelegate{
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
         locationTextFiled.text = "\(mapView.camera.target.latitude), \(mapView.camera.target.longitude)"
     }
