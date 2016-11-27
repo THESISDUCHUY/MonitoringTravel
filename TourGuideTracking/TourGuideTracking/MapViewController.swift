@@ -85,6 +85,9 @@ class MapViewController: BaseViewController {
         let tabBar = (self.tabBarController as! CustomTabBarController)
         
         tabBar.currentTour = tour
+        
+        appDelegate.tourShare = tour
+        
         connectServer()
         //displaySegmented.selectedSegmentIndex = 0
         
@@ -98,6 +101,7 @@ class MapViewController: BaseViewController {
         mapView.settings.myLocationButton = true
         
         self.mapView.delegate = self
+        
         InitView()
         //getPlacesLocation()
         
@@ -294,9 +298,9 @@ class MapViewController: BaseViewController {
         
         SwiftR.signalRVersion = .v2_2_1
         
-        //let urlServerRealtime = "http://tourtrackingv2.azurewebsites.net/signalr/hubs"
+        let urlServerRealtime = "http://tourtrackingv2.azurewebsites.net/signalr/hubs"
         
-        let urlServerRealtime = "http://192.168.0.106:3407/signalr/hubs"
+        //let urlServerRealtime = "http://192.168.0.106:3407/signalr/hubs"
         
         appDelegate.connection = SwiftR.connect(urlServerRealtime) { [weak self]
             connection in
@@ -550,9 +554,11 @@ class MapViewController: BaseViewController {
     
     func updateLocation(latitude:Double, longitude:Double){
         
-//        let receiver = "MG_" + String(describing: (self.tour.managerId)!)
-//        let senderId =  Singleton.sharedInstance.tourguide!.tourGuideId
-//        tourguideHub?.invoke("updatePositionTourGuide", arguments: [senderId, latitude, longitude, receiver])
+        let receiver = "MG_" + String(describing: (self.tour.managerId)!)
+        let senderId =  Singleton.sharedInstance.tourguide!.tourGuideId
+        let tourId = self.tour.tourId
+        
+        appDelegate.tourguideHub?.invoke("updatePositionTourGuide", arguments: [senderId, tourId, latitude, longitude, receiver])
     }
     
     // MARK: Tourist

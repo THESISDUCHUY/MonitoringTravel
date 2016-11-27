@@ -27,15 +27,16 @@ class WarningDetailViewController: BaseViewController {
     
     var warningData : Dictionary<String, Any>?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
     var warningId : String?
+    var warningName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         if(self.warningData != nil)
         {
-            let warningName = warningData?["WarningName"] as? String
+            warningName = warningData?["WarningName"] as? String
             let categoryWarnig = warningData?["CategoryWarnig"] as? String
             let descriptiontionWarning = warningData?["DescriptionWarning"] as? String
             
@@ -83,12 +84,16 @@ class WarningDetailViewController: BaseViewController {
  
     @IBAction func confirmWarning(_ sender: Any) {
         
-        appDelegate.tourguideHub?.invoke("confirmWarning", arguments: [warningId, Singleton.sharedInstance.tourguide.tourGuideId] ) { (result, error) in
+        let receiver = "MG_" + String(describing: appDelegate.tourShare.managerId!)
+        let sender = Singleton.sharedInstance.tourguide.name
+        
+        
+        appDelegate.tourguideHub?.invoke("confirmWarning", arguments: [warningId, warningName, Singleton.sharedInstance.tourguide.tourGuideId, sender, receiver] ) { (result, error) in
             if let e = error {
                 #if DEBUG
                     
                     self.showMessage("Error confirmWarning: \(e)")
-                    
+                
                 #else
                     
                 #endif
