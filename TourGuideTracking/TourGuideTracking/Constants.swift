@@ -29,6 +29,7 @@ struct URL_EXTEND{
     static let PLACES:String = "/places"
     static let TOURISTS_LOCATION:String = "/tourists/location"
     static let SCHEDULE:String = "/schedules"
+    static let WARNING:String = "/warnings"
 }
 
 struct ERROR_MESSAGE{

@@ -159,33 +159,33 @@ class MapViewController: BaseViewController {
         }
         
         if displaySegmented.selectedSegmentIndex == 0{
-//            if (Singleton.sharedInstance.places?.count == 0){
-//                
-//                getPlacesLocation()
-//                
-//            }
-//            else{
-//                
-//                displayPlacesOnMap()
-//                
-//            }
+            if (Singleton.sharedInstance.places?.count == 0){
+                
+                getPlacesLocation()
+                
+            }
+            else{
+                
+                displayPlacesOnMap()
+                
+            }
             self.setMapView(lat: (Singleton.sharedInstance.places?[0].location?.latitude!)!, long: (Singleton.sharedInstance.places?[0].location?.longitude!)!)
         }
             
             
         else{
             self.setMapView(lat: (Singleton.sharedInstance.tourists?[0].location?.latitude!)!, long: (Singleton.sharedInstance.tourists?[0].location?.longitude!)!)
-//            if Singleton.sharedInstance.tourists?.count == 0{
-//                
-//                
-//                getTouristsLocation()
-//                
-//            }
-//            else{
-//                
-//                displayTouristOnMap()
-//                
-//            }
+            if Singleton.sharedInstance.tourists?.count == 0{
+                
+                
+                getTouristsLocation()
+                
+            }
+            else{
+                
+                displayTouristOnMap()
+                
+            }
         }
     }
     
@@ -292,9 +292,9 @@ class MapViewController: BaseViewController {
         
         SwiftR.signalRVersion = .v2_2_1
         
-        //let urlServerRealtime = "http://tourtrackingv2.azurewebsites.net/signalr/hubs"
+        let urlServerRealtime = "http://tourtrackingv2.azurewebsites.net/signalr/hubs"
         
-        let urlServerRealtime = "http://192.168.0.106:3407/signalr/hubs"
+        //let urlServerRealtime = "http://192.168.0.106:3407/signalr/hubs"
         
         appDelegate.connection = SwiftR.connect(urlServerRealtime) { [weak self]
             connection in
