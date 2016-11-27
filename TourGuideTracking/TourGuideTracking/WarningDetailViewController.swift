@@ -99,6 +99,10 @@ class WarningDetailViewController: BaseViewController {
                 #endif
                 
             } else {
+                
+                self.showMessage("Confirmed Warning scucessful", title: "Confirm")
+                self.btnConfirmWarning.isEnabled = false
+                
                 print("Success!")
                 if let r = result {
                     print("Result: \(r)")

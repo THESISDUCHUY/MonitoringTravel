@@ -18,6 +18,11 @@ class WarningViewController: BaseViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var locationTextFiled: UITextField!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    
+    @IBOutlet weak var btnConfirm: ButtonRoundCorner!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
