@@ -15,8 +15,8 @@ class Warning: Mappable{
     var type:String?
     var description:String?
     var status:String?
-    var latitude:Double?
-    var longitude:Double?
+    var distance:Double?
+    var location:Location?
     
     required init?(map: Map){
         
@@ -29,7 +29,19 @@ class Warning: Mappable{
         self.type <- map["type"]
         self.description <- map["description"]
         self.status <- map["status"]
-        self.latitude <- map["latitude"]
-        self.longitude <- map["longitude"]
+        self.distance <- map["distance"]
+        self.location <- map["location"]
+    }
+    
+    init(warningData:Dictionary<String, Any>){
+        self.name = warningData["WarningName"] as? String
+        self.type = warningData["CategoryWarnig"] as? String
+        self.description = warningData["DescriptionWarning"] as? String
+        self.location = Location()
+        self.location?.latitude = (warningData["Lat"] as? Double)!
+        self.location?.longitude = (warningData["Long"] as? Double)!
+        self.distance = warningData["Distance"] as? Double
+        self.warning_id = warningData["WarningId"] as? Int
+
     }
 }

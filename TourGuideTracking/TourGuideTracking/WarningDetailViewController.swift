@@ -25,7 +25,7 @@ class WarningDetailViewController: BaseViewController {
     @IBOutlet weak var btnConfirmWarning: ButtonRoundCorner!
     
     
-    var warningData : Dictionary<String, Any>?
+    var warning : Warning?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var warningId : String?
     var warningName: String?
@@ -34,42 +34,31 @@ class WarningDetailViewController: BaseViewController {
         super.viewDidLoad()
 
         
-        if(self.warningData != nil)
+        if(self.warning != nil)
         {
-            warningName = warningData?["WarningName"] as? String
-            let categoryWarnig = warningData?["CategoryWarnig"] as? String
-            let descriptiontionWarning = warningData?["DescriptionWarning"] as? String
-            
-            print( "data warning  \(warningData!)");
-            
-            let lat = warningData?["Lat"] as? Double
-            let long = warningData?["Long"] as? Double
-            let distance = warningData?["Distance"] as! Double
-            
-            warningId = warningData?["WarningId"] as? String
-            
-            self.lbWarningName.text = warningName
-            self.lbCategoryWarning.text = categoryWarnig
-            self.lbDescriptionWarning.text = descriptiontionWarning
+                        
+            self.lbWarningName.text = warning?.name
+            self.lbCategoryWarning.text = warning?.type
+            self.lbDescriptionWarning.text = warning?.description
             self.lbPriorityWarning.text = "Normal"
             
             let ivMarkerWarning = UIImage(named: "ic_marker_warning")
             
             let marker = GMSMarker()
-            marker.position = CLLocationCoordinate2D(latitude: lat!, longitude: long!)
+            marker.position = CLLocationCoordinate2D(latitude: (warning?.location?.latitude)!, longitude: (warning?.location?.longitude)!)
             marker.icon = ivMarkerWarning
             marker.map = self.vMapView
             marker.title = "Warning"
             
             
-            let circ = GMSCircle(position: CLLocationCoordinate2D(latitude: lat!, longitude: long!), radius: distance * 1000)
+            let circ = GMSCircle(position: CLLocationCoordinate2D(latitude: (warning?.location?.latitude)!, longitude: (warning?.location?.latitude)!), radius: (warning?.distance)! * 1000)
             circ.fillColor = UIColor(red: 255/255, green: 153/255, blue: 51/255, alpha: 0.2)
             
             circ.strokeColor = UIColor(red: 255/255, green: 153/255, blue: 51/255, alpha: 0.5)
             circ.strokeWidth = 1;
             circ.map = self.vMapView;
             
-            let camera = GMSCameraPosition.camera(withLatitude: lat!, longitude: long!, zoom: 12.0)
+            let camera = GMSCameraPosition.camera(withLatitude: (warning?.location?.latitude)!, longitude: (warning?.location?.latitude)!, zoom: 8.0)
             vMapView.animate(to: camera)
 
         }

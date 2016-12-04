@@ -13,6 +13,7 @@ import SwiftR
 import MBProgressHUD
 import UIColor_Hex_Swift
 import SDWebImage
+import Alamofire
 
 public enum StatusConnection {
     case connected
@@ -68,7 +69,8 @@ class MapViewController: BaseViewController {
     var markerSelectedWarning: GMSMarker?
     var tour:Tour!
     var isConnected: Bool?
-    
+    var isUpdateLocation: Bool = false
+    var isDisconnect:Bool = false
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
@@ -103,10 +105,15 @@ class MapViewController: BaseViewController {
         self.mapView.delegate = self
         
         InitView()
-        //getPlacesLocation()
         
+        syncTracking()
     }
     
+    func timer(){
+        Timer.scheduledTimer(withTimeInterval: 30, repeats: true, block: { (Timer) in
+            self.isUpdateLocation = true
+        })
+    }
     override func viewDidAppear(_ animated: Bool) {
         
         if (Singleton.sharedInstance.places?.count == 0)
@@ -167,7 +174,7 @@ class MapViewController: BaseViewController {
             
             if (Singleton.sharedInstance.places?.count != 0)
             {
-                self.setMapView(lat: (Singleton.sharedInstance.places?[0].location?.latitude!)!, long: (Singleton.sharedInstance.places?[0].location?.longitude!)!)
+                self.setMapView(lat: (Singleton.sharedInstance.places?[0].location?.latitude)!, long: (Singleton.sharedInstance.places?[0].location?.longitude)!)
             }
             
         }
@@ -175,7 +182,7 @@ class MapViewController: BaseViewController {
         {
             if(Singleton.sharedInstance.tourists?.count != 0)
             {
-                self.setMapView(lat: (Singleton.sharedInstance.tourists?[0].location?.latitude!)!, long: (Singleton.sharedInstance.tourists?[0].location?.longitude!)!)
+                self.setMapView(lat: (Singleton.sharedInstance.tourists?[0].location?.latitude)!, long: (Singleton.sharedInstance.tourists?[0].location?.longitude)!)
             }
             else
             {
@@ -197,21 +204,17 @@ class MapViewController: BaseViewController {
                 if message == nil{
                     let places = response?.listData
                     Singleton.sharedInstance.places = places
-                    
-                    MBProgressHUD.hide(for: self.view, animated: true)
-
                     self.displayPlacesOnMap()
-                    
+                    //MBProgressHUD.hide(for: self.view, animated: true)
                 }
                 else{
                     self.showMessage(message!)
-                
-
                 }
             }
             else {
                 self.showMessage(ERROR_MESSAGE.CONNECT_SERVER, title: "Error")
             }
+            MBProgressHUD.hide(for: self.view, animated: true)
         }
 
     }
@@ -225,14 +228,10 @@ class MapViewController: BaseViewController {
             if error == nil{
                 let message = response?.message
                 if message == nil{
+                    MBProgressHUD.hide(for: self.view, animated: true)
                     let tourists = response?.listData
                     Singleton.sharedInstance.tourists = tourists
-                    
-                    
-
                     self.displayTouristOnMap()
-                    
-                   
                 }
                 else{
                     //Alert.showAlertMessage(userMessage: message!, vc: self)
@@ -241,20 +240,53 @@ class MapViewController: BaseViewController {
             }
             else{
                // .showAlertMessage(userMessage: ERROR_MESSAGE.CONNECT_SERVER, vc: self)
-                
                 self.showMessage(ERROR_MESSAGE.CONNECT_SERVER, title: "Error")
             }
+            MBProgressHUD.hide(for: self.view, animated: true)
         }
-        MBProgressHUD.hide(for: self.view, animated: true)
+    }
+    
+    func syncTracking(){
+        let trackingJsonArray = NSMutableArray()
+        let objects = try! realm.objects(Tracking.self)
+        if objects.count > 0{
+            for tracking in objects{
+                trackingJsonArray.add(tracking.convertToJson())
+            }
+            
+            //Convert to Data
+            let jsonData = try! JSONSerialization.data(withJSONObject: trackingJsonArray, options: JSONSerialization.WritingOptions.prettyPrinted)
+            
+            //Convert back to string. Usually only do this for debugging
+            if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
+                print(JSONString)
+                let params:Parameters = ["data": JSONString]
+                NetworkService<Tour>.makePostRequest(URL: URLs.URL_TRACKING_UPDATE, data: params){
+                    response, error in
+                    if error == nil{
+                        let message = response?.message
+                        if message == nil{
+                            print("Update tracking location successful")
+                            try! realm.write {
+                                realm.deleteAll()
+                            }
+                        }
+                        else{
+                            Alert.showAlertMessage(userMessage: message!, vc: self)
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func displayPlacesOnMap(){
    
         let places = Singleton.sharedInstance.places
         for place in places!{
-            createMarker(latitude: place.location.latitude!, longitude: place.location.longitude!, data:place, isTourist: false).map = mapView
+            createMarker(latitude: place.location.latitude, longitude: place.location.longitude, data:place, isTourist: false).map = mapView
         }
-        self.setMapView(lat: (places?[0].location?.latitude!)!, long: (places?[0].location?.longitude!)!)
+        self.setMapView(lat: (places?[0].location?.latitude)!, long: (places?[0].location?.longitude)!)
     }
     
     
@@ -271,7 +303,7 @@ class MapViewController: BaseViewController {
                 tourist.displayPhoto = nil
             }
             
-            createMarker(latitude: tourist.location!.latitude!, longitude: tourist.location!.longitude!, data:tourist, isTourist: true).map = mapView
+            createMarker(latitude: tourist.location!.latitude, longitude: tourist.location!.longitude, data:tourist, isTourist: true).map = mapView
         }
        
     }
@@ -282,9 +314,9 @@ class MapViewController: BaseViewController {
         {
             hiddenPopupWarning()
             let warningData =  markerSelectedWarning?.userData
-            print("data select \(warningData)")
+            //print("data select \(warningData)")
             let warningViewController = segue.destination as! WarningDetailViewController
-            warningViewController.warningData = warningData as! Dictionary<String, Any>?
+            warningViewController.warning = Warning(warningData: warningData as! Dictionary<String, Any>)
             // markerSelected = nil
         }
     }
@@ -298,9 +330,9 @@ class MapViewController: BaseViewController {
         
         SwiftR.signalRVersion = .v2_2_1
         
-        //let urlServerRealtime = "http://tourtrackingv2.azurewebsites.net/signalr/hubs"
+        let urlServerRealtime = "http://tourtrackingv2.azurewebsites.net/signalr/hubs"
         
-        let urlServerRealtime = "http://192.168.0.106:3407/signalr/hubs"
+        //let urlServerRealtime = "http://192.168.0.106:3407/signalr/hubs"
         
         appDelegate.connection = SwiftR.connect(urlServerRealtime) { [weak self]
             connection in
@@ -348,6 +380,7 @@ class MapViewController: BaseViewController {
                 let lat = objectData["Lat"] as? Double
                 let long = objectData["Long"] as? Double
                 let distance = objectData["Distance"] as! Double
+                let warning_id = objectData["WarningId"] as! Int
                 
                 self?.lbWarningName.text = warningName
                 self?.lbCateWarning.text = categoryWarnig
@@ -415,10 +448,13 @@ class MapViewController: BaseViewController {
             
             print("Reconnected. Connection ID: \(self?.appDelegate.connection?.connectionID!)")
             self?.updateStatusConnection(status: StatusConnection.reconnected)
+            self?.isDisconnect = false
         }
         
         appDelegate.connection!.disconnected = { [weak self] in
             print("Disconnected...")
+            self?.isDisconnect = true
+            self?.timer()
             self?.updateStatusConnection(status: StatusConnection.disconnected)
         }
         
@@ -659,11 +695,16 @@ class MapViewController: BaseViewController {
         let buttonTwo = UIAlertAction(title: "Thông báo chung", style: .default, handler: { (action) -> Void in
             self.performSegue(withIdentifier: "informSegue", sender: self)
         })
+        
+        let buttonThree = UIAlertAction(title: "Yêu cầu trợ giúp", style: .default, handler: { (action) -> Void in
+            self.performSegue(withIdentifier: SegueIdentifier.TO_HELP, sender: self)
+        })
         let buttonCancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) -> Void in
             
         }
         alertController.addAction(buttonOne)
         alertController.addAction(buttonTwo)
+        alertController.addAction(buttonThree)
         alertController.addAction(buttonCancel)
         
         present(alertController, animated: true, completion: nil)
@@ -1014,8 +1055,6 @@ extension MapViewController: GMSMapViewDelegate{
         if(cacheImage == nil)
         {
             SDWebImageManager.shared().downloadImage(with: Foundation.URL(string: imageURL), options: [SDWebImageOptions.lowPriority,  SDWebImageOptions.continueInBackground], progress: { (receivedSize, expectedSize) in
-                
-                print("OK")
             }, completed: { (image, Error, cacheType, finish, urlImage) in
                 
                 self.drawMarker(marker: marker, image: image!, markerImage: markerImage, isTourist: isTourist)
@@ -1101,15 +1140,18 @@ extension MapViewController: GMSMapViewDelegate{
 
 extension MapViewController: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        //print(locations[0].coordinate.latitude)
-        
-//                if let hub = chatHub, {
-//                    hub.invoke("updateLocation", arguments: ["37.121300", "-95.416603"])
-//                }
         if(locations != nil)
         {
                 updateLocation(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude);
+        let location = Location(latitude:locations[0].coordinate.latitude, longitude:locations[0].coordinate.longitude)
+        let tracking = Tracking(tour_id:tour.tourId!, location:location)
+        if isDisconnect{
+            if isUpdateLocation {
+                try! realm.write {
+                    realm.add(tracking)
+                    isUpdateLocation = false
+                }
+            }
         }
     }
 }
