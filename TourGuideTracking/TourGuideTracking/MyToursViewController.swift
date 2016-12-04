@@ -154,12 +154,12 @@ class MyToursViewController: UIViewController, UITableViewDataSource, UITableVie
                     self.toursTableView.reloadData()
                 }
                 else{
-                    //do something with message
+                    Alert.showAlertMessage(userMessage: message!, vc: self)
                 }
                 
             }
             else{
-                
+                 Alert.showAlertMessage(userMessage: ERROR_MESSAGE.CONNECT_SERVER, vc: self)
             }
             MBProgressHUD.hide(for: self.view, animated: true)
         }

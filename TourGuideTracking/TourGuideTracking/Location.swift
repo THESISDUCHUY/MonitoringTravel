@@ -7,20 +7,25 @@
 //
 
 import ObjectMapper
-class Location:Mappable{
-    var latitude:Double?
-    var longitude:Double?
+import RealmSwift
+import Realm
+
+class Location:Object, Mappable{
+    dynamic var latitude:Double = 0
+    dynamic var longitude:Double = 0
     
-    init(){
-        
-    }
+//    convenience required init(){
+//        super.init()
+//    }
     
-    init(latitude:Double, longitude:Double){
+    convenience init(latitude:Double, longitude:Double){
+        self.init()
         self.latitude = latitude
         self.longitude = longitude
     }
-    required init?(map: Map) {
-        
+    
+    required convenience init?(map: Map) {
+        self.init()
     }
     
     func mapping(map: Map) {

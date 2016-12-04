@@ -9,7 +9,9 @@
 import UIKit
 import GoogleMaps
 import SwiftR
+import RealmSwift
 
+let realm = try! Realm()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -41,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: ViewIdentifier.LOGIN_VIEW)
             return true
         }*/
+        //print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         UIApplication.shared.statusBarStyle = .lightContent
         return true

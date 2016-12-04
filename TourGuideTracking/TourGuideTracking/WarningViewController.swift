@@ -51,6 +51,11 @@ class WarningViewController: UIViewController {
         
         
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let index = warningTableView.indexPathForSelectedRow?.row
+        let WarningDetailVC = segue.destination as! WarningDetailViewController
+        WarningDetailVC.warning = warnings[index!]
+    }
 }
 
 extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
@@ -62,5 +67,8 @@ extension WarningViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.WARNING_CELL) as! WarningCell
         cell.warning = warnings[indexPath.row]
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: SegueIdentifier.TO_WARNING_DETAIL, sender: self)
     }
 }
