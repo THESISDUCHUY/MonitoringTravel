@@ -45,7 +45,9 @@ class MapViewController: BaseViewController {
     @IBOutlet weak var displaySegmented: UISegmentedControl!
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var vWarning: UIView!
-    @IBOutlet weak var tvWarning: UITextView!
+    @IBOutlet weak var warning_help_ContentTextView: UITextView!
+    @IBOutlet weak var warning_help_titleLabel: UILabel!
+    @IBOutlet weak var warning_help_icon: ViewRoundCorner!
     @IBOutlet weak var btnSendWarning: UIButton!
     @IBOutlet weak var consTopVWarning: NSLayoutConstraint!
     @IBOutlet weak var vBackgroundWarning: UIView!
@@ -122,21 +124,80 @@ class MapViewController: BaseViewController {
         }
         if(Singleton.sharedInstance.tourists?.count == 0)
         {
-           getTouristsLocation()
+           touristGet()
         }
     }
     
+    func setRecognizer(){
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTapScreen(_ : )))
+        // Attach it to a view of your choice. If it's a UIImageView, remember to enable user interaction
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(tapGestureRecognizer)
+    }
     
-    
+    @IBAction func onTapScreen(_ sender: AnyObject) {
+        self.view.endEditing(true)
+    }
     
     func InitView()
     {
-        tvWarning.layer.borderColor = UIColor.lightGray.cgColor
-        tvWarning.layer.borderWidth = 0.5
-        tvWarning.layer.cornerRadius = 5
-        tvWarning.layer.masksToBounds = true
+        warning_help_ContentTextView.layer.borderColor = UIColor.lightGray.cgColor
+        warning_help_ContentTextView.layer.borderWidth = 0.5
+        warning_help_ContentTextView.layer.cornerRadius = 5
+        warning_help_ContentTextView.layer.masksToBounds = true
+        setRecognizer()
+        btnSendWarning.addTarget(self, action: #selector(warning_help_Send(_:)), for: .touchDown)
+        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
+    func warning_help_Send(_ sender: UIButton){
+         self.hiddenWarningHelpPopup()
+        let lat = String(format: "%f", (locationManager.location?.coordinate.latitude)!)
+        let long = String(format: "%f", (locationManager.location?.coordinate.longitude)!)
+        let content = warning_help_ContentTextView.text
+        let tourguide_id = Singleton.sharedInstance.tourguide.tourGuideId
+        let manager_id = "MG_1"
+        appDelegate.tourguideHub?.invoke("needHelp", arguments: [tourguide_id, lat, long, content, manager_id]) { (result, error) in
+            
+            if let e = error {
+                #if DEBUG
+                    
+                    self.showMessage("Error initMarkerNewConection: \(e)")
+                    
+                #else
+                    
+                #endif
+                
+            } else {
+                print("Success!")
+                if let r = result {
+                    print("Result: \(r)")
+                   
+                }
+            }
+            
+        }
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        UIView.animate(withDuration: 0.5, animations:
+            {
+                //self.vWarning.isHidden = false
+                self.consTopVWarning.constant = 50
+                self.view.layoutIfNeeded();
+        })
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        UIView.animate(withDuration: 0.5, animations:
+            {
+                //self.vWarning.isHidden = false
+                self.consTopVWarning.constant = 100
+                self.view.layoutIfNeeded();
+        })
+    }
+
     @IBAction func showMenu(_ sender: Any) {
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -219,7 +280,28 @@ class MapViewController: BaseViewController {
 
     }
     
-    func getTouristsLocation(){
+    func touristGet(){
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        let url = URLs.makeURL_EXTEND(url: URLs.URL_GET_TOURS, extend: URL_EXTEND.TOURISTS_INFO, param: tour.tourId!)
+        NetworkService<Tourist>.makeGetRequest(URL: url){
+            response, error in
+            if error == nil{
+                let message = response?.message
+                if message == nil{
+                    let tourists = response?.listData
+                    Singleton.sharedInstance.tourists = tourists
+                }
+                else{
+                    Alert.showAlertMessage(userMessage: message!, vc: self)
+                }
+            }
+            else{
+                Alert.showAlertMessage(userMessage: ERROR_MESSAGE.CONNECT_SERVER , vc: self)
+            }
+            MBProgressHUD.hide(for: self.view, animated: true)
+        }
+    }
+    /*func getTouristsLocation(){
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
         let url = URLs.makeURL_EXTEND(url: URLs.URL_GET_TOURS, extend: URL_EXTEND.TOURISTS_LOCATION, param: tour.tourId!)
@@ -244,7 +326,7 @@ class MapViewController: BaseViewController {
             }
             MBProgressHUD.hide(for: self.view, animated: true)
         }
-    }
+    }*/
     
     func syncTracking(){
         let trackingJsonArray = NSMutableArray()
@@ -332,7 +414,7 @@ class MapViewController: BaseViewController {
         
         let urlServerRealtime = "http://tourtrackingv2.azurewebsites.net/signalr/hubs"
         
-        //let urlServerRealtime = "http://192.168.0.106:3407/signalr/hubs"
+        ///let urlServerRealtime = "http://192.168.7.110:3407/signalr/hubs"
         
         appDelegate.connection = SwiftR.connect(urlServerRealtime) { [weak self]
             connection in
@@ -644,7 +726,7 @@ class MapViewController: BaseViewController {
     // MARK: Popup warning
     
     @IBAction func closeWarningPopup(_ sender: Any) {
-        HiddenWarningPopup()
+        self.hiddenWarningHelpPopup()
         
     }
     
@@ -659,7 +741,7 @@ class MapViewController: BaseViewController {
         })
     }
     
-    func HiddenWarningPopup() {
+    func hiddenWarningHelpPopup() {
         
         UIView.animate(withDuration: 0.5, animations:
             {
@@ -675,6 +757,7 @@ class MapViewController: BaseViewController {
     @IBAction func warningForTourist(_ sender: Any) {
         
         self.hiddenPopupInfoTourist()
+        self.setupWarningHelpPopup(isWarning: true)
         self.ShowWarningPopup()
     }
     
@@ -697,7 +780,9 @@ class MapViewController: BaseViewController {
         })
         
         let buttonThree = UIAlertAction(title: "Yêu cầu trợ giúp", style: .default, handler: { (action) -> Void in
-            self.performSegue(withIdentifier: SegueIdentifier.TO_HELP, sender: self)
+            self.setupWarningHelpPopup(isWarning: false)
+            self.ShowWarningPopup()
+            //self.performSegue(withIdentifier: SegueIdentifier.TO_HELP, sender: self)
         })
         let buttonCancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) -> Void in
             
@@ -710,6 +795,23 @@ class MapViewController: BaseViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    func setupWarningHelpPopup(isWarning:Bool){
+        //warning popup
+        if isWarning {
+            warning_help_icon.backgroundColor = UIColor.orange
+            btnSendWarning.backgroundColor = UIColor.orange
+            warning_help_titleLabel.text = "Cảnh báo!"
+            warning_help_ContentTextView.text = "Nội dung cảnh báo."
+        }
+        //help popup
+        else{
+            warning_help_icon.backgroundColor = UIColor.red
+            btnSendWarning.backgroundColor = UIColor.red
+            warning_help_titleLabel.text = "Yêu cầu trợ giúp!"
+            warning_help_ContentTextView.text = "Nội dung trợ giúp"
+            
+        }
+    }
 }
 
 extension MapViewController: GMSMapViewDelegate{
@@ -1142,18 +1244,17 @@ extension MapViewController: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if(locations != nil)
         {
-                updateLocation(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude);
-        let location = Location(latitude:locations[0].coordinate.latitude, longitude:locations[0].coordinate.longitude)
-        let tracking = Tracking(tour_id:tour.tourId!, location:location)
-        if isDisconnect{
-            if isUpdateLocation {
-                try! realm.write {
-                    realm.add(tracking)
-                    isUpdateLocation = false
+            updateLocation(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude);
+            let location = Location(latitude:locations[0].coordinate.latitude, longitude:locations[0].coordinate.longitude)
+            let tracking = Tracking(tour_id:tour.tourId!, location:location)
+            if isDisconnect{
+                if isUpdateLocation {
+                    try! realm.write {
+                        realm.add(tracking)
+                        isUpdateLocation = false
+                    }
                 }
             }
         }
     }
 }
-
-

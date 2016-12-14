@@ -13,12 +13,14 @@ import ObjectMapper
 class NetworkService<T:Mappable>{
 
     static func makePostRequest(URL:String, data:Parameters,completionHandle:@escaping (ResponseData<T>?, NSError?)->()){
+        
         let user:String! = String(format:"%d", Settings.tourguide_id!)
         let password:String! = Settings.tourguide_accesstoken!
         var headers: HTTPHeaders = [:]
         if let authorizationHeader = Request.authorizationHeader(user: user, password: password) {
             headers[authorizationHeader.key] = authorizationHeader.value
         }
+        
         Alamofire.request(URL, method: .post, parameters: data, headers: headers).responseObject{(
             response: DataResponse<ResponseData<T>>) in
             switch response.result{

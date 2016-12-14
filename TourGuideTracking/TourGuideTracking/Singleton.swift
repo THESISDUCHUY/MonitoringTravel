@@ -15,8 +15,10 @@ class Singleton{
     var places:[Place]!
     var tourists:[Tourist]!
     var schedules:[Schedule]!
+    var manager:Manager!
     private init(){
         self.tourguide = TourGuide()
+        self.manager = Manager()
         self.tours = [Tour]()
         self.places = [Place]()
         self.tourists = [Tourist]()

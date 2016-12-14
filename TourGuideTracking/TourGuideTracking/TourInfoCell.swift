@@ -23,7 +23,7 @@ class TourInfoCell: UITableViewCell {
     var tour:Tour!{
         didSet{
             touristQuantityLabel.text = String(format:"%d", tour.quantity!)
-            timeLabel.text = tour.returnDateString! + " - " + tour.departureDateString!
+            timeLabel.text = tour.getDate(date:tour.departureDate!) + " - " + tour.getDate(date: tour.returnDate!)
             nameLabel.text = tour.name
             dayLabel.text = String(format: "%d ngày", tour.day!)
             descriptionLabel.text = tour.description

@@ -2005,26 +2005,6 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
-				TargetAttributes = {
-					48DA100D8B5F9B91C3920A696605B59A = {
-						LastSwiftMigration = 0810;
-					};
-					79C040AFDDCE1BCBF6D8B5EB0B85887F = {
-						LastSwiftMigration = 0810;
-					};
-					8ED22304B1930C791C5561D73C3C45D3 = {
-						LastSwiftMigration = 0810;
-					};
-					C5CBCAA97E951CC882334464FBDF983D = {
-						LastSwiftMigration = 0810;
-					};
-					EB21BF67AAD76F5118E70B901423D378 = {
-						LastSwiftMigration = 0810;
-					};
-					FBD082A0D35F7917EAB9DD9D3CCA9976 = {
-						LastSwiftMigration = 0810;
-					};
-				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -2517,7 +2497,6 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -2577,7 +2556,6 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -2636,7 +2614,6 @@
 				PRODUCT_NAME = ObjectMapper;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -2671,7 +2648,6 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -2789,7 +2765,6 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -2849,7 +2824,6 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -2879,7 +2853,6 @@
 				PRODUCT_NAME = AlamofireObjectMapper;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -2942,7 +2915,6 @@
 				PRODUCT_NAME = Pods_TourGuideTracking;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -2972,7 +2944,6 @@
 				PRODUCT_NAME = UIColor_Hex_Swift;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -3032,7 +3003,6 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -3129,7 +3099,6 @@
 				PRODUCT_NAME = Alamofire;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -3159,7 +3128,6 @@
 				PRODUCT_NAME = SwiftR;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

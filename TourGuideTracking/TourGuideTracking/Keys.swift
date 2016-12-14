@@ -34,6 +34,7 @@ struct CellIdentifier{
     static let SCHEDULE_CELL:String = "ScheduleCell"
     static let TOUR_INFO_CELL:String = "TourInfoCell"
     static let WARNING_CELL:String = "WarningCell"
+    static let CONTACT_CELL:String = "ContactCell"
 }
 
 struct API_KEYs{

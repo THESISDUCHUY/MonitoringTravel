@@ -8,12 +8,12 @@
 
 import ObjectMapper
 
-class Tourist: Mappable{
+class Tourist: User, Mappable{
     
     var touristID:Int?
     var location:Location?
-    var name:String?
-    var displayPhoto:String?
+    //var name:String?
+    //var displayPhoto:String?
     required init?(map: Map) {
     }
     
@@ -21,6 +21,8 @@ class Tourist: Mappable{
         self.touristID <- map["tourist_id"]
         self.location <- map["location"]
         self.displayPhoto <- map["display_photo"]
-        self.name <- map["name"]
+        self.name <- map["tourist_name"]
+        self.phone <- map["phone"]
+        self.email <- map["email"]
     }
 }

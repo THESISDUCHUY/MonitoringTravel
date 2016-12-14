@@ -58,7 +58,7 @@ class WarningDetailViewController: BaseViewController {
             circ.strokeWidth = 1;
             circ.map = self.vMapView;
             
-            let camera = GMSCameraPosition.camera(withLatitude: (warning?.location?.latitude)!, longitude: (warning?.location?.latitude)!, zoom: 8.0)
+            let camera = GMSCameraPosition.camera(withLatitude: (warning?.location?.latitude)!, longitude: (warning?.location?.longitude)!, zoom: 8.0)
             vMapView.animate(to: camera)
 
         }
@@ -77,7 +77,7 @@ class WarningDetailViewController: BaseViewController {
         let sender = Singleton.sharedInstance.tourguide.name
         
         
-        appDelegate.tourguideHub?.invoke("confirmWarning", arguments: [warningId, warningName, Singleton.sharedInstance.tourguide.tourGuideId, sender, receiver] ) { (result, error) in
+        appDelegate.tourguideHub?.invoke("confirmWarning", arguments: [warning?.warning_id, warning?.name, Singleton.sharedInstance.tourguide.tourGuideId, sender, receiver] ) { (result, error) in
             if let e = error {
                 #if DEBUG
                     
