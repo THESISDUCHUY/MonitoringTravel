@@ -8,18 +8,18 @@
 
 import ObjectMapper
 
-class TourGuide: Mappable {
+class TourGuide: User, Mappable {
     var tourGuideId:Int?
     var accessToken:String?
-    var name:String?
-    var phone:String?
-    var email:String? = ""
-    var displayPhoto:String?
+    //var name:String?
+    //var phone:String?
+    //var email:String? = ""
+    //var displayPhoto:String?
     var location:Location?
     
     required init?(map: Map) {
     }
-    init(){
+    override init(){
         
     }
     func mapping(map: Map) {

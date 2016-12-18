@@ -35,6 +35,7 @@
 		5A66E1AF1DAD41B900AFBCA9 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A66E1AE1DAD41B900AFBCA9 /* Keys.swift */; };
 		5A66E1B11DAD42CD00AFBCA9 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A66E1B01DAD42CD00AFBCA9 /* Settings.swift */; };
 		5A66E1B31DAD490B00AFBCA9 /* MyToursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A66E1B21DAD490B00AFBCA9 /* MyToursViewController.swift */; };
+		5A68DBC31DFD92CD0039A1EB /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68DBC21DFD92CD0039A1EB /* Manager.swift */; };
 		5A8797391DCC97C7004E549D /* ScheduleDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8797381DCC97C7004E549D /* ScheduleDay.swift */; };
 		5A9435D71DDDEF6200DF3283 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9435D61DDDEF6200DF3283 /* BaseViewController.swift */; };
 		5ABAB57F1DEC8FBE00473BC1 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABAB57E1DEC8FBE00473BC1 /* HelpViewController.swift */; };
@@ -42,6 +43,9 @@
 		5AD59BE91DB9AF370007E055 /* TouristInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AD59BE81DB9AF370007E055 /* TouristInfoWindow.xib */; };
 		5AD59BEB1DB9B5F60007E055 /* TouristInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD59BEA1DB9B5F60007E055 /* TouristInfoWindow.swift */; };
 		5AD59BED1DB9C2610007E055 /* PlaceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD59BEC1DB9C2610007E055 /* PlaceDetailsViewController.swift */; };
+		5AD5CB0C1DFD095000647989 /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AD5CB0B1DFD095000647989 /* ContactCell.xib */; };
+		5AD5CB0E1DFD0B1400647989 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5CB0D1DFD0B1400647989 /* ContactCell.swift */; };
+		5AD5CB101DFD0C2C00647989 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5CB0F1DFD0C2C00647989 /* User.swift */; };
 		5AD99B3F1DC1E1A5004CE706 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD99B3E1DC1E1A5004CE706 /* CustomTabBarController.swift */; };
 		5AD99B411DC23EFA004CE706 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD99B401DC23EFA004CE706 /* Schedule.swift */; };
 		5AE7DCC81DB7496400512E05 /* CustomInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AE7DCC71DB7496400512E05 /* CustomInfoWindow.xib */; };
@@ -97,6 +101,7 @@
 		5A66E1AE1DAD41B900AFBCA9 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		5A66E1B01DAD42CD00AFBCA9 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		5A66E1B21DAD490B00AFBCA9 /* MyToursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyToursViewController.swift; sourceTree = "<group>"; };
+		5A68DBC21DFD92CD0039A1EB /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		5A8797381DCC97C7004E549D /* ScheduleDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDay.swift; sourceTree = "<group>"; };
 		5A9435D61DDDEF6200DF3283 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		5ABAB57E1DEC8FBE00473BC1 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +109,9 @@
 		5AD59BE81DB9AF370007E055 /* TouristInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TouristInfoWindow.xib; sourceTree = "<group>"; };
 		5AD59BEA1DB9B5F60007E055 /* TouristInfoWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouristInfoWindow.swift; sourceTree = "<group>"; };
 		5AD59BEC1DB9C2610007E055 /* PlaceDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetailsViewController.swift; sourceTree = "<group>"; };
+		5AD5CB0B1DFD095000647989 /* ContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
+		5AD5CB0D1DFD0B1400647989 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		5AD5CB0F1DFD0C2C00647989 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5AD99B3E1DC1E1A5004CE706 /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		5AD99B401DC23EFA004CE706 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		5AE7DCC71DB7496400512E05 /* CustomInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomInfoWindow.xib; sourceTree = "<group>"; };
@@ -256,6 +264,8 @@
 				5A8797381DCC97C7004E549D /* ScheduleDay.swift */,
 				5AFD5FA01DE740DF00D0432A /* Warning.swift */,
 				5A49C1E71DEFD45400EC54DA /* Tracking.swift */,
+				5AD5CB0F1DFD0C2C00647989 /* User.swift */,
+				5A68DBC21DFD92CD0039A1EB /* Manager.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -298,6 +308,8 @@
 				5A30555C1DD85F51005B1C1A /* TourInfoCell.xib */,
 				5A3FC3531DD9962900280BCC /* HeaderCell.xib */,
 				5AFD5FA21DE747F000D0432A /* WarningCell.swift */,
+				5AD5CB0B1DFD095000647989 /* ContactCell.xib */,
+				5AD5CB0D1DFD0B1400647989 /* ContactCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -391,6 +403,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AD5CB0C1DFD095000647989 /* ContactCell.xib in Resources */,
 				6C7294551DD0DC140042E5E0 /* OpenSans-Bold.ttf in Resources */,
 				6C7294561DD0DC140042E5E0 /* OpenSans-Light.ttf in Resources */,
 				5A30555B1DD858D2005B1C1A /* ScheduleCell.xib in Resources */,
@@ -460,6 +473,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AD5CB0E1DFD0B1400647989 /* ContactCell.swift in Sources */,
 				107EC03A1DCE47320004955F /* OpenSans-Bold.ttf in Sources */,
 				107EC03B1DCE47320004955F /* OpenSans-Light.ttf in Sources */,
 				107EC03C1DCE47320004955F /* OpenSans-Regular.ttf in Sources */,
@@ -473,6 +487,7 @@
 				5AC5C4AE1DCB2E5800461DCC /* TourInfoCell.swift in Sources */,
 				6C64C91E1DD387FA00A74918 /* ButtonRoundCorner.swift in Sources */,
 				5A49C1E81DEFD45400EC54DA /* Tracking.swift in Sources */,
+				5A68DBC31DFD92CD0039A1EB /* Manager.swift in Sources */,
 				5AD99B411DC23EFA004CE706 /* Schedule.swift in Sources */,
 				5A433BED1DB09B61004A6D94 /* TourInfoViewController.swift in Sources */,
 				6CDF3A671DD6FA38000DCCBC /* ImageRound.swift in Sources */,
@@ -481,6 +496,7 @@
 				5A5ECECA1DC8381A00AFFFDF /* ScheduleCell.swift in Sources */,
 				5A66E1AF1DAD41B900AFBCA9 /* Keys.swift in Sources */,
 				5AE98D651DABF7E400606592 /* ResponseData.swift in Sources */,
+				5AD5CB101DFD0C2C00647989 /* User.swift in Sources */,
 				6C9DC81C1DD4EA7700F1216C /* Test.swift in Sources */,
 				5AD59BED1DB9C2610007E055 /* PlaceDetailsViewController.swift in Sources */,
 				5AFD5FA51DE74EF300D0432A /* WarningViewController.swift in Sources */,

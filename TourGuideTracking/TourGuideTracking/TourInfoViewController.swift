@@ -105,14 +105,14 @@ extension TourInfoViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if tableView == tourInfoTableView{
-    
             let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.TOUR_INFO_CELL, for: indexPath) as! TourInfoCell
             cell.tour = tour
             return cell
         }
         else{
             let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.SCHEDULE_CELL) as! ScheduleCell
-            cell.schedule = schedulesDay[indexPath.section].schedules?[indexPath.row]
+            let schedule = schedulesDay[indexPath.section].schedules?[indexPath.row]
+            cell.schedule = schedule
             return cell
         }
     }
