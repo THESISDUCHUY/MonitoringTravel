@@ -75,14 +75,14 @@ class WarningDetailViewController: BaseViewController {
         
         let receiver = "MG_" + String(describing: appDelegate.tourShare.managerId!)
         let sender = Singleton.sharedInstance.tourguide.name
-        
+        print(warningId);
         
         appDelegate.tourguideHub?.invoke("confirmWarning", arguments: [warningId, warningName, Singleton.sharedInstance.tourguide.tourGuideId, sender, receiver] ) { (result, error) in
             if let e = error {
                 #if DEBUG
                     
                     self.showMessage("Error confirmWarning: \(e)")
-                
+                    
                 #else
                     
                 #endif
@@ -99,17 +99,7 @@ class WarningDetailViewController: BaseViewController {
             }
         }
     }
-
     @IBAction func needHelp(_ sender: Any) {
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

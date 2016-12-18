@@ -110,7 +110,7 @@ class MapViewController: BaseViewController {
     }
     
     func timer(){
-        Timer.scheduledTimer(withTimeInterval: 30, repeats: true, block: { (Timer) in
+        Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { (Timer) in
             self.isUpdateLocation = true
         })
     }
@@ -261,7 +261,7 @@ class MapViewController: BaseViewController {
             if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
                 print(JSONString)
                 let params:Parameters = ["data": JSONString]
-                NetworkService<Tour>.makePostRequest(URL: URLs.URL_TRACKING_UPDATE, data: params){
+                NetworkService<Tour>.makePostRequestAuthen(URL: URLs.URL_TRACKING_UPDATE, data: params){
                     response, error in
                     if error == nil{
                         let message = response?.message
@@ -330,9 +330,9 @@ class MapViewController: BaseViewController {
         
         SwiftR.signalRVersion = .v2_2_1
         
-        let urlServerRealtime = "http://tourtrackingv2.azurewebsites.net/signalr/hubs"
+        //let urlServerRealtime = "http://tourtrackingv2.azurewebsites.net/signalr/hubs"
         
-        //let urlServerRealtime = "http://192.168.0.106:3407/signalr/hubs"
+        let urlServerRealtime = "http://192.168.0.106:3407/signalr/hubs"
         
         appDelegate.connection = SwiftR.connect(urlServerRealtime) { [weak self]
             connection in
@@ -1154,6 +1154,6 @@ extension MapViewController: CLLocationManagerDelegate{
             }
         }
     }
+    }
 }
-
 

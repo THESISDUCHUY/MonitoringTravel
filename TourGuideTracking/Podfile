@@ -13,7 +13,7 @@ target 'TourGuideTracking' do
   pod 'TPKeyboardAvoiding'
   pod 'UIColor_Hex_Swift', '~> 2.1'
   pod 'SDWebImage/WebP'
-  #pod 'RealmSwift'
+  pod 'RealmSwift'
   # Pods for TourGuideTracking
 
 end
