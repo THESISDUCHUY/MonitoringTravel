@@ -39,3 +39,14 @@ struct URL_EXTEND{
 struct ERROR_MESSAGE{
     static let CONNECT_SERVER:String = "Connect server problems"
 }
+
+
+public enum StatusConnection {
+    case connected
+    case disconnected
+    case reconnected
+    case reconnecting
+    case error
+    case starting
+    case slow
+}

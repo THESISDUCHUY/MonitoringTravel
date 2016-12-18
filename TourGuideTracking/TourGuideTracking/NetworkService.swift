@@ -12,7 +12,7 @@ import ObjectMapper
 
 class NetworkService<T:Mappable>{
 
-    static func makePostRequest(URL:String, data:Parameters,completionHandle:@escaping (ResponseData<T>?, NSError?)->()){
+    static func makePostRequestAuthen(URL:String, data:Parameters,completionHandle:@escaping (ResponseData<T>?, NSError?)->()){
         
         let user:String! = String(format:"%d", Settings.tourguide_id!)
         let password:String! = Settings.tourguide_accesstoken!
@@ -32,6 +32,18 @@ class NetworkService<T:Mappable>{
         }
     }
     
+    static func makePostRequest(URL:String, data:Parameters, completionHandle:@escaping (ResponseData<T>?, NSError?)->()){
+        Alamofire.request(URL, method: .post, parameters: data).responseObject{(
+            response: DataResponse<ResponseData<T>>) in
+            switch response.result{
+            case .success(let value):
+                completionHandle(value, nil)
+            case.failure(let error):
+                completionHandle(nil, error as NSError?)
+            }
+        }
+
+    }
     static func makeGetRequest(URL:String, completionHandle:@escaping (ResponseData<T>?, NSError?)->()){
         Alamofire.request(URL, method:.get).responseObject{(
             response:DataResponse<ResponseData<T>>) in

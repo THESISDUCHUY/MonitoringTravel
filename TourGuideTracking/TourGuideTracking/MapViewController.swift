@@ -15,16 +15,6 @@ import UIColor_Hex_Swift
 import SDWebImage
 import Alamofire
 
-public enum StatusConnection {
-    case connected
-    case disconnected
-    case reconnected
-    case reconnecting
-    case error
-    case starting
-    case slow
-}
-
 class MapViewController: BaseViewController {
     
     @IBOutlet weak var ivCoverPhotoPlace: UIImageView!
@@ -74,7 +64,7 @@ class MapViewController: BaseViewController {
     var isUpdateLocation: Bool = false
     var isDisconnect:Bool = false
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
+    var touristMarkers = [GMSMarker]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -255,7 +245,7 @@ class MapViewController: BaseViewController {
     //get tour location
     func getPlacesLocation(){
         
-        MBProgressHUD.showAdded(to: self.view, animated: true)
+        //MBProgressHUD.showAdded(to: self.view, animated: true)
         
         let url = URLs.makeURL_EXTEND(url: URLs.URL_GET_TOURS, extend: URL_EXTEND.PLACES, param: tour.tourId!)
         NetworkService<Place>.makeGetRequest(URL: url){
@@ -275,13 +265,13 @@ class MapViewController: BaseViewController {
             else {
                 self.showMessage(ERROR_MESSAGE.CONNECT_SERVER, title: "Error")
             }
-            MBProgressHUD.hide(for: self.view, animated: true)
+            //MBProgressHUD.hide(for: self.view, animated: true)
         }
 
     }
     
     func touristGet(){
-        MBProgressHUD.showAdded(to: self.view, animated: true)
+        //MBProgressHUD.showAdded(to: self.view, animated: true)
         let url = URLs.makeURL_EXTEND(url: URLs.URL_GET_TOURS, extend: URL_EXTEND.TOURISTS_INFO, param: tour.tourId!)
         NetworkService<Tourist>.makeGetRequest(URL: url){
             response, error in
@@ -298,22 +288,22 @@ class MapViewController: BaseViewController {
             else{
                 Alert.showAlertMessage(userMessage: ERROR_MESSAGE.CONNECT_SERVER , vc: self)
             }
-            MBProgressHUD.hide(for: self.view, animated: true)
+            //MBProgressHUD.hide(for: self.view, animated: true)
         }
     }
-    /*func getTouristsLocation(){
+    func getTouristsLocation(){
         
-        MBProgressHUD.showAdded(to: self.view, animated: true)
+        //MBProgressHUD.showAdded(to: self.view, animated: true)
         let url = URLs.makeURL_EXTEND(url: URLs.URL_GET_TOURS, extend: URL_EXTEND.TOURISTS_LOCATION, param: tour.tourId!)
         NetworkService<Tourist>.makeGetRequest(URL: url){
             response, error in
             if error == nil{
                 let message = response?.message
                 if message == nil{
-                    MBProgressHUD.hide(for: self.view, animated: true)
+                    //MBProgressHUD.hide(for: self.view, animated: true)
                     let tourists = response?.listData
                     Singleton.sharedInstance.tourists = tourists
-                    self.displayTouristOnMap()
+                    //self.displayTouristOnMap()
                 }
                 else{
                     //Alert.showAlertMessage(userMessage: message!, vc: self)
@@ -324,9 +314,9 @@ class MapViewController: BaseViewController {
                // .showAlertMessage(userMessage: ERROR_MESSAGE.CONNECT_SERVER, vc: self)
                 self.showMessage(ERROR_MESSAGE.CONNECT_SERVER, title: "Error")
             }
-            MBProgressHUD.hide(for: self.view, animated: true)
+            //MBProgressHUD.hide(for: self.view, animated: true)
         }
-    }*/
+    }
     
     func syncTracking(){
         let trackingJsonArray = NSMutableArray()
@@ -343,7 +333,7 @@ class MapViewController: BaseViewController {
             if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
                 print(JSONString)
                 let params:Parameters = ["data": JSONString]
-                NetworkService<Tour>.makePostRequest(URL: URLs.URL_TRACKING_UPDATE, data: params){
+                NetworkService<Tour>.makePostRequestAuthen(URL: URLs.URL_TRACKING_UPDATE, data: params){
                     response, error in
                     if error == nil{
                         let message = response?.message
@@ -385,7 +375,10 @@ class MapViewController: BaseViewController {
                 tourist.displayPhoto = nil
             }
             
-            createMarker(latitude: tourist.location!.latitude, longitude: tourist.location!.longitude, data:tourist, isTourist: true).map = mapView
+            let marker = createMarker(latitude: tourist.location!.latitude, longitude: tourist.location!.longitude, data:tourist, isTourist: true)
+            
+            touristMarkers.append(marker)
+            marker.map = mapView
         }
        
     }
@@ -405,7 +398,16 @@ class MapViewController: BaseViewController {
     
     
     //MARK: Realtime Server
-    
+    func searchTourist(touristId:Int) -> Tourist{
+        var result:Tourist? = nil
+        for tourist in Singleton.sharedInstance.tourists{
+            guard tourist.touristID == touristId else{
+                break
+            }
+            result = tourist
+        }
+        return result!
+    }
     func connectServer(){
         
         SwiftR.useWKWebView = false
@@ -414,7 +416,7 @@ class MapViewController: BaseViewController {
         
         let urlServerRealtime = "http://tourtrackingv2.azurewebsites.net/signalr/hubs"
         
-        ///let urlServerRealtime = "http://192.168.7.110:3407/signalr/hubs"
+        //let urlServerRealtime = "http://192.168.1.190:3407/signalr/hubs"
         
         appDelegate.connection = SwiftR.connect(urlServerRealtime) { [weak self]
             connection in
@@ -440,20 +442,42 @@ class MapViewController: BaseViewController {
             }
             
             self?.appDelegate.tourguideHub?.on("initTouristConnected"){ args in
-                let touristName = args![2] as! String
-                self?.touristConnected(usernameTourist: touristName)
+                let latitude = args?[0] as! Double
+                let longitude = args?[1] as! Double
+                let touristName = args?[2] as! String
+                let touristId = args?[3] as! Int
+                var data:Tourist!
                 
+                data = self?.searchTourist(touristId: touristId)
+                if let data = data{
+                    let marker = self?.createMarker(latitude: latitude , longitude: longitude, data: data, isTourist: true)
+                    marker?.map = self?.mapView
+                    self?.touristMarkers.append(marker!)
+                    
+                    self?.touristConnected(usernameTourist: touristName)
+                }
             }
             
             self?.appDelegate.tourguideHub?.on("managerOnline"){ args in
                 self?.initCurrentLocation(receiver: "MG_" + String(describing: (self?.tour.managerId)!), tourguide: Singleton.sharedInstance.tourguide!, tour: (self?.tour)!)
             }
             
+            self?.appDelegate.tourguideHub?.on("receiveLoactionTourist"){ args in
+                let touristId = args![0] as! Int
+                let latitude = args![1] as! String
+                let longitude = args![2] as! String
+                for marker in (self?.touristMarkers)!{
+                    let tourist = marker.userData as! Tourist
+                    if(tourist.touristID == touristId){
+                        //marker.position.latitude = latitude
+                        //marker.position.longitude = longitude
+                    }
+                }
+                //Alert.showAlertMessage(userMessage: "\(latitude) + \(longitude)" , vc: self!)
+            }
             self?.appDelegate.tourguideHub?.on("receiverWarning"){ args in
                 
                 let objectData: AnyObject = args![0] as AnyObject!
-                
-                print(objectData)
 
                 
                 let warningName = objectData["WarningName"] as? String
@@ -506,6 +530,24 @@ class MapViewController: BaseViewController {
                 
             }
             
+            self?.appDelegate.tourguideHub?.on("removeUserDisconnection"){ args in
+                let touristId = args?[0] as! Int
+                for marker in (self?.touristMarkers)!{
+                    let tourist = marker.userData as! Tourist
+                    guard tourist.touristID ==  touristId else{
+                        break
+                    }
+                    let index = self?.touristMarkers.index(of: marker)
+                    tourist.statusConnection = StatusConnection.disconnected
+                    self?.touristMarkers[index!].map = nil
+                    let newMarker = self?.createMarker(latitude: marker.position.latitude, longitude: marker.position.longitude, data: tourist, isTourist: true)
+                    self?.touristMarkers.remove(at: index!)
+                    
+                    newMarker?.map = self?.mapView
+                    self?.touristMarkers.append(newMarker!)
+                }
+            }
+            
         }
         
         appDelegate.connection!.starting = { [weak self] in
@@ -539,7 +581,6 @@ class MapViewController: BaseViewController {
             self?.timer()
             self?.updateStatusConnection(status: StatusConnection.disconnected)
         }
-        
         appDelegate.connection!.connectionSlow = { print("Connection slow...") }
         
         appDelegate.connection!.error = { error in
@@ -968,7 +1009,7 @@ extension MapViewController: GMSMapViewDelegate{
     }
     
     func createMarker(latitude:Double, longitude:Double, data:AnyObject?, isTourist: Bool) -> GMSMarker{
-        
+       
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         marker.userData = data
@@ -977,8 +1018,17 @@ extension MapViewController: GMSMapViewDelegate{
         if isTourist{
             
             marker.title = "TOURIST"
+            let tourist = data as! Tourist
+            var ivmarker:UIImage!
+            switch tourist.statusConnection!{
+                case .connected:
+                    ivmarker = UIImage(named: "ic_markerConnected")
+                case .disconnected:
+                    ivmarker = UIImage(named: "ic_markerDisconnected")
+                default:
+                    break
+            }
             
-            let ivmarker = UIImage(named: "2")
             
             let infoData = data as! Tourist
             

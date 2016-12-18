@@ -12,9 +12,11 @@ class Tourist: User, Mappable{
     
     var touristID:Int?
     var location:Location?
+    var statusConnection:StatusConnection!
     //var name:String?
     //var displayPhoto:String?
     required init?(map: Map) {
+        statusConnection = StatusConnection.connected
     }
     
     func mapping(map: Map) {
