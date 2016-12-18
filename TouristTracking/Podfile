@@ -1,0 +1,15 @@
+# Uncomment this line to define a global platform for your project
+platform :ios, '9.0'
+
+target 'TouristTracking' do
+  # Comment this line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+  pod 'AlamofireObjectMapper', '~> 4.0'
+  pod 'Alamofire'
+  pod 'MBProgressHUD'
+  pod 'AFNetworking'
+  #pod 'GoogleMaps'
+  pod 'SwiftR'
+  pod 'UIColor_Hex_Swift', '~> 2.1'
+  # Pods for TouristTracking
+end
