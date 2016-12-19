@@ -15,6 +15,9 @@ class Tourist: User, Mappable{
     var statusConnection:StatusConnection!
     //var name:String?
     //var displayPhoto:String?
+    override init() {
+        
+    }
     required init?(map: Map) {
         statusConnection = StatusConnection.connected
     }

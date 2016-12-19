@@ -67,9 +67,6 @@ class MapViewController: BaseViewController {
     var touristMarkers = [GMSMarker]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
         self.tabBarController?.hidesBottomBarWhenPushed = true
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
@@ -79,11 +76,9 @@ class MapViewController: BaseViewController {
         let tabBar = (self.tabBarController as! CustomTabBarController)
         
         tabBar.currentTour = tour
-        
         appDelegate.tourShare = tour
-        
         connectServer()
-        //displaySegmented.selectedSegmentIndex = 0
+        fakeTouristLocation()
         
         let gestPan = UIPanGestureRecognizer(target: self, action: #selector(MapViewController.didDragMap))
         gestPan.delaysTouchesEnded = true
@@ -97,11 +92,11 @@ class MapViewController: BaseViewController {
         self.mapView.delegate = self
         
         InitView()
-        
         syncTracking()
     }
     
-    func timer(){
+
+    func timerUpdateLocation(){
         Timer.scheduledTimer(withTimeInterval: 30, repeats: true, block: { (Timer) in
             self.isUpdateLocation = true
         })
@@ -291,32 +286,6 @@ class MapViewController: BaseViewController {
             //MBProgressHUD.hide(for: self.view, animated: true)
         }
     }
-    func getTouristsLocation(){
-        
-        //MBProgressHUD.showAdded(to: self.view, animated: true)
-        let url = URLs.makeURL_EXTEND(url: URLs.URL_GET_TOURS, extend: URL_EXTEND.TOURISTS_LOCATION, param: tour.tourId!)
-        NetworkService<Tourist>.makeGetRequest(URL: url){
-            response, error in
-            if error == nil{
-                let message = response?.message
-                if message == nil{
-                    //MBProgressHUD.hide(for: self.view, animated: true)
-                    let tourists = response?.listData
-                    Singleton.sharedInstance.tourists = tourists
-                    //self.displayTouristOnMap()
-                }
-                else{
-                    //Alert.showAlertMessage(userMessage: message!, vc: self)
-                    self.showMessage(message!)
-                }
-            }
-            else{
-               // .showAlertMessage(userMessage: ERROR_MESSAGE.CONNECT_SERVER, vc: self)
-                self.showMessage(ERROR_MESSAGE.CONNECT_SERVER, title: "Error")
-            }
-            //MBProgressHUD.hide(for: self.view, animated: true)
-        }
-    }
     
     func syncTracking(){
         let trackingJsonArray = NSMutableArray()
@@ -362,27 +331,43 @@ class MapViewController: BaseViewController {
     }
     
     
-    func displayTouristOnMap(){
-        
-        let tourists = Singleton.sharedInstance.tourists
-        
-        for tourist in tourists!{
-            
-            if (try? Data(contentsOf: NSURL(string: tourist.displayPhoto!) as! URL)) != nil{
-            }
-            else
-            {
-                tourist.displayPhoto = nil
-            }
-            
-            let marker = createMarker(latitude: tourist.location!.latitude, longitude: tourist.location!.longitude, data:tourist, isTourist: true)
-            
-            touristMarkers.append(marker)
-            marker.map = mapView
-        }
-       
+//    func displayTouristOnMap(){
+//        
+//        let tourists = Singleton.sharedInstance.tourists
+//        
+//        for tourist in tourists!{
+//            
+//            if (try? Data(contentsOf: NSURL(string: tourist.displayPhoto!) as! URL)) != nil{
+//            }
+//            else
+//            {
+//                tourist.displayPhoto = nil
+//            }
+//            
+//            let marker = createMarker(latitude: tourist.location!.latitude, longitude: tourist.location!.longitude, data:tourist, isTourist: true)
+//            
+//            touristMarkers.append(marker)
+//            marker.map = mapView
+//        }
+//       
+//    }
+    func timerFakeTouristLocation(){
+        Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { (Timer) in
+            self.touristMarkers[0].position.latitude += 0.0001
+            self.touristMarkers[0].map = self.mapView
+        })
     }
-    
+    func fakeTouristLocation(){
+        let la = 1.348144
+        let long = 103.921686
+        let tourist:Tourist = Tourist()
+        tourist.statusConnection = StatusConnection.connected
+        let marker = createMarker(latitude: la, longitude: long, data: tourist, isTourist: true)
+            touristMarkers.append(marker)
+                    marker.map = mapView
+        touristMarkers.append(marker)
+        timerFakeTouristLocation()
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if(markerSelectedWarning?.title == "WARNING")
@@ -414,9 +399,9 @@ class MapViewController: BaseViewController {
         
         SwiftR.signalRVersion = .v2_2_1
         
-        let urlServerRealtime = "http://tourtrackingv2.azurewebsites.net/signalr/hubs"
+        //let urlServerRealtime = "http://tourtrackingv2.azurewebsites.net/signalr/hubs"
         
-        //let urlServerRealtime = "http://192.168.1.190:3407/signalr/hubs"
+        let urlServerRealtime = "http://192.168.0.105:3407/signalr/hubs"
         
         appDelegate.connection = SwiftR.connect(urlServerRealtime) { [weak self]
             connection in
@@ -578,7 +563,7 @@ class MapViewController: BaseViewController {
         appDelegate.connection!.disconnected = { [weak self] in
             print("Disconnected...")
             self?.isDisconnect = true
-            self?.timer()
+            self?.timerUpdateLocation()
             self?.updateStatusConnection(status: StatusConnection.disconnected)
         }
         appDelegate.connection!.connectionSlow = { print("Connection slow...") }
