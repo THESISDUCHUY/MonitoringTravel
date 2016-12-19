@@ -49,11 +49,6 @@ PODS:
   - libwebp/webp (0.5.1)
   - MBProgressHUD (1.0.0)
   - ObjectMapper (2.0.0)
-  - Realm (2.0.4):
-    - Realm/Headers (= 2.0.4)
-  - Realm/Headers (2.0.4)
-  - RealmSwift (2.0.4):
-    - Realm (= 2.0.4)
   - SDWebImage/Core (3.8.2)
   - SDWebImage/WebP (3.8.2):
     - libwebp
@@ -68,7 +63,6 @@ DEPENDENCIES:
   - AlamofireObjectMapper (~> 4.0)
   - GoogleMaps
   - MBProgressHUD
-  - RealmSwift
   - SDWebImage/WebP
   - SwiftR
   - TPKeyboardAvoiding
@@ -82,13 +76,11 @@ SPEC CHECKSUMS:
   libwebp: b9126f8982a95370cf4eaad9bb3fefd57f052c15
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   ObjectMapper: aed2570edabbd3c9b26c939e1cabdb6558f933e0
-  Realm: 9da97f48365f8b99dd95c28d45ad8222d62e1775
-  RealmSwift: 01e8db006035f16003e6307ae8eae1adccce68db
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SwiftR: 2128cffaef5436cdbf9f1825f116339e3cf64497
   TPKeyboardAvoiding: a5138f318c06fb3e151f886e18ce4a72695d9cbe
   UIColor_Hex_Swift: 18bb48e9f1ed16c87f4ea7bf7e03853b43030812
 
-PODFILE CHECKSUM: 9f31ad9db51e4ecac47e8484c3b82a2c1f0600e0
+PODFILE CHECKSUM: c3b19695fe1a36cf4619d7c2045f3deb63cba7cb
 
 COCOAPODS: 1.0.1

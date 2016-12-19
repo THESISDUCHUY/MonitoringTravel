@@ -433,14 +433,37 @@ class MapViewController: BaseViewController {
                 let touristId = args?[3] as! Int
                 var data:Tourist!
                 
+                //second connected
+                for marker in (self?.touristMarkers)!{
+                    
+                    let tourist = marker.userData as! Tourist
+                    guard tourist.touristID ==  touristId else{
+                        break
+                    }
+                    let index = self?.touristMarkers.index(of: marker)
+                    tourist.statusConnection = StatusConnection.connected
+                    self?.touristMarkers[index!].map = nil
+                    let reconnectMarker = self?.createMarker(latitude: marker.position.latitude, longitude: marker.position.longitude, data: tourist, isTourist: true)
+                    //self?.touristMarkers.remove(at: index!)
+                    reconnectMarker?.map = self?.mapView
+                    //self?.touristMarkers.append(newMarker!)
+                    
+                    self?.touristConnected(usernameTourist: touristName)
+                    
+                    return;
+                }
+                
+                
+                //first connected.
                 data = self?.searchTourist(touristId: touristId)
                 if let data = data{
+                    
                     let marker = self?.createMarker(latitude: latitude , longitude: longitude, data: data, isTourist: true)
                     marker?.map = self?.mapView
                     self?.touristMarkers.append(marker!)
-                    
                     self?.touristConnected(usernameTourist: touristName)
                 }
+                
             }
             
             self?.appDelegate.tourguideHub?.on("managerOnline"){ args in
@@ -454,8 +477,11 @@ class MapViewController: BaseViewController {
                 for marker in (self?.touristMarkers)!{
                     let tourist = marker.userData as! Tourist
                     if(tourist.touristID == touristId){
-                        //marker.position.latitude = latitude
-                        //marker.position.longitude = longitude
+                        
+                        let index = self?.touristMarkers.index(of: marker)
+                        let position = CLLocationCoordinate2D(latitude: Double(latitude)!, longitude: Double(longitude)!)
+                        self?.touristMarkers[index!].position = position
+
                     }
                 }
                 //Alert.showAlertMessage(userMessage: "\(latitude) + \(longitude)" , vc: self!)
@@ -525,11 +551,13 @@ class MapViewController: BaseViewController {
                     let index = self?.touristMarkers.index(of: marker)
                     tourist.statusConnection = StatusConnection.disconnected
                     self?.touristMarkers[index!].map = nil
+                    
                     let newMarker = self?.createMarker(latitude: marker.position.latitude, longitude: marker.position.longitude, data: tourist, isTourist: true)
-                    self?.touristMarkers.remove(at: index!)
+                    
+                    //self?.touristMarkers.remove(at: index!)
                     
                     newMarker?.map = self?.mapView
-                    self?.touristMarkers.append(newMarker!)
+                    //self?.touristMarkers.append(newMarker!)
                 }
             }
             
@@ -1087,8 +1115,20 @@ extension MapViewController: GMSMapViewDelegate{
             
             marker.title = "TOURIST"
             
-            let ivmarker = UIImage(named: "2")
+            var ivmarker:UIImage!
+            
             let infoData = marker.userData as! Tourist
+            
+            switch infoData.statusConnection!{
+                
+                case .connected:
+                    ivmarker = UIImage(named: "ic_markerConnected")
+                case .disconnected:
+                    ivmarker = UIImage(named: "ic_markerDisconnected")
+                default:
+                    break
+                
+            }
             
             if(infoData.displayPhoto != nil)
             {
