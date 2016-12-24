@@ -10,6 +10,19 @@ import UIKit
 
 class InformPopup: UIView {
 
+    @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var panel: UIView!
+    
+    var warning:Warning!{
+        didSet{
+            categoryLabel.text = warning.type
+            titleLabel.text = warning.name
+            contentLabel.text = warning.description
+        }
+    }
     override init(frame: CGRect) {
         super.init(frame: frame)
         initSubview()
@@ -24,7 +37,17 @@ class InformPopup: UIView {
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         view.frame = bounds
         addSubview(view)
-        //view.backgroundColor = UIColor.red
+        panel.layer.cornerRadius = 6
     }
-
+    
+    @IBAction func confirmButtonTap(_ sender: Any) {
+        removeFromSuperview()
+    }
+    func hide() {
+        removeFromSuperview()
+    }
+    
+    func setData(title:String!){
+        contentLabel.text = title
+    }
 }

@@ -27,9 +27,8 @@
 		5A7316391E03E9B200586D59 /* WarningPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7316381E03E9B200586D59 /* WarningPopup.swift */; };
 		5A8216C71E0547A3003BA0C2 /* InformPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A8216C61E0547A3003BA0C2 /* InformPopup.xib */; };
 		5A8216C91E054880003BA0C2 /* InformPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8216C81E054880003BA0C2 /* InformPopup.swift */; };
+		5A9E62C71E0ADA9A000C5876 /* Warning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E62C61E0ADA9A000C5876 /* Warning.swift */; };
 		5AB0B0FC1E02A77B00DA5EE7 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB0B0FB1E02A77B00DA5EE7 /* CustomTabBarController.swift */; };
-		5AB0B0FE1E02E59900DA5EE7 /* InformWarningPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB0B0FD1E02E59900DA5EE7 /* InformWarningPopup.xib */; };
-		5AB0B1001E02F20600DA5EE7 /* InformWarningPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB0B0FF1E02F20600DA5EE7 /* InformWarningPopup.swift */; };
 		5AD4E1EE1DF505500030C3B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD4E1ED1DF505500030C3B8 /* AppDelegate.swift */; };
 		5AD4E1F31DF505500030C3B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD4E1F11DF505500030C3B8 /* Main.storyboard */; };
 		5AD4E1F51DF505500030C3B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD4E1F41DF505500030C3B8 /* Assets.xcassets */; };
@@ -68,9 +67,8 @@
 		5A7316381E03E9B200586D59 /* WarningPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WarningPopup.swift; path = TouristTracking/Views/WarningPopup.swift; sourceTree = "<group>"; };
 		5A8216C61E0547A3003BA0C2 /* InformPopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InformPopup.xib; path = TouristTracking/Views/InformPopup.xib; sourceTree = "<group>"; };
 		5A8216C81E054880003BA0C2 /* InformPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InformPopup.swift; path = TouristTracking/Views/InformPopup.swift; sourceTree = "<group>"; };
+		5A9E62C61E0ADA9A000C5876 /* Warning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Warning.swift; path = TouristTracking/Models/Warning.swift; sourceTree = "<group>"; };
 		5AB0B0FB1E02A77B00DA5EE7 /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTabBarController.swift; path = TouristTracking/ViewControllers/CustomTabBarController.swift; sourceTree = "<group>"; };
-		5AB0B0FD1E02E59900DA5EE7 /* InformWarningPopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InformWarningPopup.xib; path = TouristTracking/Views/InformWarningPopup.xib; sourceTree = "<group>"; };
-		5AB0B0FF1E02F20600DA5EE7 /* InformWarningPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InformWarningPopup.swift; path = TouristTracking/Views/InformWarningPopup.swift; sourceTree = "<group>"; };
 		5AD4E1EA1DF505500030C3B8 /* TouristTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouristTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD4E1ED1DF505500030C3B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AD4E1F21DF505500030C3B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -186,6 +184,7 @@
 				5A15DE6E1DF72104009CA1C8 /* Schedule.swift */,
 				5A15DE701DF72153009CA1C8 /* ScheduleDay.swift */,
 				5A4295D01DF902A600561463 /* Place.swift */,
+				5A9E62C61E0ADA9A000C5876 /* Warning.swift */,
 			);
 			name = Models;
 			path = ..;
@@ -208,8 +207,6 @@
 				5A19754E1DF7C12400D39E33 /* TourInfoCell.swift */,
 				5A1975571DF8097400D39E33 /* ScheduleCell.xib */,
 				5A19755D1DF8160500D39E33 /* ScheduleCell.swift */,
-				5AB0B0FD1E02E59900DA5EE7 /* InformWarningPopup.xib */,
-				5AB0B0FF1E02F20600DA5EE7 /* InformWarningPopup.swift */,
 				5A7316361E03E99800586D59 /* WarningPopup.xib */,
 				5A7316381E03E9B200586D59 /* WarningPopup.swift */,
 				5A8216C61E0547A3003BA0C2 /* InformPopup.xib */,
@@ -312,7 +309,6 @@
 			files = (
 				5A1975551DF7C2CC00D39E33 /* OpenSans-Light.ttf in Resources */,
 				5AD4E1F81DF505500030C3B8 /* LaunchScreen.storyboard in Resources */,
-				5AB0B0FE1E02E59900DA5EE7 /* InformWarningPopup.xib in Resources */,
 				5A7316371E03E99800586D59 /* WarningPopup.xib in Resources */,
 				5AD4E1F51DF505500030C3B8 /* Assets.xcassets in Resources */,
 				5A1975561DF7C2CC00D39E33 /* OpenSans-Regular.ttf in Resources */,
@@ -386,7 +382,6 @@
 				5AD4E1EE1DF505500030C3B8 /* AppDelegate.swift in Sources */,
 				5A6CFCE61E0043EF001921C3 /* MapViewController.swift in Sources */,
 				5A4013971DFBB610001AD82D /* ViewRoundCorner.swift in Sources */,
-				5AB0B1001E02F20600DA5EE7 /* InformWarningPopup.swift in Sources */,
 				5A15DE6F1DF72104009CA1C8 /* Schedule.swift in Sources */,
 				5A19755E1DF8160500D39E33 /* ScheduleCell.swift in Sources */,
 				5AD4E2081DF5684B0030C3B8 /* Location.swift in Sources */,
@@ -394,6 +389,7 @@
 				5AD4E21A1DF5CC120030C3B8 /* Singleton.swift in Sources */,
 				5AD4E2121DF5BECC0030C3B8 /* LoginViewController.swift in Sources */,
 				5AB0B0FC1E02A77B00DA5EE7 /* CustomTabBarController.swift in Sources */,
+				5A9E62C71E0ADA9A000C5876 /* Warning.swift in Sources */,
 				5A15DE711DF72153009CA1C8 /* ScheduleDay.swift in Sources */,
 				5AD4E2101DF5BE7C0030C3B8 /* ResponseData.swift in Sources */,
 				5A15DE6D1DF71C65009CA1C8 /* Tour.swift in Sources */,

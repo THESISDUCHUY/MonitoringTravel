@@ -26,6 +26,9 @@ class MapViewController: UIViewController {
     var isUpdateLocation: Bool = false
     var isDisconnect:Bool = false
     var tour:Tour!
+    var warningPopup:InformPopup!
+    var markerSelectedWarning: GMSMarker?
+    var isSetLocation = false
     
     override func viewDidLoad() {
         self.tabBarController?.hidesBottomBarWhenPushed = true
@@ -33,18 +36,24 @@ class MapViewController: UIViewController {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.allowsBackgroundLocationUpdates = true
+        mapView.delegate = self
+        mapView.isMyLocationEnabled = true
+        mapView.settings.myLocationButton = true
+        addGestureRecognizer()
         tour = Tour()
         touristInfoGet()
-        
         super.viewDidLoad()
     }
-    
+   
+    //var helpPopup: WarningPopup!
     @IBAction func rightBarButtonTouch(_ sender: Any) {
-        let warningPopup = InformWarningPopup() //frame: CGRect(x: 10, y: 100, width: 300, height: 200)
-        warningPopup.frame = view.bounds
-        //let w  = WarningPopup()
-        //w.frame = view.bounds
-        view.addSubview(warningPopup)
+        let width = UIScreen.main.bounds.width
+        let height = UIScreen.main.bounds.height
+        //let margin = (UIScreen.main.bounds.width - 260)/2
+        //warningPopup = InformPopup(frame: CGRect(x: margin, y: 220, width: 260, height: 145))
+        let helpPopup = WarningPopup(frame: CGRect(x: 0, y: 0, width: width, height: height))
+        view.addSubview(helpPopup)
+        helpPopup.delegate = self
     }
     
     func tourInfoGet(){
@@ -90,6 +99,15 @@ class MapViewController: UIViewController {
             MBProgressHUD.hide(for: self.view, animated: true)
         }
     }
+    
+    func setMapView(lat:Double = 0, long:Double = 0) {
+        
+        //      mapView.clear()
+        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 12.0)
+        mapView.animate(to: camera)
+        //      mapView.isMyLocationEnabled = true
+        
+    }
     func connectServer(){
         
         SwiftR.useWKWebView = false
@@ -98,11 +116,10 @@ class MapViewController: UIViewController {
         
         let urlServerRealtime = "http://tourtrackingv2.azurewebsites.net/signalr/hubs"
         
-        //let urlServerRealtime = "http://192.168.1.190:3407/signalr/hubs"
+        //let urlServerRealtime = "http://192.168.0.105:3407/signalr/hubs"
         
         appDelegate.connection = SwiftR.connect(urlServerRealtime) { [weak self]
             connection in
-            let tr = Singleton.sharedInstance.tourist
             connection.queryString = ["USER_POSITION" : "TR", "MANAGER_ID" : "TG_" + String(describing: (self?.tour.tourguideId)!) , "USER_ID" : "TR_" + String(describing: Singleton.sharedInstance.tourist.touristId!), "USER_NAME" : String(describing: Singleton.sharedInstance.tourist.name!)]
             self?.appDelegate.touristHub = connection.createHubProxy("hubServer")
             self?.statusNameLabel.text = Singleton.sharedInstance.tourist.name!
@@ -121,6 +138,24 @@ class MapViewController: UIViewController {
                     self?.updateNumberOfOnline(number: numberOfOnline)
                     print("Message: \(groupName)\nDetail: \(numberOfOnline)")
                     
+                }
+            }
+            
+            self?.appDelegate.touristHub?.on("receiveTourguideWarning"){ args in
+                let data = Warning()
+                //let manager_id = args?[0] as! Int
+                data.location?.latitude = args?[1] as! Double
+                data.location?.longitude = args?[2] as! Double
+                data.description = args?[3] as? String
+                data.name = args?[4] as? String
+                
+                let x = (UIScreen.main.bounds.width - 260)/2
+                let y = (UIScreen.main.bounds.height/2) - 96
+                self?.warningPopup = InformPopup(frame: CGRect(x: x, y: y, width: 260, height: 145))
+                self?.view.addSubview((self?.warningPopup)!)
+                if self?.warningPopup != nil{
+                    self?.warningPopup.warning = data
+                    self?.createMarkerWarning(warningData: data)
                 }
             }
         }
@@ -291,14 +326,82 @@ class MapViewController: UIViewController {
             
         }
     }
+    
+    func createMarkerWarning(warningData:Warning){
+        let ivMarkerWarning = UIImage(named: "ic_marker_warning")
+        
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: warningData.location.latitude, longitude:warningData.location.longitude)
+        marker.icon = ivMarkerWarning
+        marker.map = self.mapView
+        marker.userData = warningData
+        marker.title = "WARNING"
+
+        let positionMarker = self.mapView.projection.point(for: marker.position)
+        
+        let newPositionMarker = CGPoint(x: (positionMarker.x), y: (positionMarker.y) - 100)
+        
+        let camera = GMSCameraUpdate.setTarget((self.mapView.projection.coordinate(for:newPositionMarker)))
+        self.mapView.animate(with: camera)
+    }
 
 }
 
+extension MapViewController: GMSMapViewDelegate{
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+            
+            mapView.selectedMarker = nil
+            let positionMarker = mapView.projection.point(for: marker.position)
+            let newPositionMarker = CGPoint(x: positionMarker.x, y: positionMarker.y - 100)
+            let camera = GMSCameraUpdate.setTarget(mapView.projection.coordinate(for:newPositionMarker))
+            mapView.animate(with: camera)
+        })
+        
+        if marker.title == "WARNING"{
+            let y = (UIScreen.main.bounds.height/2) - 96
+            self.warningPopup = InformPopup(frame: CGRect(x: 30, y: y, width: 260, height: 145))
+            self.view.addSubview((self.warningPopup)!)
+            let data = marker.userData as! Warning
+            warningPopup.warning = data
+        }
+        return true
+    }
+}
 extension MapViewController : CLLocationManagerDelegate{
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func addGestureRecognizer(){
+        let gesture = UIPanGestureRecognizer(target: self, action: #selector(dragMap))
+        gesture.delaysTouchesEnded = true
+        mapView.addGestureRecognizer(gesture)
+        mapView.settings.consumesGesturesInView = false
+    }
+    
+    func dragMap(){
+        if warningPopup != nil{
+            warningPopup.hide()
+        }
+        
+    }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+        if !isSetLocation{
+            isSetLocation = true
+                setMapView(lat: locations[0].coordinate.latitude, long: locations[0].coordinate.longitude)
+        }
+    
         if(tour.tourId != nil && Singleton.sharedInstance.tourist != nil){
             updateLocation(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude)
         }
-   
+    }
+
+}
+
+extension MapViewController: WarningPopupDelegate{
+    func sendWarning(content: String) {
+        let tourguide_id = "TG_\(Singleton.sharedInstance.tour.tourguideId!)"
+        let tourist_id = Singleton.sharedInstance.tourist.touristId
+        let la = 1
+        let long = 2
+        self.appDelegate.touristHub?.invoke("touristNeedHelp", arguments: [ tourist_id, la, long, content, tourguide_id]){ (result, error) in
+        }
     }
 }

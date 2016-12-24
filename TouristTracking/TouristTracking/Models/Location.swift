@@ -9,8 +9,8 @@
 import ObjectMapper
 
 class Location:Mappable{
-    dynamic var latitude:Double = 0
-    dynamic var longitude:Double = 0
+    var latitude:Double = 0
+    var longitude:Double = 0
     
     //    convenience required init(){
     //        super.init()
@@ -20,7 +20,9 @@ class Location:Mappable{
         self.latitude = latitude
         self.longitude = longitude
     }
-    
+    init() {
+        
+    }
     required init?(map: Map) {
     }
     

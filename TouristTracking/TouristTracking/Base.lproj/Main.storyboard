@@ -63,7 +63,7 @@
                                                 <rect key="frame" x="0.0" y="119" width="317" height="314"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKp-7n-K1g">
-                                                        <rect key="frame" x="65" y="205" width="188" height="39.5"/>
+                                                        <rect key="frame" x="65" y="202" width="188" height="39.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="TKp-7n-K1g" secondAttribute="height" multiplier="740:155" id="VGd-Kl-EsW"/>
                                                         </constraints>
@@ -76,7 +76,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vQ-SJ-tXT">
-                                                        <rect key="frame" x="108" y="161" width="102" height="29"/>
+                                                        <rect key="frame" x="109" y="161" width="100" height="26"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="12"/>
                                                         <state key="normal" title="QUÊN MẬT KHẨU">
                                                             <color key="titleColor" red="0.69572693109999995" green="0.69574350119999995" blue="0.69573456050000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
