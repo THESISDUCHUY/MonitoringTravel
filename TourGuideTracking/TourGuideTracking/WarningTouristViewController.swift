@@ -18,62 +18,61 @@ class WarningTouristViewController: BaseViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var locationTextFiled: UITextField!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var tour:Tour!
+    var content:String = "Nội dung cảnh báo!"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView.delegate = self
-        mapView.isMyLocationEnabled = true
-        mapView.settings.myLocationButton = true
+        contentTextView.delegate = self
+        contentTextView.text = content
+        setMap()
         self.tabBarController?.hidesBottomBarWhenPushed = true
         setRecognizer()
         NotificationCenter.default.addObserver(self, selector: #selector(WarningTouristViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(WarningTouristViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 
     }
+    
+    func setMap(){
+        mapView.delegate = self
+        mapView.isMyLocationEnabled = true
+        mapView.settings.myLocationButton = true
+        if Singleton.sharedInstance.places?[0] != nil {
+            let lat = (Singleton.sharedInstance.places?[0].location?.latitude)!
+            let long = (Singleton.sharedInstance.places?[0].location?.longitude)!
+            let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 12.0)
+            mapView.animate(to: camera)
+        }
+
+    }
+    
     @IBAction func sendWarning(_ sender: Any) {
         let latitude = mapView.camera.target.latitude
         let longitude = mapView.camera.target.longitude
-        let name:String = titleTextField.text!
+        let title:String = titleTextField.text!
         let content:String = contentTextView.text
-        var tourists_id:[Int] = [Int]()
-        for tourist in Singleton.sharedInstance.tourists{
-            tourists_id.append(tourist.touristID!)
-        }
-        let informData = [
-            "lat": latitude,
-            "long": longitude,
-            "informName": name,
-            "description": content,
-            "tourist": tourists_id
-        ] as [String : Any]
-
-       // tourguideHub?.invoke("updatePositionTourGuide", arguments: [senderId, latitude, longitude, receiver])
-            appDelegate.tourguideHub?.invoke("informForTourist", arguments: [informData] ) { (result, error) in
-                if let e = error {
-                    #if DEBUG
-                        
-                        self.showMessage("Error initMarkerNewConection: \(e)")
-                        
-                    #else
-                        
-                    #endif
+        let tourguide_id = Singleton.sharedInstance.tourguide.tourGuideId
+        appDelegate.tourguideHub?.invoke("warningForTourist", arguments: [tourguide_id, latitude, longitude, content, title]) { (result, error) in
+            if let e = error {
+                #if DEBUG
+                    self.showMessage("Error initMarkerNewConection: \(e)")
+                #else
                     
-                } else {
-                    print("Success!")
-                    if let r = result {
-                        print("Result: \(r)")
-                    }
+                #endif
+                
+            } else {
+                print("Send Warning Success!")
+                Alert.showAlertMessage1(userMessage: "Da gui canh bao!", vc: self)
+                //self.navigationController?.popViewController(animated: true)
+                //self.dismiss(animated: true, completion: nil)
+                if let r = result {
+                    
                 }
             }
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        }
     }
     
-    @IBAction func onWarningButton(_ sender: Any) {
-        
-    }
     func setRecognizer(){
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTapScreen(_ : )))
         // Attach it to a view of your choice. If it's a UIImageView, remember to enable user interaction
@@ -86,22 +85,14 @@ class WarningTouristViewController: BaseViewController {
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        /*bottomConstraint.constant = 250
-         UIView.animate(withDuration: 0.3) {
-         self.view.layoutIfNeeded()
-         }*/
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0{
+            if self.view.frame.origin.y == 64{
                 self.view.frame.origin.y -= keyboardSize.height/1.5
             }
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        /*bottomConstraint.constant = 149
-         UIView.animate(withDuration: 0.3) {
-         self.view.layoutIfNeeded()
-         }*/
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y != 0{
                 self.view.frame.origin.y += keyboardSize.height/1.5
@@ -114,4 +105,20 @@ extension WarningTouristViewController:  GMSMapViewDelegate{
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
         locationTextFiled.text = "\(mapView.camera.target.latitude), \(mapView.camera.target.longitude)"
     }
+}
+
+extension WarningTouristViewController: UITextViewDelegate{
+    public func textViewDidBeginEditing(_ textView: TextViewRoundConner) {
+        if textView.text == content {
+            contentTextView.text = ""
+            contentTextView.textColor = UIColor.black
+        }
+    }
+    @nonobjc public func textViewDidEndEditing(_ textView: TextViewRoundConner){
+        if textView.text == ""{
+            contentTextView.text = content
+            contentTextView.textColor = UIColor.gray
+        }
+    }
+
 }

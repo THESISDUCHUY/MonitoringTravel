@@ -49,4 +49,5 @@ public enum StatusConnection {
     case error
     case starting
     case slow
+    case help
 }

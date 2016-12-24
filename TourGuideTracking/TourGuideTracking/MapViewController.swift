@@ -78,8 +78,6 @@ class MapViewController: BaseViewController {
         tabBar.currentTour = tour
         appDelegate.tourShare = tour
         connectServer()
-        fakeTouristLocation()
-        
         let gestPan = UIPanGestureRecognizer(target: self, action: #selector(MapViewController.didDragMap))
         gestPan.delaysTouchesEnded = true
         
@@ -330,27 +328,6 @@ class MapViewController: BaseViewController {
         self.setMapView(lat: (places?[0].location?.latitude)!, long: (places?[0].location?.longitude)!)
     }
     
-    
-//    func displayTouristOnMap(){
-//        
-//        let tourists = Singleton.sharedInstance.tourists
-//        
-//        for tourist in tourists!{
-//            
-//            if (try? Data(contentsOf: NSURL(string: tourist.displayPhoto!) as! URL)) != nil{
-//            }
-//            else
-//            {
-//                tourist.displayPhoto = nil
-//            }
-//            
-//            let marker = createMarker(latitude: tourist.location!.latitude, longitude: tourist.location!.longitude, data:tourist, isTourist: true)
-//            
-//            touristMarkers.append(marker)
-//            marker.map = mapView
-//        }
-//       
-//    }
     func timerFakeTouristLocation(){
         Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { (Timer) in
             self.touristMarkers[0].position.latitude += 0.0001
@@ -399,9 +376,9 @@ class MapViewController: BaseViewController {
         
         SwiftR.signalRVersion = .v2_2_1
         
-        //let urlServerRealtime = "http://tourtrackingv2.azurewebsites.net/signalr/hubs"
+        let urlServerRealtime = "http://tourtrackingv2.azurewebsites.net/signalr/hubs"
         
-        let urlServerRealtime = "http://192.168.0.105:3407/signalr/hubs"
+        //let urlServerRealtime = "http://192.168.0.105:3407/signalr/hubs"
         
         appDelegate.connection = SwiftR.connect(urlServerRealtime) { [weak self]
             connection in
@@ -486,7 +463,7 @@ class MapViewController: BaseViewController {
                 }
                 //Alert.showAlertMessage(userMessage: "\(latitude) + \(longitude)" , vc: self!)
             }
-            self?.appDelegate.tourguideHub?.on("receiverWarning"){ args in
+            self?.appDelegate.tourguideHub?.on("receiveWarning"){ args in
                 
                 let objectData: AnyObject = args![0] as AnyObject!
 
@@ -561,6 +538,30 @@ class MapViewController: BaseViewController {
                 }
             }
             
+            self?.appDelegate.tourguideHub?.on("receiveTouristHelp"){ args in
+                let touristId = args?[0] as! Int
+                let la = args?[1]
+                let long = args?[2]
+                let content = args?[3]
+                
+                //change tourist marker, animation, camera zoom to tourist
+                for marker in (self?.touristMarkers)!{
+                    let tourist = marker.userData as! Tourist
+                    guard tourist.touristID ==  touristId else{
+                        break
+                    }
+                    let index = self?.touristMarkers.index(of: marker)
+                    tourist.statusConnection = StatusConnection.help
+                    self?.touristMarkers[index!].map = nil
+                    
+                    let newMarker = self?.createMarker(latitude: marker.position.latitude, longitude: marker.position.longitude, data: tourist, isTourist: true)
+                    
+                    //self?.touristMarkers.remove(at: index!)
+                    newMarker?.map = self?.mapView
+                    self?.touristMarkers.append(newMarker!)
+                }
+            }
+            
         }
         
         appDelegate.connection!.starting = { [weak self] in
@@ -627,7 +628,6 @@ class MapViewController: BaseViewController {
                 self.consTopVStatusConnection.constant = 5
                 self.view.layoutIfNeeded()
             })
-            
         }
         if(status == .connected)
         {
@@ -685,9 +685,7 @@ class MapViewController: BaseViewController {
             appDelegate.tourguideHub?.invoke("initMarkerNewConection", arguments: [user_lat, user_long, receiver, tourguide.tourGuideId!, tourguide.name!, tour.tourId!] ) { (result, error) in
                 if let e = error {
                     #if DEBUG
-                        
                         self.showMessage("Error initMarkerNewConection: \(e)")
-                        
                     #else
                         
                     #endif
@@ -709,9 +707,7 @@ class MapViewController: BaseViewController {
         appDelegate.tourguideHub?.invoke("removeUserDisconnection", arguments: [receiver, sender, senderUserName] ) { (result, error) in
             if let e = error {
                 #if DEBUG
-                    
                     self.showMessage("Error removeUserDisconnection: \(e)")
-                    
                 #else
                     
                 #endif
@@ -781,7 +777,6 @@ class MapViewController: BaseViewController {
     
     @IBAction func closeWarningPopup(_ sender: Any) {
         self.hiddenWarningHelpPopup()
-        
     }
     
     func ShowWarningPopup() {
@@ -828,6 +823,7 @@ class MapViewController: BaseViewController {
         self.alertController = UIAlertController(title: "Menu", message: "Vui lòng chọn cảnh báo hoặc thông báo", preferredStyle: .alert)
         let buttonOne = UIAlertAction(title: "Cảnh báo chung", style: .default, handler: { (action) -> Void in
             self.performSegue(withIdentifier: "warningSegue", sender: self)
+            
         })
         let buttonTwo = UIAlertAction(title: "Thông báo chung", style: .default, handler: { (action) -> Void in
             self.performSegue(withIdentifier: "informSegue", sender: self)
@@ -906,7 +902,6 @@ extension MapViewController: GMSMapViewDelegate{
             
             let dataMarker = marker.userData as! Dictionary<String, Any>
             showPopupWaring(dataWarning: dataMarker)
-            print(dataMarker)
             markerSelectedWarning = marker
         
         }
@@ -1038,6 +1033,8 @@ extension MapViewController: GMSMapViewDelegate{
                     ivmarker = UIImage(named: "ic_markerConnected")
                 case .disconnected:
                     ivmarker = UIImage(named: "ic_markerDisconnected")
+                case .help:
+                    ivmarker = UIImage(named: "4")
                 default:
                     break
             }
@@ -1125,6 +1122,8 @@ extension MapViewController: GMSMapViewDelegate{
                     ivmarker = UIImage(named: "ic_markerConnected")
                 case .disconnected:
                     ivmarker = UIImage(named: "ic_markerDisconnected")
+                case .help:
+                    ivmarker = UIImage(named:"4")
                 default:
                     break
                 

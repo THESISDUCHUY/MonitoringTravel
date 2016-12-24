@@ -15,4 +15,13 @@ class Alert{
         alert.addAction(okAction)
         vc.present(alert, animated: true, completion: nil)
     }
+    
+    static func showAlertMessage1(userMessage:String, vc:UIViewController){
+        let alert = UIAlertController(title: "Alert", message: userMessage, preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{ ( action:UIAlertAction) in
+            vc.navigationController?.popViewController(animated: true)
+        })
+        alert.addAction(okAction)
+        vc.present(alert, animated: true, completion: nil)
+    }
 }
