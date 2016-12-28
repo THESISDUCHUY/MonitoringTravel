@@ -15,6 +15,7 @@ struct SettingKeys{
 
 struct SegueIdentifier{
     static let SegueTabBar = "SegueTabBar"
+    static let SegueWarningDetail = "SegueDetailWarning"
 }
 
 struct ViewIdentifier {

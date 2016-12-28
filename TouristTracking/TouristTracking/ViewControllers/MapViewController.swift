@@ -11,6 +11,7 @@ import GoogleMaps
 import SwiftR
 import UIColor_Hex_Swift
 import MBProgressHUD
+import AudioToolbox
 
 class MapViewController: UIViewController {
 
@@ -49,11 +50,10 @@ class MapViewController: UIViewController {
     @IBAction func rightBarButtonTouch(_ sender: Any) {
         let width = UIScreen.main.bounds.width
         let height = UIScreen.main.bounds.height
-        //let margin = (UIScreen.main.bounds.width - 260)/2
-        //warningPopup = InformPopup(frame: CGRect(x: margin, y: 220, width: 260, height: 145))
         let helpPopup = WarningPopup(frame: CGRect(x: 0, y: 0, width: width, height: height))
         view.addSubview(helpPopup)
         helpPopup.delegate = self
+        //SwiftR.stopAll()
     }
     
     func tourInfoGet(){
@@ -113,12 +113,7 @@ class MapViewController: UIViewController {
         SwiftR.useWKWebView = false
         
         SwiftR.signalRVersion = .v2_2_1
-        
-        let urlServerRealtime = "http://tourtrackingv2.azurewebsites.net/signalr/hubs"
-        
-        //let urlServerRealtime = "http://192.168.0.105:3407/signalr/hubs"
-        
-        appDelegate.connection = SwiftR.connect(urlServerRealtime) { [weak self]
+        appDelegate.connection = SwiftR.connect(URLs.SERVER_REALTIME) { [weak self]
             connection in
             connection.queryString = ["USER_POSITION" : "TR", "MANAGER_ID" : "TG_" + String(describing: (self?.tour.tourguideId)!) , "USER_ID" : "TR_" + String(describing: Singleton.sharedInstance.tourist.touristId!), "USER_NAME" : String(describing: Singleton.sharedInstance.tourist.name!)]
             self?.appDelegate.touristHub = connection.createHubProxy("hubServer")
@@ -154,6 +149,8 @@ class MapViewController: UIViewController {
                 self?.warningPopup = InformPopup(frame: CGRect(x: x, y: y, width: 260, height: 145))
                 self?.view.addSubview((self?.warningPopup)!)
                 if self?.warningPopup != nil{
+                    AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                    AudioServicesPlayAlertSound(SystemSoundID(1024))
                     self?.warningPopup.warning = data
                     self?.createMarkerWarning(warningData: data)
                 }

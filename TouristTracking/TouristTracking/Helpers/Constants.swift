@@ -16,7 +16,8 @@ struct URLs {
     static let URL_GET_TOURIST = URL_BASE + "/tourists"
     static let URL_GET_TOURS:String = URL_BASE + "/tours"
     static let URL_TRACKING_UPDATE = URL_BASE + "/tracking_update"
-    static let SERVER_REALTIME:String = "tourtrackingv2.azurewebsites.net/signalr/hubs"
+    static let SERVER_REALTIME:String = "http://tourtrackingv2.azurewebsites.net/signalr/hubs"
+    //static let SERVER_REALTIME:String = "http://192.168.0.104:3407/signalr/hubs"
     
     static func makeURL(url:String, param:Int )->String{
         return String(format: url + "/%d", param)
@@ -31,6 +32,7 @@ struct URL_EXTEND{
     static let TOURS:String = "/tours"
     static let PLACES:String = "/places"
     static let SCHEDULE:String = "/schedules"
+    static let WARNING:String = "/warnings"
 }
 
 struct ERROR_MESSAGE{
