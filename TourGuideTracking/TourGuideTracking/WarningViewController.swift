@@ -36,6 +36,7 @@ class WarningViewController: UIViewController {
                 let message = response?.message
                 if message == nil{
                     self.warnings = (response?.listData)!
+                    self.warnings.reverse()
                     self.warningTableView.reloadData()
                 }
                 else{

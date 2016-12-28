@@ -378,7 +378,7 @@ class MapViewController: BaseViewController {
         
         let urlServerRealtime = "http://tourtrackingv2.azurewebsites.net/signalr/hubs"
         
-        //let urlServerRealtime = "http://192.168.0.105:3407/signalr/hubs"
+        //let urlServerRealtime = "http://192.168.0.104:3407/signalr/hubs"
         
         appDelegate.connection = SwiftR.connect(urlServerRealtime) { [weak self]
             connection in

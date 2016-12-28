@@ -143,4 +143,16 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource{
         }
         
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var userNumber:String!
+        switch indexPath.section {
+        case 0:
+            userNumber = Singleton.sharedInstance.manager.phone
+        default:
+            userNumber = Singleton.sharedInstance.tourists[indexPath.row].phone
+        }
+        let phoneNumber = "tell://" + userNumber
+        UIApplication.shared.openURL(URL(string:phoneNumber)!)
+    }
 }

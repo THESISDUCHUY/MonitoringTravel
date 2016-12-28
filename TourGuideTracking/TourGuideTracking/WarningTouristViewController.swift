@@ -37,13 +37,14 @@ class WarningTouristViewController: BaseViewController {
         mapView.delegate = self
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
-        if Singleton.sharedInstance.places?[0] != nil {
-            let lat = (Singleton.sharedInstance.places?[0].location?.latitude)!
-            let long = (Singleton.sharedInstance.places?[0].location?.longitude)!
-            let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 12.0)
-            mapView.animate(to: camera)
+        if Singleton.sharedInstance.places.count > 0{
+            if Singleton.sharedInstance.places?[0] != nil {
+                let lat = (Singleton.sharedInstance.places?[0].location?.latitude)!
+                let long = (Singleton.sharedInstance.places?[0].location?.longitude)!
+                let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 12.0)
+                mapView.animate(to: camera)
+            }
         }
-
     }
     
     @IBAction func sendWarning(_ sender: Any) {
@@ -62,7 +63,7 @@ class WarningTouristViewController: BaseViewController {
                 
             } else {
                 print("Send Warning Success!")
-                Alert.showAlertMessage1(userMessage: "Da gui canh bao!", vc: self)
+                Alert.showAlertMessageAndDismiss(userMessage: "Da gui canh bao!", vc: self)
                 //self.navigationController?.popViewController(animated: true)
                 //self.dismiss(animated: true, completion: nil)
                 if let r = result {

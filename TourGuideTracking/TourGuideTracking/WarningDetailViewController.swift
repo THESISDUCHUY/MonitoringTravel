@@ -58,9 +58,12 @@ class WarningDetailViewController: BaseViewController {
             circ.strokeWidth = 1;
             circ.map = self.vMapView;
             
-            let camera = GMSCameraPosition.camera(withLatitude: (warning?.location?.latitude)!, longitude: (warning?.location?.longitude)!, zoom: 8.0)
+            let camera = GMSCameraPosition.camera(withLatitude: (warning?.location?.latitude)!, longitude: (warning?.location?.longitude)!, zoom: 12.0)
             vMapView.animate(to: camera)
-
+            
+            if warning?.status != "Opening"{
+                btnConfirmWarning.isEnabled = false
+            }
         }
         
         // Do any additional setup after loading the view.
@@ -73,28 +76,27 @@ class WarningDetailViewController: BaseViewController {
  
     @IBAction func confirmWarning(_ sender: Any) {
         
-        let receiver = "MG_" + String(describing: appDelegate.tourShare.managerId!)
-        let sender = Singleton.sharedInstance.tourguide.name
-        print(warningId);
-        
-        appDelegate.tourguideHub?.invoke("confirmWarning", arguments: [warning?.warning_id, warning?.name, Singleton.sharedInstance.tourguide.tourGuideId, sender, receiver] ) { (result, error) in
-            if let e = error {
-                #if DEBUG
+        if warning?.status == "Opening"{
+            let receiver = "MG_" + String(describing: appDelegate.tourShare.managerId!)
+            let sender = Singleton.sharedInstance.tourguide.name
+            print(warningId);
+            
+            appDelegate.tourguideHub?.invoke("confirmWarning", arguments: [warning?.warning_id, warning?.name, Singleton.sharedInstance.tourguide.tourGuideId, sender, receiver] ) { (result, error) in
+                if let e = error {
+                    #if DEBUG
+                        
+                        self.showMessage("Error confirmWarning: \(e)")
+                        
+                    #else
+                        
+                    #endif
                     
-                    self.showMessage("Error confirmWarning: \(e)")
-                    
-                #else
-                    
-                #endif
-                
-            } else {
-                
-                self.showMessage("Confirmed Warning scucessful", title: "Confirm")
-                self.btnConfirmWarning.isEnabled = false
-                
-                print("Success!")
-                if let r = result {
-                    print("Result: \(r)")
+                } else {
+                     Alert.showAlertMessageAndDismiss(userMessage: "Xác nhận thành công!", vc: self)
+                    print("Success!")
+                    if let r = result {
+                        print("Result: \(r)")
+                    }
                 }
             }
         }
