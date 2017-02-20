@@ -9,5 +9,6 @@ The following **required** functionality is completed:
  - User can send/receive warning from operator/tourist.
  - Send realtime location to tour operator.
 ## Video Walkthrough
+
 <img src='https://cloud.githubusercontent.com/assets/10734967/23127300/1be32e04-f7ad-11e6-98d6-eff4a6add02d.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
