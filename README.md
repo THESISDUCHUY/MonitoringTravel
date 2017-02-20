@@ -1,16 +1,13 @@
 # *Tour Tracking System* - Bachelor Thesis
-This system help tour operator who want to manage tours even they can easily tracking where exactly tours located.
-This app for tourguide supported them manage tour schedule, tourists.
+This is a realtime system help tour operator easily tracking tours location, status and support tourguide.
 
 ##User Stories
 
 The following **required** functionality is completed:
- - User can list what tours they guide
- - User can list tour schedules,
- - User can contact to tourists
- - User can send warning/receive warning
-The following **optional** features are implemented:
-
+ - User can manage tour schedules, places and tourists.
+ - User can contact to tourists, oprators.
+ - User can send/receive warning from operator/tourist.
+ - Send realtime location to tour operator.
 ## Video Walkthrough
-<img src='https://cloud.githubusercontent.com/assets/10734967/23121690/fc8d1d26-f793-11e6-906a-47fe2f2fa607.jpg' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://cloud.githubusercontent.com/assets/10734967/23127300/1be32e04-f7ad-11e6-98d6-eff4a6add02d.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
