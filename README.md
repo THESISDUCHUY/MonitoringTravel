@@ -12,3 +12,4 @@ The following **required** functionality is completed:
 The following **optional** features are implemented:
 
 ## Video Walkthrough
+https://cloud.githubusercontent.com/assets/10734967/23121690/fc8d1d26-f793-11e6-906a-47fe2f2fa607.jpg
